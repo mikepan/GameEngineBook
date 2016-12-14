@@ -1,0 +1,365 @@
+Notes:
+[book content screenshot] are screenshots of Blender files provided with the book.
+[no content screenshot] are screenshots of Blender's interface that doesn't have any copyrighted content.
+Illustrations by... are created entirely by us (dalai or mike) from scratch for this book
+
+
+Chapter 1:
+Fig01-01: 3D Model by the Blender Institute, released under Creative Commons
+Fig01-02: All images are by the Blender Institute, released under Creative Commons
+Fig01-03: Illustration by Mike Pan
+Fig01-04: Screenshot of the GIMP from Wikipedia, released under Creative Commons Screenshot of Blender from Blender.org
+Fig01-05: Illustration by Mike Pan
+Fig01-06: Illustration by Mike Pan
+Fig01-07: [no content screenshot]
+Fig01-08: [no content screenshot]
+Fig01-09: Illustration by Mike Pan
+Fig01-10: Illustration by Mike Pan
+Fig01-11: Illustration by Mike Pan
+Fig01-12: [no content screenshot]
+Fig01-13: [no content screenshot]
+Fig01-14: [no content screenshot]
+Fig01-15: [no content screenshot]
+Fig01-16: 3D model by the Blender Institute, released under Creative Commons
+Fig01-17: 3D model by the Blender Institute, released under Creative Commons
+Fig01-18: [no content screenshot]
+Fig01-19: Illustration by Mike Pan and Dalai Felinto
+Fig01-20: [no content screenshot]
+Fig01-21: [no content screenshot]
+Fig01-22: 3D Model created by Mike Pan
+Fig01-23: Illustration by Mike Pan
+Fig01-24: [no content screenshot]
+Fig01-25: [no content screenshot]
+Fig01-26: [no content screenshot]
+Fig01-27: [no content screenshot]
+Fig01-28: 3D model by the Blender Institute, released under Creative Commons
+Fig01-29: [no content screenshot]
+Fig01-30: [no content screenshot]
+Fig01-31: [no content screenshot]
+Fig01-32: [no content screenshot]
+Fig01-33: [no content screenshot]
+
+
+Chapter 2:
+Fig02-01: Shark illustration by Dalai Felinto
+Fig02-02: [no content screenshot]
+Fig02-03: [no content screenshot]
+Fig02-04: [no content screenshot]
+Fig02-05: [book content screenshot]
+Fig02-06: [book content screenshot]
+Fig02-07: [no content screenshot]
+Fig02-08: [book content screenshot]
+Fig02-09: [book content screenshot]
+Fig02-10: [book content screenshot]
+Fig02-11: [no content screenshot]
+Fig02-12: World Map provided by NASA under Public Domain
+Fig02-13: [book content screenshot]
+Fig02-14: [book content screenshot]
+Fig02-15: [book content screenshot]
+Fig02-16: [book content screenshot]
+Fig02-17: [book content screenshot]
+Fig02-18: [book content screenshot]
+Fig02-19: [book content screenshot]
+Fig02-20: [no content screesnshot]
+Fig02-21: [no content screesnshot]
+Fig02-22: [book content screesnshot]
+Fig02-23: [book content screesnshot]
+Fig02-24: [book content screesnshot]
+Fig02-25: [book content screesnshot]
+Fig02-26: [book content screesnshot]
+Fig02-27: [book content screesnshot]
+Fig02-28: [book content screesnshot]
+Fig02-29: [book content screesnshot]
+Fig02-30: [book content screesnshot]
+Fig02-31: Game logic illustration by Dalai Felinto
+Fig02-32: [book content screesnshot]
+Fig02-33: [book content screesnshot]
+Fig02-34: [book content screesnshot]
+Fig02-35: [book content screesnshot]
+
+
+
+Chapter 3:
+Fig03-01: [no content screenshot]
+Fig03-02: [no content screenshot]
+Fig03-03: [book content screenshot]
+Fig03-04: [no content screenshot]
+Fig03-05: [no content screenshot]
+Fig03-06: [no content screenshot]
+Fig03-07: [no content screenshot]
+Fig03-08: [no content screenshot]
+Fig03-09: [no content screenshot]
+Fig03-10: [no content screenshot]
+Fig03-11: [no content screenshot]
+Fig03-12: [no content screenshot]
+Fig03-13: [no content screenshot]
+Fig03-14: [no content screenshot]
+Fig03-15: [no content screenshot]
+Fig03-16: [no content screenshot]
+Fig03-17: [no content screenshot]
+Fig03-18: [no content screenshot]
+Fig03-19: Radar sensor illustration by Dalai Felinto
+Fig03-20: [no content screenshot]
+Fig03-21: [no content screenshot]
+Fig03-22: [no content screenshot]
+Fig03-23: [no content screenshot]
+Fig03-24: [no content screenshot]
+Fig03-25: [no content screenshot]
+Fig03-26: [no content screenshot]
+Fig03-27: [no content screenshot]
+Fig03-28: [no content screenshot]
+Fig03-29: [no content screenshot]
+Fig03-30: [no content screenshot]
+Fig03-31: [no content screenshot]
+Fig03-32: [no content screenshot]
+Fig03-33: [no content screenshot]
+Fig03-34: [no content screenshot]
+Fig03-35: [no content screenshot]
+Fig03-36: [no content screenshot]
+Fig03-37: [no content screenshot]
+Fig03-38: [no content screenshot]
+Fig03-39: [no content screenshot]
+Fig03-40: [no content screenshot]
+Fig03-41: [no content screenshot]
+Fig03-42: [no content screenshot]
+Fig03-43: [no content screenshot]
+Fig03-44: [no content screenshot]
+Fig03-45: [no content screenshot]
+Fig03-46: [no content screenshot]
+Fig03-47: [no content screenshot]
+Fig03-48: [no content screenshot]
+Fig03-49: [no content screenshot]
+Fig03-50: [no content screenshot]
+Fig03-51: [no content screenshot]
+Fig03-52: [no content screenshot]
+Fig03-52-callout: [not used in final book]
+Fig03-53.a: Illustration by Dalai Felinto
+Fig03-53.b: [no content screesnshot]
+Fig03-33-combined: [book content screenshot]
+Fig03-54: [book content screenshot]
+Fig03-55: [no content screenshot]
+
+Chapter 4:
+Fig04-01: 3D model by the Blender Institute, released under Creative Commons
+Fig04-02: [book content screenshot]
+Fig04-03: Shark by Dalai Felinto
+Fig04-04: 3D model by the Blender Institute, released under Creative Commons
+Fig04-05: 3D model by the Blender Institute, released under Creative Commons
+Fig04-06: [book content screenshot]
+Fig04-07a: [book content screenshot]
+Fig04-07b: [book content screenshot]
+Fig04-07c: [book content screenshot]
+Fig04-08: [book content screenshot]
+Fig04-09a: [book content screenshot]
+Fig04-09b: [book content screenshot]
+Fig04-09c: [book content screenshot]
+Fig04-10: [book content screenshot]
+Fig04-11: [book content screenshot]
+Fig04-12: Illustration by Dalai Felinto
+Fig04-13: [book content screenshot]
+Fig04-14: [book content screenshot]
+Fig04-15: [book content screenshot]
+Fig04-16: [book content screenshot]
+Fig04-17: [book content screenshot]
+Fig04-18: [book content screenshot]
+Fig04-19: [book content screenshot]
+Fig04-20: [book content screenshot]
+Fig04-21: [book content screenshot]
+Fig04-22: [book content screenshot]
+Fig04-23: [book content screenshot]
+Fig04-24: [book content screenshot]
+Fig04-25: [book content screenshot]
+Fig04-26: 3D model by the Blender Institute, released under Creative Commons
+Fig04-27: 3D model by the Blender Institute, released under Creative Commons
+Fig04-28: 3D model by theBlender Institute, released under Creative Commons
+Fig04-29: 3D model by the Blender Institute, released under Creative Commons
+Fig04-30: [book content screenshot]
+Fig04-31: 3D model by the Blender Institute, released under Creative Commons
+Fig04-32: [book content screenshot]
+Fig04-33: 3D model by the Blender Institute, released under Creative Commons
+Fig04-34: 3D model by the Blender Institute, released under Creative Commons
+Fig04-35: 3D model by the Blender Institute, released under Creative Commons
+Fig04-36: 3D model by the Blender Institute, released under Creative Commons
+Fig04-37: 3D model by the Blender Institute, released under Creative Commons
+Fig04-38: [book content screenshot]
+Fig04-39: 3D model by the Blender Institute, released under Creative Commons
+Fig04-40: 3D model by the Blender Institute, released under Creative Commons
+Fig04-41: 3D model by the Blender Institute, released under Creative Commons
+Fig04-42: 3D model by the Blender Institute, released under Creative Commons
+Fig04-43: 3D model by the Blender Institute, released under Creative Commons
+Fig04-44: 3D model by the Blender Institute, released under Creative Commons
+Fig04-45: 3D model by the Blender Institute, released under Creative Commons
+Fig04-46: [book content screenshot]
+Fig04-47: 3D model by the Blender Institute, released under Creative Commons
+Fig04-48: [book content screenshot]
+Fig04-49: [book content screenshot]
+Fig04-50: 3D model by the Blender Institute, released under Creative Commons
+Fig04-51: 3D model by the Blender Institute, released under Creative Commons
+Fig04-52: 3D model by the Blender Institute, released under Creative Commons
+Fig04-53: 3D model by the Blender Institute, released under Creative Commons
+Fig04-54: 3D model by the Blender Institute, released under Creative Commons
+Fig04-55: 3D model by the Blender Institute, released under Creative Commons
+Fig04-56: 3D model by the Blender Institute, released under Creative Commons
+Fig04-57: 3D model by the Blender Institute, released under Creative Commons
+Fig04-58: 3D model by the Blender Institute, released under Creative Commons
+Fig04-59: 3D model by the Blender Institute, released under Creative Commons
+Fig04-60: 3D model by the Blender Institute, released under Creative Commons
+
+Chapter 5:
+Fig05-01: ‘The FPS Project’ by Chase Moskal, Geoff Gollmer, Martins Upitis, Mitchell Stokes, Daniel Stokes, Lonnie Ralfs, Fleeky Flanco, Thomas Lobig et al
+Fig05-02: 'Super Blender Galaxy'; 'Lucy and the Time Machine', 'Tectonic', 'The FPS Project'. Full credits in Chapter 10
+Fig05-03: Illustration by Mike Pan
+Fig05-04: Illustration by Mike Pan
+Fig05-05: Illustration by Mike Pan
+Fig05-06: [no content screenshot]
+Fig05-07: [no content screenshot]
+Fig05-08: Illustration by Mike Pan
+Fig05-09: [book content screenshot]
+Fig05-10: [book content screenshot]
+Fig05-11: [book content screenshot]
+Fig05-12: [book content screenshot]
+Fig05-13: [book content screenshot]
+Fig05-14: Illustration by Mike Pan
+Fig05-15: Illustration by Mike Pan
+Fig05-16: [no content screenshot]
+Fig05-17: [no content screenshot]
+Fig05-18: [no content screenshot]
+Fig05-19: [book content screenshot]
+Fig05-20: Illustration by Mike Pan
+Fig05-21: UV Texturing, illustration by "Höhrer". Released under public domain
+Fig05-22: [book content screenshot]
+Fig05-23: [book content screenshot]
+Fig05-24: [book content screenshot]
+Fig05-25: Aztec statue by "Jeepster", released under Creative Commons
+Fig05-26: [book content screenshot]
+Fig05-27: [book content screenshot]
+Fig05-28: [book content screenshot]
+Fig05-29: [book content screenshot]
+Fig05-30: [book content screenshot]
+Fig05-31: [book content screenshot]
+Fig05-32: [book content screenshot]
+Fig05-33: [book content screenshot]
+Fig05-34: Illustration by Mike Pan
+Fig05-35: [no content screenshot]
+Fig05-36:[no content screenshot]
+Fig05-37: ‘The FPS Project’ by Chase Moskal, Geoff Gollmer, Martins Upitis, Mitch ell Stokes, Daniel Stokes, Lonnie Ralfs, Fleeky Flanco, Thomas Lobig et al
+Fig05-38: [no content screenshot]
+Fig05-39: [no content screenshot]
+Fig05-40: [no content screenshot]
+Fig05-41: Half-Dome photo by Dalai Felinto and Paul Bourke. Club Silo game (c) by Dale Best (Luma)
+Fig05-42: City Courtyard by Mike Pan
+Fig05-43: [no content screenshot]
+
+Chapter 6:
+Fig06-01: Illustration by Mike Pan
+Fig06-02: [no content screenshot]
+Fig06-03: [no content screenshot]
+Fig06-04: [no content screenshot]
+Fig06-05: [no content screenshot]
+Fig06-06: [no content screenshot]
+Fig06-07: [no content screenshot]
+Fig06-08: [no content screenshot]
+Fig06-09: [no content screenshot]
+Fig06-10: [book content screenshot]
+Fig06-11: [book content screenshot]
+Fig06-12: [book content screenshot]
+Fig06-13: [book content screenshot]
+Fig06-14: [book content screenshot]
+Fig06-15: [book content screenshot]
+Fig06-16: [book content screenshot]
+Fig06-17: [book content screenshot]
+Fig06-18: [book content screenshot]
+Fig06-19: [book content screenshot]
+Fig06-20: [book content screenshot]
+Fig06-21: Illustration by Mike Pan
+Fig06-22: [book content screenshot]
+Fig06-23: [book content screenshot]
+Fig06-24: [book content screenshot]
+Fig06-25: [book content screenshot]
+Fig06-26: [book content screenshot]
+Fig06-27: [book content screenshot]
+Fig06-28: [book content screenshot]
+Fig06-29: [book content screenshot]
+
+
+
+
+Chapter 7:
+Fig07-01: Content by the Blender Institute, released under Creative Commons
+Fig07-02: Content by the Blender Institute, released under Creative Commons
+Fig07-03: Screenshot of TortoiseMerge
+Fig07-04: [no content screenshot]
+Fig07-04_callout: [not used in final book]
+Fig07-05: [book content screenshot]
+Fig07-06: [book content screenshot]
+Fig07-07: [book content screenshot]
+Fig07-08: [book content screenshot]
+Fig07-09: [book content screenshot]
+Fig07-10: Illustration by Dalai Felinto
+Fig07-11: Illustration by Dalai Felinto
+Fig07-12: 3D scene by Dalai Felinto
+Fig07-13: 3D scene by Dalai Felinto
+Fig07-14_combined: 3D scene by Dalai Felinto
+Fig07-14a: 3D scene by Dalai Felinto
+Fig07-14b: 3D scene by Dalai Felinto
+Fig07-15: [book content screenshot]
+
+
+Chapter 8:
+Fig08-01: Illustration by Mike Pan
+Fig08-02: Pong game by Atari; Dead Cyborg game by Endre Barath
+Fig08-03: 3D scene by the Blender Institute, released under Creative Commons
+Fig08-04: [no content screenshot]
+Fig08-05: JPEG Compression comparison illustration by Mike Pan
+Fig08-06: [no content screenshot]
+Fig08-07: [no content screenshot]
+Fig08-08: [no content screenshot]
+Fig08-09: [book content screenshot]
+Fig08-10: [book content screenshot]
+Fig08-11: [no content screenshot]
+Fig08-12: [no content screenshot]
+Fig08-13: [no content screenshot]
+Fig08-14: [no content screenshot]
+Fig08-15: [book content screenshot]
+Fig08-16: Aztec statue by "Jeepster", released under Creative Commons
+Fig08-17: [book content screenshot]
+Fig08-18: [no content screenshot]
+Fig08-19: [book content screenshot]
+Fig08-20: [book content screenshot]
+
+
+
+Chapter 9:
+Fig09-01: [no content screenshot]
+Fig09-02: [no content screenshot]
+Fig09-03: Android Blenderplayer photo by Mike Pan, 3D model by the Blender Institute, released under Creative Commons
+Fig09-04: Custom Blender splash logo by Dalai Felinto and Mike Pan.
+
+
+Chapter 10:
+Fig10-01: Screenshot of ‘Super Blender Galaxy’ by Carlos Limon
+Fig10-02: Screenshot of ‘Super Blender Galaxy’ by Carlos Limon
+Fig10-03: Screenshot of ‘Super Blender Galaxy’ by Carlos Limon
+Fig10-04: Screenshot of ‘Lucy and the Time Machine’ by Vitor Balbio
+Fig10-05: Screenshot of ‘Lucy and the Time Machine’ by Vitor Balbio
+Fig10-06: Screenshot of ‘Lucy and the Time Machine’ by Vitor Balbio
+Fig10-07: Screenshot of ‘The FPS Project’ by Chase Moskal, Geoff Gollmer, Martins Upitis, Mitchell Stokes, Daniel Stokes, Lonnie Ralfs, Fleeky Flanco, Thomas Lobig et al
+Fig10-08: Screenshot of ‘The FPS Project’ by Chase Moskal, Geoff Gollmer, Martins Upitis, Mitchell Stokes, Daniel Stokes, Lonnie Ralfs, Fleeky Flanco, Thomas Lobig et al
+Fig10-09: Screenshot of ‘Whip Frog’ by David Thompson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone et al
+Fig10-10: Screenshot of ‘Whip Frog’ by David Thompson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone et al
+Fig10-11: Screenshot of ‘Tectonic’ by Andrew Bentley
+Fig10-12: Screenshot of ‘Tectonic’ by Andrew Bentley
+Fig10-13: Screenshot of 'Sintel the Game' by Jonathan Buresh, Noah Summers, Malcolm Corliss, David Barker , James Raymond, David Jogoo, Carlos Andreacchio et al
+Fig10-14: Screenshot of 'Sintel the Game' by Jonathan Buresh, Noah Summers, Malcolm Corliss, David Barker , James Raymond, David Jogoo, Carlos Andreacchio et al
+Fig10-14: Screenshot of 'Sintel the Game' by Jonathan Buresh, Noah Summers, Malcolm Corliss, David Barker , James Raymond, David Jogoo, Carlos Andreacchio et al
+Fig10-15: Photo of 'CAVE' immersive environment by Jorge Gascon Perez
+Fig10-16: Screenshot of 'Color Cube' by Quentin Bolsee and Benoit Bolsee
+Fig10-17: Screenshot of 'Color Cube' by Quentin Bolsee and Benoit Bolsee
+Fig10-18: Screenshot of 'Recycle It 2.0' by Diego Rangel
+Fig10-19: Screenshot of 'WorldCup Stadiums' by Chico Ortiz, Yorik van Havre, and Maira Zasso
+Fig10-20: Screenshot of 'WorldCup Stadiums' by Chico Ortiz, Yorik van Havre, and Maira Zasso
+Fig10-21: Screenshot of 'OceanViz' by Dalai Felinto, Mike Pan, Stephen Danic et al. (C) UBC Fisheries Centre 
+Fig10-22: Photo of 'Cosmic Sensation' in dome display by Dalai Felinto, Martins Upitis, and Mike Pan
+Fig10-23: Photo of 'Cosmic Sensation' in development by Dalai Felinto, Martins Upitis, and Mike Pan
+
+
