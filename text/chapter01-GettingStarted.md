@@ -83,7 +83,7 @@ The knowledge in this section is universal and applies to all other 3D applicati
 
 ### Coordinate System
 
-<img alt="The three axes illustrated" src="../figures/Chapter1/Fig01-05.png" width="50%" align="right">
+<img alt="The three axes illustrated" src="../figures/Chapter1/Fig01-05.png" width="33%" align="right">
 We live in a three-dimensional world that has width, height, and depth. So to represent anything that resembles real life as a virtual world inside a computer, we need to think and work in three dimensions. The most common system used is called the Cartesian coordinate system, where the three dimensions are represented by X, Y, and Z, laid out as intersecting planes. Where the three axes meet is called the _origin_. You can think of the origin as the center of your digital universe. A single position in space is represented by a set of numbers that corresponds to its position from the origin: thus (2, -4, 8) is a point in space that is 2 units from the origin along the X axis, 4 units from the origin along the -Y axis, and 8 units up in the Z direction.
 
 
@@ -180,17 +180,17 @@ The easiest way to animate is to alter the location, rotation, and scaling of an
 <br><br>
 To animate something more complicated, such as a human, it's not enough to just move, rotate, and scale the object as a whole. This is where armatures come in. Armatures are skeletons that can be "inserted" into a model to control the model's deformation. Using this system, you can create complex yet organic-looking animations.
 
-<br><br><br><br><br><br>
+<br><br><br><br>
 <img alt="Shape keys animation." src="../figures/Chapter1/Fig01-17.jpg" width="50%" align="right">
 <br>
 A third way to animate is using shape keys. Shape keys are snapshots of the mesh in different shapes. They are often used to animate nuanced changes that cannot be otherwise easily animated with armatures.
 
 
-<img alt="Procedural physics-based motion." src="../figures/Chapter1/Fig01-18.jpg" width="40%" align="left">
-<br><br>
+<img alt="Procedural physics-based motion." src="../figures/Chapter1/Fig01-18.jpg" width="33%" align="left">
+<br>
 Finally, keep in mind that making objects move doesn't always have to be a manual process. You can also make objects move by using the physics engine (see Chapter 6).
 
-<br><br>
+<br>
 
 ### Game
 
@@ -245,8 +245,7 @@ The Blender window is divided into Editors. Each Editor region can be resized, m
 
 At the top of the screen is the main menu, which offers basic functionalities such as Open, Save, and Help. Furthermore, the main menu controls the view for the rest of the Blender window. The Render Engine option in the middle of the menu controls how the interface is configured.
 
-<img alt="Selecting the Game Engine" src="../figures/Chapter1/Fig01-21.png" width="50%" align="left">
-<br>
+<img alt="Selecting the Game Engine" src="../figures/Chapter1/Fig01-21.png" width="40%" align="left">
 By default, Cycles Render is selected. In this mode, the interface is configured for doing 3D modeling, animation, and rendering with Cycles. But let's switch it to the Blender Game mode. Click the drop-down menu and select Blender Game from the list. This setting will unlock certain features that are not visible normally, and it also hides features that are not available in the Blender game engine.
 
 
@@ -259,23 +258,25 @@ Occupying the majority of the screen is a 3D Viewport. Here you can see the 3D w
 >Press and hold the middle mouse button to rotate the 3D view. Scroll the mouse wheel to zoom in the 3D view. Right-click to select a 3D object. Selected objects are highlighted in yellow.
 
 
-<img alt="Number pad keyboard layout." src="../figures/Chapter1/Fig01-23.png" width="50%" align="left">
-
+<img alt="Number pad keyboard layout." src="../figures/Chapter1/Fig01-23.png" width="25%" align="left">
+<br>
 Another common setup for the 3D Viewport is to split the view into four quadrants: top view, side view, front view, and a perspective view. You can turn on Quad view by pressing Ctrl+Alt+Q with the mouse over the 3D Viewport (see Figure 1.22). Press the same key combination to go back to the single view.
 
 To quickly snap to one of the predetermined views (side, top, front, and so on), the number pad is the way to go.
 
+<br><br>
+
 
 #### Outliner
 
-<img alt="Outliner" src="../figures/Chapter1/Fig01-20b.png" width="50%" align="right">
+<img alt="Outliner" src="../figures/Chapter1/Fig01-20b.png" width="33%" align="right">
 
 To the right of the screen are two editors. The top portion is the Outliner, which contains a listing of all the data in the current Blender file. For a large project, the Outliner is an indispensable tool for organizing your scene. For now, you can safely ignore it.
 
 #### Properties Editor
 
 
-<img alt="Properties Editor icons." src="../figures/Chapter1/Fig01-24.png" width="50%" align="right">
+<img alt="Properties Editor icons." src="../figures/Chapter1/Fig01-24.png" width="33%" align="right">
 Under the Outliner on the right, you have the Properties Editor. Here you can access global settings for the file, as well as settings for individual objects. This is one of the most frequently used panels in Blender, after the 3D view perhaps. The Properties Editor is context sensitive, which means it will automatically display different content, depending on the object that is active. Take a closer look at the row of icons at the top of the Properties Editor, as shown in Figure 1.24. These tabs organize the properties into groups, with the more general settings on the left-most tab, and the more specific settings on the right.
 
 
@@ -303,32 +304,14 @@ Figure 1.25 shows one area split into two. You can do it by dragging the top cor
 
 To merge two adjacent areas into one is exactly the same as shown in Figure 1.25, but it is done in reverse order. Optionally, you can click with the right mouse button in the edge of the area you want to split or join, and select the option in the Area Options pop-up menu.
 
-Each editor contains a header, which is found on either the bottom or the top of that editor. They contain tools and menu options relevant to the editor. Figure 1.26 shows some headers for the different editors.
 
-![Headers (Action Editor, 3D Editor, Image Editor, Properties Editor).](../figures/Chapter1/Fig01-26.png)
-
-
-<img alt="Editor selection." src="../figures/Chapter1/Fig01-27.png" width="50%" align="right">
-
+<img alt="Editor selection." src="../figures/Chapter1/Fig01-27.png" width="25%" align="left">
+<br>
 Not only can you change the size and layout of the editor, but the type of editor can also be changed. As you can see in Figure 1.27, the left-most icon in the header can be used to change the editor type.
 
-\*\*\*Insert Fig01-27.tif
-
-Figure 1.27.
-
-Editor selection.
-
-Source: Blender Foundation.
-
+<img alt="Dopesheet, Image Editor, and Logic Brick Editor." src="../figures/Chapter1/Fig01-28.png" width="45%" align="right">
 Almost everything a studio needs to create the game is integrated into a single interface: you can create the game, test the game, and play the game all from the same program. This means that, as an artist, you can create a game in the shortest time possible, without having to worry about importing and exporting files between different applications. As a programmer, you won't have to switch back and forth between different software just to test your code. Figure 1.28 shows some screenshots of different editors that you will be using throughout the book.
 
-\*\*\*Insert Fig01-28.tif
-
-Figure 1.28
-
-Dopesheet, Image Editor, and Logic Brick Editor.
-
-Source: Blender Foundation.
 
 ### More on the 3D View
 
@@ -338,49 +321,35 @@ The 3D view is where you will spend most of your time, so let's take a look at i
 
 Let's look at the four different Viewport Shading modes available in the 3D view. As shown in Figure 1.29, they are used to change the way the scene is displayed onscreen. The four modes are:
 
-**       ** [lb] **        Bounding Box** : Represents all objects as a wireframe boundary. Useful for when the scene gets really complex.
+<img alt="Drawing Modes" src="../figures/Chapter1/Fig01-29.png" width="25%" align="left">
 
-**       ** [lb] **        Wireframe** : Draws all objects as wireframe, which allows you to see through objects.
-
-**       ** [lb] **        Solid** : Draws all objects as solid faces, which is commonly used when modeling.
-
-**       ** [lb] **        Textured** : Draws all objects as solid faces, also with texture and accurate lighting. This is useful for previewing the scene.
-
-\*\*\*Insert Fig01-29.tif
-
-Figure 1.29
-
-The four Viewport Shading modes.
-
-Source: Blender Foundation.
+- **Bounding Box** : Represents all objects as a wireframe boundary. Useful for when the scene gets really complex.
+- **Wireframe** : Draws all objects as wireframe, which allows you to see through objects.
+- **Solid** : Draws all objects as solid faces, which is commonly used when modeling.
+- **Textured** : Draws all objects as solid faces, also with texture and accurate lighting. This is useful for previewing the scene.
 
 The two most commonly used Shading modes are Wireframe and Solid. Therefore, they are assigned to a keyboard toggle for easy access. Press the Z key to toggle between Wireframe and Solid View modes. Additionally, you can Press Alt+Z to toggle between Solid and Textured view modes.
 
-\*\*\* Begin Note
+> **Standing Out**
+>
+> Individual objects can also override the Viewport Shading mode via a setting under the Properties Editor > Object > Display > Type.
 
-Standing Out
 
-Individual objects can also override the Viewport Shading mode via a setting under the Properties Editor  Object  Display  Type.
-
-\*\*\* End Note
 
 ### Editing Modes
 
 To the left of the Shading mode selector is the Editing Mode selector.
 
-**       ** [lb] **        Object Mode** : The default mode, which allows the manipulation of objects in the scene as a whole. From this mode, you can select any of the objects in the scene, and move, rotate, and scale them. In fact, almost everything apart from modeling can be done from Object mode.
-
-**       ** [lb] **        Edit Mode** : This mode can be seen as the counterpart to Object mode. It allows you to edit the underlying geometry of the object. If you are modeling, you'll probably want to be in Edit mode. For this reason, Edit mode is not available when a non-editable object is selected (for example, a camera or lamp).
+- **Object Mode** : The default mode, which allows the manipulation of objects in the scene as a whole. From this mode, you can select any of the objects in the scene, and move, rotate, and scale them. In fact, almost everything apart from modeling can be done from Object mode.
+- **Edit Mode**: This mode can be seen as the counterpart to Object mode. It allows you to edit the underlying geometry of the object. If you are modeling, you'll probably want to be in Edit mode. For this reason, Edit mode is not available when a non-editable object is selected (for example, a camera or lamp).
 
 To switch between Object mode and Edit mode, press the tab key.
 
 In addition to the two editing modes we just discussed, there are a few other modes that are less commonly used.
 
-**       ** [lb] **        Sculpt Mode** : Only available for Mesh objects. Allows modifications to the mesh as if it were clay.
-
-**       ** [lb] **        Vertex** , **Weight,** and **Texture Paint Mode** : Only available for Mesh objects. These modes allow the assignment of color or weight to the mesh.
-
-**       ** [lb] **        Pose Mode** : Is used to animate bones in an armature.
+- **Sculpt Mode** : Only available for Mesh objects. Allows modifications to the mesh as if it were clay.
+- **Vertex** , **Weight,** and **Texture Paint Mode** : Only available for Mesh objects. These modes allow the assignment of color or weight to the mesh.
+- **Pose Mode** : Is used to animate bones in an armature.
 
 Edit mode and Object mode are by far the most commonly used editing modes, so we will refrain from diving too deeply into the other modes for now.
 
@@ -388,73 +357,55 @@ Edit mode and Object mode are by far the most commonly used editing modes, so we
 
 The joke is that to move an object in Blender, you have to press the G key, which stands for "movinG." This gag stems from the fact that to a beginner, many of the shortcuts in Blender seem counterintuitive. However, there is a very good reason why "G" is preferred over "M." In this case, the G key can be easily accessed on the keyboard by the left hand while the right hand is on the mouse. Also, officially, G stands for Grab.
 
-\*\*\* Begin Note
 
-Think Different
 
-By default, the Mac keyboard uses Command instead of Control as the default modifier key. So whenever you see Ctrl+s
+> **Think Different**
+>
+> By default, the Mac keyboard uses Command instead of Control as the default modifier key. So whenever you see Ctrl+Something in this book, mentally map it to Cmd if you are using a Jobsian product.
+>
+> Additionally, Blender has good support for multi-touch gestures on OS X. You can pinch to zoom, rotate to orbit around, and pan around.
 
-omething in this book, mentally map it to Cmd if you are using a Jobsian product.
 
-Additionally, Blender has good support for multi-touch gestures on OS X. You can pinch to zoom, rotate to orbit around, and pan around.
-
-\*\*\* End Note
 
 Let's start with some shortcuts that work the way you would expect:
 
-**       ** [lb] **       ** Ctrl + S: Save
-
-**       ** [lb] **       ** Ctrl + O: Open
-
-**       ** [lb] **       ** Ctrl + N: New File
-
-**       ** [lb] **       ** Ctrl + Z: Undo
-
-**       ** [lb] **       ** Ctrl + Shift + Z: Redo
-
-**       ** [lb] **       ** Ctrl + Q: Close Application
+* **Ctrl + S:** Save File
+* **Ctrl + O:** Open File
+* **Ctrl + N:** New File
+* **Ctrl + Z:** Undo
+* **Ctrl + Shift + Z:** Redo
+* **Ctrl + Q:** Close Application
 
 The above shortcuts work anywhere within Blender: they are effectively global. Unfortunately, the familiarity ends here.
 
 To manipulate an object in the 3D view, generally you have to select it at first:
 
-**       ** [lb] **       ** Right-click: Select object
-
-**       ** [lb] **       ** Shift + Right-click: Extend selection to multiple objects
-
-**       ** [lb] **       ** A: Select all
+- **Right-click:** Select object
+- **Shift + Right-click:** Extend selection to multiple objects
+- **A:** Select all
 
 All of the actions above are "reversible." If something is already selected, right-clicking on it will deselect it. If all the objects are already selected, pressing A will deselect all.
 
 Once an object is selected, you can start manipulating it. The keyboard shortcuts below correspond to the three most basic transforms:
 
-**       ** [lb] **       ** G: Start Grabbing
-
-**       ** [lb] **       ** S: Start Scaling
-
-**       ** [lb] **       ** R: Start Rotating
-
-**       ** [lb] **       ** Move mouse: Carry out transform action
-
-**       ** [lb] **       ** Left-click: Confirm transformation
-
-**       ** [lb] **       ** Enter: Confirm transformation
+- **G:** Start Grabbing
+- **S:** Start Scaling
+- **R:** Start Rotating
+- **Move mouse:** Carry out transform action
+- **Left-click:** Confirm transformation
+- **Enter:** Confirm transformation
 
 Pressing one of the keys will start the transformation, and then you can move your mouse to control the degree of the effect. To finalize the transformation, left-click the mouse or press Enter.
 
 ### Search
 
+<img alt="The Search Box" src="../figures/Chapter1/Fig01-30.png" width="30%" align="right">
+
 The final tip that you will learn is the search functionality in Blender. If you are unable to recall how to invoke a certain operation, whether through a button or a keyboard shortcut, a quick way to find it is by using the search functionality. Key in a few letters of what you are looking for, and the result should appear as shown in Figure 1.30.
 
 Tapping on the spacebar from anywhere will bring out a search box that contains a list of actions.
 
-\*\*\*Insert Fig01-30.tif
 
-Figure 1.30
-
-The search box.
-
-Source: Blender Foundation.
 
 A word of caution, though: the current implementation of the search is not very context-aware, so sometimes operations that are not permitted in the active context might show up.
 
@@ -472,29 +423,19 @@ Because Blender was originally created as an in-house software, its interface is
 
 Because of the large number of commands Blender is capable of performing, invoking a function through a quick tap on the keyboard is generally faster than using the mouse to find the menu entry. As you follow through the rest of this section, pay special attention to the shortcut keys that are used, because Blender is designed to let you work fast once you learn the shortcuts.
 
+<img alt="3D Navigator." src="../figures/Chapter1/Fig01-31.png" width="20%" align="left">
 Blender's keyboard shortcuts are optimized for a full-sized English QWERTY keyboard. The number pad (which, unfortunately, is not present on many laptops) is used to quickly navigate around the 3D scene. Laptop users usually have to press extra keys on their keyboard (such as the Fn key or a toggle) in order to simulate a number pad key. Alternatively, Blender also has an add-on called "3D Navigation" that provides an easier way to navigate around the world for people without a number pad.
 
-To enable the 3D navigation plug-in to help you navigate around the 3D Viewport quickly, go to File  User Preferences  Add-Ons, and turn on 3D Views: 3D Navigation. Then you can switch views quickly from the 3D view's Toolshelf, as shown in Figure 1.31
+To enable the 3D navigation plug-in to help you navigate around the 3D Viewport quickly, go to File > User Preferences > Add-Ons, and turn on 3D Views: 3D Navigation. Then you can switch views quickly from the 3D view's Toolshelf.
 
-\*\*\*Insert Fig01-31.tif
-
-Figure 1.31
-
-3D Navigator.
-
-Source: Blender Foundation.
 
 ### Mouse
 
 Blender is designed for a three-button mouse: a mouse with two buttons and a scroll wheel. Although there is an option to emulate the middle-mouse button (when you click on the scroll wheel), this book will assume that you are working with a three-button mouse for convenience.
 
-\*\*\* Begin Note
-
-How to Emulate a Three-Button Mouse
-
-If you don't have a three-button mouse, you can use the Alt+Left mouse button combination to emulate the middle mouse button. To enable this feature, go to File  User Preferences  Input and turn on Emulate 3 Button Mouse.
-
-\*\*\* End Note
+> **How to Emulate a Three-Button Mouse**
+>
+> If you don't have a three-button mouse, you can use the Alt+Left mouse button combination to emulate the middle mouse button. To enable this feature, go to File  User Preferences  Input and turn on Emulate 3 Button Mouse.
 
 ### Context
 
@@ -502,15 +443,11 @@ In Blender, the actions you can perform at any given time are limited to the cur
 
 The "context" usually refers to one or a combination of the following:
 
-**       ** [lb] **        Active rendering engine** : Blender Render, Blender Games, and Cycles Render are the default three.
-
-**       ** [lb] **        Active editor** : The active editor is defined as the window subdivision that the mouse cursor is hovering over. Shortcut keys often have different effects, depending on which editor the mouse is over.
-
-**       ** [lb] **        Active object** : The active object is defined as the object that is most recently selected.
-
-**       ** [lb] **        Selected object** : All the objects that have been selected (highlighted). Keep in mind that there can be more than one selected object, but only one active object.
-
-**       ** [lb] **        Editing mode** : Blender has six different modes of editing. Two of the most commonly used are the Edit mode and the Object mode. In Object mode, you can manipulate objects as a whole. In Edit mode, you can change the shape of a mesh. In each mode, there is a unique set of tools and options at your disposal. You will learn about the other four modes (Sculpt, Vertex Paint, Texture Paint, Weight Paint) in later chapters.
+- **Active rendering engine:** Blender Render, Blender Games, and Cycles Render are the default three.
+- **Active editor:** The active editor is defined as the window subdivision that the mouse cursor is hovering over. Shortcut keys often have different effects, depending on which editor the mouse is over.
+- **Active object:** The active object is defined as the object that is most recently selected.
+- **Selected object:** All the objects that have been selected (highlighted). Keep in mind that there can be more than one selected object, but only one active object.
+- **Editing mode:** Blender has six different modes of editing. Two of the most commonly used are the Edit mode and the Object mode. In Object mode, you can manipulate objects as a whole. In Edit mode, you can change the shape of a mesh. In each mode, there is a unique set of tools and options at your disposal. You will learn about the other four modes (Sculpt, Vertex Paint, Texture Paint, Weight Paint) in later chapters.
 
 ### Datablocks
 
@@ -518,27 +455,18 @@ Often, a single Blender file contains hundreds of objects, each with different c
 
 Blender uses "data blocks" to represent content stored within a Blender file. Each data block represents a collection of data or settings. Some common datablock types you will encounter are Object datablock, Mesh datablock, Material datablock, Texture datablock, and Image datablock.
 
+
+<img alt="Datablock hierarchy" src="../figures/Chapter1/Fig01-32.png" width="30%" align="right">
+
 In order to reduce the apparent complexity of the program, Blender further organizes data blocks into hierarchies. At the top level are scenes, which can have a number of worlds, each of which can have any number of objects (objects can be a mesh, a lamp, a camera, and so on). If the object is a mesh, then a Mesh datablock is attached to it. If the object is a lamp, then a Lamp datablock is attached to the object.
 
-An example of a datablock hierarchy chain is shown in Figure 1.32: Scene  Object  Mesh  Material  Texture  Image
+An example of a datablock hierarchy chain is shown in Figure 1.32: Scene > Object > Mesh > Material > Texture > Image
 
-\*\*\*Insert Fig01-32.tif
-
-Figure 1.32
-
-Datablock hierarchy.
-
-Source: Blender Foundation.
 
 Throughout the Blender interface, you will run into many datablock managers. They all look like Figure 1.33.
 
-\*\*\*Insert Fig01-33.tif
 
-Figure 1.33
-
-Datablock manager.
-
-Source: Blender Foundation.
+<img alt="Datablock Sharing" src="../figures/Chapter1/Fig01-33.png" width="30%" align="left">
 
 Because datablocks can be shared, copied, and reused, large scenes can be managed efficiently through the use of shared datablocks. Figure 1.33 shows a datablock that has been shared by three "users," as denoted by the number next to its name.
 
