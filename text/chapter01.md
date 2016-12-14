@@ -28,9 +28,8 @@ Then came Blender 2.5, which changed much of how Blender looked and behaved. Thi
 
 Blender uses the Python programming language for scripting. With Python, you can customize the behavior of Blender, extend its functionality, and, more importantly, control the game engine. Knowing how to program is not a requirement for using Blender, but knowing Python will make you a far more capable game-maker.
 
+<img alt="Blender Commit statistics form 2003 to 2012" src="../figures/Chapter1/Fig01-03.png" width="50%" align="left">
 The year 2012 marked the tenth anniversary of Blender going open source. During these 10 years of open source development, more than 150 people have contributed something to the source code, totaling 50,000 contributions ("commits," in SVN techno-jargon), averaging nearly 30 commits every day over the past year. Needless to say, the program has improved much over the years, and it shows no sign of slowing down. The image below shows the Blender development statistics gathered from the official SVN repository including Blender trunk all its branches.
-
-![Blender SVN statistics form 2003 to 2012](../figures/Chapter1/Fig01-03.png)
 
 Of course, software exists to serve the users - that's you. Every time a Blender user creates a piece of artwork, it justifies, even if just a little, the enormous amount of time that went into creating the software. We hope that by picking up this book, you are on your way to creating something amazing to share with the world.
 
@@ -84,9 +83,9 @@ The knowledge in this section is universal and applies to all other 3D applicati
 
 ### Coordinate System
 
+<img alt="The three axes illustrated" scr="../figures/Chapter1/Fig01-05.png" width="50%" align="right">
 We live in a three-dimensional world that has width, height, and depth. So to represent anything that resembles real life as a virtual world inside a computer, we need to think and work in three dimensions. The most common system used is called the Cartesian coordinate system, where the three dimensions are represented by X, Y, and Z, laid out as intersecting planes. Where the three axes meet is called the _origin_. You can think of the origin as the center of your digital universe. A single position in space is represented by a set of numbers that corresponds to its position from the origin: thus (2, -4, 8) is a point in space that is 2 units from the origin along the X axis, 4 units from the origin along the -Y axis, and 8 units up in the Z direction.
 
-![The three axes illustrated](../figures/Chapter1/Fig01-05.png)
 
 ### Points, Edges, Triangles, and Meshes
 
