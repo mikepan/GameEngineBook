@@ -1,15 +1,16 @@
 # Chapter 1: Getting Started
-Here is something you don't know about Mike. He has read more Linux books than he cares to admit. Unfortunately, Mike rarely makes it past two chapters. Given that the first two chapters usually contain not much more than a warm introduction and a rich history of the software, this practice has two profound consequences. The first is that Mike can articulate the history of Linux far better than almost anyone. The second is that he still does not know anything about Linux. Granted, the former happens to be far more useful at a party than knowing the difference between "tar cvfz" and "lshw."
+Here is something you don't know about Mike. He has read more Linux books than he cares to admit. Unfortunately, Mike rarely makes it past chapter 2. Given that the first two chapters usually contain nothing more than a warm introduction and a history of the software, this practice has two profound consequences. The first is that Mike can articulate the history of Linux far better than almost anyone. The second is that he still does not know how to actually use Linux. Granted, the former happens to be far more useful at a party than knowing the difference between "tar cvfz" and "lshw."
 
-In keeping with this tech book tradition, this book won't be any different. In this chapter, you will learn Blender's history and be introduced to the very basics of this application.
+In keeping with this tech book tradition, this book won't be any different. In this chapter, you will learn Blender's rich history and be introduced to the very basics of this application.
 
 ## An Origin Story
-Every open source project has its own unique history. Some were started as academic projects and were quickly embraced by a passionate community of users. Other projects originated as commercial ventures that only later found their way into the open source community.The Blender community is made of people who have made their living by using Blender since its early days as a commercial project and also people who adopted Blender after it became an open source software. By understanding the journey Blender went through in its development over the past 20 years, you may get a better idea of what may come next.
+
+It was the mid-1990s, and the personal computer was taking off faster than anyone had anticipated. With it, there arose the advent of animated graphics and 3D games.
 
 ### Blender Begins
-It was the mid-1990s, and the personal computer was taking off faster than anyone had anticipated. With it, there arose the advent of animated graphics and 3D games. It was at this ripe time that Blender came into being. Blender started off as an in-house 3D animation software created by a small Dutch animation studio called NeoGeo. Perhaps it was because of the lack of a cheap and capable substitute; perhaps it was due to sheer ambition, but for whatever reason, NeoGeo decided to create its own animation software from scratch rather than using what was available. The chief programmer of Blender was Ton Roosendaal, who was responsible for writing a large part of the core Blender functionalities.
+It was at this ripe time that Blender came into being. Blender started off as an in-house 3D animation software created by a small Dutch animation studio called NeoGeo. Perhaps it was because of the lack of a cheap and capable substitute; perhaps it was due to sheer ambition, NeoGeo decided to create its own animation software from scratch rather than using what was available. The chief programmer of Blender was *Ton Roosendaal*, who was responsible for writing a large part of the core Blender functionalities.
 
-For the next few years, Blender remained the internal tool of a very successful animation studio. The software became so good that in 1998, Blender was made available to a wider audience. A new company, Not a Number (NaN), was formed to oversee the development and distribution of Blender. Largely via the Internet, Blender was distributed as two separate versions: a free version with limited functionality and a version that was not free (called Blender Publisher) that had a few additional features. Being the only complete 3D animation and game creation package available for free at a time when computer graphics was still in its relative infancy, Blender started gaining popularity, and many online communities developed that allowed artists to share knowledge and their work.
+For the next few years, Blender remained the internal tool of a very successful animation studio. The software became so good that in 1998, Blender was made available to the public. A new company, Not a Number (NaN), was formed to oversee the development and distribution of Blender. Largely via the Internet, Blender was distributed as two separate versions: a free version with limited functionality and a version that was not free (called Blender Publisher) that had a few additional features. Being the only complete 3D animation and game creation package available for free at a time when computer graphics was still in its infancy, Blender started gaining popularity, and many online communities developed that allowed artists to share knowledge and their work.
 
 ![Left: Blender 1.6. Right: Blender 2.65](../figures/Chapter1/Fig01-01.jpg)
 
@@ -19,19 +20,19 @@ Alas, with the collapse of the Internet bubble and some other unfortunate circum
 ### Blender Rises
 Located in beautiful Amsterdam, the Blender Foundation now oversees the development, distribution, and marketing of Blender. But because of the open source nature of the software, its development has been driven largely by volunteer contributors from across the world.
 
-The Blender Foundation also created the Blender Institute, an animation and game studio that focuses on movie and game development using Blender. The Institute produced the movies _Elephants Dream_, _Big Buck Bunny_, _Sintel_, _Tears of Steel_, and the game _Yo, Frankie!_ These projects serve two main goals: The production process is an opportunity to improve Blender in a real studio environment, and the end result (be it a movie or a game) also serves as an advertisement for the software itself.
+The Blender Foundation also created the Blender Institute, an animation and game studio that focuses on movie and game development using Blender. The Institute produced the movies _Elephants Dream_, _Big Buck Bunny_, _Sintel_, _Tears of Steel_, Cosmos Laundromat and the game _Yo, Frankie!_ These projects serve two main goals: The production process is an opportunity to improve Blender in a real studio environment, and the end result also serves as an advertisement for the software itself.
 
 ![Top: Elephants Dream, Big Buck Bunny, Yo, Frankie!, Bottom:  Sintel, Tears of Steel, Cosmos Laundromat](../figures/Chapter1/Fig01-02.jpg)
 
-In its 10-year lifespan as an open source software, the biggest change came with the release of Blender 2.5, which changed much of how Blender looked and behaved. This refactoring, as it was called, took years of planning and coding. Blender 2.5 marks a significant milestone in the history of Blender. For users coming from the Blender 2.4x series, the entire interface looks radically different: menus items are rearranged, keyboard shortcuts are altered, even the default color scheme has changed from a boring gray to a slightly less boring shade of gray. (That was a joke.) Blender 2.5 is designed to be more intuitive, faster to use, and easier to learn than its predecessor. If you are new to Blender, Welcome! You probably picked the best time to start learning this wonderful application.
+Then came Blender 2.5, which changed much of how Blender looked and behaved. This refactoring, as it was called, took years of planning and coding. Blender 2.5 marks a significant milestone in the history of Blender. For users coming from the Blender 2.4x series, the entire interface looks radically different: menus items are rearranged, keyboard shortcuts are altered, even the default color scheme has changed from a boring gray to a slightly less boring shade of gray.  Blender 2.5 is designed to be more intuitive, faster to use, and easier to learn than its predecessor.
 
-Blender uses the Python programming language for scripting. With Python, you can customize the behavior of Blender, extend its functionality, and, more importantly, use Python in the game engine. Knowing how to program is not a requirement for using Blender, but knowing Python will make you a far more capable game-maker.
+Blender uses the Python programming language for scripting. With Python, you can customize the behavior of Blender, extend its functionality, and, more importantly, control the game engine. Knowing how to program is not a requirement for using Blender, but knowing Python will make you a far more capable game-maker.
 
 The year 2012 marked the tenth anniversary of Blender going open source. During these 10 years of open source development, more than 150 people have contributed something to the source code, totaling 50,000 contributions ("commits," in SVN techno-jargon), averaging nearly 30 commits every day over the past year. Needless to say, the program has improved much over the years, and it shows no sign of slowing down. The image below shows the Blender development statistics gathered from the official SVN repository including Blender trunk all its branches.
 
 ![Blender SVN statistics form 2003 to 2012](../figures/Chapter1/Fig01-03.png)
 
-Of course, software exists to serve the users - that's you. Every time a Blender user creates a piece of artwork, it justifies, even if just a little, the enormous amount of time that went into creating the software. I hope that by picking up this book, you are on your way to creating something amazing to share with the world.
+Of course, software exists to serve the users - that's you. Every time a Blender user creates a piece of artwork, it justifies, even if just a little, the enormous amount of time that went into creating the software. We hope that by picking up this book, you are on your way to creating something amazing to share with the world.
 
 
 
@@ -49,15 +50,15 @@ Let's break down the term "open source 3D animation software."
 >
 > Before you publish a game using Blender, you should understand the limitations of the GPL. This topic is covered in Chapter 9, "Publishing and Beyond."
 
-The term "3D" means three dimensions. The world we live in is 3D because it has height, width, and depth. Compare this with 2D software programs such as Photoshop, GIMP, or Flash[m]the content-creation process in Blender is done in a 3D space, not on a 2D canvas (see Figure 1.4).
+The term "3D" means three dimensions. The world we live in is 3D because it has height, width, and depth. Compare this with 2D software programs such as Photoshop, GIMP or Krita, the content-creation process in Blender is done in a 3D space, not on a 2D canvas.
 
-![2D vs. 3D](..\figures\Chapter1\Fig01-04.jpg)
+![2D vs. 3D](../figures/Chapter1/Fig01-04.jpg)
 
 The term "animation" is perhaps a misleading one. Although we tend to attribute the term "computer animated" to any film that is done by a computer, we should remember that Blender isn't limited to just creating animation. Blender is capable of modeling, rendering, compositing, and making games just as well as it can animate.
 
-The term "software" suggests that Blender is a tool[m]a tool that allows you to create animations and games. So this book will treat it as such[m]merely a means to an end. We will help you understand each of Blender's features, so you will know how to use the software to achieve what you want.
+The term "software" suggests that Blender is a tool-a tool that allows you to create animations and games. So this book will treat it as such-merely a means to an end. We will help you understand each of Blender's features, so you will know how to use the software to achieve what you want.
 
-However, this is not a book on game design. Topics such as storyline, art direction, and game playability are beyond the scope of this book. Blender is merely a platform that enables you to make art.
+As this is a book about the tools, this is not a book on game design. Topics such as storyline, art direction, and game playability are beyond the scope of this book. Blender is merely a platform that enables you to make art.
 
 ### About the Game Engine
 
@@ -65,17 +66,15 @@ Blender is a multi-faceted tool. This book will focus on one aspect of it: the g
 
 Compared to some of the commercial game engines available today, the Blender Game Engine (BGE or GE for short) is relatively simple. Is that a bad thing? Not necessarily. A simple platform like Blender is very easy to learn, and yet it's flexible enough to do a lot.
 
-To give you some idea of what the game engine is capable of, Chapter 10, "Case Studies," is dedicated to projects that were done in the GE. You can skip ahead to get a glimpse of the various applications that people have created using this platform.
+To give you some idea of what the game engine is capable of, Chapter 10, "Case Studies," is dedicated to projects that were done in the GE.
 
-### Future
+### Future of BGE
 
-If you are one of the early birds who pre-ordered this book (thank you, by the way), you might have noticed the numerous delays this book has gone through. One downside to writing about software is that it's constantly improving, so that it's hard to decide when to stop writing about upcoming features and just publish. At the time of publication, many experimental features had not made their way into the official release. Blender SVN branches with a heavy focus on game-engine improvement include Cucumber, Candy, and the Harmony branches. Test builds for these branches are available online for you to explore. To keep yourself always on top of the latest features of Blender, remember to read the release log pages of the future Blender releases.
-
-
+One downside to writing about software is that it's constantly improving. Even today, projects such as UPBGE are promising to dramatically improve the features and functionalities of the Blender Game Engine. We will try our best to keep this ebook as up-to-date as possible. What you should do as a reader, is to make sure you are always using the latest version of Blender.
 
 > **Test Builds**
 >
-> You can find official daily builds on [builder.blender.org](https://builder.blender.org/download/). Additionally, many non-official test builds of Blender are available from [graphicall.org](http://graphicall.org/).
+> If the latest version is not fresh good enough, uou can find official daily builds on [builder.blender.org](https://builder.blender.org/download/). Additionally, many non-official test builds of Blender are available from [graphicall.org](http://graphicall.org/).
 
 ## 3D Basics
 
@@ -85,19 +84,19 @@ The knowledge in this section is universal and applies to all other 3D applicati
 
 ### Coordinate System
 
-We live in a three-dimensional world that has width, height, and depth. So to represent anything that resembles real life as a virtual world inside a computer, we need to think and work in three dimensions. The most common system used is called the Cartesian coordinate system, where the three dimensions are represented by X, Y, and Z, laid out as intersecting planes (see Figure 1.5). Where the three axes meet is called the _origin_. You can think of the origin as the center of your digital universe. A single position in space is represented by a set of numbers that corresponds to its position from the origin: thus (2, -4, 8) is a point in space that is 2 units from the origin along the X axis, 4 units from the origin along the -Y axis, and 8 units up in the Z direction.
+We live in a three-dimensional world that has width, height, and depth. So to represent anything that resembles real life as a virtual world inside a computer, we need to think and work in three dimensions. The most common system used is called the Cartesian coordinate system, where the three dimensions are represented by X, Y, and Z, laid out as intersecting planes. Where the three axes meet is called the _origin_. You can think of the origin as the center of your digital universe. A single position in space is represented by a set of numbers that corresponds to its position from the origin: thus (2, -4, 8) is a point in space that is 2 units from the origin along the X axis, 4 units from the origin along the -Y axis, and 8 units up in the Z direction.
 
 ![The three axes illustrated](../figures/Chapter1/Fig01-05.png)
 
 ### Points, Edges, Triangles, and Meshes
 
-Although we can define a position in space using the XYZ coordinates, a single point (or a "vertex," as it's more commonly known in computer graphics) is not terribly useful; after all, you can't see a dot that is infinitesimally small. But you can join this vertex with another vertex to form a line (also known as an "edge"). An edge by itself still wouldn't be very visible, so you create another vertex and join all three vertices together with lines and fill in the middle. Suddenly, something far more interesting is created[md]a triangle (also known as a "face")! By linking multiple faces together, you can create any shape, the result of which is called a "mesh" or "model." Figure 1.6 shows how a mesh can be broken down into faces, then edges, and ultimately, as vertices.
+Although we can define a position in space using the XYZ coordinates, a single point (or a "vertex," as it's more commonly known in computer graphics) is not terribly useful; after all, you can't see a dot that is infinitesimally small. But you can join this vertex with another vertex to form a line (also known as an "edge"). An edge by itself still wouldn't be very visible, so you create another vertex and join all three vertices together with lines and fill in the middle. Suddenly, something far more interesting is created[md]a triangle (also known as a "face")! By linking multiple faces together, you can create any shape, the result of which is called a "mesh" or "model." Figure below shows how a mesh can be broken down into faces, then edges, and ultimately, as vertices.
 
 ![Teapot, cube, face, edge and vertex.](../figures/Chapter1/Fig01-06.jpg)
 
 Why is the triangle so important? Turns out, modern computer graphics use the triangle as the basic building block for almost any shape. A rectangular plane (also known as a _quadrangle_, or more commonly a _quad_) is simply two triangles arranged side by side. A cube is simply six squares put together. Even a sphere is just made of tiny facelets arranged into a ball shape.
 
-In Blender, a mesh can be made from a combination of triangles, quads, or n-gons. N-gons are a relatively new addition to Blender 2.6; they allow you to create faces with more than four edges. The benefit of n-gons is their ability to retain a clean topology while modeling. Without n-gons, certain areas of a model (such as a window on a wall) would require a higher number of triangles or quads to approximate, as shown in Figure 1.7. While n-gons make modeling easier in some cases, Blender still converts them to simple polygons (that is, triangles and quads) when you run the game.
+In Blender, a mesh can be made from a combination of triangles, quads, or n-gons. The benefit of n-gons is their ability to retain a clean topology while modeling. Without n-gons, certain areas of a model (such as a window on a wall) would require a higher number of triangles or quads to approximate, as shown below. While n-gons make modeling easier in some cases, Blender still converts them to triangles when you start the game.
 
 ![The same cylinder cap can be made up of triangles, quads, or an n-gon.](../figures/Chapter1/Fig01-07.jpg)
 
@@ -113,17 +112,11 @@ Another concept that a modeler will likely encounter is surface normals, or "nor
 
 
 
-
-
-
-
 > **Beyond Polygons**
 >
 > Technically, there are other approaches to computer graphics that do not rely on triangles or polygons, such as NURBS (Non-uniform rational B-spline) and voxel (short for VOlumetric piXEL). But polygon modeling and rendering is by far the most common, and it is the only supported method in the game engine.
 
-
-
-### Basic Transform
+### Basic Transforms
 
 The three basic transforms that you should be familiar with are:
 
@@ -131,7 +124,7 @@ The three basic transforms that you should be familiar with are:
 * **Scaling:** The resizing of an object around a point.
 * **Rotation:** The rotating of an object around a point.
 
-These three are the most common manipulations you will encounter. They are illustrated in Figure 1.9.
+These three are the most common manipulations you will encounter. They are illustrated below.
 
 ![Translation, scaling, and rotation.](../figures/Chapter1/Fig01-09.jpg)
 
@@ -143,17 +136,11 @@ Often, changing the color is not enough to make a surface look realistic. This i
 
 ![Meshes with texture applied.](../figures/Chapter1/Fig01-10.jpg)
 
-Texturing can be thought of as an extension of material.
 
-Traditionally, a texture changes the color of a surface. But that's not all it can do: textures can also be used to alter other properties of the surface such as its transparency, reflectivity, and even bumpiness to create the illusion of a much more detailed surface. Figure 1.11 shows the same leaf model with different textures applied to different channels.
 
-\*\*\*Insert Fig 01-11.tif
+Traditionally, a texture changes the color of a surface. But that's not all it can do: textures can also be used to alter other properties of the surface such as its transparency, reflectivity, and even bumpiness to create the illusion of a much more detailed surface. Figure 1.11 shows different textures that can be applied to a brick wall.
 
-Figure 1.11
-
-From left to right: diffuse map, normal map, and specular map.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![From left to right: diffuse map, normal map, and specular map.](../figures/Chapter1/Fig01-11.jpg)
 
 A diffuse map controls the base color of the surface. A normal map controls the surface normal of an object, creating a bumpy effect by changing the way the light is reflected off the object. A specular map controls the specular reflection of an object, making it look shiny in certain places and dull in others. A texture map can also have transparent pixels, rendering part of the object transparent.
 
@@ -161,17 +148,11 @@ Generally, textures are image files. But there are also other ways to texture a 
 
 ### Lights
 
-Everything you see is the result of light hitting your eyes[m]without lights, the world would be pitch black. Likewise, light is just as important in a virtual world. With light comes shadow as well. Shadow might not be something that you think about every day, but the interplay of shadow and light makes a huge difference in how the scene is presented.
+Everything you see is the result of light hitting your eyes-without lights, the world would be pitch black. Likewise, light is just as important in a virtual world. With light comes shadow as well. Shadow might not be something that you think about every day, but the interplay of shadow and light makes a huge difference in how the scene is presented.
 
 In most 3D applications, there are several different types of light available to the artist; each type has its advantages and disadvantages. For example, a Spot lamp approximates a lamp with a conical influence; a sun lamp approximates a light source from infinitely far away. Lamps in Blender are treated like regular objects: they can be positioned and rotated just like any other object. Figure 1.12 shows how different lamps look in Blender.
 
-\*\*\*Insert Fig 01-12.tif
-
-Figure 1.12
-
-From left: Lamp, Sun, Spot lamp, Hemi lamp, and Area lamp.
-
-Source: Blender Foundation.
+![From left: Lamp, Sun, Spot lamp, Hemi lamp, and Area lamp.](../figures/Chapter1/Fig01-12.png)
 
 Think of lighting as more than something that makes your scene visible. Good lighting can enhance the purpose of the scene by highlighting details while hiding irrelevant areas in shadow. Skillful placement of lighting also adds drama and realism to the scene, making an otherwise boring scene look visually exciting.
 
@@ -179,107 +160,56 @@ Think of lighting as more than something that makes your scene visible. Good lig
 
 When you are creating a 3D scene, you are looking at the virtual world from an omniscient view. In this mode, you can view and edit the world from any angle[md]just like a movie director walking around a set in order to adjust things. Once the game starts, the player must view the game through a predetermined camera. Note that a predetermined camera does not mean the camera is fixed; almost all games have a camera that reacts to a player's input. In an action game, the camera tends to follow the character from behind; in a strategy game, the camera might be hovering high above, looking down; in a platformer, the camera is usually looking at the scene from the side.
 
-A camera is also treated as a regular object in Blender, so you can manipulate its location and orientation just as you can with any other object. (You can manipulate a camera's size, too, but it is meaningless to do so, since the virtual camera's size does not change the image it produces.) Figure 1.13 shows a camera object as seen from different views.
+A camera is also treated as a regular object in Blender, so you can manipulate its location and orientation just as you can with any other object. Figure 1.13 shows a camera object as seen from different views.
 
-\*\*\*Insert Fig 01-13.tif
+![Camera objects.](../figures/Chapter1/Fig01-13.png)
 
-Figure 1.13
 
-Camera objects.
 
-Source: Blender Foundation
-
-\*\*\* Begin Note
-
-Drawing and Composition for Visual Storytellers
-
-Speaking of lights and cameras, this is the part where we point out the wonderful book by Marcos Mateu-Mestre called _Framed Ink_. The book uses tons of beautiful drawings to illustrate the many key principles in visual storytelling.
-
-\*\*\* End Note
+> **Drawing and Composition for Visual Storytellers**
+>
+> Speaking of lights and cameras, this is the part where we point out the wonderful book by Marcos Mateu-Mestre called Framed Ink. The book uses tons of beautiful drawings to illustrate the many key principles in visual storytelling.
 
 ### Animation
 
 In this context, _animation_ refers to the technique of making things change over time. For example, animation can involve moving an object, deforming it, or changing its color. To set up an animation, you create "keyframes," which are snapshots in time that store specific values pertaining to the animation. The software can then automatically interpolate in between those values to create a smooth transition. Figure 1.14 shows keyframing using Blender's Dopesheet Editor. The Dopesheet allows you to see the various properties that change during an animation: the horizontal axis represents time; the vertical axis shows the various properties, such as location or rotation that are keyframed.
 
-\*\*\*Insert Fig 01-14.tif
-
-Figure 1.14
-
-Dopesheet Editor: each diamond shape is a keyframe.
-
-Source: Blender Foundation.
+![Dopesheet Editor: each diamond shape is a keyframe.](../figures/Chapter1/Fig01-14.png)
 
 The easiest way to animate is to alter the location, rotation, and scaling of an object over time. For example, by altering these variables, you can realistically animate the movement of a bouncing ball, as shown in Figure 1.15.
 
-\*\*\*Insert Fig 01-15.tif
-
-Figure 1.15
-
-LocRotScale animation.
-
-Source: Blender Foundation.
+![LocRotScale animation.](../figures/Chapter1/Fig01-15.png)
 
 To animate something more complicated, such as a human, it's not enough to just move, rotate, and scale the object as a whole. This is where armatures come in. Armatures are skeletons that can be "inserted" into a model to control the model's deformation. Using this system, you can create complex yet organic-looking animations like Figure 1.16.
 
-\*\*\*Insert Fig 01-16.tif
+![Armature animation.](../figures/Chapter1/Fig01-16.png)
 
-Figure 1.16
+A third way to animate is using shape keys. Shape keys are snapshots of the mesh in different shapes. They are often used to animate nuanced changes that cannot be otherwise easily animated with armatures, as shown in Figure 1.17. 
 
-Armature animation.
-
-Source: Blender Foundation.
-
-A third way to animate is using shape keys. Shape keys are snapshots of the mesh in different shapes. They are often used to animate nuanced changes that cannot be otherwise easily animated with armatures, as shown in Figure 1.17. Using shape keys to animate is covered in Chapter 4.
-
-\*\*\*Insert Fig 01-17.tif
-
-Figure 1.17
-
-Shape keys animation.
-
-Source: Blender Foundation.
+![Shape keys animation.](../figures/Chapter1/Fig01-17.jpg)
 
 Finally, keep in mind that making objects move doesn't always have to be a manual process. You can also make objects move by using the physics engine, as shown in Figure 1.18 (see Chapter 6).
 
-\*\*\*Insert Fig 01-18.tif
-
-Figure 1.18
-
-Procedural physics-based motion.
-
-Source: Blender Foundation.
+![Procedural physics-based motion.](../figures/Chapter1/Fig01-18.jpg)
 
 ### Game
 
-So far, we have talked about 3D at length. But how does the game engine fit into? Well, a game engine simply takes the existing 3D assets and attaches a "brain" to them so the objects know how to respond to events. The  "brain" can be in the form of logic bricks (which can perform different actions depending on the user input), scripts (which can extend the functionality of logic bricks), or other physical properties of an object (such as rigid body settings to make an object tumble and fall realistically). See Figure 1.19.
+So far, we have talked about 3D at length. But how does the game engine fit into? Well, a game engine simply takes the existing 3D assets and attaches a "brain" to them so the objects know how to respond to events. The  "brain" can be in the form of logic bricks (which can perform different actions depending on the user input), scripts (which can extend the functionality of logic bricks), or other physical properties of an object (such as rigid body settings to make an object tumble and fall realistically). 
 
-\*\*\*Insert Fig 01-19.tif
-
-Figure 1.19
-
-Game = Object + Logic.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Game = Object + Logic.](../figures/Chapter1/Fig01-19.jpg)
 
 A game engine is made up of many distinct components:
 
-[lb] **Rendering Engine** : Turns the 3D scene you've built (including models, lights, and camera) into an image to be displayed onscreen.
-
-[lb] **Physics** : Handles collisions and physical simulations of objects.
-
-[lb] **Logic/Scripting** : The brain behind a game[md]it reacts to the user input, makes decisions, and keeps track of what's going on in the game.
-
-[lb] **Sound** : Produces the audio events.
+- **Rendering Engine** : Turns the 3D scene you've built (including models, lights, and camera) into an image to be displayed onscreen.
+- **Physics** : Handles collisions and physical simulations of objects.
+- **Logic/Scripting** : The brain behind a game[md]it reacts to the user input, makes decisions, and keeps track of what's going on in the game.
+- **Sound** : Produces the audio events.
 
 The above list is not meant to be exhaustive, but it should give you an idea of what a game engine does. The Blender game engine gives you a lot of control over each of these components, which you will learn one by one in later chapters.
 
-\*\*\* Begin Note
-
-Quality vs. Performance
-
-Making a video game is a constant balancing act between quality and performance. As artists, you want to make the virtual world as rich and detailed as possible; on the other hand, you need to make sure the game can run smoothly for people who might not have top-of-the-line computers. Throughout the process of game-making, you will run into cases where you have to make a decision whether to prioritize the visual quality or the performance of the game. You will also learn tricks to achieve high-quality visual without compromising the performance, as well as how to optimize the game by identifying what is slowing it down.
-
-\*\*\* End Note
+> **Quality vs. Performance**
+>
+> Making a video game is a constant balancing act between quality and performance. As artists, you want to make the virtual world as rich and detailed as possible; on the other hand, you need to make sure the game can run smoothly for people who might not have top-of-the-line computers. Throughout the process of game-making, you will run into cases where you have to make a decision whether to prioritize the visual quality or the performance of the game. You will also learn tricks to achieve high-quality visual without compromising the performance, as well as how to optimize the game by identifying what is slowing it down.
 
 ## Quickstart
 
@@ -287,19 +217,13 @@ This concludes the crash course on 3D graphics. It's finally time to dive into B
 
 ### Installation
 
-Blender runs on Windows, Mac OS X, and Linux, and is available in both 32-bit and 64-bit. You can find the Blender installer for your operating system from www.blender.org. The complete Blender download size is less than 70MB.
-
-\*\*\* Begin Note
-
-When I'm Sixty-Four
-
-The 64-bit version of Blender is generally faster than the 32-bit version and can let you use more than 4GB of memory. If you are using a 64-bit OS, there is really no reason to get the 32-bit binary.
-
-\*\*\* End Note
+Blender runs on Windows, Mac OS X, and Linux, You can find the Blender installer for your operating system from www.blender.org. The complete Blender download size is about 100MB.
 
 Go ahead and install Blender. Start the application once it's installed.
 
-Technically, Blender does not need to be installed before it can be used. The installer is available for convenience only. Blender will run from any location. You can even copy it to a USB storage device and carry it with you, so you'll never be apart from your favorite program. Although, by default, Blender saves some user settings to the user directory.
+> **Installation Not Required**
+>
+> Technically, Blender does not need to be installed before it can be used. The installer is available for convenience only. Blender will run from any location. You can even copy it to a USB storage device and carry it with you, so you'll never be apart from your favorite program. Although, by default, Blender saves some user settings to the user directory.
 
 Even though you need Blender to develop the game, Blender games can be packaged as stand-alone applications, so that others playing it don't need to install anything. See Chapter 9, "Publishing and Beyond," for more details.
 
@@ -307,45 +231,26 @@ Even though you need Blender to develop the game, Blender games can be packaged 
 
 Blender has no explicit system requirement. The performance of the software is dependent on the complexity of the project. Needless to say, the faster your computer is, the better Blender will run.
 
-Blender uses hardware video acceleration to display the main interface and the 3D Viewport. As a result, running Blender on an older "onboard" or "integrated" video card might yield suboptimal performance. An AMD Radeon or NVIDIA GeForce video card is recommended. Older video cards also might not support all the advanced OpenGL 2.0 features that Blender uses. This might result in reduced graphic capabilities when it comes to fancy shader-based effects.
-
 ## Blender Basics
 
-If you are starting Blender for the first time, don't be intimidated by its interface. The interface is probably unlike most applications you have used, but it's very logically grouped once you learn them. Furthermore, since this book is focused on the game engine, you will only have to learn a small subset of all the features available to you.
+When you start Blender, you will be greeted with the splash screen. There is an option to change the user interaction preset to Maya. This will alter the keyboard shortcuts and mouse behavior to match that of Maya. Although you are welcome to do that if you are a Maya user, in this book, we will assume you are using the default Blender preset.
 
-On the splash screen, there is an option to change the user interaction preset to Maya. This will alter the keyboard shortcuts and mouse behavior to match that of Maya. Although you are welcome to do that if you are a Maya user, in this book, we will assume you are using the default Blender preset.
+Once the initial splash screen disappears, you are presented with an empty workspace like this:
 
-Once the initial splash screen disappears, you are presented with an empty workspace similar to the one shown in Figure 1.20.
-
-\*\*\*Insert Fig01-20.tif
-
-Figure 1.20
-
-Blender default workspace.
-
-Source: Blender Foundation.
+![Blender default workspace.](../figures/Chapter1/Fig01-20.jpg)
 
 The Blender window is divided into Editors. Each Editor region can be resized, moved, and changed to display a specific set of content. For now, let's focus on the default setup as shown in Figure 1.20.
 
 #### Main Menu
 
 At the top of the screen is the main menu, which offers basic functionalities such as Open, Save, and Help. Furthermore, the main menu controls the view for the rest of the Blender window. The Render Engine option in the middle of the menu controls how the interface is configured. By default, Blender Render is selected. In this mode, the interface is configured for doing 3D modeling, animation, and rendering. But let's switch it to the Blender Game mode. Click the drop-down menu and select Blender Game from the list. This setting will unlock certain features that are not visible when Blender is in the Blender Render mode, and, to reduce clutter, it also hides features that are not available in the Blender game engine.
+![Selecting the game engine.](../figures/Chapter1/Fig01-21.png)
 
-\*\*\* Begin Note
+> **Game Engine First Setup**
+>
+> Always make sure that the Blender game engine is selected in the main menu when you are working on a game project (see Figure 1.21).
+>
 
-Game Engine First Setup
-
-Always make sure that the Blender game engine is selected in the main menu when you are working on a game project (see Figure 1.21).
-
-\*\*\* End Note
-
-\*\*\*Insert Fig 01-21.tif
-
-Figure 1.21
-
-Selecting the game engine.
-
-Source: Blender Foundation.
 
 #### 3D Viewport
 
