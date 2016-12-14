@@ -69,7 +69,7 @@ To give you some idea of what the game engine is capable of, Chapter 10, "Case S
 
 ### Future of BGE
 
-One downside to writing about software is that it's constantly improving. Even today, projects such as UPBGE are promising to dramatically improve the features and functionalities of the Blender Game Engine. We will try our best to keep this ebook as up-to-date as possible. What you should do as a reader, is to make sure you are always using the latest version of Blender.
+One downside to writing about software is that it's constantly improving. Even today, projects such as [UPBGE](https://upbge.org/) is promising to dramatically improve the features and functionalities of the Blender Game Engine. We will try our best to keep this ebook as up-to-date as possible. What you should do as a reader, is to make sure you are always using the latest version of Blender.
 
 > **Test Builds**
 >
@@ -132,9 +132,10 @@ Often, changing the color is not enough to make a surface look realistic. This i
 
 ![Meshes with texture applied.](../figures/Chapter1/Fig01-10.jpg)
 
-<img alt="From left to right: diffuse map, normal map, and specular map." src="../figures/Chapter1/Fig01-11.jpg" width="50%" align="right">
 
-Traditionally, a texture changes the color of a surface. But that's not all it can do: textures can also be used to alter other properties of the surface such as its transparency, reflectivity, and even bumpiness to create the illusion of a much more detailed surface. Figure 1.11 shows different textures that can be applied to a brick wall.
+Traditionally, a texture changes the color of a surface. But that's not all it can do: textures can also be used to alter other properties of the surface such as its transparency, reflectivity, and even bumpiness to create the illusion of a much more detailed surface.
+
+<img alt="From left to right: diffuse map, normal map, and specular map." src="../figures/Chapter1/Fig01-11.jpg" width="50%" align="right">
 
 A diffuse map controls the base color of the surface. A normal map controls the surface normal of an object, creating a bumpy effect by changing the way the light is reflected off the object. A specular map controls the specular reflection of an object, making it look shiny in certain places and dull in others. A texture map can also have transparent pixels, rendering part of the object transparent.
 
@@ -156,7 +157,7 @@ Think of lighting as more than something that makes your scene visible. Good lig
 
 When you are creating a 3D scene, you are looking at the virtual world from an omniscient view. In this mode, you can view and edit the world from any angle[md]just like a movie director walking around a set in order to adjust things. Once the game starts, the player must view the game through a predetermined camera. Note that a predetermined camera does not mean the camera is fixed; almost all games have a camera that reacts to a player's input. In an action game, the camera tends to follow the character from behind; in a strategy game, the camera might be hovering high above, looking down; in a platformer, the camera is usually looking at the scene from the side.
 
-A camera is also treated as a regular object in Blender, so you can manipulate its location and orientation just as you can with any other object. Figure 1.13 shows a camera object as seen from different views.
+A camera is also treated as a regular object in Blender, so you can manipulate its location and orientation just as you can with any other object.
 
 
 > **Drawing and Composition for Visual Storytellers**
@@ -165,30 +166,35 @@ A camera is also treated as a regular object in Blender, so you can manipulate i
 
 ### Animation
 
-In this context, _animation_ refers to the technique of making things change over time. For example, animation can involve moving an object, deforming it, or changing its color. To set up an animation, you create "keyframes," which are snapshots in time that store specific values pertaining to the animation. The software can then automatically interpolate in between those values to create a smooth transition. Figure 1.14 shows keyframing using Blender's Dopesheet Editor. The Dopesheet allows you to see the various properties that change during an animation: the horizontal axis represents time; the vertical axis shows the various properties, such as location or rotation that are keyframed.
+In this context, _animation_ refers to the technique of making things change over time. For example, animation can involve moving an object, deforming it, or changing its color. To set up an animation, you create "keyframes," which are snapshots in time that store specific values pertaining to the animation. The software can then automatically interpolate in between those values to create a smooth transition. The image below shows Blender's Dopesheet Editor. The Dopesheet allows you to see the various properties that change during an animation: the horizontal axis represents time; the vertical axis shows the various properties, such as location or rotation that are keyframed.
 
 ![Dopesheet Editor: each diamond shape is a keyframe.](../figures/Chapter1/Fig01-14.png)
 
-The easiest way to animate is to alter the location, rotation, and scaling of an object over time. For example, by altering these variables, you can realistically animate the movement of a bouncing ball, as shown in Figure 1.15.
+<img alt="LocRotScale animation" src="../figures/Chapter1/Fig01-15.png" width="50%" align="right">
+<br><br>
+The easiest way to animate is to alter the location, rotation, and scaling of an object over time. For example, by altering these variables, you can realistically animate the movement of a bouncing ball. Keep in mind that the curves represent the value of the channels (in this case xyz location) of the ball, not the actual motion path of the ball itself.
 
-![LocRotScale animation.](../figures/Chapter1/Fig01-15.png)
+<br><br>
 
-<img alt="Armature animation" src="../figures/Chapter1/Fig01-16.png" width="50%" align="right">
+<img alt="Armature animation" src="../figures/Chapter1/Fig01-16.png" width="33%" align="left">
+<br><br>
+To animate something more complicated, such as a human, it's not enough to just move, rotate, and scale the object as a whole. This is where armatures come in. Armatures are skeletons that can be "inserted" into a model to control the model's deformation. Using this system, you can create complex yet organic-looking animations.
 
-To animate something more complicated, such as a human, it's not enough to just move, rotate, and scale the object as a whole. This is where armatures come in. Armatures are skeletons that can be "inserted" into a model to control the model's deformation. Using this system, you can create complex yet organic-looking animations like Figure 1.16.
+<br><br><br><br><br><br>
+<img alt="Shape keys animation." src="../figures/Chapter1/Fig01-17.jpg" width="50%" align="right">
+<br>
+A third way to animate is using shape keys. Shape keys are snapshots of the mesh in different shapes. They are often used to animate nuanced changes that cannot be otherwise easily animated with armatures.
 
-A third way to animate is using shape keys. Shape keys are snapshots of the mesh in different shapes. They are often used to animate nuanced changes that cannot be otherwise easily animated with armatures, as shown in Figure 1.17. 
 
-![Shape keys animation.](../figures/Chapter1/Fig01-17.jpg)
+<img alt="Procedural physics-based motion." src="../figures/Chapter1/Fig01-18.jpg" width="40%" align="left">
+<br><br>
+Finally, keep in mind that making objects move doesn't always have to be a manual process. You can also make objects move by using the physics engine (see Chapter 6).
 
-<img alt="Procedural physics-based motion." src="../figures/Chapter1/Fig01-18.jpg" width="50%" align="right">
-
-Finally, keep in mind that making objects move doesn't always have to be a manual process. You can also make objects move by using the physics engine, as shown in Figure 1.18 (see Chapter 6).
-
+<br><br>
 
 ### Game
 
-So far, we have talked about 3D at length. But how does the game engine fit into? Well, a game engine simply takes the existing 3D assets and attaches a "brain" to them so the objects know how to respond to events. The  "brain" can be in the form of logic bricks (which can perform different actions depending on the user input), scripts (which can extend the functionality of logic bricks), or other physical properties of an object (such as rigid body settings to make an object tumble and fall realistically). 
+So far, we have talked about 3D at length. But how does the game engine fit into? Well, a game engine simply takes the existing 3D assets and attaches a "brain" to them so the objects know how to respond to events. The  "brain" can be in the form of logic bricks (which can perform different actions depending on the user input), scripts (which can extend the functionality of logic bricks), or other physical properties of an object (such as rigid body settings to make an object tumble and fall realistically).
 
 ![Game = Object + Logic.](../figures/Chapter1/Fig01-19.jpg)
 
@@ -207,7 +213,7 @@ The above list is not meant to be exhaustive, but it should give you an idea of 
 
 ## Quickstart
 
-This concludes the crash course on 3D graphics. It's finally time to dive into Blender! From now on, you may be better off reading the book with the computer at your side. In this section, we will give you a short tour of Blender, just enough to get you familiar with the software.
+It's finally time to dive into Blender! From now on, you may be better off reading the book with the computer at your side. In this section, we will give you a short tour of Blender, just enough to get you familiar with the software.
 
 ### Installation
 
@@ -227,79 +233,57 @@ Blender has no explicit system requirement. The performance of the software is d
 
 ## Blender Basics
 
-When you start Blender, you will be greeted with the splash screen. There is an option to change the user interaction preset to Maya. This will alter the keyboard shortcuts and mouse behavior to match that of Maya. Although you are welcome to do that if you are a Maya user, in this book, we will assume you are using the default Blender preset.
+When you start Blender, you will be greeted with the splash screen.Although you can customize all aspect of Blender, in this book, we will assume you are using the default Blender settings and shortcuts.
 
-Once the initial splash screen disappears, you are presented with an empty workspace like this:
+Clicking anywhere else to dismiss the splash screen, you are presented with an empty workspace like this:
 
 ![Blender default workspace.](../figures/Chapter1/Fig01-20.jpg)
 
-The Blender window is divided into Editors. Each Editor region can be resized, moved, and changed to display a specific set of content. For now, let's focus on the default setup as shown in Figure 1.20.
+The Blender window is divided into Editors. Each Editor region can be resized, moved, and changed to display a specific set of content. For now, let's focus on the default setup.
 
 #### Main Menu
 
 At the top of the screen is the main menu, which offers basic functionalities such as Open, Save, and Help. Furthermore, the main menu controls the view for the rest of the Blender window. The Render Engine option in the middle of the menu controls how the interface is configured.
 
 <img alt="Selecting the Game Engine" src="../figures/Chapter1/Fig01-21.png" width="50%" align="left">
-By default, Blender Render is selected. In this mode, the interface is configured for doing 3D modeling, animation, and rendering. But let's switch it to the Blender Game mode. Click the drop-down menu and select Blender Game from the list. This setting will unlock certain features that are not visible when Blender is in the Blender Render mode, and, to reduce clutter, it also hides features that are not available in the Blender game engine.
-
-
-> **Game Engine First Setup**
->
-> Always make sure that the Blender game engine is selected in the main menu when you are working on a game project (see Figure 1.21).
->
+<br>
+By default, Cycles Render is selected. In this mode, the interface is configured for doing 3D modeling, animation, and rendering with Cycles. But let's switch it to the Blender Game mode. Click the drop-down menu and select Blender Game from the list. This setting will unlock certain features that are not visible normally, and it also hides features that are not available in the Blender game engine.
 
 
 #### 3D Viewport
 
-Occupying the majority of the screen is a 3D Viewport. Here you can see the 3D world you created and test the game. For now, feel free to explore the 3D Viewport by holding down your middle mouse button over the 3D Viewport and dragging the mouse; the view should rotate with the mouse movement. (Mac users can do the rotate gesture on the Trackpad or the Magic Mouse.) The default scene contains three objects: a cube, a camera, and a light. To select one of the objects, right-click on it. The selected object is highlighted in yellow.
+Occupying the majority of the screen is a 3D Viewport. Here you can see the 3D world you created and test the game. For now, feel free to explore the 3D Viewport by holding down your middle mouse button over the 3D Viewport and dragging the mouse; the view should rotate with the mouse movement. (Mac users can use the two-finger rotate gesture on the trackpad) The default scene contains three objects: a cube, a camera, and a light. To select one of the objects, right-click on it. The selected object is highlighted in yellow.
 
-\*\*\* Begin Note
+>**Basic Navigation Controls**
 
-Basic Navigation Controls
+>Press and hold the middle mouse button to rotate the 3D view. Scroll the mouse wheel to zoom in the 3D view. Right-click to select a 3D object. Selected objects are highlighted in yellow.
 
-Press and hold the middle mouse button to rotate the 3D view. Scroll the mouse wheel to zoom in the 3D view. Right-click to select a 3D object. Selected objects are highlighted in yellow.
 
-\*\*\* End Note
+<img alt="Number pad keyboard layout." src="../figures/Chapter1/Fig01-23.png" width="50%" align="left">
 
 Another common setup for the 3D Viewport is to split the view into four quadrants: top view, side view, front view, and a perspective view. You can turn on Quad view by pressing Ctrl+Alt+Q with the mouse over the 3D Viewport (see Figure 1.22). Press the same key combination to go back to the single view.
 
-\*\*\*Insert Fig 01-22.tif
+To quickly snap to one of the predetermined views (side, top, front, and so on), the number pad is the way to go.
 
-Figure 1.22
-
-Quad view.
-
-Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved.
-
-To quickly snap to one of the predetermined views (side, top, front, and so on), the number pad is the way to go. Figure 1.23 shows the keyboard layout on the number pad.
-
-\*\*\*Insert Fig 01-23.tif
-
-Figure 1.23
-
-Number pad keyboard layout.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
 
 #### Outliner
 
-Back to Figure 1.20. To the right of the screen are two editors. The top portion is the Outliner, which contains a listing of all the data in the current Blender file. For a large project, the Outliner is an indispensable tool for organizing your scene. For now, you can safely ignore it.
+<img alt="Outliner" src="../figures/Chapter1/Fig01-20b.png" width="50%" align="right">
+
+To the right of the screen are two editors. The top portion is the Outliner, which contains a listing of all the data in the current Blender file. For a large project, the Outliner is an indispensable tool for organizing your scene. For now, you can safely ignore it.
 
 #### Properties Editor
 
+
+<img alt="Properties Editor icons." src="../figures/Chapter1/Fig01-24.png" width="50%" align="right">
 Under the Outliner on the right, you have the Properties Editor. Here you can access global settings for the file, as well as settings for individual objects. This is one of the most frequently used panels in Blender, after the 3D view perhaps. The Properties Editor is context sensitive, which means it will automatically display different content, depending on the object that is active. Take a closer look at the row of icons at the top of the Properties Editor, as shown in Figure 1.24. These tabs organize the properties into groups, with the more general settings on the left-most tab, and the more specific settings on the right.
 
-\*\*\*Insert Fig 01-24.tif
-
-Figure 1.24
-
-Properties Editor icons.
-
-Source: Blender Foundation.
 
 #### Timeline
 
 At the very bottom of the screen is a timeline window, which will be useful when you start making animations.
+![Timeline](../figures/Chapter1/Fig01-20c.png)
+
 
 #### Workspace Customization
 
@@ -307,35 +291,24 @@ The default screen, as described previously, is set up for general use. At some 
 
 Apart from the predefined screen layouts, you can customize the screen layout however you like. You can either split an existing editor into two or merge two adjacent editors together.
 
-\*\*\* Begin Note
+>Editor, Region, and Area
 
-Editor, Region, and Area
+>A region within the Blender windows is called an _editor_. An editor displays a specific set of content and tools. Common areas include: 3D View, Properties Editor, UV/Image Editor, and Logic Brick Editor.
 
-A region within the Blender windows is called an _editor_. An editor displays a specific set of content and tools. Common areas include: 3D View, Properties Editor, UV/Image Editor, and Logic Brick Editor.
 
-\*\*\* End Note
 
 Figure 1.25 shows one area split into two. You can do it by dragging the top corner of the area to the right or bottom
 
-\*\*\*Insert Fig01-25.tif
-
-Figure 1.25
-
-Area splitting.
-
-Source: Blender Foundation.
+![Area Splitting](../figures/Chapter1/Fig01-25.png)
 
 To merge two adjacent areas into one is exactly the same as shown in Figure 1.25, but it is done in reverse order. Optionally, you can click with the right mouse button in the edge of the area you want to split or join, and select the option in the Area Options pop-up menu.
 
 Each editor contains a header, which is found on either the bottom or the top of that editor. They contain tools and menu options relevant to the editor. Figure 1.26 shows some headers for the different editors.
 
-\*\*\*Insert Fig01-26.tif
+![Headers (Action Editor, 3D Editor, Image Editor, Properties Editor).](../figures/Chapter1/Fig01-26.png)
 
-Figure 1.26
 
-Headers (Action Editor, 3D Editor, Image Editor, Properties Editor).
-
-Source: Blender Foundation.
+<img alt="Editor selection." src="../figures/Chapter1/Fig01-27.png" width="50%" align="right">
 
 Not only can you change the size and layout of the editor, but the type of editor can also be changed. As you can see in Figure 1.27, the left-most icon in the header can be used to change the editor type.
 
