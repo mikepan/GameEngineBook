@@ -244,6 +244,11 @@ The Blender window is divided into Editors. Each Editor region can be resized, m
 #### Main Menu
 
 At the top of the screen is the main menu, which offers basic functionalities such as Open, Save, and Help. Furthermore, the main menu controls the view for the rest of the Blender window. The Render Engine option in the middle of the menu controls how the interface is configured. By default, Blender Render is selected. In this mode, the interface is configured for doing 3D modeling, animation, and rendering. But let's switch it to the Blender Game mode. Click the drop-down menu and select Blender Game from the list. This setting will unlock certain features that are not visible when Blender is in the Blender Render mode, and, to reduce clutter, it also hides features that are not available in the Blender game engine.
+
+<img alt="Selecting the Game Engine" src="../figures/Chapter1/Fig01-21.png" width="50%" align="left">
+
+
+
 ![Selecting the game engine.](../figures/Chapter1/Fig01-21.png)
 
 > **Game Engine First Setup**

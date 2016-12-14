@@ -1,6 +1,5 @@
 /offline/
-
-.dropbox
+/files/
 
 # Windows image file caches
 Thumbs.db
