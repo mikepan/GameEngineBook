@@ -83,7 +83,7 @@ The knowledge in this section is universal and applies to all other 3D applicati
 
 ### Coordinate System
 
-<img alt="The three axes illustrated" scr="../figures/Chapter1/Fig01-05.png" width="50%" align="right">
+<img alt="The three axes illustrated" src="../figures/Chapter1/Fig01-05.png" width="50%" align="right">
 We live in a three-dimensional world that has width, height, and depth. So to represent anything that resembles real life as a virtual world inside a computer, we need to think and work in three dimensions. The most common system used is called the Cartesian coordinate system, where the three dimensions are represented by X, Y, and Z, laid out as intersecting planes. Where the three axes meet is called the _origin_. You can think of the origin as the center of your digital universe. A single position in space is represented by a set of numbers that corresponds to its position from the origin: thus (2, -4, 8) is a point in space that is 2 units from the origin along the X axis, 4 units from the origin along the -Y axis, and 8 units up in the Z direction.
 
 
@@ -95,20 +95,19 @@ Although we can define a position in space using the XYZ coordinates, a single p
 
 Why is the triangle so important? Turns out, modern computer graphics use the triangle as the basic building block for almost any shape. A rectangular plane (also known as a _quadrangle_, or more commonly a _quad_) is simply two triangles arranged side by side. A cube is simply six squares put together. Even a sphere is just made of tiny facelets arranged into a ball shape.
 
+<img alt="The same cylinder cap can be made up of triangles, quads, or an n-gon." scr="../figures/Chapter1/Fig01-07.jpg" width="50%" align="right">
+
 In Blender, a mesh can be made from a combination of triangles, quads, or n-gons. The benefit of n-gons is their ability to retain a clean topology while modeling. Without n-gons, certain areas of a model (such as a window on a wall) would require a higher number of triangles or quads to approximate, as shown below. While n-gons make modeling easier in some cases, Blender still converts them to triangles when you start the game.
 
-![The same cylinder cap can be made up of triangles, quads, or an n-gon.](../figures/Chapter1/Fig01-07.jpg)
-
-
+<img alt="The same cylinder cap can be made up of triangles, quads, or an n-gon." src="../figures/Chapter1/Fig01-07.jpg" width="50%" align="right">
 
 The process of creating a mesh by rearranging vertices, edges, and lines is called _modeling_. Blender has many tools that help artists define the geometry they want.
 
 It is worth noting that unlike the real world, polygonal models do not have volumes. They are just a shell made of interconnected faces that take the shape of the object, but the inside of the object is always "hollow."
 
+<img alt="Surface normals are displayed as cyan lines protruding from the faces." src="../figures/Chapter1/Fig01-08.jpg" width="50%" align="right">
+
 Another concept that a modeler will likely encounter is surface normals, or "normals" for short. Normal is a property of each face that indicates the direction a polygon is facing. Because normals are used for shading computation of the surface, ideally all the normals for a mesh should be pointed "outward." Wrongly oriented normals can cause the mesh to show up as black or invisible. Fortunately, there is a Make Normals Consistent function in Blender that can usually resolve the issue. Figure 1.8 shows how normals are presented in Blender.
-
-![Surface normals are displayed as cyan lines protruding from the faces.](../figures/Chapter1/Fig01-08.jpg)
-
 
 
 > **Beyond Polygons**
