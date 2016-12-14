@@ -95,11 +95,9 @@ Although we can define a position in space using the XYZ coordinates, a single p
 
 Why is the triangle so important? Turns out, modern computer graphics use the triangle as the basic building block for almost any shape. A rectangular plane (also known as a _quadrangle_, or more commonly a _quad_) is simply two triangles arranged side by side. A cube is simply six squares put together. Even a sphere is just made of tiny facelets arranged into a ball shape.
 
-<img alt="The same cylinder cap can be made up of triangles, quads, or an n-gon." scr="../figures/Chapter1/Fig01-07.jpg" width="50%" align="right">
+<img alt="The same cylinder cap can be made up of triangles, quads, or an n-gon." src="../figures/Chapter1/Fig01-07.jpg" width="50%" align="right">
 
 In Blender, a mesh can be made from a combination of triangles, quads, or n-gons. The benefit of n-gons is their ability to retain a clean topology while modeling. Without n-gons, certain areas of a model (such as a window on a wall) would require a higher number of triangles or quads to approximate, as shown below. While n-gons make modeling easier in some cases, Blender still converts them to triangles when you start the game.
-
-<img alt="The same cylinder cap can be made up of triangles, quads, or an n-gon." src="../figures/Chapter1/Fig01-07.jpg" width="50%" align="right">
 
 The process of creating a mesh by rearranging vertices, edges, and lines is called _modeling_. Blender has many tools that help artists define the geometry they want.
 
@@ -134,11 +132,9 @@ Often, changing the color is not enough to make a surface look realistic. This i
 
 ![Meshes with texture applied.](../figures/Chapter1/Fig01-10.jpg)
 
-
+<img alt="From left to right: diffuse map, normal map, and specular map." src="../figures/Chapter1/Fig01-11.jpg" width="50%" align="right">
 
 Traditionally, a texture changes the color of a surface. But that's not all it can do: textures can also be used to alter other properties of the surface such as its transparency, reflectivity, and even bumpiness to create the illusion of a much more detailed surface. Figure 1.11 shows different textures that can be applied to a brick wall.
-
-![From left to right: diffuse map, normal map, and specular map.](../figures/Chapter1/Fig01-11.jpg)
 
 A diffuse map controls the base color of the surface. A normal map controls the surface normal of an object, creating a bumpy effect by changing the way the light is reflected off the object. A specular map controls the specular reflection of an object, making it look shiny in certain places and dull in others. A texture map can also have transparent pixels, rendering part of the object transparent.
 
@@ -148,20 +144,19 @@ Generally, textures are image files. But there are also other ways to texture a 
 
 Everything you see is the result of light hitting your eyes-without lights, the world would be pitch black. Likewise, light is just as important in a virtual world. With light comes shadow as well. Shadow might not be something that you think about every day, but the interplay of shadow and light makes a huge difference in how the scene is presented.
 
-In most 3D applications, there are several different types of light available to the artist; each type has its advantages and disadvantages. For example, a Spot lamp approximates a lamp with a conical influence; a sun lamp approximates a light source from infinitely far away. Lamps in Blender are treated like regular objects: they can be positioned and rotated just like any other object. Figure 1.12 shows how different lamps look in Blender.
+<img alt="From left: Lamp, Sun, Spot lamp, Hemi lamp, and Area lamp." src="../figures/Chapter1/Fig01-12.png" width="50%" align="right">
 
-![From left: Lamp, Sun, Spot lamp, Hemi lamp, and Area lamp.](../figures/Chapter1/Fig01-12.png)
+In most 3D applications, there are several different types of light available to the artist; each type has its advantages and disadvantages. For example, a Spot lamp approximates a lamp with a conical influence; a sun lamp approximates a light source from infinitely far away. Lamps in Blender are treated like regular objects: they can be positioned and rotated just like any other object. Figure 1.12 shows how different lamps look in Blender.
 
 Think of lighting as more than something that makes your scene visible. Good lighting can enhance the purpose of the scene by highlighting details while hiding irrelevant areas in shadow. Skillful placement of lighting also adds drama and realism to the scene, making an otherwise boring scene look visually exciting.
 
 ### Camera
 
+<img alt="Camera objects" src="../figures/Chapter1/Fig01-13.png" width="50%" align="right">
+
 When you are creating a 3D scene, you are looking at the virtual world from an omniscient view. In this mode, you can view and edit the world from any angle[md]just like a movie director walking around a set in order to adjust things. Once the game starts, the player must view the game through a predetermined camera. Note that a predetermined camera does not mean the camera is fixed; almost all games have a camera that reacts to a player's input. In an action game, the camera tends to follow the character from behind; in a strategy game, the camera might be hovering high above, looking down; in a platformer, the camera is usually looking at the scene from the side.
 
 A camera is also treated as a regular object in Blender, so you can manipulate its location and orientation just as you can with any other object. Figure 1.13 shows a camera object as seen from different views.
-
-![Camera objects.](../figures/Chapter1/Fig01-13.png)
-
 
 
 > **Drawing and Composition for Visual Storytellers**
@@ -178,17 +173,18 @@ The easiest way to animate is to alter the location, rotation, and scaling of an
 
 ![LocRotScale animation.](../figures/Chapter1/Fig01-15.png)
 
-To animate something more complicated, such as a human, it's not enough to just move, rotate, and scale the object as a whole. This is where armatures come in. Armatures are skeletons that can be "inserted" into a model to control the model's deformation. Using this system, you can create complex yet organic-looking animations like Figure 1.16.
+<img alt="Armature animation" src="../figures/Chapter1/Fig01-16.png" width="50%" align="right">
 
-![Armature animation.](../figures/Chapter1/Fig01-16.png)
+To animate something more complicated, such as a human, it's not enough to just move, rotate, and scale the object as a whole. This is where armatures come in. Armatures are skeletons that can be "inserted" into a model to control the model's deformation. Using this system, you can create complex yet organic-looking animations like Figure 1.16.
 
 A third way to animate is using shape keys. Shape keys are snapshots of the mesh in different shapes. They are often used to animate nuanced changes that cannot be otherwise easily animated with armatures, as shown in Figure 1.17. 
 
 ![Shape keys animation.](../figures/Chapter1/Fig01-17.jpg)
 
+<img alt="Procedural physics-based motion." src="../figures/Chapter1/Fig01-18.jpg" width="50%" align="right">
+
 Finally, keep in mind that making objects move doesn't always have to be a manual process. You can also make objects move by using the physics engine, as shown in Figure 1.18 (see Chapter 6).
 
-![Procedural physics-based motion.](../figures/Chapter1/Fig01-18.jpg)
 
 ### Game
 
