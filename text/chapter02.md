@@ -1,24 +1,10 @@
-Slug: Game Development with Blender
+# Chapter 2: First Game
 
-\*\*\* Production: Please replace the following
-
-[md] with em dash
-
-[nd] en dash
-
-[c] copyright sign
-
-[r] registered mark sign
-
-# Chapter 2
-
-# First Game
-
-In this section, we are going through the steps of making a simple game, from start to finish. The first goal is to keep your Blender knowledge up-to-date. Second, this is a chance to present an overview of the game's workflow. From this point on, you should be able to read the chapters in this book in any given order, according to your needs.
+In this chapter, we are going through the steps of making a simple game, from start to finish. The first goal is to keep your Blender knowledge up-to-date. Second, this is a chance to present an overview of the game's workflow. From this point on, you should be able to read the chapters in this book in any given order, according to your needs.
 
 Welcome to _Feed The Shark,_ the game.
 
-# Game Idea
+## Game Idea
 
 _The shark population has been depleted worldwide. Studies suggest that overfishing and the illegal marketing of shark fins has impacted not only the top predator of the oceans but also brought imbalance to the whole ecosystem._
 
@@ -40,27 +26,20 @@ _Feed The Shark,_ the game.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved.
 
-# Game Elements
+## Game Elements
 
 This minimalistic game will consist of:
 
-\*\*\* Begin Numbered List
-
-1.Animated shark controlled by keyboard
-
-2.Underwater environment
-
-3.Schools of fish controlled by AI
-
-4.Interface
-
-\*\*\* End Numbered List
+1. Animated shark controlled by keyboard
+2. Underwater environment
+3. Schools of fish controlled by AI
+4. Interface
 
 We are not covering all the topics extensively. We will, however, walk you through some of the basics of modeling, animating, and other Blender-specific tasks.
 
 If you are already familiar with Blender as an asset-making tool, you might skip some of those steps. On the DVD, you will find incremental snapshots for all the individual parts.
 
-# File Organization, Datablocks, and Linking
+## File Organization, Datablocks, and Linking
 
 _Starting with the right fin…_
 
@@ -68,17 +47,17 @@ It's important to plan ahead and to know how to organize the files we will be cr
 
 Having independent files allows for a big team to work together on separated assets. It also helps for individual versioning control. It may seem like overkill for a small project, but it's a good practice that scales up pretty well.
 
-\*\*\* Begin Note
 
-Version Control
 
-Version control is any system you can find to organize the version of your files. If you keep daily backups of your production files in a separate folder, then you are doing version control. In practical terms, there are more modern ways to accomplish this, without having to handle file renaming and manually filled log files[md]namely SVN, Git, and Bazaar.
+> **Version Control**
+>
+> Version control is any system you can find to organize the version of your files. If you keep daily backups of your production files in a separate folder, then you are doing version control. In practical terms, there are more modern ways to accomplish this, without having to handle file renaming and manually filled log files[md]namely SVN, Git, and Bazaar.
+>
+> Blender files are not optimal when it comes to merging. (Given that they are binaries, you either roll back a file entirely or do it manually.) Thus, working with individual components can help you overcome that.
 
-Blender files are not optimal when it comes to merging. (Given that they are binaries, you either roll back a file entirely or do it manually.) Thus, working with individual components can help you overcome that.
 
-\*\*\* End Note
 
-# Datablocks
+## Datablocks
 
 In the previous chapter, we introduced you to the concept of datablocks. Linked datablocks (for example, a texture datablock used by a material datablock) don't even need to be part of the same file. In our project, we will use it to a certain extent. What are the criteria here?
 
@@ -88,7 +67,7 @@ Now let's look at armatures and actions. Only after you are done with your riggi
 
 But how do we keep them linked while in separate files?
 
-# Linking and Appending
+## Linking and Appending
 
 There are four ways of adding new objects and other datablocks to your Blender file. You can build them from scratch; you can import them from a different format (Collada or FBX, for example); and you can link or append them from another Blender file.
 
@@ -110,7 +89,7 @@ As you will see from our file structure (explained next), we will be using mostl
 
 You don't simply dump the whole Blender file inside yours. Instead, you can navigate inside the file structure and bring in only an object, or a group, material, or even an entire scene. We will be linking the shark, interface, environment, and other fish in the main file. We could also do nested linking, by having one of the library files link another file inside it (for example, the actions could be linked in the armature files).
 
-# How to Use the Chapter Files
+## How to Use the Chapter Files
 
 On the Book files, you can find the complete game/exercise in the folder \Book\Chapter02\game\_final\.
 
@@ -140,7 +119,7 @@ To follow the progress of the instruction steps, we have other folders. Copy the
 
 For the rest of the chapter, we will refer to the files from your //game\_my/ top folder.
 
-# Modeling
+## Modeling
 
 Open Blender and save the default file as //assets/shark.blend.
 
@@ -280,7 +259,7 @@ To finish the model, you can add the swimmers on the sides. Start by selecting o
 
 You can refine your model as much as you want. The current model is in //assets/shark.4.blend.
 
-# Texturing
+## Texturing
 
 The next step shouldn't take much time. To add the skin of the shark, we will use an image projected into the faces. Images are two-dimensional, while our models are three-dimensional. In order to match them both, we need to do the equivalent of peeling an orange and flattening the peel onto a flat plane. The peel in the plane will be our image of the orange skin, allowing us to use a 2D image for our 3D model. Another example is the representation of the world map where a sphere is projected onto a plane, as you can see in Figure 2.12. The process of mapping the 3D geometry to a 2D plane is called _UV texturing._
 
@@ -334,7 +313,7 @@ The texture needs to be part of a material. Select the object, and in the Proper
 
 If you are not familiar with materials in Blender, refer to Chapter 5, "Graphics." You can also import the materials Shark and SharkEyes from the current file at //assets/shark.6.blend .
 
-# Rigging
+## Rigging
 
 _Animate the shark…_
 
@@ -398,7 +377,7 @@ With the armature selected, go to the Properties Data panel and set X-Ray on in 
 
 To test the bone weighting, move the bones around (in the Pose not Edit Mode) and see if the mesh goes with it. The file is ready for animation and can be found here: //assets/shark.8.blend.
 
-# Animation
+## Animation
 
 To create an animation, you need to define the individual poses that will build up the illusion of movement. As an artist, you can define the poses frame by frame or work in a few moments of the animation. For example, you can define just a few frames, and Blender will automatically calculate the missing frames for the animation. It depends on how much control you want.
 
@@ -416,9 +395,9 @@ We will create a swimming cycle[md]an animation where the first and the last pos
 
  1. Set the current frame to the initial one (Shift+Left).
 
-2. Select the armature.
+ 2. Select the armature.
 
-3. Change to the Pose mode.
+ 3. Change to the Pose mode.
 
 \*\*\* End Numbered List
 
@@ -496,7 +475,7 @@ The current snapshot of this file is //assets/shark.10.blend.
 
 You can also do a "SharkAttack" animation. For a smooth transition, make the new action with the same initial and final poses as the "SharkSwimming." If you go with that, use the attack animation when the shark eats a fish.
 
-# Camera and Keyboard
+## Camera and Keyboard
 
 After all the hard work of setting up your main character, it's time to bring in the game. If you play (P) the game now, you will see nothing but the shark standing still.
 
@@ -568,7 +547,7 @@ If you are modeling everything from scratch, you should tweak the speed and angl
 
 With the shark alone in the scene, it's hard to tell how it is moving. It's time to add other objects to the scene so you can make sure that the camera settings and the shark motion are well adjusted. Thus, the next step is to add the world (the SeaBed et al). In the meantime, you can compare the status of your file with: //assets/shark.12.blend.
 
-# World and Environment
+## World and Environment
 
 We will leave the shark file for now and put the game pieces together. Open the file //game.1.blend. This empty file will be the main file of the game. If you want to start a file from scratch, open the Blender default file, delete everything from it (press A to select all and then X to delete), and change engine to Blender Game and Shading mode to GLSL.
 
@@ -622,7 +601,7 @@ Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserve
 
 Play your game and swim around with the shark. However, there is one basic element missing in our survival shark game: the food.
 
-# Artificial Intelligence
+## Artificial Intelligence
 
 While the shark is 100 percent interactive, controlled by the player, the fish will be controlled through a simple AI (artificial intelligence) mechanic. The principles are simple: the fish's swimming cycle is handled by logic bricks, while the fish's constant spawning inflow is controlled by an individual "program" (a script) responsible for the following components:
 
@@ -680,7 +659,7 @@ Source: Blender Foundation.
 
 The current checkpoint is at //game.4.blend. If you changed your //assets/school.blend file, you need only replace the one in the sources with yours. As we mentioned (three times already, anyone counting?), the new data will be automatically synced in the game. Play your game, and get ready to wrap up the shark feeding.
 
-# All You Can Eat
+## All You Can Eat
 
 If you try to catch the fish with the shark, you will see that the shark pushes the fish away. For the game, we need three things to happen: (1) the fish needs to die, (2) the shark needs to get bigger, (3) a score on the screen needs to tell how many fish we caught and how much time we have left.
 
@@ -740,7 +719,7 @@ We started by creating an animation for the shark. This animation is played acco
 
 Apart from that, the shark needs the "shark" game property to be detected by the fish school. This will trigger the collision. The collision sensor simply checks if the object has a property with a given name, so the type and value of the property are arbitrary (in our case, we are using a Boolean property, but it could be any other property type). Now one by one, we can eat the fish. And it's time to count sheep.
 
-# Scoring System
+## Scoring System
 
 The score system of the game is part of its interface built on top of the 3D view. In Figure 2.30, you can see the main elements of the interface: the score on the top left, the time countdown on the top right, and the title of the game on the bottom right.
 
@@ -808,7 +787,7 @@ Game over.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
-# Music for Your Ears
+## Music for Your Ears
 
 A game is not complete without sound effects. There are three sounds under // sounds/: the ambient sound (water.m4a), the eating-fish effect (sharked.m4a), and the ending sound (gameover.m4a). This is the farewell set of instructions for this chapter and a prelude for the following chapter (entirely on logic bricks). Speaking of the lack of images, those are sound samples. Feel free to whistle along.
 
@@ -836,7 +815,7 @@ Source: Blender Foundation.
 
 The final file is at //game.6.blend.
 
-# Where to Go from Here
+## Where to Go from Here
 
 The game is complete: the final files are in \Book\Chapter02\game\_final\game.blend.
 
