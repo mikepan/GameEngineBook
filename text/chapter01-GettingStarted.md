@@ -319,9 +319,8 @@ The 3D view is where you will spend most of your time, so let's take a look at i
 
 #### Viewport Shading Modes
 
-Let's look at the four different Viewport Shading modes available in the 3D view. As shown in Figure 1.29, they are used to change the way the scene is displayed onscreen. The four modes are:
-
-<img alt="Drawing Modes" src="../figures/Chapter1/Fig01-29.png" width="25%" align="left">
+<img alt="Drawing Modes" src="../figures/Chapter1/Fig01-29.png" width="25%" align="right">
+Let's look at the four different Viewport Shading modes available in the 3D view. They are used to change the way the scene is displayed onscreen. The four modes are:
 
 - **Bounding Box** : Represents all objects as a wireframe boundary. Useful for when the scene gets really complex.
 - **Wireframe** : Draws all objects as wireframe, which allows you to see through objects.
