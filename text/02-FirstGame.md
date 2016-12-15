@@ -18,13 +18,8 @@ Sure, who doesn't like sashimi? Simply put, we will need a swimming shark that h
 
 To make it more like a game, we will wrap it with a score system and an omnipresent ticking, counting-down clock.
 
-\*\*\*Insert Fig02-01.tif
+![Feed The Shark, the game.](../figures/Chapter2/Fig02-01.jpg)
 
-Figure 2.1
-
-_Feed The Shark,_ the game.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
 
 ## Game Elements
 
@@ -37,24 +32,22 @@ This minimalistic game will consist of:
 
 We are not covering all the topics extensively. We will, however, walk you through some of the basics of modeling, animating, and other Blender-specific tasks.
 
-If you are already familiar with Blender as an asset-making tool, you might skip some of those steps. On the DVD, you will find incremental snapshots for all the individual parts.
+If you are already familiar with Blender as an asset-making tool, you might skip some of those steps. You will find incremental snapshots for all the individual parts here on this site.
 
 ## File Organization, Datablocks, and Linking
 
 _Starting with the right fin…_
 
-It's important to plan ahead and to know how to organize the files we will be creating. For this project, we will try to make the files as self-contained as possible. You should be able to open the shark file and test the swimming animation[md]without having to worry about the other fish, the terrain, or the interface.
+It's important to plan ahead and to know how to organize the files we will be creating. For this project, we will try to make the files as self-contained as possible. You should be able to open the shark file and test the swimming animation-without having to worry about the other fish, the terrain, or the interface.
 
 Having independent files allows for a big team to work together on separated assets. It also helps for individual versioning control. It may seem like overkill for a small project, but it's a good practice that scales up pretty well.
 
 
-
 > **Version Control**
 >
-> Version control is any system you can find to organize the version of your files. If you keep daily backups of your production files in a separate folder, then you are doing version control. In practical terms, there are more modern ways to accomplish this, without having to handle file renaming and manually filled log files[md]namely SVN, Git, and Bazaar.
+> Version control is any system you can find to organize the version of your files. If you keep daily backups of your production files in a separate folder, then you are doing version control. In practical terms, there are more modern ways to accomplish this, without having to handle file renaming and manually filled log files-namely SVN, Git, and Bazaar.
 >
 > Blender files are not optimal when it comes to merging. (Given that they are binaries, you either roll back a file entirely or do it manually.) Thus, working with individual components can help you overcome that.
-
 
 
 ## Datablocks
@@ -71,17 +64,12 @@ But how do we keep them linked while in separate files?
 
 There are four ways of adding new objects and other datablocks to your Blender file. You can build them from scratch; you can import them from a different format (Collada or FBX, for example); and you can link or append them from another Blender file.
 
+<img alt="Blender file structure." src="../figures/Chapter2/Fig02-02.png" width="50%" align="left">
+
 Linking and appending are quite similar. They both allow you to import part of a Blender file into your current file. Here, the concept of data block should become even clearer. In Figure 2.2, you can see the link/append dialog. Whether you are linking or appending, it will depend on the link option in the load window.
 
-\*\*\*Insert Fig02-02.tif
 
-Figure 2.2
-
-Blender file structure.
-
-Source: Blender Foundation.
-
-The difference between linking and appending is what happens after you bring the new data into your file. If you append a file[md]let's call it _library_[md]the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
+The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_-the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
 
 If you want to keep the files in sync (and you do most of the time), you then need to set "Link" while importing the library file. By doing this, you will not be able to edit the file in your working Blender file. Instead, you need to go back to your library file, change it, save it, and then open the working file again.
 
@@ -109,13 +97,13 @@ To play the game inside Blender, open the file game.blend. This file is only a p
 
 To follow the progress of the instruction steps, we have other folders. Copy the whole folder onto your computer to work from there. These are the folders we will be using:
 
-**\** Book\Chapter02\game\_my **\** [md]The semi-empty folder structure to be filled as you advance in the chapter.
+**\** Book\Chapter02\game\_my **\** -The semi-empty folder structure to be filled as you advance in the chapter.
 
-\Book\Chapter02\game\_progress\[md]The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number[md]for example, game.1.blend, game.1.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game\_my" folder.
+\Book\Chapter02\game\_progress\-The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.1.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game\_my" folder.
 
-\Book\Chapter02\game\_final\[md]The final as of the end of this exercise; use for reference.
+\Book\Chapter02\game\_final\-The final as of the end of this exercise; use for reference.
 
-\Book\Chaper02\references\[md]Files to support the making of the game.
+\Book\Chaper02\references\-Files to support the making of the game.
 
 For the rest of the chapter, we will refer to the files from your //game\_my/ top folder.
 
@@ -129,7 +117,7 @@ We will model the outline of the shark based on reference images. To set up your
 
 1.Split your 3D view into four views (Ctrl+Alt+Q).
 
-2.Open the 3D view Properties panel (N)[md]remember that the mouse needs to be over the 3D view in order to call the commands for it.
+2.Open the 3D view Properties panel (N)-remember that the mouse needs to be over the 3D view in order to call the commands for it.
 
 3.In the bottom of the panel, you will see the Background Images option. Turn it on.
 
@@ -195,7 +183,7 @@ Figure 2.7
 
 Source: Blender Foundation.
 
-At this point, you can start exploring the top view as well. For quickly switching to top view, use NumPad7 or toggle quad view on and off. Sometimes you need to transform the geometry only in one axis. In Figure 2.8, you can use the handler to pull if you want to move an edge in a specific axis. You can also use the keyboard for that. To restrict the transformation, press X, Y, or Z after the command and slide in the specified axis. Shift+X, Y, or Z works in the opposite way. It locks the transformation for the opposite axis (so you can only move/scale/rotate in a plane). This is really useful[md]we use G with Shift+Z all the time.
+At this point, you can start exploring the top view as well. For quickly switching to top view, use NumPad7 or toggle quad view on and off. Sometimes you need to transform the geometry only in one axis. In Figure 2.8, you can use the handler to pull if you want to move an edge in a specific axis. You can also use the keyboard for that. To restrict the transformation, press X, Y, or Z after the command and slide in the specified axis. Shift+X, Y, or Z works in the opposite way. It locks the transformation for the opposite axis (so you can only move/scale/rotate in a plane). This is really useful-we use G with Shift+Z all the time.
 
 \*\*\*Insert Fig02-08.tif
 
@@ -243,9 +231,9 @@ Additionally, an advanced resource is to add custom Transform Orientations. This
 
 Because the Mirror Modifier has both "Merge" and "Clipping" options turned on, the extrude will not simply be constrained to the normal (the axis perpendicular to the face) initially. Instead, the extruded face will be locked to the normal, but half of it will be locked in with the mirror plane. Therefore, it will behave as if locked vertically (Z axis).
 
-To save time with the modeling, we will add a head from the built-in meshes in Blender. While in the Edit mode, go to the Add Mesh menu (Shift+A) and choose Monkey. You will need to scale (S), rotate (R), and grab (G) it to make it match the reference image. And they match perfectly[md]what a happy coincidence.
+To save time with the modeling, we will add a head from the built-in meshes in Blender. While in the Edit mode, go to the Add Mesh menu (Shift+A) and choose Monkey. You will need to scale (S), rotate (R), and grab (G) it to make it match the reference image. And they match perfectly-what a happy coincidence.
 
-You will need to remove some faces from the neck to connect it with the top part of the body. To delete faces, use the X key. This will bring up the menu shown in Figure 2.11[md]pick your option wisely. To connect vertices and edges, use the F key. (They need to be selected, and no more than what can fit in a face.)
+You will need to remove some faces from the neck to connect it with the top part of the body. To delete faces, use the X key. This will bring up the menu shown in Figure 2.11-pick your option wisely. To connect vertices and edges, use the F key. (They need to be selected, and no more than what can fit in a face.)
 
 \*\*\*Insert Fig02-11.tif
 
@@ -271,11 +259,11 @@ World Map: 2D surface equivalent of a 3D geometry.
 
 Source: NASA.
 
-Before we start, go to the Modifiers panel and apply the Mirror Modifier. If you don't do that, the shark can't have a different texture for each of its sides[md]instead, it would use the same texture flipped in the model. Also, you will no longer need the background images. You can turn them off or remove them from the file[md]both options can be found in the Background Images panel in the 3D View Properties menu.
+Before we start, go to the Modifiers panel and apply the Mirror Modifier. If you don't do that, the shark can't have a different texture for each of its sides-instead, it would use the same texture flipped in the model. Also, you will no longer need the background images. You can turn them off or remove them from the file-both options can be found in the Background Images panel in the 3D View Properties menu.
 
 To start creating a UV texture, you need to switch to Edit mode and call the UV Mapping menu (U). This menu has different mapping options. We will be using the first one,  Unwrap, which is a semi-automatic way to calculate the optimal stretching for the 2D texture. The result can be seen and edited in the UV/Image Editor.
 
-In the Editor menu, click Image  New, and in the pop-up menu, set UV Test Grid and confirm. This will produce a sample image where you can check in the 3D model as to how stretched the map image (texture) will be, once it is re-projected onto the shark model. If you look at Figure 2.13, you should spot a problem with the default unwrapping: the image on the side of the shark is too stretched and does not have enough resolution. While the shark tail has a high resolution, that doesn't correspond to its need (the tail is small after all)[md]the smaller the squares of the UV test grid, the higher the pixel-per-face ratio.
+In the Editor menu, click Image  New, and in the pop-up menu, set UV Test Grid and confirm. This will produce a sample image where you can check in the 3D model as to how stretched the map image (texture) will be, once it is re-projected onto the shark model. If you look at Figure 2.13, you should spot a problem with the default unwrapping: the image on the side of the shark is too stretched and does not have enough resolution. While the shark tail has a high resolution, that doesn't correspond to its need (the tail is small after all)-the smaller the squares of the UV test grid, the higher the pixel-per-face ratio.
 
 \*\*\*Insert Fig02-13.tif
 
@@ -309,7 +297,7 @@ Another option is to use the simple "shark tattoo" texture I painted for the fin
 
 \*\*\* End Note
 
-The texture needs to be part of a material. Select the object, and in the Properties Editor, open the Material panel. Create two materials[md]one for the eyes and one for the rest of the shark. In Edit Mode, you can assign a material for the selected faces. The material for the eyes is shadeless and uses white as its diffuse color. The body material is also shadeless, but needs a texture for the color information. With the body material selected, switch to the Texture panel and add a new texture. The texture type needs to be "Image" or "Movie," and you need to pick the image you prepared as a texture. Finally, go to the Mapping tab and select UV as Coordinate. This way, the texture will be mapped according to the UV you just created.
+The texture needs to be part of a material. Select the object, and in the Properties Editor, open the Material panel. Create two materials-one for the eyes and one for the rest of the shark. In Edit Mode, you can assign a material for the selected faces. The material for the eyes is shadeless and uses white as its diffuse color. The body material is also shadeless, but needs a texture for the color information. With the body material selected, switch to the Texture panel and add a new texture. The texture type needs to be "Image" or "Movie," and you need to pick the image you prepared as a texture. Finally, go to the Mapping tab and select UV as Coordinate. This way, the texture will be mapped according to the UV you just created.
 
 If you are not familiar with materials in Blender, refer to Chapter 5, "Graphics." You can also import the materials Shark and SharkEyes from the current file at //assets/shark.6.blend .
 
@@ -327,7 +315,7 @@ The first thing to do is to add an Armature object (Shift+AArmature). It's im
 
 1. Move the 3D cursor to the approximate location (or to skip the next step, put it in [0,0,0] or use Shift+C).
 
-2.Set its X coordinate to 0[md]the Property panel shows the 3D cursor's exact location.
+2.Set its X coordinate to 0-the Property panel shows the 3D cursor's exact location.
 
 3. Set Origin  Origin to 3D cursor.
 
@@ -371,7 +359,7 @@ Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserve
 
 X-Ray and Auto-Normalize
 
-With the armature selected, go to the Properties Data panel and set X-Ray on in the armature display[md]this will make the bones always be visible. Also, while weight painting, you can set Auto Normalize in the Tool panel[md]this ensures that all bone-deforming vertex groups don't add up to 1.0 while weight painting.
+With the armature selected, go to the Properties Data panel and set X-Ray on in the armature display-this will make the bones always be visible. Also, while weight painting, you can set Auto Normalize in the Tool panel-this ensures that all bone-deforming vertex groups don't add up to 1.0 while weight painting.
 
 \*\*\*End Note\*\*\*
 
@@ -389,7 +377,7 @@ The animation complexity is also directly related to the number of bones created
 
 \*\*\* End Note
 
-We will create a swimming cycle[md]an animation where the first and the last poses are the same and can be played seamlessly in a loop. Let's start by the following these steps:
+We will create a swimming cycle-an animation where the first and the last poses are the same and can be played seamlessly in a loop. Let's start by the following these steps:
 
 \*\*\* Begin Numbered List
 
@@ -455,7 +443,7 @@ Source: Blender Foundation.
 
 Bones Mirroring
 
-If your rigs have bones bifurcating from the main bone chain, there is a special way to make them mirror. By default, Blender will try to paste the pose of the same bone mirrored relative to the Y axis. Sometimes, however, you want to swap the transformations between two bones[md]a left and right. The classic example is walking animations when you need to animate only half of the strides.
+If your rigs have bones bifurcating from the main bone chain, there is a special way to make them mirror. By default, Blender will try to paste the pose of the same bone mirrored relative to the Y axis. Sometimes, however, you want to swap the transformations between two bones-a left and right. The classic example is walking animations when you need to animate only half of the strides.
 
 To have Blender interpret the bones as two sides of the same bone, you need to name them L (for left bones) and R (for right bones). This way, the bone Swimmer.001.L will be treated as the pair of Swimmer.001.R, and their poses will be swapped and mirrored when using the Pose Flip Paste option. To learn more about this, refer to the walking cycle tutorial in the Chapter 4.
 
@@ -595,7 +583,7 @@ In order to preview the color and the mist effect in the 3D Viewport, you need t
 
 Figure 2.25
 
-Mist effect[md]preview in 3D View.
+Mist effect-preview in 3D View.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -677,7 +665,7 @@ Source: Blender Foundation.
 
 We have a Collision sensor that will only be active when touching an object that has a "shark" property. We don't want to know when one fish collides with another or with the seabed, for that matter. This filter addresses that. The sensor is connected to a Python controller "killMe.py" that takes care of some housekeeping. It tells the FishLeader that we will need a new fish soon. The controller also activates two actuators: one to kill the fish, and the second to send a message indicating a fish went down.
 
-This message is like spam mail. It doesn't matter if you have a mail-only sign in your mailbox. It doesn't even matter if you don't have a mailbox. You will receive the McDonald's coupon you never asked for. (And you will end up eating there[md]damned spammers!)
+This message is like spam mail. It doesn't matter if you have a mail-only sign in your mailbox. It doesn't even matter if you don't have a mailbox. You will receive the McDonald's coupon you never asked for. (And you will end up eating there-damned spammers!)
 
 And so will the shark. Once the shark receives a message, it can act accordingly. In our case, we want to make the shark big. To do so, open the file shark.12.blend again. Until now, we have been adding all the logic bricks to the armature. Now let's put the armature aside and use the mesh:
 
@@ -799,7 +787,7 @@ A game is not complete without sound effects. There are three sounds under // so
 
 There is a catch here. You are sending the GameOver message not once but continuously. That would make the GameOver sound play in loop, which you don't want. You can fix this in the score.blend scene file (by sending the message only once). Or else you can do it here, as follows:
 
-You need a Boolean game property that tells you what the status of the game is: when gameover is False the game is running; if gameover is True the game is over. When you receive a message with the subject "GameOver," you need to change the value of this property. You do this by connecting the Message sensor with a new Property actuator [md]Mode: Assign, Property: "gameover," Value: True.
+You need a Boolean game property that tells you what the status of the game is: when gameover is False the game is running; if gameover is True the game is over. When you receive a message with the subject "GameOver," you need to change the value of this property. You do this by connecting the Message sensor with a new Property actuator -Mode: Assign, Property: "gameover," Value: True.
 
 Next you add a Property sensor named GameIsNotOver to detect if the game is running (if the gameover game property is True or False). Set Evaluation Type to Equal, property to "gameover," and Value as False.
 
