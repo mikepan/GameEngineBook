@@ -73,7 +73,7 @@ One downside to writing about software is that it's constantly improving. Even t
 
 > **Test Builds**
 >
-> If the latest version is not fresh good enough, uou can find official daily builds on [builder.blender.org](https://builder.blender.org/download/). Additionally, many non-official test builds of Blender are available from [graphicall.org](http://graphicall.org/).
+> If the latest version is not fresh good enough, you can find official daily builds on [builder.blender.org](https://builder.blender.org/download/). Additionally, many non-official test builds of Blender are available from [graphicall.org](http://graphicall.org/).
 
 ## 3D Basics
 
