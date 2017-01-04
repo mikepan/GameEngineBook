@@ -373,7 +373,7 @@ Let's start with some shortcuts that work the way you would expect:
 * **Ctrl + N:** New File
 * **Ctrl + Z:** Undo
 * **Ctrl + Shift + Z:** Redo
-* **Ctrl + Q:** Close Application
+* **Ctrl + Q:** Close(Quit) Application
 
 The above shortcuts work anywhere within Blender: they are effectively global. Unfortunately, the familiarity ends here.
 
