@@ -73,7 +73,7 @@ One downside to writing about software is that it's constantly improving. Even t
 
 > **Test Builds**
 >
-> If the latest version is not fresh good enough, uou can find official daily builds on [builder.blender.org](https://builder.blender.org/download/). Additionally, many non-official test builds of Blender are available from [graphicall.org](http://graphicall.org/).
+> If the latest version is not fresh good enough, you can find official daily builds on [builder.blender.org](https://builder.blender.org/download/). Additionally, many non-official test builds of Blender are available from [graphicall.org](http://graphicall.org/).
 
 ## 3D Basics
 
@@ -99,7 +99,7 @@ Why is the triangle so important? Turns out, modern computer graphics use the tr
 
 In Blender, a mesh can be made from a combination of triangles, quads, or n-gons. The benefit of n-gons is their ability to retain a clean topology while modeling. Without n-gons, certain areas of a model (such as a window on a wall) would require a higher number of triangles or quads to approximate, as shown below. While n-gons make modeling easier in some cases, Blender still converts them to triangles when you start the game.
 
-The process of creating a mesh by rearranging vertices, edges, and lines is called _modeling_. Blender has many tools that help artists define the geometry they want.
+The process of creating a mesh by rearranging vertices, edges, and faces is called _modeling_. Blender has many tools that help artists define the geometry they want.
 
 It is worth noting that unlike the real world, polygonal models do not have volumes. They are just a shell made of interconnected faces that take the shape of the object, but the inside of the object is always "hollow."
 
@@ -373,7 +373,7 @@ Let's start with some shortcuts that work the way you would expect:
 * **Ctrl + N:** New File
 * **Ctrl + Z:** Undo
 * **Ctrl + Shift + Z:** Redo
-* **Ctrl + Q:** Close Application
+* **Ctrl + Q:** Close(Quit) Application
 
 The above shortcuts work anywhere within Blender: they are effectively global. Unfortunately, the familiarity ends here.
 
@@ -422,11 +422,12 @@ Because Blender was originally created as an in-house software, its interface is
 
 Because of the large number of commands Blender is capable of performing, invoking a function through a quick tap on the keyboard is generally faster than using the mouse to find the menu entry. As you follow through the rest of this section, pay special attention to the shortcut keys that are used, because Blender is designed to let you work fast once you learn the shortcuts.
 
-<img alt="3D Navigator." src="../figures/Chapter1/Fig01-31.png" width="20%" align="left">
-Blender's keyboard shortcuts are optimized for a full-sized English QWERTY keyboard. The number pad (which, unfortunately, is not present on many laptops) is used to quickly navigate around the 3D scene. Laptop users usually have to press extra keys on their keyboard (such as the Fn key or a toggle) in order to simulate a number pad key. Alternatively, Blender also has an add-on called "3D Navigation" that provides an easier way to navigate around the world for people without a number pad.
 
-To enable the 3D navigation plug-in to help you navigate around the 3D Viewport quickly, go to File > User Preferences > Add-Ons, and turn on 3D Views: 3D Navigation. Then you can switch views quickly from the 3D view's Toolshelf.
+Blender's keyboard shortcuts are optimized for a full-sized English QWERTY keyboard. The number pad (which, unfortunately, is not present on many laptops) is used to quickly navigate around the 3D scene. Laptop users usually have to press extra keys on their keyboard (such as the Fn key or a toggle) in order to simulate a number pad key. As a solution, go to File > User Preferences (Actrl + Alt + U), then switch to Input tab and enable "Emulate Numpad" option to use main 1 to 0 keys instead of Numpad keys. If you want this setting remain permanently, click on the "Save User Settings" button.
+![Emulate Numpad](../figures/Chapter1/Fig01-30-1.png)
 
+<img alt="3D Navigator." src="../figures/Chapter1/Fig01-31.png" width="20%" align="right">
+Alternatively, Blender also has an add-on called "3D Navigation" that provides an easier way to navigate around the world for people without a number pad. To enable the 3D navigation plug-in to help you navigate around the 3D Viewport quickly, go to File > User Preferences > Add-Ons, and turn on 3D Views: 3D Navigation. Then you can switch views quickly from the 3D view's Toolshelf.
 
 ### Mouse
 
@@ -434,7 +435,7 @@ Blender is designed for a three-button mouse: a mouse with two buttons and a scr
 
 > **How to Emulate a Three-Button Mouse**
 >
-> If you don't have a three-button mouse, you can use the Alt+Left mouse button combination to emulate the middle mouse button. To enable this feature, go to File  User Preferences  Input and turn on Emulate 3 Button Mouse.
+> If you don't have a three-button mouse, you can use the Alt+Left mouse button combination to emulate the middle mouse button. To enable this feature, go to File > User Preferences > Input and turn on Emulate 3 Button Mouse.
 
 ### Context
 
