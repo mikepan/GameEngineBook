@@ -683,7 +683,7 @@ And so will the shark. Once the shark receives a message, it can act accordingly
 
 6.Create an Integer game property named "size."
 
-7.Add a Message sensor with the subject "Sharked."
+7.Add a Message sensor with the subject "Sharked"
 
 8.Add a Property actuator: mode Add, property "size," and value 1.
 
