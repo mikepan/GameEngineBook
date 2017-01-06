@@ -17,11 +17,11 @@ For most graphic artists, the ultimate goal of their work has always been photor
 
 ## Designing for Real Time
 
-For a typical computer animation, the rendering time is effectively unlimited. A movie studio like Pixar has hundreds of computers working together as a rendering farm to make the images. Games don't have this luxury of rendering time. Because games are interactive, there is no way to pre-render frames ahead of time. Games need to pump out many frames every second (and from a single computer!) in order to achieve interactivity with the player. That means that preparing art assets for games is a bit trickier than for non-real-time animation, where performance usually isn't a concern.
+For a typical computer animation, the rendering time is effectively unlimited. A movie studio like Pixar has hundreds, if not thousands of computers working together as a rendering farm to make the images. Games don't have this luxury of rendering time. Because games are interactive, there is no way to pre-render frames ahead of time. Games need to pump out many frames every second (and from a single computer!) in order to achieve interactivity with the player. That means that preparing art assets for games is a bit trickier than for non-real-time animation, where performance usually isn't a concern.
 
 > **Art Assets**
 >
-> Art asset_ refers to any piece of work that is used in a game. It includes models, textures, animations, sound, and even shader codes.
+> Art asset refers to any piece of work that is used in a game. It includes models, textures, animations, sound, and even shader codes.
 
 Because games are generally distributed to a large audience with a wide range of computer hardware, you need to make sure that the games will run at acceptable speeds on different hardware configurations. This way, you avoid alienating people without top-of-the-line computers. Blender has support for switching between different shading modes to help artists create games that work with different generations of computer hardware. This will be discussed in detail later in this chapter.
 
@@ -31,7 +31,7 @@ Modern graphics cards are surprisingly fast at pushing out high-quality images a
 
 <img alt="Low polygon model vs. high polygon model" src="../figures/Chapter5/Fig05-03.jpg" width="50%" align="right">
 
-Geometry is the basis for any 3D scene. You can quantitatively measure the amount of geometry data in a scene using a "polygon count," which refers to the number of faces (triangles or quads, in Blender's case) in a scene. The more geometry data there is, the slower the game will be. So how many polygons are too much? Rather than imposing an absolute limitation, just remember to use polygons sensibly, spend them where they are needed, and don't waste excessive polygons on unnecessary parts that will not be visible to the gamer. Geometry is relatively cheap now. Today's average computer should be able to render a million polygons at an interactive frame rate, so polygon count isn't as much of a concern as it used to be. Figure 5.3 shows the difference between a low-resolution model and a high-resolution model. The high-resolution model is smoother, more detailed, but is slower to render. The game engine also has built-in optimization features that remove hidden objects in order to avoid wasting time displaying them.
+Geometry is the basis for any 3D scene. You can quantitatively measure the amount of geometry data in a scene using a "polygon count," which refers to the number of faces (triangles or quads, in Blender's case) in a scene. The more geometry data there is, the slower the game will be. So how many polygons are too much? Rather than imposing an absolute limitation, just remember to use polygons sensibly, spend them where they are needed, and don't waste excessive polygons on unnecessary parts that will not be visible to the gamer. That said, today's average computer should be able to render a million polygons at an interactive frame rate, so polygon count isn't as much of a concern as it used to be. A high-resolution model is smoother, more detailed, but is slower to process by the computer.
 
 The supported Blender object types in the game engine are: camera, light, empty, mesh, and text.
 
@@ -41,15 +41,15 @@ Non-supported Blender object types are: curve, surface, and metaball. These obje
 
 <img alt="Oil barrel models without and with textures applied" src="../figures/Chapter5/Fig05-04.jpg" width="50%" align="right">
 
-Once the modeling is done, materials and textures, which add visual fidelity, can be applied to the mesh. Using a combination of materials and textures, you can define surface characteristics such as color, shininess, bumpiness, and transparency. Figure 5.4 illustrates the difference between a non-textured model and a fully textured model. Textures also allow you to "bake" certain effects, such as complex light maps and shadows, onto the object, because these effects would otherwise take too long to compute in real time. Due to the importance of materials and textures, a large portion of this chapter will focus on materials and textures. (For a more in-depth discussion on texture baking, refer to Chapter 8.)
+Once the modeling is done, materials and textures, which add visual fidelity, can be applied to the mesh. Using a combination of materials and textures, you can define surface characteristics such as color, shininess, bumpiness, and transparency. Textures also allow you to "bake" certain effects, such as complex light maps and shadows, onto the object, because these effects would otherwise take too long to compute in real time. Due to the importance of materials and textures, a large portion of this chapter will focus on materials and textures. (For a more in-depth discussion on texture baking, refer to Chapter 8.)
 
 The Blender game engine implements a subset with some overlapping of all the features found in the regular Blender. Not all options available to the Blender internal renderer are available in the game engine; many advanced graphics features are simply too slow to be implemented in real time. But as you will soon find out, even some of the complex effects like reflection, soft shadows, and ambient occlusion can all be approximated in the game engine using clever tricks on modern graphic cards.
 
 ## Lights
 
-Lighting not only sets the overall tone of the scene, but it also helps highlight certain details while hiding others. Older games cannot afford to use dynamic lighting for performance reasons, so they often employ precomputed static lighting, which is faster to render, but does not have the flexibility that dynamic lighting offers (such as swinging bathroom lights that cast moving shadows).
+Lighting not only sets the overall tone of the scene, but it also helps highlight certain details while hiding others. Older hardware or mobile devices cannot afford to use dynamic lighting for performance reasons, so they often employ precomputed static lighting, which is faster to render, but does not have the flexibility that dynamic lighting offers (such as swinging bathroom lights that cast moving shadows).
 
-In fact, without lighting, the virtual world you create would be pitch black, like Figure 5.5.
+In fact, without lighting, the virtual world you create would be pitch black.
 
 ![The effect of lighting on an object.](..\figures\Chapter5\Fig05-05.png)
 
@@ -63,35 +63,19 @@ The game engine supports eight real-time lights in Multitexture mode and at leas
 
 ## Shading Modes
 
-The game engine offers three different real-time shading modes. Think of them as different rendering pipelines-some are more limiting, some are more advanced. In this chapter, you will first be introduced to the most feature-rich shading mode: GLSL. Then we will talk a bit about the older multitexture.
+The game engine offers two different real-time shading modes. Think of them as different rendering pipelines - one is more limiting, the other is moore advanced. In this chapter, you will first be introduced to the most feature-rich shading mode: **GLSL**. Then we will talk a bit about the older **Multitexture** mode.
 
-To switch between shading modes, go to the Render Property Editor. There you should see the options as depicted in Figure 5.6.
+To switch between shading modes, go to the Render Property Editor.
 
-\*\*\*Insert Fig05-06.tif
+![Shading mode options.](..\figures\Chapter5\Fig05-06.png)
 
-Figure 5.6
 
-Shading mode options.
 
-[c] 2014 Blender Foundation.
+> **Game Engine Interface**
+>
+> If you are following this chapter on your own without using the supplied template file from the book, remember to set the render engine to Game Blender once you started Blender. This will reveal all the relevant game engine features in the user interface and hide non-relevant interface elements. ![Fig05-07](../figures/Chapter5/Fig05-07.png)
 
-\*\*\* Begin Note
-
-Game Engine Interface
-
-If you are following this chapter on your own without using the supplied template file from the book, remember to set the render engine to Game Blender once you started Blender, as shown in Figure 5.7. This will reveal all the relevant game engine features in the user interface and hide non-relevant interface elements.
-
-\*\*\* End Note
-
-\*\*\*Insert Fig05-07.tif
-
-Figure 5.7
-
-Engine selector.
-
-[c] 2014 Blender Foundation.
-
-Table 5.1 shows the advantages and disadvantages of each shading mode. The GLSL mode, despite being the most advanced shading mode in Blender, also happens to be the easiest to use because we can accomplish the effect using the regular material and Texture panel. Unless backward compatibility with older hardware is a big concern, I strongly recommend using the GLSL shading mode for all your projects. Even if you are not planning on using all the advanced features, it's good to know that they are there if you need them later on.
+Here is a table that shows the advantages and disadvantages of the two shading mode. The GLSL mode, despite being the most advanced shading mode in Blender, also happens to be the easiest to use because we can accomplish the effect using the regular material and Texture panel. Unless backward compatibility with older hardware is a big concern, I strongly recommend using the GLSL shading mode for all your projects. Even if you are not planning on using all the advanced features, it's good to know that they are there if you need them later on.
 
 Table 5.1 Comparison of Shading Modes in the Game Engine
 
@@ -106,11 +90,10 @@ Table 5.1 Comparison of Shading Modes in the Game Engine
 | Texture blending       | Yes          | Yes         |
 | Custom shader          | No           | Yes         |
 | Material nodes         | No           | Yes         |
-| Viewport Preview*      | Partial      | Full        |
+| Viewport Preview       | Partial      | Full        |
+| Should I use it?       | Nah...       | Yes!        |
 
-\*Viewport Preview refers to how much of the shading and material can be seen in the 3D Viewport in Textured mode, without running the game.
-
-Because the way to apply materials and textures varies somewhat depending on the shading mode, it is a good idea to decide on a shading mode before you start the project to avoid unnecessary conversion later. An example of what each mode offers is shown in Figure 5.8, followed by a detailed explanation of each.
+Because the way to apply materials and textures varies somewhat depending on the shading mode, it is a good idea to decide on a shading mode before you start the project to avoid unnecessary conversion later. An example of what each mode offers is shown here using this car model.
 
 ![Different shading modes: Multitexture, GLSL.](..\figures\Chapter5\Fig05-08.png)
 
@@ -118,57 +101,45 @@ Because the way to apply materials and textures varies somewhat depending on the
 
 ### GLSL Mode
 
-The GLSL shading mode is the newest real-time Shading mode in Blender, added to augment the old Singletexture and Multitexture modes. In a nutshell, GLSL mode tries to emulate the functionality of the internal rendering engine as much as possible. In doing so, it blurs the distinction between the Blender internal renderer and the game engine. In GLSL mode, the artist uses the familiar Material panel and Texture panel to apply shading and texture to an object, as one would normally do when working with the internal renderer. This means materials created for the game engine in GLSL mode can be used for rendering almost without doing any modification.
+The GLSL shading mode is the newest real-time Shading mode in Blender, added to augment the old Multitexture modes. In a nutshell, GLSL mode tries to emulate the functionality of the internal rendering engine as much as possible. In doing so, it blurs the distinction between the Blender internal renderer and the game engine. In GLSL mode, the artist uses the familiar Material panel and Texture panel to apply shading and texture to an object, as one would normally do when working with the internal renderer. This means materials created for the game engine in GLSL mode can be used for rendering almost without doing any modification.
+
+> **Technical Background**
+>
+> GLSL, or the OpenGL Shading Language, is a C-like programming language that runs on the graphics card (as opposed to most other programming languages, which run on the CPU). GLSL lets the artist define custom shaders to achieve more complex animation, material, shading, and texture effects than are possible with traditional fixed-pipeline processing. Blender is capable of generating GLSL codes automatically, so don't get scared just because we mentioned "programming language." Blender converts your settings from the Material and Texture panel into GLSL internally. In fact, the entire process is completely transparent to the artist. The only reason we bring it up now is so that you have a better understanding of what goes on behind the scenes.
 
 This is the easiest Shading mode to use, since the same materials and textures settings that are used in regular Blender are also used in the game engine.
 
-\*\*\* Begin Note
+> **GLSL Requirements**
+>
+> Being the most advanced Shading mode, GLSL requires a relatively modern graphics card that supports OpenGL 2.0 or higher. If you have a computer with onboard Intel graphics, GLSL might not run as expected. It also helps to update your display drivers by visiting amd.com, nvidia.com, or intel.com, depending on your graphic card manufacture.
 
-GLSL Requirements
 
-Being the most advanced Shading mode, GLSL requires a relatively modern graphics card that supports OpenGL 2.0 or higher. If you have a computer with onboard Intel graphics, GLSL might not run as expected. It also helps to update your display drivers by visiting amd.com, nvidia.com, or intel.com, depending on your graphic card manufacture.
-
-\*\*\* End Note
-
-\*\*\* Begin Note
-
-Technical Background
-
-GLSL, or the OpenGL Shading Language, is a C-like programming language that runs on the graphics card (as opposed to most other programming languages, which run on the CPU). GLSL lets the artist define custom shaders to achieve more complex animation, material, shading, and texture effects than are possible with traditional fixed-pipeline processing. Blender is capable of generating GLSL codes automatically, so don't get scared just because we mentioned "programming language." Blender converts your settings from the Material and Texture panel into GLSL internally. In fact, the entire process is completely transparent to the artist. The only reason we bring it up now is so that you have a better understanding of what goes on behind the scenes.
-
-\*\*\* End Note
 
 ### Material and Textures
 
 To help you get to know the material system better, let's play around with a sample file.
 
-Open file \Book\Chapter5\GLSL1.blend. You'll see a very simple scene, with the lights and a monkey head already set up for you as shown in Figure 5.9. Press P to start the game and see what it looks like in-game.
+Open  /files/Chapter5/GLSL1.blend. You'll see a very simple scene, with the lights and a monkey head already set up for you as shown here. Press P to start the game and see what it looks like in-game.
 
-\*\*\*Insert Fig05-09.tif
-
-Figure 5.9
-
-Basic material demo setup.
-
-[c] 2014 Blender Foundation.
+![Basic material demo setup.](../figures/Chapter5/Fig05-09.png)
 
 Notice the visuals in the 3D Viewport are exactly as in-game. This true "what-you-see-is-what-you-get" is only possible in GLSL mode. This means that as you set up material and texture settings in the Property Editor, changes will be reflected in real time in the 3D Viewport. In fact, as long as the viewport shading is set to Texture, there is no need to run the game in order to preview how the object will really look.
 
-The next two sections will go over each option in the Material and Texture panels, explain what they do, and when to use them. Follow along as we work through the massive list of sliders and options shown in Figure 5.10.
+The next two sections will go over each option in the Material and Texture panels, explain what they do, and when to use them. Follow along as we work through the massive list of sliders and options shown in this panel.
+
+
 
 ####  The Material Panel
 
-In GLSL1.blend, you'll see the Material panel on the right side of the 3D Viewport (see Figure 5.10). In the demo setup, the material attached to the floor is shown by default. Recall that this panel was already discussed briefly in Chapter 2, so go ahead and play around with the settings and see how they affect the model in the 3D view in real time.
+In GLSL1.blend, you'll see the Material panel on the right side of the 3D Viewport. In the demo setup, the material attached to the floor is shown by default. Recall that this panel was already discussed briefly in Chapter 2, so go ahead and play around with the settings and see how they affect the model in the 3D view in real time.
+
+<img alt="The Material Panel" src="../figures/Chapter5/Fig05-10.png" width="25%" align="right">
+
+
 
 If you are already familiar with the material system of Blender, you'll be right at home with this section. As an artist, just remember that the game engine supports a smaller subset of features found in the regular Material panel. Advanced shading features such as ray-traced reflections and refractions and subsurface scattering are not available in the game engine. So they are hidden from the Material panel when Blender Game is selected as the active render engine.
 
-\*\*\*Insert Fig05-10.tif
 
-Figure 5.10
-
-The Material panel.
-
-[c] 2014 Blender Foundation.
 
 ##### Material Management
 
@@ -176,57 +147,39 @@ The very top section of the Material panel lets you manage the material data blo
 
 To create a first material for an object:
 
-1.In the 3D view, select an object without a material (for example, the monkey in GLSL1.blend).
-
-2.In the Material panel below the Material Slot List, click on the [+ New] icon to create a new material for the object.
-
-3.Since the object has no material, by default the new material will be applied to the entire object.
+1. In the 3D view, select an object without a material (for example, the monkey in GLSL1.blend).
+2. In the Material panel below the Material Slot List, click on the [+ New] icon to create a new material for the object.
+3. Since the object has no material, by default the new material will be applied to the entire object.
 
 ##### Multi-Material Objects
 
 If the object has an existing material, you can create another material and assign the new materials to part of the mesh as follows:
 
-1.In the 3D view, select the object.
+1. In the 3D view, select the object.
 
-2.In the Material Panel below the Material Slot List, click on the [+ New] icon to create a new base material for the object.
+2. In the Material Panel below the Material Slot List, click on the [+ New] icon to create a new base material for the object.
 
-3.In the Material Panel, click on the [+] icon to the right of the material slots to create another material slot, followed by clicking on the [+ New] button to create a new material. You will assign this material to the selected part of the object. Figure 5.11 shows this step.
+3. In the Material Panel, click on the [+] icon to the right of the material slots to create another material slot, followed by clicking on the [+ New] button to create a new material. You will assign this material to the selected part of the object.
 
-4.Change the color of the newly created material to green just so that you can tell the materials apart.
+   ![Fig05-11](../figures/Chapter5/Fig05-11.png)
 
-5.In the 3D view, enter Edit mode for the object using Tab. Select all the vertices that you want to be assigned the new material.
+4. Change the color of the newly created material to green just so that you can tell the materials apart.
 
-5.With the new material highlighted, press the Assign button to apply the new material to the selected part of the object. Figure 5.12 shows these steps.
+5. In the 3D view, enter Edit mode for the object using Tab. Select all the vertices that you want to be assigned the new material.
 
-\*\*\*Insert Fig05-11.tif
+6. With the new material highlighted, press the Assign button to apply the new material to the selected part of the object. 
 
-Figure 5.11
-
-The Material panel.
-
-[c] 2014 Blender Foundation.
-
-\*\*\*Insert Fig05-12.tif
-
-Figure 5.12
-
-The Material panel.
-
-[c] 2014 Blender Foundation.
+   ![Fig05-12](../figures/Chapter5/Fig05-12.png)
 
 Below the Material Slot List is the control for the selected material. You can (and should) rename a material to be more descriptive. This will help you immensely in a large project, since it's usually not very obvious what "Material.001" is, "Orange" is better, "OrangePlastic" is even better, and "MatteYellowishOrangeSoftPlasticWithSmallBumps" is overdoing it.
 
-A material datablock can be shared by multiple objects. Clicking on the miniature material icon (Labeled as Browse ID Data) will bring up a list of all the existing materials within the current Blender file. To assign an object to an existing material, simply select a material datablock from that list. Figure 5.13 shows this in action.
+A material datablock can be shared by multiple objects. Clicking on the miniature material icon (Labeled as Browse ID Data) will bring up a list of all the existing materials within the current Blender file. To assign an object to an existing material, simply select a material datablock from that list.
 
-\*\*\*Insert Fig05-13.tif
-
-Figure 5.13
-
-The Material panel: datablock management.
-
-[c] 2014 Blender Foundation.
+![The Material panel: datablock management.](../figures/Chapter5/Fig05-13.png) 
 
 The concept of datablock is very important in Blender: it allows you to effectively organize all the assets into a logical hierarchy. Datablocks are discussed in detail in Chapter 2.
+
+
 
 ##### Object vs. Data
 
@@ -234,27 +187,25 @@ You might have noticed another pull-down menu beside the New Material button. Th
 
 When a material is linked to a mesh (and not the object), duplicating the object using Alt+D to create a copy of the object that shares the same mesh as the original object will result in the material being shared across both objects.
 
-On the other hand, if the material is linked to an object, duplicating the object with Alt+D will result in the material being linked directly to the object. This way, you can assign a different material to each object even if they share the same mesh. Figures 5.14 and 5.15 illustrate the differences between data-linked material and object-linked material.
+On the other hand, if the material is linked to an object, duplicating the object with Alt+D will result in the material being linked directly to the object. This way, you can assign a different material to each object even if they share the same mesh.
 
-\*\*\*Insert Fig05-14.tif
+**Material datablock linked to the mesh:**
 
-Figure 5.14
+![Material datablock linked to the mesh.](../figures/Chapter5/Fig05-14.png)
 
-Material datablock linked to the mesh.
 
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
 
-\*\*\*Insert Fig05-15.tif
+**Material datablock linked to the object:**
 
-Figure 5.15
+![Material datablock linked to the object.](../figures/Chapter5/Fig05-15.png)
 
-Material datablock linked to the object.
 
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
 
 ##### Preview
 
 The Preview panel shows how the selected material would look if rendered. Because of the generic models and a single light source, the accuracy of the preview is limited if the material relies on a complex lighting setup. You can usually get a more accurate preview directly from the 3D Viewport. Just remember to make sure that Viewport shading is set to Textured by toggling Alt+Z.
+
+
 
 ##### Diffuse
 
@@ -262,76 +213,66 @@ Diffuse is the soft (matte), reflected component of a surface. Compared to specu
 
 Using the color selector, you can change the diffuse color of the material.
 
-The intensity slider controls how much diffuse light is reflected off the surface-in another words, how bright a surface is when it is exposed to light. Use this in conjunction with the color selector to get the surface color you want. For example, to create a white material, not only do you need to select a white color in the color palette, but you'll also need to crank up the diffuse intensity to 1.0; otherwise, you'll end up with a medium gray. Setting the intensity to 0 instantly creates a black surface, no matter what color is set in the color selector. Figure 5.16 shows the difference between a low diffuse value material and a high diffuse value material.
+The intensity slider controls how much diffuse light is reflected off the surface-in another words, how bright a surface is when it is exposed to light. Use this in conjunction with the color selector to get the surface color you want. For example, to create a white material, not only do you need to select a white color in the color palette, but you'll also need to crank up the diffuse intensity to 1.0; otherwise, you'll end up with a medium gray. Setting the intensity to 0 instantly creates a black surface, no matter what color is set in the color selector. Figure below shows the difference between a low diffuse value material and a high diffuse value material.
 
-\*\*\*Insert Fig05-16.tif
+![Left: Low diffuse value. Right: High diffuse value.](../figures/Chapter5/Fig05-16.png)
 
-Figure 5.16
-
-Left: Low diffuse value. Right: High diffuse value.
-
-[c] 2014 Blender Foundation.
-
-[lb]Lambert is the default diffuse shading algorithm; it is suitable for most surfaces.
-
-[lb]Oren-Nayer better approximates rough surfaces, as it provides a more gradual transition from light to dark than Lambert. Thus Oren-Nayer is generally "softer" looking than Lambert.
-
-[lb]Minnaert is like a regular Lambert shader but with additional processing on the edge of the object where the surface normal is parallel to the camera. It can achieve a somewhat velvety-looking material without the use of a ramp shader.
-
-[lb]Toon shader creates a very distinct banding effect, resulting in a cartoonish look that's suitable for a cell-shaded game.
-
-[lb]Fresnel shader uses the incident light angle to achieve an interesting look that can be best described as "anisotropic," perfect for those brushed metal objects that reflect lights in bands or radial patterns.
+- Lambert is the default diffuse shading algorithm; it is suitable for most surfaces.
+- Oren-Nayer better approximates rough surfaces, as it provides a more gradual transition from light to dark than Lambert. Thus Oren-Nayer is generally "softer" looking than Lambert.
+- Minnaert is like a regular Lambert shader but with additional processing on the edge of the object where the surface normal is parallel to the camera. It can achieve a somewhat velvety-looking material without the use of a ramp shader.
+- Toon shader creates a very distinct banding effect, resulting in a cartoonish look that's suitable for a cell-shaded game.
+- Fresnel shader uses the incident light angle to achieve an interesting look that can be best described as "anisotropic," perfect for those brushed metal objects that reflect lights in bands or radial patterns.
 
 Of all the diffuse shading algorithms, Lambert is the simplest in terms of shader complexity. So for performance reasons, it is best to stick with Lambert unless you can truly utilize the additional benefits from the other specialized algorithms.
 
 As a different shading algorithm is selected, additional options for that particular mode may appear. Rather than trying to explain these extra settings for each shading algorithm (which is futile without talking about the math behind it), we invite you to try them out yourself and see how they affect the outcome. In the end, all that matters is how it looks.
 
+
+
 ##### Specular
 
 Specular is the hard (glossy), reflected component of a surface. It is viewing-angle dependent: as the camera, object, or light moves relative to each other, the specular highlight appears to move along the surface. With the color selector, you can change the color of the specular highlight. Most materials (plastic, wood, glass) have a white specular highlight. The only common material that can physically have a colored specular highlight is colored metal, such as gold and copper. Figure 5.17 shows three different specular settings.
 
-\*\*\*Insert Fig05-17.tif
-
-Figure 5.17
-
-From left to right: medium specular intensity and low hardness; high specular intensity and high hardness, specular shader set to Toon.
-
-[c] 2014 Blender Foundation.
+![From left to right: medium specular intensity and low hardness; high specular intensity and high hardness, specular shader set to Toon.](../figures/Chapter5/Fig05-17.png)
 
 Intensity controls how bright the specular highlight is, while hardness controls the size of the specular hotspot. A high hardness value is useful for shiny material, such as hard plastic or glass. A low hardness value is useful for matte objects, such as rough plastic or plants. For surfaces with almost no visible specular component, such as dry brick walls, dirt, or carpet, you can even disable Specular entirely by setting the intensity to 0. This can improve the performance of the game slightly.
 
 Just like diffuse, there are different algorithms to achieve different-looking specular highlights: Wardlso can be used to create very tiny specular highlights, and Toon is used for creating that sharp fall-off often desired in a cartoon. CookTorr is the default algorithm, but Phong is another popular choice. Visually, cookTorr and Phong are very similar.
 
+
+
 ##### Ramp
 
-Ramp lets you add an arbitrary color gradient to the object. Its power lies in the fact that you can map a color palette onto the object in many different ways. Some common uses for the ramp shader include adding a "peach fuzz" to skin material and adding rim light to objects for dramatic effect. Figure 5.18 shows the Ramp shader interface.
+Ramp lets you add an arbitrary color gradient to the object. Its power lies in the fact that you can map a color palette onto the object in many different ways. Some common uses for the ramp shader include adding a "peach fuzz" to skin material and adding rim light to objects for dramatic effect.
 
-\*\*\*Insert Fig05-18.tif
+<img alt="The Ramp shader interface" src="../figures/Chapter5/Fig05-18.png" width="33%" align="left">
 
-Figure 5.18
 
-The Ramp shader interface.
-
-[c] 2014 Blender Foundation.
 
 The top part of the ramp is used to set up the color band. To define a gradient, you can add or delete color stops; each color stop has its own position, color, and alpha value. By default, when you enable ramp, two color stops are created for you. To select a particular color stop, left-click on it. Active color stops are drawn with a dotted line. Once a color stop is selected, you can drag to change its position and alter its color and alpha values using the color selector below it.
 
 The bottom part of the Ramp Shader panel controls how the color band is mapped onto the object. Available input options include:
 
 - **Normal:** The color band is mapped to the surface normal of the object in camera space. Thus, any surfaces perpendicular to the camera (facing the camera) will obtain their color from the right side of the color band, while surfaces that are parallel to the camera (facing sideways) will get assigned the left side of the color band.
+
 - **Energy:** The color band is mapped to the incident energy of all the lamps. High energy areas are mapped to the color band right and vice versa.
+
 - **Shader:** The color band is mapped to the result of the calculated shader intensity. This option is similar to energy, except it also takes the shading model into account.
+
 - **Result:** The color band is mapped to the final resulting material color, including all shading and texture information. Bright pixels are mapped to the right of the color band, and dark pixels are mapped to the left-most color band.
-- ​
+
+  ​
 
 The Blend option controls how the color-band colors are mixed with the existing color, not unlike the layer-blending option in a 2D image-manipulation software such as Photoshop. These blending methods frequently appear in Blender, so you should be familiar with them.
 
 - **Mix:** Uses a combination of the both inputs. A factor of 0.5 means each input contributes exactly half toward the final color. A factor of 1 means one of the inputs completely dominates the other.
--  **Add:** The two input colors are numerically added together, often resulting in a brighter image.
--  **Multiply:** The two input colors are numerically multiplied together, often resulting in a darker image.
+- **Add:** The two input colors are numerically added together, often resulting in a brighter image.
+- **Multiply:** The two input colors are numerically multiplied together, often resulting in a darker image.
 - **Subtract:** One input is subtracted from the other, sometimes resulting in a darker image, and sometimes resulting in a "negative" image where the colors are inverted.
 
 Both diffuse and specular channels can have their own ramp. While the diffuse ramp shader can be visible on the entire object, the ramp for specular is only visible in the region where specular highlights are visible. Other than that, the Ramp Shader panel for specular is exactly the same as the Ramp Shader panel for Diffuse Shader.
+
+
 
 ##### Shading
 
@@ -362,52 +303,34 @@ Both diffuse and specular channels can have their own ramp. While the diffuse ra
  **Alpha Blend:** Selects the way faces are drawn. Options are shown in Figure 5.19 and in details in Figure 5.19b.
 
 - **Opaque** : Treats the material as a regular solid. This is the fastest draw mode.
+
 - **Add:** Numerically adds its own surface color with what's behind it, making the combined surface brighter. This option can be used to simulate halo lights, particles, and other "bright" special effects.
+
 - **Alpha Clip:** Enables binary transparency. Used frequently for texture where there is a very distinct edge, such as tree leaves and a chain-link fence. This is the fastest way to render textures with alpha since there is no alpha blending: a pixel is either fully opaque or fully transparent.
--  **Alpha Blend:** Enables alpha blending between its own color and the background. It is used for truly transparent materials such as glass. One drawback of Alpha Blend is that multiple layers of Alpha Blend surfaces are often not displayed in the correct Z-order. This is a common issue with hardware-accelerated alpha rendering. The solution is to use Alpha Sort, as explained below.
+
+- **Alpha Blend:** Enables alpha blending between its own color and the background. It is used for truly transparent materials such as glass. One drawback of Alpha Blend is that multiple layers of Alpha Blend surfaces are often not displayed in the correct Z-order. This is a common issue with hardware-accelerated alpha rendering. The solution is to use Alpha Sort, as explained below.
+
 - **Alpha Sort:** Similar to Alpha Blend, but it solves the Z-sorting issue inherent with Alpha Blend. If you see an alpha-mapped object that is showing through other transparent objects, or if multiple layers of alpha are displayed in the wrong order, then you should use Alpha Sort instead of Alpha Blend. Keep in mind that Alpha Sort is much slower than regular Alpha Blend.
 
+  ![Blending Modes: (from left to right) Add, Alpha Clip, Alpha Blend, and Alpha Sort.](../figures/Chapter5/Fig05-19.jpg)
 
 
-\*\*\*Insert Fig05-19.tif
 
-Figure 5.19
 
-Blending Modes: (from left to right) Add, Alpha Clip, Alpha Blend, and Alpha Sort.
+![Blending Modes magnified: (from left to right) Add, Alpha Clip, Alpha Blend, and Alpha Sort.](../figures/Chapter5/Fig05-19b.jpg)
 
-[c] 2014 Mike Pan.
 
-\*\*\*Insert Fig05-19b.tif
 
-Figure 5.19b
-
-Blending Modes magnified: (from left to right) Add, Alpha Clip, Alpha Blend, and Alpha Sort.
-
-[c] 2014 Mike Pan.
-
-**       ** [lb] **        Face Orientations:** Rotates the faces away from their original orientation, as illustrated in Figure 5.20. Note that face orientations are not visible in the Viewport; therefore, to preview the effect of these settings, you need to enter the game mode.
-
-\*\*\*Begin bulleted list within bulleted list
-
-[lb] **Normal:** The default option. No extra orientation is applied and faces are rendered as normal (see Figure 5.20 A).
-
-[lb] **Billboard:** Forces the X-axis of the object to face the camera while keeping the Z-axis of the object upright. To visualize this, imagine someone is holding a billboard and trying to get your attention by always rotating the billboard to face you. Billboard is used frequently to render simplistic vegetation and trees in architectural visualization, so that a tree can be represented by a single plane that always rotates around its center (see Figure 5.20 B).
-
-[lb] **Halo:** Forces the X-axis of the object to always face the camera. This is similar to the billboard option, but no axis is locked. Halo, as the name implies, can be used to render particles and other non-3D sprites (see Figure 5.20 C).
-
-[lb] **Shadow:** Objects will reposition and reorient themselves so that the center of the object will match the closest object directly below it in the [ms]Z axis. This is used to make an object "fall" and stick to the ground, such as when faking a drop shadow (see Figure 5.20 D).
-
-\*\*\* End List
+- **Face Orientations:** Rotates the faces away from their original orientation. Note that face orientations are not visible in the Viewport; therefore, to preview the effect of these settings, you need to enter the game mode.
+- ![Face orientation illustrated. The top-row images show the actual geometry. The bottom row shows the face set to normal(A), billboard(B), halo(C), and shadow(D).](../figures/Chapter5/Fig05-20.jpg)
+  - Normal: The default option. No extra orientation is applied and faces are rendered as normal. (See A)
+  - Billboard: Forces the X-axis of the object to face the camera while keeping the Z-axis of the object upright. To visualize this, imagine someone is holding a billboard and trying to get your attention by always rotating the billboard to face you. Billboard is used frequently to render simplistic vegetation and trees in architectural visualization, so that a tree can be represented by a single plane that always rotates around its center. (See B)
+  - Halo: Forces the X-axis of the object to always face the camera. This is similar to the billboard option, but no axis is locked. Halo, as the name implies, can be used to render particles and other non-3D sprites (see C).
+  - Shadow: Objects will reposition and reorient themselves so that the center of the object will match the closest object directly below it in the Z axis. This is used to make an object "fall" and stick to the ground, such as when faking a drop shadow (see D).
 
 Remember that face orientation is applied after logic and physics calculations. This means that the collision mesh will still be in its original position, so what you see on the screen could be different than the internal physical collision mesh.
 
-\*\*\*Insert Fig05-20.tif
 
-Figure 5.20
-
-Face orientation illustrated. The top-row images show the actual geometry. The bottom row shows the face set to normal(A), billboard(B), halo(C), and shadow(D).
-
- [c] 2014 Mike Pan.
 
 ##### Physics
 
@@ -415,115 +338,84 @@ The physics setting controls some of the physics property of the surface. They d
 
 ##### Additional Options
 
-**       ** [lb] **Exclude Mist:** Excludes the object from the mist calculation when enabled. Mist is a world setting that can be accessed from the World panel.
-
-**       ** [lb] **        Face Textures:** Forces Blender to replace the diffuse color of the material with the UV texture. This is an easy way to apply a simple texture onto a material without creating a texture data block for the material.
-
-**       ** [lb] **        Face Textures Alpha:** This option is only visible when Face Textures is enabled. It will also override the transparency of the material using the alpha channels of the texture, in addition to replacing the diffuse color of the material.
-
-**       ** [lb] **        Vertex Color Paint:** Multiplies the vertex color of the mesh on top of the regular material.
-
-**       ** [lb] **        Receive Shadows:** Makes real-time shadows cast by lamps visible on the surface. Only spot and sun lamps cast shadows.
-
-**       ** [lb] **        Object Color:** Modulates the material color with the object color. Useful for getting different objects sharing the same material to have different colors. The object color can be set from the object Properties Editor.
+- **Exclude Mist:** Excludes the object from the mist calculation when enabled. Mist is a world setting that can be accessed from the World panel.
+  - Face Textures: Forces Blender to replace the diffuse color of the material with the UV texture. This is an easy way to apply a simple texture onto a material without creating a texture data block for the material.
+  - Face Textures Alpha: This option is only visible when Face Textures is enabled. It will also override the transparency of the material using the alpha channels of the texture, in addition to replacing the diffuse color of the material.
+  - Vertex Color Paint: Multiplies the vertex color of the mesh on top of the regular material.
+  - Receive Shadows: Makes real-time shadows cast by lamps visible on the surface. Only spot and sun lamps cast shadows.
+- **Object Color:** Modulates the material color with the object color. Useful for getting different objects sharing the same material to have different colors. The object color can be set from the object Properties Editor.
 
 So far, we have covered all the functionalities of the Material panel. Most of the settings are very intuitive, and their effects can be seen directly in the Viewport, with the exception of the face orientation settings, which require the game engine to be running to see their effects.
+
+
 
 #### The Texture Panel
 
 Texture is the main way to add details to a surface without adding extra polygons. It is done by mapping a 2D image onto the surface of the 3D object. Figure 5.21 illustrates the concept of texture mapping.
 
-\*\*\*Insert Fig05-21.tif
+<img alt="How texture mapping works." src="../figures/Chapter5/Fig05-21.jpg" width="50%" align="left">
 
-Figure 5.21
 
-How texture mapping works.
-
-[c] 2014 Dalai Felinto
 
 ##### Texture Data Blocks
 
 Texture data blocks are almost always linked to a material (see note below for exception). Each material can have multiple textures, and through layering and blending of textures, complex effects can be achieved. The top area of the Texture Panel shows you all the textures attached to the active material.
 
-\*\*\* Begin Note
+> Non-Material Textures
+>
+> The only exception is a "world" texture, which is linked directly to the world settings without a material, and the Brush texture, which is used for painting or sculpting. However, both of them are only supported in the Blender internal renderer and not implemented in the game engine. Therefore, for our game purposes, all the texture data blocks must indeed be linked to a material.
+>
 
-Non-Material Textures
+Note that in Blender, texture slots are ordered so that textures further down the texture slots override textures on top of the list. This is opposite from how most image editors treat layers. 
 
-The only exception is a "world" texture, which is linked directly to the world settings without a material, and the Brush texture, which is used for painting or sculpting. However, both of them are only supported in the Blender internal renderer and not implemented in the game engine. Therefore, for our game purposes, all the texture data blocks must indeed be linked to a material.
+<img alt="The Texture panel with two textures slots in use." src="../figures/Chapter5/Fig05-22.png" width="40%" align="left">
 
-\*\*\* End Note
 
-Note that in Blender, texture slots are ordered so that textures further down the texture slots override textures on top of the list. This is opposite from how most image editors treat layers. Figure 5.22 shows the texture slots with two textures active.
 
-\*\*\*Insert Fig05-22.tif
+1. To create a new texture, the object must already have a material. Select the object and add a new material, if necessary.
+2. Then, in the texture panel, click on the [+ New] icon to create a new texture in the first texture slot (see Figure 5.23).
+3. For working with the game engine, set the type for the texture to image. (Image texture is what we will be using most of the time.) The only other available texture type option is environment map. Procedural textures, such as clouds and noise, are not supported in the game engine.
 
-Figure 5.22
+![Using an image texture](../figures/Chapter5/Fig05-23.png)
 
-The Texture panel with two textures slots in use.
 
-[c] 2014 Blender Foundation.
-
-1.To create a new texture, the object must already have a material. Select the object and add a new material, if necessary.
-
-2.Then, in the texture panel, click on the [+ New] icon to create a new texture in the first texture slot (see Figure 5.23).
-
-3.For working with the game engine, set the type for the texture to image. (Image texture is what we will be using most of the time.) The only other available texture type option is environment map. Procedural textures, such as clouds and noise, are not supported in the game engine (see Figure 5.23).
-
-\*\*\*Insert Fig05-23.tif
-
-Figure 5.23
-
-Using an image texture.
-
-[c] 2014 Blender Foundation.
 
 ##### Image
 
 To load an image as a texture, you can either:
 
-\*\*\* Begin List
+- Load an existing image data block (one that is already being used in this Blender file).
+- Generate a new image directly from within Blender.
+- Browse and load an image file from your computer.
 
-[lb]Load an existing image data block (one that is already being used in this Blender file).
-
-[lb]Generate a new image directly from within Blender.
-
-[lb]Browse and load an image file from your computer.
-
-\*\*\* End List
-
-The three options are shown in Figure 5.24
-
-\*\*\*Insert Fig05-24.tif
-
-Figure 5.24
-
-Create a new image by selecting New or browse for an existing image by selecting Open.
-
-[c] 2014 Blender Foundation.
+![Create a new image by selecting New or browse for an existing image by selecting Open.](../figures/Chapter5/Fig05-24.png)
 
 Once an image is loaded, you have some options to change the way the color space and alpha channel are interpreted.
 
-[lb] **        Input Color Space:** Controls the color space transformation that happens when the image is used. Normally, textures are created in the sRGB color space, so the default setting is sufficient. For color-sensitive work, you can change the Input Color Space to match the image file.
+- **Input Color Space:** Controls the color space transformation that happens when the image is used. Normally, textures are created in the sRGB color space, so the default setting is sufficient. For color-sensitive work, you can change the Input Color Space to match the image file.
+- **View as Render:** Apply an additional color transform in order to take into account the color transform when rendering.
+-  **Use Alpha:** Uses the alpha channel of an image when available. If enabled, you can also pick between Straight alpha and Premultiplied alpha. The difference is beyond the scope of this chapter, but if your alpha texture has a dark or bright fringe around the edge, then sometimes switching between straight alpha and premultiplied alpha can solve it.
 
-**       ** [lb] **        View as Render:** Apply an additional color transform in order to take into account the color transform when rendering.
 
-**       ** [lb] **        Use Alpha:** Uses the alpha channel of an image when available. If enabled, you can also pick between Straight alpha and Premultiplied alpha. The difference is beyond the scope of this chapter, but if your alpha texture has a dark or bright fringe around the edge, then sometimes switching between straight alpha and premultiplied alpha can solve it.
 
 ##### Image Sampling Panel
 
 The Image Sampling panel contains some of the options that change how the image is interpreted inside Blender:
 
-**       ** [lb]**Calculate (Alpha):** Ignores the real alpha channel from the image file and instead calculates the alpha channel from the intensity of the image. This treats black pixels as transparent and white pixels as opaque.
+- **Calculate (Alpha):** Ignores the real alpha channel from the image file and instead calculates the alpha channel from the intensity of the image. This treats black pixels as transparent and white pixels as opaque.
+- **Normal Map:** Tells Blender to treat the image as a normal map, so that the RGB value is interpreted as surface normal, which can be mapped to the normal channel of the material to create bumpiness on the surface.
 
-**       ** [lb] **        Normal Map:** Tells Blender to treat the image as a normal map, so that the RGB value is interpreted as surface normal, which can be mapped to the normal channel of the material to create bumpiness on the surface.
+
 
 ##### Mapping Panel
 
 Mapping controls how the 2D texture is mapped onto the 3D object. Available options include global, object, generated, UV, reflection, and normal. The default option, generated, might work in some very simple cases. But most of the time, you will need to use the UV/Image Editor to control exactly how the image is projected onto the object. Using the UV/Image Editor is covered in Chapter 2. When the UV mapping is selected, you can specify which UV channel to use, if there is more than one UV layout for the mesh.
 
-**       ** [lb] **        Offset:** Translate the texture coordinates.
+- Offset: Translate the texture coordinates.
 
-**       ** [lb] **        Size:** Changes the scale of the texture coordinates.
+- Size: Changes the scale of the texture coordinates.
+
+  ​
 
 ##### Influence Panel
 
@@ -531,47 +423,38 @@ This panel controls how the value of the texture is actually applied onto the su
 
 _Normal_ is another commonly used influence setting. By using a normal map, you can create fake but convincing surface irregularities without using massive amounts of geometry. To apply a normal map to an existing material:
 
-1.In the Texture panel, create a new texture slot by pressing the [+] icon.
+1. In the Texture panel, create a new texture slot by pressing the [+] icon.
 
-2.Set the texture type to image and load a normal map image from disk.
+2. Set the texture type to image and load a normal map image from disk.
 
-3.Enable the normal map option under the Image Sampling panel.
+3. Enable the normal map option under the Image Sampling panel.
 
-4.Disable texture influence on material color by unchecking color under the Influence panel.
+4. Disable texture influence on material color by unchecking color under the Influence panel.
 
-5.Enable the texture influence on material normal by checking normal under the Influence panel. Move the slider to adjust the strength of the effect.
+5. Enable the texture influence on material normal by checking normal under the Influence panel. Move the slider to adjust the strength of the effect.
 
-Figure 5.25 shows the effect of a normal map.
+   ![A low resolution model and a normal mapped model.](../figures/Chapter5/Fig05-25.jpg)
 
-\*\*\*Insert Fig05-25.tif
 
-Figure 5.25
 
-A model without and with normal map.
+> Normal Maps and Height Maps
+>
+> A normal map is stored as a regular image file, but instead of changing the color of the surface like a regular color texture, normal maps are used to alter the per-pixel surface normal. By altering the surface normal, you can change the apparent bumpiness of a surface.
+>
+> Internally, a normal map uses the three color-channels (RGB) to store the normal directions (XYZ) of a surface. Because most surface normals are pointing straight up, they have a normal value of (X=0.5,Y=0.5, Z=1.0), which is what gives normal maps that distinct purple color (when in tangent space).
+>
+> Speaking of tangent space, normal maps can be stored in various different spaces, such as tangent, object, world, and camera space. They affect how the normal maps are interpreted and used in lighting computations. Suffice it to say that tangent space is the most commonly used option.
+>
 
-[c] 2014 Mike Pan.
 
-\*\*\* Begin Sidebar
-
-Normal Maps and Height Maps
-
-A normal map is stored as a regular image file, but instead of changing the color of the surface like a regular color texture, normal maps are used to alter the per-pixel surface normal. By altering the surface normal, you can change the apparent bumpiness of a surface.
-
-Internally, a normal map uses the three color-channels (RGB) to store the normal directions (XYZ) of a surface. Because most surface normals are pointing straight up, they have a normal value of (X=0.5,Y=0.5, Z=1.0), which is what gives normal maps that distinct purple color (when in tangent space).
-
-Speaking of tangent space, normal maps can be stored in various different spaces, such as tangent, object, world, and camera space. They affect how the normal maps are interpreted and used in lighting computations. Suffice it to say that tangent space is the most commonly used option.
-
-\*\*\* End Sidebar
 
 The other options in the influence section work in the exact way as color and normal. They each influence a different aspect of the material. For example, if you want a texture to influence the alpha value of a material, enable alpha and set the influence to 1. Then, in the Material panel, make sure alpha is set to 0.
 
-**       ** [lb] **        Blend** : The blend selector is another key setting that controls how textures are mixed with each other. The blend option controls how the texture is mixed with the existing material color.
+- Blend : The blend selector is another key setting that controls how textures are mixed with each other. The blend option controls how the texture is mixed with the existing material color.
+- Negative: Inverts the color of the texture.
+- RGB to intensity: As the tooltip suggests, converts a RGB image to a grayscale image.
 
-**       ** [lb] **        Negative** : Inverts the color of the texture.
 
-**       ** [lb] **        RGB to intensity:** As the tooltip suggests, converts a RGB image to a grayscale image.
-
-\*\*\*Insert Tutorial
 
 #### Combined Exercise
 
