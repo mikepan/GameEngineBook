@@ -62,12 +62,21 @@ But how do we keep them linked while in separate files?
 
 ## Linking and Appending
 
-There are four ways of adding new objects and other datablocks to your Blender file. You can build them from scratch; you can import them from a different format (Collada or FBX, for example); and you can link or append them from another Blender file.
+There are four ways of adding new objects and other datablocks to your Blender file:
+- You can build them from scratch.
+- You can import them from a different format (Collada or FBX, for example).
+- You can link them from another Blender file.
+- You can append them from another Blender file.
 
-<img alt="Blender file structure." src="../figures/Chapter2/Fig02-02.png" width="50%" align="left">
+For Linking part of another blender file click on File > Link (Ctrl + A + O). Then browse in your system and find the source file. Click on it and you see some folders that categorize data blocks. Select intended data block(s), configure linking options in the "Link from Library" section. Finally click on "Link from Library".
+![Linking data blocks](../figures/Chapter2/Fig02-02-1.png  "Linking data blocks")
 
-Linking and appending are quite similar. They both allow you to import part of a Blender file into your current file. Here, the concept of data block should become even clearer. In Figure 2.2, you can see the link/append dialog. Whether you are linking or appending, it will depend on the link option in the load window.
+For appending part of another blender file click on File > Append (Shift + F1). Then browse in your system and find the source file. Click on it and you see some folders that categorize data blocks. Select intended data block(s), configure appending options in the "Append from Library" section. Finally click on "Append from Library".
+![Appending data blocks](../figures/Chapter2/Fig02-02-2.png  "Appending data blocks")
 
+>**Tips**
+In big and complex blender files there are many files (data blocks) and you may have problems in finding your intended file. You can search items through search box in the top right of the dialog (even with wildcards). Also you can filter data blocks and items in the Filter tab.
+<img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-3.png" align="center">
 
 The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_-the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
 
