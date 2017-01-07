@@ -64,7 +64,7 @@ But how do we keep them linked while in separate files?
 
 There are four ways of adding new objects and other datablocks to your Blender file. You can build them from scratch; you can import them from a different format (Collada or FBX, for example); and you can link or append them from another Blender file.
 
-<img alt="Blender file structure." src="../figures/Chapter2/Fig02-02.jpg" width="50%" align="left">
+<img alt="Blender file structure." src="../figures/Chapter2/Fig02-02.png" width="50%" align="left">
 
 Linking and appending are quite similar. They both allow you to import part of a Blender file into your current file. Here, the concept of data block should become even clearer. In Figure 2.2, you can see the link/append dialog. Whether you are linking or appending, it will depend on the link option in the load window.
 
@@ -129,14 +129,21 @@ We will model the outline of the shark based on reference images. To set up your
 
 The current file, as seen in Figure 2.3, can be found under the name //assets/shark.1.blend.
 
-![Background images setup](../figures/Chapter2/Fig02-03.jpg)
+\*\*\*Insert Fig02-03.tif
+
+Figure 2.3
+
+Background images setup.
 
 Source: Blender Foundation.
 
 To start the model, remove the initial cube (X) and add a cylinder into the scene (Shift+A  Mesh  Cylinder). New objects are always added to the 3D cursor location, so make sure that it is in the center of the scene [0,0,0] (Shift+S  Cursor to Center). The default cylinder doesn't match the dimensions or the orientation of the reference model. The quick way to change that is to access the redo last menu (F6) and tweak the cylinder parameters. As you can see in Figure 2.4, we used 12 Vertices, Radius of 0.4, Depth of 1.0, Location Y 0.5, and Rotation X 90 degrees.
 
+\*\*\*Insert Fig02-04.tif
 
-![Redo last menu](../figures/Chapter2/Fig02-04.jpg)
+Figure 2.4
+
+Redo last menu.
 
 Source: Blender Foundation.
 
@@ -144,13 +151,21 @@ This will be the base for the shark. We will roughly model from the front and si
 
 Enter the Edit mode and, in the top view, remove half of the mesh (leaving the vertices from the middle). Since the shark is symmetrical, we don't need to model its two halves. Switch back to the Object mode and in the Properties panel add a Mirror Modifier. Set clipping to on and make sure that the mirror axis is X. The other default options are fine. Thanks to the modifier, you should now see the cylinder complete again. Back in the Edit mode, any change you make will be automatically mirrored in the other half, as you can see in Figure 2.5.
 
-![Mirror Modifier](../figures/Chapter2/Fig02-05.jpg)
+\*\*\*Insert Fig02-05.tif
+
+Figure 2.5
+
+Mirror Modifier.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved.
 
 We can't do much with the current mesh. We need more vertices to model the shark, and we will use the Loop Cut tool for that. In Edit mode, press Ctrl+R. This will show a purple edge on top of the cylinder. If you move your mouse over the mesh, you can choose where to slice it. In our case, we want a cut parallel to the base of the geometry. To confirm the command, right-click in the window and either move the mouse to slide the new edge loop, or press Esc to cut through the middle of the cylinder. If you scroll your mouse wheel before you confirm (click), you can do multiple slices at once, as shown in Figure 2.6.
 
-![Loop cut](../figures/Chapter2/Fig02-06.jpg)
+\*\*\*Insert Fig02-06.tif
+
+Figure 2.6
+
+Loop cut.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved.
 
@@ -160,25 +175,41 @@ Since this is a shark and not a sausage, we need to accommodate the new mesh arc
 
 With the arcs selected, you can grab them and move around (G). When necessary, you can use the S key to scale them around them. The transformations (Rotation, Scaling, and even Grabbing) always happen relative to/around a pivot. By default, the pivot is the 3D Cursor. You can change it, for example, to pivot around the center of the selected vertices. To change the pivot, use the shortcuts comma and period (current selection and 3D cursor respectively) or the menu by the Shading mode. In fact, a lot of the other options in the 3D View header are important for modeling (such as snap, proportional editing, vertex/edge/face selection) and can be found in Figure 2.7.
 
-![3D View header](../figures/Chapter2/Fig02-07.jpg)
+\*\*\*Insert Fig02-07.tif
+
+Figure 2.7
+
+3D View header.
 
 Source: Blender Foundation.
 
 At this point, you can start exploring the top view as well. For quickly switching to top view, use NumPad7 or toggle quad view on and off. Sometimes you need to transform the geometry only in one axis. In Figure 2.8, you can use the handler to pull if you want to move an edge in a specific axis. You can also use the keyboard for that. To restrict the transformation, press X, Y, or Z after the command and slide in the specified axis. Shift+X, Y, or Z works in the opposite way. It locks the transformation for the opposite axis (so you can only move/scale/rotate in a plane). This is really useful-we use G with Shift+Z all the time.
 
-![Locked axis transformation](../figures/Chapter2/Fig02-07.jpg)
+\*\*\*Insert Fig02-08.tif
+
+Figure 2.8
+
+Locked axis transformation.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved.
 
 You can also use the Proportional Editing tool, as shown in Figure 2.9. Sometimes you don't want to move individual vertices/edges/faces, and edge loops and box-selected areas are too big to be transformed as a single unified block. To use proportional editing, press O (or go to the icon in the 3D View header) to toggle it on and off. Now if you move a vertex, all the neighboring vertices will tag along. The influence of the tool is determined by the circle around the pivot. (Again, see how important the pivot is?) You can increase the size of the circle of influence by scrolling the mouse wheel up and down.
 
-![Proportional Editing tool](../figures/Chapter2/Fig02-09.jpg)
+\*\*\*Insert Fig02-09.tif
+
+Figure 2.9
+
+Proportional Editing tool.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved.
 
 With these tools, you can get to the stage of the file //assets/shark.3.blend. Also in this file, there are some sketch lines on top of the 3D view; these are made with the Grease Pencil tool to help block out the shape before modeling. They are temporary markers and nothing more. Therefore, they were removed once the model was finished in shark4.blend. Although we can already add a tail to the shark, this poor shark still can't swim. To finish the modeling instructions, we will extrude those missing bits. In this context, extruding means to pull a piece out of the base geometry while keeping it connected. It's easier to show than to say. In Edit mode, select the face on the side of the shark and extrude it by pressing E, as shown in Figure 2.10.
 
-![Extruding](../figures/Chapter2/Fig02-10.jpg)
+\*\*\*Insert Fig02-10.tif
+
+Figure 2.10
+
+Extruding.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -204,7 +235,11 @@ To save time with the modeling, we will add a head from the built-in meshes in B
 
 You will need to remove some faces from the neck to connect it with the top part of the body. To delete faces, use the X key. This will bring up the menu shown in Figure 2.11-pick your option wisely. To connect vertices and edges, use the F key. (They need to be selected, and no more than what can fit in a face.)
 
-![Delete menu](../figures/Chapter2/Fig02-11.jpg)
+\*\*\*Insert Fig02-11.tif
+
+Figure 2.11
+
+Delete menu.
 
 Source: Blender Foundation.
 
@@ -216,7 +251,11 @@ You can refine your model as much as you want. The current model is in //assets/
 
 The next step shouldn't take much time. To add the skin of the shark, we will use an image projected into the faces. Images are two-dimensional, while our models are three-dimensional. In order to match them both, we need to do the equivalent of peeling an orange and flattening the peel onto a flat plane. The peel in the plane will be our image of the orange skin, allowing us to use a 2D image for our 3D model. Another example is the representation of the world map where a sphere is projected onto a plane, as you can see in Figure 2.12. The process of mapping the 3D geometry to a 2D plane is called _UV texturing._
 
-![World Map: 2D surface equivalent of a 3D geometry](../figures/Chapter2/Fig02-12.jpg)
+\*\*\*Insert Fig02-12.tif
+
+Figure 2.12
+
+World Map: 2D surface equivalent of a 3D geometry.
 
 Source: NASA.
 
@@ -226,13 +265,21 @@ To start creating a UV texture, you need to switch to Edit mode and call the UV 
 
 In the Editor menu, click Image  New, and in the pop-up menu, set UV Test Grid and confirm. This will produce a sample image where you can check in the 3D model as to how stretched the map image (texture) will be, once it is re-projected onto the shark model. If you look at Figure 2.13, you should spot a problem with the default unwrapping: the image on the side of the shark is too stretched and does not have enough resolution. While the shark tail has a high resolution, that doesn't correspond to its need (the tail is small after all)-the smaller the squares of the UV test grid, the higher the pixel-per-face ratio.
 
-![Bad "default" unwrapping](../figures/Chapter2/Fig02-13.jpg)
+\*\*\*Insert Fig02-13.tif
+
+Figure 2.13
+
+Bad "default" unwrapping.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
 To solve this problem, go to the 3D view and select the edge loop that splits the side-swimmer from the body. With this "ring" selected, go to the Edge menu (Ctrl+E) and select Mark Seam. Now redo the UV Mapping  Unwrapping, and you will have a more distributed stretching along the mesh. This can be seen in Figure 2.14 and in the file //assets/shark.5.blend.
 
-![Final UV mapping](../figures/Chapter2/Fig02-14.jpg)
+\*\*\*Insert Fig02-14.tif
+
+Figure 2.14
+
+Final UV mapping.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -278,13 +325,21 @@ With the 3D cursor in the center of the object, add the armature (Shift+A). In t
 
 With the 3D cursor still in the center, add a new bone (Shift+A). Select this bone tail and move (G) it until it matches the mouth location, as you can see in Figure 2.15. Now select this bone and the root bone and parent them without linking them (Ctrl+P  Keep Offset). This way the bone can still move freely, although it is parented to the root bone.
 
-![Bone editing](../figures/Chapter2/Fig02-15.jpg)
+\*\*\*Insert Fig02-15.tif
+
+Figure 2.15
+
+Bone editing.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
 Back to the root bone: select its tail and extrude it (E). This is another way of adding bones, automatically connecting them. Move the extruded bone to the beginning of the shark tail. Now repeat the procedure for the new bone, extruding it all the way to the end of the shark tail. Figure 2.16 shows the current bones as seen in //assets/shark.7.blend .
 
-![Armature Bones](../figures/Chapter2/Fig02-16.jpg)
+\*\*\*Insert Fig02-16.tif
+
+Figure 2.16
+
+Armature Bones.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -292,7 +347,11 @@ Before animating the shark, we need to link the armature with the mesh. This is 
 
 In the Object mode, select the shark mesh and then the shark armature and Ctrl+P  Armature Deform  With Automatic Weights. This will try to automatically set the influence of each bone in the mesh. For fine-tuning, select the armature, set it to Pose Mode, and then select the mesh and set it to Weight Paint mode. Now you can select the bones individually and paint their influence over the vertices as shown in Figure 2.17.
 
-![Weight painting](../figures/Chapter2/Fig02-17.jpg)
+\*\*\*Insert Fig02-17.tif
+
+Figure 2.17
+
+Weight painting.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -332,7 +391,11 @@ We will create a swimming cycle-an animation where the first and the last poses 
 
 Rotate the tailbone 50 degrees clockwise in the Z axis. Rotate the head bone 5 degrees counter-clockwise in the same axis. Select all bones (A) and insert a keyframe (ILocRot). This will be our pose for the first frame. The current file is at //assets/shark.9.blend and is shown in Figure 2.18.
 
-![Initial pose](../figures/Chapter2/Fig02-18.jpg)
+\*\*\*Insert Fig02-18.tif
+
+Figure 2.18
+
+Initial pose.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -340,7 +403,11 @@ To create a cycle, you need the beginning and end frames to match. Move to frame
 
 There are different ways to see your animation in Blender. Change your current screen to Animation (in the header menu where you see Default). This screen shows the three animation editors: Dopesheet, Graph Editor, and Timeline, as you can see in Figure 2.19.
 
-![Animation screen](../figures/Chapter2/Fig02-19.jpg)
+\*\*\*Insert Fig02-19.tif
+
+Figure 2.19
+
+Animation screen.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -364,7 +431,11 @@ The middle pose of the animation cycle should be opposite to the initial (and fi
 
 \*\*\* End Numbered List
 
-![Copy and paste Flipped Pose buttons](../figures/Chapter2/Fig02-20.jpg)
+\*\*\*Insert Fig02-20.tif
+
+Figure 2.20
+
+Copy and paste Flipped Pose buttons.
 
 Source: Blender Foundation.
 
@@ -380,7 +451,11 @@ To have Blender interpret the bones as two sides of the same bone, you need to n
 
 The swimming animation is now finished. In the Timeline, set the final playback frame to 30. Playing back the animation (Alt+A) will reveal our lovely and clumsy swimming cycle. In the Dopesheet, switch the Display mode to Action Editor. There you can change the name of the current action to "SharkSwimming," as shown in Figure 2.21.
 
-![Action Edior header](../figures/Chapter2/Fig02-21.jpg)
+\*\*\*Insert Fig02-21.tif
+
+Figure 2.21
+
+Action Editor header.
 
 Source: Blender Foundation.
 
@@ -434,7 +509,11 @@ Now that the shark can swim, you want it to move around. The controls of the gam
 
 Test your progress inside the game (P) and remember to always save. If your file is showing a different result than the file at //assets/shark.11.blend, check the logic bricks in Figure 2.22.
 
-![Motion actuators](../figures/Chapter2/Fig02-22.jpg)
+\*\*\*Insert Fig02-22.tif
+
+Figure 2.22
+
+Motion actuators.
 
 Source: Blender Foundation.
 
@@ -462,7 +541,11 @@ We will leave the shark file for now and put the game pieces together. Open the 
 
 You need to bring the shark model into this file. Start by linking in the SharkMesh and the SharkArmature objects from the shark asset file. Go to the menu File  Link, navigate to the shark blend file, and once in it, navigate inside "Object," select the SharkArmature and SharkMesh objects, and press OK. A screen capture of the linking options is shown in Figure 2.23. The defaults options are good for now.
 
-![Linking options](../figures/Chapter2/Fig02-23.jpg)
+\*\*\*Insert Fig02-23.tif
+
+Figure 2.23
+
+Linking options.
 
 Source: Blender Foundation.
 
@@ -472,7 +555,11 @@ The camera doesn't need to be linked. In fact, it's better to keep it as a local
 
 Good news. The SeaBed was already prepared and is ready for the game (and in your game\_my asset folder). Repeat the linking steps once again for the SeaBed group inside the //level/seabed.blend. You now have the shark, the camera, and the set prepared for the game. The progress shown in Figure 2.24 can be checked at //game.2.blend.
 
-![Shark, camera and SeaBed](../figures/Chapter2/Fig02-24.jpg)
+\*\*\*Insert Fig02-24.tif
+
+Figure 2.24
+
+Shark, camera, and SeaBed.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -492,7 +579,11 @@ To simulate the water, we will add a blue mist effect. This produces an effect s
 
 In order to preview the color and the mist effect in the 3D Viewport, you need to set Viewport Shading to Texture (Alt+Z), as shown in Figure 2.25. The World is now finished and part of the //game3.blend file.
 
-![Mist effect-preview in 3D View](../figures/Chapter2/Fig02-25.jpg)
+\*\*\*Insert Fig02-25.tif(top)
+
+Figure 2.25
+
+Mist effect-preview in 3D View.
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -526,7 +617,11 @@ Start by reopening the current version of the file //game.blend. Now you need to
 
 In Figure 2.26, you can see the game with the school of fish around the shark. If you open the file school.blend, you can see an empty (FishLeader) in the visible layer and an object (Fish) in the second layer (which is and has to be hidden by default). The empty is always rotating and adding more of the fish model into the scene. A fish is added every second or so until the limit specified in the FishLeader game property, maxFish, is reached. Change this number from 30 to 100 and fish will flood you. Decrease to 5, and you make the game even harder. Select the FishLeader, and you will see some new logic bricks. Pay particular attention to the Python controllers.
 
-![School of fish](../figures/Chapter2/Fig02-26.jpg)
+\*\*\*Insert Fig02-26.tif
+
+Figure 2.26
+
+School of fish.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -542,7 +637,11 @@ Art Versus Math
 
 If you want to do your own customizations, try to animate the fish with bones. You can follow all the steps we did for the shark. Additionally, remember to change the object being added by the FishLeader "AddFish" actuator (see Figure 2.27). Instead of adding the fish, you will have to add the fish parent (the FishArmature object you will create). The armature child (the fish itself) will be added together automatically.
 
-![Logic bricks and Game Property of the FishLeader](../figures/Chapter2/Fig02-27.jpg)
+\*\*\*Insert Fig02-27.tif
+
+Figure 2.27
+
+Logic bricks and Game Property of the FishLeader.
 
 Source: Blender Foundation.
 
@@ -556,7 +655,11 @@ The score system will be made in the next section. For now, we will focus on mak
 
 The school of fish is, in fact, already set up. But let's look at what we have there. Open the file //assets/school.blend. In the second layer, select the fish and look at the logic bricks, shown in Figure 2.28.
 
-![Fish school logic bricks](../figures/Chapter2/Fig02-28.jpg)
+\*\*\*Insert Fig02-28.tif
+
+Figure 2.28
+
+Fish school logic bricks.
 
 Source: Blender Foundation.
 
@@ -592,7 +695,11 @@ And so will the shark. Once the shark receives a message, it can act accordingly
 
 The final shark file is at //assets/shark.13.blend. In Figure 2.29, we have a screen of the logic bricks setup.
 
-![Shark ready to grow](../figures/Chapter2/Fig02-29.jpg)
+\*\*\*Insert Fig02-29.tif
+
+Figure 2.29
+
+Shark ready to grow.
 
 Source: Blender Foundation.
 
@@ -604,13 +711,21 @@ Apart from that, the shark needs the "shark" game property to be detected by the
 
 The score system of the game is part of its interface built on top of the 3D view. In Figure 2.30, you can see the main elements of the interface: the score on the top left, the time countdown on the top right, and the title of the game on the bottom right.
 
-![Interface elements](../figures/Chapter2/Fig02-30.jpg)
+\*\*\*Insert Fig02-30.tif
+
+Figure 2.30
+
+Interface elements.
 
 Source: Blender Foundation.
 
 The user interface is independent from the game file, objects, and events. Thanks to the messaging system of the game engine (the combination message actuator and message sensors), you can implement the interface as a separate file with its own logic. Open the interface file in //interface/score.blend. The diagram in Figure 2.31 illustrates the dynamic of its elements and the message flow.
 
-![Message system diagram](../figures/Chapter2/Fig02-31.jpg)
+\*\*\*Insert Fig02-31.tif
+
+Figure 2.31
+
+Message system diagram.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -618,7 +733,11 @@ Now you have two sets of independent and concurrent events. On the one hand, you
 
 The game is over when you run out of time, which is part of the second set of events. The time system is an independent countdown timer (using a timer game property). It updates the time in the interface and sends a message to all the game elements when the time is up, and the game is over. This message is used to freeze the fish-counting and trigger an action to move the score to its final position, as you can see in Figure 2.32.
 
-![Game over interface](../figures/Chapter2/Fig02-32.jpg)
+\*\*\*Insert Fig02-32.tif
+
+Figure 2.32
+
+Game over interface.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -640,11 +759,19 @@ This scene will be imported without changes into your game file. Once again, the
 
 Now the game is a combination of two scenes that work as separate layers. The file is at //game.5.blend. In Figures 2.33 and 2.34, you can see the user interface integrated within the game.
 
-![Game start](../figures/Chapter2/Fig02-33.jpg)
+\*\*\*Insert Fig02-33.tif
+
+Figure 2.33
+
+Game start.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
-![Game over](../figures/Chapter2/Fig02-34.jpg)
+\*\*\*Insert Fig02-34.tif
+
+Figure 2.34
+
+Game over.
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -666,7 +793,11 @@ Next you add a Property sensor named GameIsNotOver to detect if the game is runn
 
 Connect this sensor to the And controller of the game over Sound actuator. Optionally, you can also link this sensor to the And controller of the eating-fish Sound actuator. This will make the sound effects stop after the game is over. The ambient sound should still play; thus, there is no need to connect the GameIsNotOver sensor with the And controller of the ambient Sound. The final logic bricks can be seen in Figure 2.35
 
-![Sound logic bricks](../figures/Chapter2/Fig02-35.jpg)
+\*\*\*Insert Fig02-35.tif
+
+Figure 2.35
+
+Sound logic bricks
 
 Source: Blender Foundation.
 
