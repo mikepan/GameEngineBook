@@ -129,13 +129,7 @@ We will model the outline of the shark based on reference images. To set up your
 
 The current file, as seen in Figure 2.3, can be found under the name //assets/shark.1.blend.
 
-\*\*\*Insert Fig02-03.tif
-
-Figure 2.3
-
-Background images setup.
-
-Source: Blender Foundation.
+![Background images setup](../figures/Chapter2/Fig02-03.tif)
 
 To start the model, remove the initial cube (X) and add a cylinder into the scene (Shift+A  Mesh  Cylinder). New objects are always added to the 3D cursor location, so make sure that it is in the center of the scene [0,0,0] (Shift+S  Cursor to Center). The default cylinder doesn't match the dimensions or the orientation of the reference model. The quick way to change that is to access the redo last menu (F6) and tweak the cylinder parameters. As you can see in Figure 2.4, we used 12 Vertices, Radius of 0.4, Depth of 1.0, Location Y 0.5, and Rotation X 90 degrees.
 
