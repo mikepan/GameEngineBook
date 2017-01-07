@@ -7,7 +7,7 @@ This is a republication of the book originally published by Cengage. We put the 
 
 [Chapter 1 - Getting Started](text/01-GettingStarted.md)
 
-Chapter 2 - Your First Game - Not Ready
+[Chapter 2 - Your First Game](text/02-FirstGame.md)
 
 Chapter 3 - Logic Bricks - Not Ready
 
