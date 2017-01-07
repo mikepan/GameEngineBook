@@ -332,11 +332,7 @@ We will create a swimming cycle-an animation where the first and the last poses 
 
 Rotate the tailbone 50 degrees clockwise in the Z axis. Rotate the head bone 5 degrees counter-clockwise in the same axis. Select all bones (A) and insert a keyframe (ILocRot). This will be our pose for the first frame. The current file is at //assets/shark.9.blend and is shown in Figure 2.18.
 
-\*\*\*Insert Fig02-18.tif
-
-Figure 2.18
-
-Initial pose.
+![Initial pose](../figures/Chapter2/Fig02-18.jpg)
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -344,11 +340,7 @@ To create a cycle, you need the beginning and end frames to match. Move to frame
 
 There are different ways to see your animation in Blender. Change your current screen to Animation (in the header menu where you see Default). This screen shows the three animation editors: Dopesheet, Graph Editor, and Timeline, as you can see in Figure 2.19.
 
-\*\*\*Insert Fig02-19.tif
-
-Figure 2.19
-
-Animation screen.
+![Animation screen](../figures/Chapter2/Fig02-19.jpg)
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -372,11 +364,7 @@ The middle pose of the animation cycle should be opposite to the initial (and fi
 
 \*\*\* End Numbered List
 
-\*\*\*Insert Fig02-20.tif
-
-Figure 2.20
-
-Copy and paste Flipped Pose buttons.
+![Copy and paste Flipped Pose buttons](../figures/Chapter2/Fig02-20.jpg)
 
 Source: Blender Foundation.
 
@@ -392,11 +380,7 @@ To have Blender interpret the bones as two sides of the same bone, you need to n
 
 The swimming animation is now finished. In the Timeline, set the final playback frame to 30. Playing back the animation (Alt+A) will reveal our lovely and clumsy swimming cycle. In the Dopesheet, switch the Display mode to Action Editor. There you can change the name of the current action to "SharkSwimming," as shown in Figure 2.21.
 
-\*\*\*Insert Fig02-21.tif
-
-Figure 2.21
-
-Action Editor header.
+![Action Edior header](../figures/Chapter2/Fig02-21.jpg)
 
 Source: Blender Foundation.
 
@@ -450,11 +434,7 @@ Now that the shark can swim, you want it to move around. The controls of the gam
 
 Test your progress inside the game (P) and remember to always save. If your file is showing a different result than the file at //assets/shark.11.blend, check the logic bricks in Figure 2.22.
 
-\*\*\*Insert Fig02-22.tif
-
-Figure 2.22
-
-Motion actuators.
+![Motion actuators](../figures/Chapter2/Fig02-22.jpg)
 
 Source: Blender Foundation.
 
@@ -482,11 +462,7 @@ We will leave the shark file for now and put the game pieces together. Open the 
 
 You need to bring the shark model into this file. Start by linking in the SharkMesh and the SharkArmature objects from the shark asset file. Go to the menu File  Link, navigate to the shark blend file, and once in it, navigate inside "Object," select the SharkArmature and SharkMesh objects, and press OK. A screen capture of the linking options is shown in Figure 2.23. The defaults options are good for now.
 
-\*\*\*Insert Fig02-23.tif
-
-Figure 2.23
-
-Linking options.
+![Linking options](../figures/Chapter2/Fig02-23.jpg)
 
 Source: Blender Foundation.
 
@@ -496,11 +472,7 @@ The camera doesn't need to be linked. In fact, it's better to keep it as a local
 
 Good news. The SeaBed was already prepared and is ready for the game (and in your game\_my asset folder). Repeat the linking steps once again for the SeaBed group inside the //level/seabed.blend. You now have the shark, the camera, and the set prepared for the game. The progress shown in Figure 2.24 can be checked at //game.2.blend.
 
-\*\*\*Insert Fig02-24.tif
-
-Figure 2.24
-
-Shark, camera, and SeaBed.
+![Shark, camera and SeaBed](../figures/Chapter2/Fig02-24.jpg)
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -520,11 +492,7 @@ To simulate the water, we will add a blue mist effect. This produces an effect s
 
 In order to preview the color and the mist effect in the 3D Viewport, you need to set Viewport Shading to Texture (Alt+Z), as shown in Figure 2.25. The World is now finished and part of the //game3.blend file.
 
-\*\*\*Insert Fig02-25.tif(top)
-
-Figure 2.25
-
-Mist effect-preview in 3D View.
+![Mist effect-preview in 3D View](../figures/Chapter2/Fig02-25.jpg)
 
 Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -558,11 +526,7 @@ Start by reopening the current version of the file //game.blend. Now you need to
 
 In Figure 2.26, you can see the game with the school of fish around the shark. If you open the file school.blend, you can see an empty (FishLeader) in the visible layer and an object (Fish) in the second layer (which is and has to be hidden by default). The empty is always rotating and adding more of the fish model into the scene. A fish is added every second or so until the limit specified in the FishLeader game property, maxFish, is reached. Change this number from 30 to 100 and fish will flood you. Decrease to 5, and you make the game even harder. Select the FishLeader, and you will see some new logic bricks. Pay particular attention to the Python controllers.
 
-\*\*\*Insert Fig02-26.tif
-
-Figure 2.26
-
-School of fish.
+![School of fish](../figures/Chapter2/Fig02-26.jpg)
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -578,11 +542,7 @@ Art Versus Math
 
 If you want to do your own customizations, try to animate the fish with bones. You can follow all the steps we did for the shark. Additionally, remember to change the object being added by the FishLeader "AddFish" actuator (see Figure 2.27). Instead of adding the fish, you will have to add the fish parent (the FishArmature object you will create). The armature child (the fish itself) will be added together automatically.
 
-\*\*\*Insert Fig02-27.tif
-
-Figure 2.27
-
-Logic bricks and Game Property of the FishLeader.
+![Logic bricks and Game Property of the FishLeader](../figures/Chapter2/Fig02-27.jpg)
 
 Source: Blender Foundation.
 
@@ -596,11 +556,7 @@ The score system will be made in the next section. For now, we will focus on mak
 
 The school of fish is, in fact, already set up. But let's look at what we have there. Open the file //assets/school.blend. In the second layer, select the fish and look at the logic bricks, shown in Figure 2.28.
 
-\*\*\*Insert Fig02-28.tif
-
-Figure 2.28
-
-Fish school logic bricks.
+![Fish school logic bricks](../figures/Chapter2/Fig02-28.jpg)
 
 Source: Blender Foundation.
 
@@ -636,11 +592,7 @@ And so will the shark. Once the shark receives a message, it can act accordingly
 
 The final shark file is at //assets/shark.13.blend. In Figure 2.29, we have a screen of the logic bricks setup.
 
-\*\*\*Insert Fig02-29.tif
-
-Figure 2.29
-
-Shark ready to grow.
+![Shark ready to grow](../figures/Chapter2/Fig02-29.jpg)
 
 Source: Blender Foundation.
 
@@ -652,21 +604,13 @@ Apart from that, the shark needs the "shark" game property to be detected by the
 
 The score system of the game is part of its interface built on top of the 3D view. In Figure 2.30, you can see the main elements of the interface: the score on the top left, the time countdown on the top right, and the title of the game on the bottom right.
 
-\*\*\*Insert Fig02-30.tif
-
-Figure 2.30
-
-Interface elements.
+![Interface elements](../figures/Chapter2/Fig02-30.jpg)
 
 Source: Blender Foundation.
 
 The user interface is independent from the game file, objects, and events. Thanks to the messaging system of the game engine (the combination message actuator and message sensors), you can implement the interface as a separate file with its own logic. Open the interface file in //interface/score.blend. The diagram in Figure 2.31 illustrates the dynamic of its elements and the message flow.
 
-\*\*\*Insert Fig02-31.tif
-
-Figure 2.31
-
-Message system diagram.
+![Message system diagram](../figures/Chapter2/Fig02-31.jpg)
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -674,11 +618,7 @@ Now you have two sets of independent and concurrent events. On the one hand, you
 
 The game is over when you run out of time, which is part of the second set of events. The time system is an independent countdown timer (using a timer game property). It updates the time in the interface and sends a message to all the game elements when the time is up, and the game is over. This message is used to freeze the fish-counting and trigger an action to move the score to its final position, as you can see in Figure 2.32.
 
-\*\*\*Insert Fig02-32.tif
-
-Figure 2.32
-
-Game over interface.
+![Game over interface](../figures/Chapter2/Fig02-32.jpg)
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -700,19 +640,11 @@ This scene will be imported without changes into your game file. Once again, the
 
 Now the game is a combination of two scenes that work as separate layers. The file is at //game.5.blend. In Figures 2.33 and 2.34, you can see the user interface integrated within the game.
 
-\*\*\*Insert Fig02-33.tif
-
-Figure 2.33
-
-Game start.
+![Game start](../figures/Chapter2/Fig02-33.jpg)
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
-\*\*\*Insert Fig02-34.tif
-
-Figure 2.34
-
-Game over.
+![Game over](../figures/Chapter2/Fig02-34.jpg)
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved..
 
@@ -734,11 +666,7 @@ Next you add a Property sensor named GameIsNotOver to detect if the game is runn
 
 Connect this sensor to the And controller of the game over Sound actuator. Optionally, you can also link this sensor to the And controller of the eating-fish Sound actuator. This will make the sound effects stop after the game is over. The ambient sound should still play; thus, there is no need to connect the GameIsNotOver sensor with the And controller of the ambient Sound. The final logic bricks can be seen in Figure 2.35
 
-\*\*\*Insert Fig02-35.tif
-
-Figure 2.35
-
-Sound logic bricks
+![Sound logic bricks](../figures/Chapter2/Fig02-35.jpg)
 
 Source: Blender Foundation.
 
