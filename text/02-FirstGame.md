@@ -18,7 +18,7 @@ Sure, who doesn't like sashimi? Simply put, we will need a swimming shark that h
 
 To make it more like a game, we will wrap it with a score system and an omnipresent ticking, counting-down clock.
 
-![Feed The Shark, the game.](../figures/Chapter2/Fig02-01.jpg)
+![Feed The Shark, the game.](../figures/Chapter2/Fig02-01.png)
 
 
 ## Game Elements
@@ -69,14 +69,19 @@ There are four ways of adding new objects and other datablocks to your Blender f
 - You can append them from another Blender file.
 
 For Linking part of another blender file click on File > Link (Ctrl + A + O). Then browse in your system and find the source file. Click on it and you see some folders that categorize data blocks. Select intended data block(s), configure linking options in the "Link from Library" section. Finally click on "Link from Library".
+
 ![Linking data blocks](../figures/Chapter2/Fig02-02-1.png  "Linking data blocks")
 
 For appending part of another blender file click on File > Append (Shift + F1). Then browse in your system and find the source file. Click on it and you see some folders that categorize data blocks. Select intended data block(s), configure appending options in the "Append from Library" section. Finally click on "Append from Library".
+
 ![Appending data blocks](../figures/Chapter2/Fig02-02-2.png  "Appending data blocks")
 
 >**Tips**
-In big and complex blender files there are many files (data blocks) and you may have problems in finding your intended file. You can search items through search box in the top right of the dialog (even with wildcards). Also you can filter data blocks and items in the Filter tab.
+- In big and complex blender files there are many files (datablocks) and you may have problems in finding your intended file. You can search items through search box in the top right of the dialog (even with wildcards). Also you can filter data blocks and items in the Filter tab.
 <img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-3.png" align="center">
+
+- You can use thumbnails to find some datablock types easier. Before using this feature, use File > Data Previews commands to generate thumbnails for datablocks (like materials, textures, ...).
+<img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-4.png" align="center">
 
 The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_-the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
 
@@ -88,9 +93,9 @@ You don't simply dump the whole Blender file inside yours. Instead, you can navi
 
 ## How to Use the Chapter Files
 
-On the Book files, you can find the complete game/exercise in the folder \Book\Chapter02\game\_final\.
+On the Book files, you can find the complete game(exercise) in the folder Book/Chapter02/game/_final/.
 
-For simplicity's sake, we will use Blender relative path syntax to refer to the files inside this folder. In this case // refers to the base folder and //interface/score.blend stands for \Book\Chapter02\game\_final\interface\score.blend.
+For simplicity's sake, we will use Blender relative path syntax to refer to the files inside this folder. In this case // refers to the base folder and //interface/score.blend stands for Book/Chapter02/game/_final/interface/score.blend.
 
 To play the game inside Blender, open the file game.blend. This file is only a part of the game and depends on the external files that are organized as:
 
@@ -106,15 +111,16 @@ To play the game inside Blender, open the file game.blend. This file is only a p
 
 To follow the progress of the instruction steps, we have other folders. Copy the whole folder onto your computer to work from there. These are the folders we will be using:
 
-**\** Book\Chapter02\game\_my **\** -The semi-empty folder structure to be filled as you advance in the chapter.
+- **Book/Chapter02/game\_my** -The semi-empty folder structure to be filled as you advance in the chapter.
 
-\Book\Chapter02\game\_progress\-The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.1.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game\_my" folder.
+- **Book/Chapter02/game\_progress** -The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.1.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game\_my" folder.
 
-\Book\Chapter02\game\_final\-The final as of the end of this exercise; use for reference.
+- **Book/Chapter02/game\_final** -The final as of the end of this exercise; use for reference.
 
-\Book\Chaper02\references\-Files to support the making of the game.
+- **Book/Chaper02/references** -Files to support the making of the game.
 
 For the rest of the chapter, we will refer to the files from your //game\_my/ top folder.
+
 
 ## Modeling
 
@@ -122,121 +128,69 @@ Open Blender and save the default file as //assets/shark.blend.
 
 We will model the outline of the shark based on reference images. To set up your working environment, follow these steps:
 
-\*\*\* Begin Numbered List
+1. Split your 3D view into four views (Ctrl+Alt+Q).
 
-1.Split your 3D view into four views (Ctrl+Alt+Q).
+2. Open the 3D view Properties panel (N)-remember that the mouse needs to be over the 3D view in order to call the commands for it.
 
-2.Open the 3D view Properties panel (N)-remember that the mouse needs to be over the 3D view in order to call the commands for it.
+3. In the bottom of the panel, you will see the Background Images option. Turn it on.
 
-3.In the bottom of the panel, you will see the Background Images option. Turn it on.
+4. Add three images for the three Axis/Views: Top, Front, and Right. They can be found in the reference folder named shark-top.png, shark-front.png, and shark-right.png.
 
-4.Add three images for the three Axis/Views: Top, Front, and Right. They can be found in the reference folder named shark-top.png, shark-front.png, and shark-right.png.
+5. Change their size to 1.50
 
-5.Change their size to 1.50
+![Background images setup(Blender Foundation).](../figures/Chapter2/Fig02-03.png "Redo last menu.")
 
-\*\*\* End Numbered List
+The current file can be found under the name //assets/shark.1.blend.
 
-The current file, as seen in Figure 2.3, can be found under the name //assets/shark.1.blend.
+To start the model, remove the initial cube (X) and add a cylinder into the scene (Shift+A > Mesh > Cylinder). New objects are always added to the 3D cursor location, so make sure that it is in the center of the scene [0,0,0] (Shift+S > Cursor to Center). The default cylinder doesn't match the dimensions or the orientation of the reference model. The quick way to change that is to access the redo last menu (F6) and tweak the cylinder parameters. As you can see in Figure 2.4, we used 12 Vertices, Radius of 0.4, Depth of 1.0, Location Y 0.5, and Rotation X 90 degrees.
 
-\*\*\*Insert Fig02-03.tif
-
-Figure 2.3
-
-Background images setup.
-
-Source: Blender Foundation.
-
-To start the model, remove the initial cube (X) and add a cylinder into the scene (Shift+A  Mesh  Cylinder). New objects are always added to the 3D cursor location, so make sure that it is in the center of the scene [0,0,0] (Shift+S  Cursor to Center). The default cylinder doesn't match the dimensions or the orientation of the reference model. The quick way to change that is to access the redo last menu (F6) and tweak the cylinder parameters. As you can see in Figure 2.4, we used 12 Vertices, Radius of 0.4, Depth of 1.0, Location Y 0.5, and Rotation X 90 degrees.
-
-\*\*\*Insert Fig02-04.tif
-
-Figure 2.4
-
-Redo last menu.
-
-Source: Blender Foundation.
+![Redo last menu(Blender Foundation).](../figures/Chapter2/Fig02-04.png "Redo last menu.")
 
 This will be the base for the shark. We will roughly model from the front and side views, trying to match the picture. To work with more freedom, let's customize the screen. Since we will be modeling with side- and front-view references only, it helps to toggle off "quad view" in the Properties panel in the 3D view. Instead, we will split the screen in half (dragging the triangle from the bottom left edge of the 3D view editor).
 
-Enter the Edit mode and, in the top view, remove half of the mesh (leaving the vertices from the middle). Since the shark is symmetrical, we don't need to model its two halves. Switch back to the Object mode and in the Properties panel add a Mirror Modifier. Set clipping to on and make sure that the mirror axis is X. The other default options are fine. Thanks to the modifier, you should now see the cylinder complete again. Back in the Edit mode, any change you make will be automatically mirrored in the other half, as you can see in Figure 2.5.
+Enter the Edit mode and, in the top view, remove half of the mesh (leaving the vertices from the middle). Since the shark is symmetrical, we don't need to model its two halves. Switch back to the Object mode and in the Properties panel add a Mirror Modifier. Set clipping to on and make sure that the mirror axis is X. The other default options are fine.
 
-\*\*\*Insert Fig02-05.tif
+![Mirror Modifier](../figures/Chapter2/Fig02-04-1.png "Mirror Modifier")
 
-Figure 2.5
+Thanks to the modifier, you should now see the cylinder complete again. Back in the Edit mode, any change you make will be automatically mirrored in the other half, as you can see in Figure 2.5.
 
-Mirror Modifier.
-
-Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Mirror Modifier(Blender Foundation.Cengage Learning).](../figures/Chapter2/Fig02-05.png "Mirror Modifier")
 
 We can't do much with the current mesh. We need more vertices to model the shark, and we will use the Loop Cut tool for that. In Edit mode, press Ctrl+R. This will show a purple edge on top of the cylinder. If you move your mouse over the mesh, you can choose where to slice it. In our case, we want a cut parallel to the base of the geometry. To confirm the command, right-click in the window and either move the mouse to slide the new edge loop, or press Esc to cut through the middle of the cylinder. If you scroll your mouse wheel before you confirm (click), you can do multiple slices at once, as shown in Figure 2.6.
 
-\*\*\*Insert Fig02-06.tif
-
-Figure 2.6
-
-Loop cut.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Loop cut(Cengage Learning).](../figures/Chapter2/Fig02-06.png "Loop cut")
 
 We will slice the cylinder on every section where the outline of the shark has a significant change in its slope. Remember to save the file, and if you want to compare your progress, check the file //assets/shark.2.blend.
 
-Since this is a shark and not a sausage, we need to accommodate the new mesh arcs to follow the reference image. The B key will turn box selection on and let you select one or more vertices at once. Another useful shortcut is Alt+RMB on one of the edges of the loops to quickly select the edge loop.
+Since this is a shark and not a sausage, we need to accommodate the new mesh arcs to follow the reference image. The B key will turn box selection on and let you select one or more vertices at once. Another useful shortcut is Alt+RMB (in linux : Alt + Shift + RMB) on one of the edges of the loops to quickly select the edge loop.
+
+![Edge loop](../figures/Chapter2/Fig02-06-1.png "Edge loop")
 
 With the arcs selected, you can grab them and move around (G). When necessary, you can use the S key to scale them around them. The transformations (Rotation, Scaling, and even Grabbing) always happen relative to/around a pivot. By default, the pivot is the 3D Cursor. You can change it, for example, to pivot around the center of the selected vertices. To change the pivot, use the shortcuts comma and period (current selection and 3D cursor respectively) or the menu by the Shading mode. In fact, a lot of the other options in the 3D View header are important for modeling (such as snap, proportional editing, vertex/edge/face selection) and can be found in Figure 2.7.
 
-\*\*\*Insert Fig02-07.tif
-
-Figure 2.7
-
-3D View header.
-
-Source: Blender Foundation.
+![3D View header(Blender Foundation)](../figures/Chapter2/Fig02-07.png "3D View header")
 
 At this point, you can start exploring the top view as well. For quickly switching to top view, use NumPad7 or toggle quad view on and off. Sometimes you need to transform the geometry only in one axis. In Figure 2.8, you can use the handler to pull if you want to move an edge in a specific axis. You can also use the keyboard for that. To restrict the transformation, press X, Y, or Z after the command and slide in the specified axis. Shift+X, Y, or Z works in the opposite way. It locks the transformation for the opposite axis (so you can only move/scale/rotate in a plane). This is really useful-we use G with Shift+Z all the time.
 
-\*\*\*Insert Fig02-08.tif
-
-Figure 2.8
-
-Locked axis transformation.
-
-Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Locked axis transformation(Blender Foundation-Art Cengage Learning)](../figures/Chapter2/Fig02-08.png "Locked axis transformation")
 
 You can also use the Proportional Editing tool, as shown in Figure 2.9. Sometimes you don't want to move individual vertices/edges/faces, and edge loops and box-selected areas are too big to be transformed as a single unified block. To use proportional editing, press O (or go to the icon in the 3D View header) to toggle it on and off. Now if you move a vertex, all the neighboring vertices will tag along. The influence of the tool is determined by the circle around the pivot. (Again, see how important the pivot is?) You can increase the size of the circle of influence by scrolling the mouse wheel up and down.
 
-\*\*\*Insert Fig02-09.tif
-
-Figure 2.9
-
-Proportional Editing tool.
-
-Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Proportional Editing tool(Blender Foundation-Art Cengage Learning)](../figures/Chapter2/Fig02-09.png "Proportional Editing tool")
 
 With these tools, you can get to the stage of the file //assets/shark.3.blend. Also in this file, there are some sketch lines on top of the 3D view; these are made with the Grease Pencil tool to help block out the shape before modeling. They are temporary markers and nothing more. Therefore, they were removed once the model was finished in shark4.blend. Although we can already add a tail to the shark, this poor shark still can't swim. To finish the modeling instructions, we will extrude those missing bits. In this context, extruding means to pull a piece out of the base geometry while keeping it connected. It's easier to show than to say. In Edit mode, select the face on the side of the shark and extrude it by pressing E, as shown in Figure 2.10.
 
-\*\*\*Insert Fig02-10.tif
-
-Figure 2.10
-
-Extruding.
-
-Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
+![Extruding(Blender Foundation-Art Cengage Learning)](../figures/Chapter2/Fig02-10.png "Extruding")
 
 Once you enter the extrude command, a new face is created. This face is connected to and in the same position as the original face. Additionally, it automatically puts you in the Grab command with the movement locked to the normal axis (no more the X, Y, or Z but the face normal instead). Pull the face as far as needed (in our case, the front reference image should be the guide) and click to finish it. If you press Esc, you will cancel the Grab part of the command but will still have the new face.
 
-\*\*\* Begin Note
 
-Transform Orientation
-
+>**Transform Orientation**
 If an object or its parts is rotated in relation to the global axis, you will find the default axis locking hardly useful. Therefore, Blender allows you to quickly set a different alignment mode in the 3D View header (the default is Global). To switch to it, enter the desired axis twice (for example, X+X).
-
 By changing the global orientation, you are actually changing the orientation of the Transform controllers (Translate, Rotate, Scale).
-
 One exception to this system (and broadly used) is that when Global is set as the global orientation, you get Local transformations when double-typing your locking axis.
-
 Additionally, an advanced resource is to add custom Transform Orientations. This is accessible at the end of the 3D View Properties panel.
 
-\*\*\* End Note
 
 Because the Mirror Modifier has both "Merge" and "Clipping" options turned on, the extrude will not simply be constrained to the normal (the axis perpendicular to the face) initially. Instead, the extruded face will be locked to the normal, but half of it will be locked in with the mirror plane. Therefore, it will behave as if locked vertically (Z axis).
 
@@ -244,13 +198,7 @@ To save time with the modeling, we will add a head from the built-in meshes in B
 
 You will need to remove some faces from the neck to connect it with the top part of the body. To delete faces, use the X key. This will bring up the menu shown in Figure 2.11-pick your option wisely. To connect vertices and edges, use the F key. (They need to be selected, and no more than what can fit in a face.)
 
-\*\*\*Insert Fig02-11.tif
-
-Figure 2.11
-
-Delete menu.
-
-Source: Blender Foundation.
+![Delete menu(Blender Foundation)](../figures/Chapter2/Fig02-11.png "Delete menu")
 
 To finish the model, you can add the swimmers on the sides. Start by selecting one face in the lateral of the mesh and extruding it until necessary. As we did for the main body of the shark, we should add more sections to the swimmer with the Loop Cut tool.
 
