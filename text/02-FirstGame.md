@@ -1,10 +1,31 @@
-# Chapter 2: First Game
+**Table of Contents**
+
+- [Chapter 2: First Game](#Chapter 2: First Game)
+	- [Game Idea](#Game Idea)
+	- [Game Elements](#Game Elements)
+	- [File Organization, Datablocks, and Linking](#File Organization, Datablocks, and Linking)
+	- [Datablocks](#Datablocks)
+	- [Linking and Appending](#Linking and Appending)
+	- [How to Use the Chapter Files](#How to Use the Chapter Files)
+	- [Modeling](#Modeling)
+	- [Texturing](#Texturing)
+	- [Rigging](#Rigging)
+	- [Animation](#Animation)
+	- [Camera and Keyboard](#Camera and Keyboard)
+	- [World and Environment](#World and Environment)
+	- [Artificial Intelligence](#Artificial Intelligence)
+	- [All You Can Eat](#All You Can Eat)
+	- [Scoring System](#Scoring System)
+	- [Music for Your Ears](#Music for Your Ears)
+	- [Where to Go from Here](#Where to Go from Here)
+
+# Chapter 2: First Game <a id="First Game"></a>
 
 In this chapter, we are going through the steps of making a simple game, from start to finish. The first goal is to keep your Blender knowledge up-to-date. Second, this is a chance to present an overview of the game's workflow. From this point on, you should be able to read the chapters in this book in any given order, according to your needs.
 
 Welcome to _Feed The Shark,_ the game.
 
-## Game Idea
+## Game Idea <a id="Game Idea"></a>
 
 _The shark population has been depleted worldwide. Studies suggest that overfishing and the illegal marketing of shark fins has impacted not only the top predator of the oceans but also brought imbalance to the whole ecosystem._
 
@@ -21,7 +42,7 @@ To make it more like a game, we will wrap it with a score system and an omnipres
 ![Feed The Shark, the game.](../figures/Chapter2/Fig02-01.png)
 
 
-## Game Elements
+## Game Elements <a id="Game Elements"></a>
 
 This minimalistic game will consist of:
 
@@ -34,7 +55,7 @@ We are not covering all the topics extensively. We will, however, walk you throu
 
 If you are already familiar with Blender as an asset-making tool, you might skip some of those steps. You will find incremental snapshots for all the individual parts here on this site.
 
-## File Organization, Datablocks, and Linking
+## File Organization, Datablocks, and Linking <a id="File Organization, Datablocks, and Linking"></a>
 
 _Starting with the right fin…_
 
@@ -50,7 +71,7 @@ Having independent files allows for a big team to work together on separated ass
 > Blender files are not optimal when it comes to merging. (Given that they are binaries, you either roll back a file entirely or do it manually.) Thus, working with individual components can help you overcome that.
 
 
-## Datablocks
+## Datablocks <a id="Datablocks"></a>
 
 In the previous chapter, we introduced you to the concept of datablocks. Linked datablocks (for example, a texture datablock used by a material datablock) don't even need to be part of the same file. In our project, we will use it to a certain extent. What are the criteria here?
 
@@ -60,7 +81,7 @@ Now let's look at armatures and actions. Only after you are done with your riggi
 
 But how do we keep them linked while in separate files?
 
-## Linking and Appending
+## Linking and Appending <a id="Linking and Appending"></a>
 
 There are four ways of adding new objects and other datablocks to your Blender file:
 - You can build them from scratch.
@@ -77,11 +98,12 @@ For appending part of another blender file click on File > Append (Shift + F1). 
 ![Appending data blocks](../figures/Chapter2/Fig02-02-2.png  "Appending data blocks")
 
 >**Tips**
-- In big and complex blender files there are many files (datablocks) and you may have problems in finding your intended file. You can search items through search box in the top right of the dialog (even with wildcards). Also you can filter data blocks and items in the Filter tab.
-<img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-3.png" align="center">
-
-- You can use thumbnails to find some datablock types easier. Before using this feature, use File > Data Previews commands to generate thumbnails for datablocks (like materials, textures, ...).
-<img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-4.png" align="center">
+>
+>- In big and complex blender files there are many files (datablocks) and you may have problems in finding your intended file. You can search items through search box in the top right of the dialog (even with wildcards). Also you can filter data blocks and items in the Filter tab.
+><img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-3.png" align="center">
+>
+>- You can use thumbnails to find some datablock types easier. Before using this feature, use File > Data Previews commands to generate thumbnails for datablocks (like materials, textures, ...).
+><img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-4.png" align="center">
 
 The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_-the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
 
@@ -91,7 +113,7 @@ As you will see from our file structure (explained next), we will be using mostl
 
 You don't simply dump the whole Blender file inside yours. Instead, you can navigate inside the file structure and bring in only an object, or a group, material, or even an entire scene. We will be linking the shark, interface, environment, and other fish in the main file. We could also do nested linking, by having one of the library files link another file inside it (for example, the actions could be linked in the armature files).
 
-## How to Use the Chapter Files
+## How to Use the Chapter Files <a id="How to Use the Chapter Files"></a>
 
 On the Book files, you can find the complete game(exercise) in the folder Book/Chapter02/game/_final/.
 
@@ -122,7 +144,7 @@ To follow the progress of the instruction steps, we have other folders. Copy the
 For the rest of the chapter, we will refer to the files from your //game\_my/ top folder.
 
 
-## Modeling
+## Modeling <a id="Modeling"></a>
 
 Open Blender and save the default file as //assets/shark.blend.
 
@@ -186,7 +208,8 @@ Once you enter the extrude command, a new face is created. This face is connecte
 
 
 >**Transform Orientation**
-If an object or its parts is rotated in relation to the global axis, you will find the default axis locking hardly useful. Therefore, Blender allows you to quickly set a different alignment mode in the 3D View header (the default is Global). To switch to it, enter the desired axis twice (for example, X+X).
+>
+>If an object or its parts is rotated in relation to the global axis, you will find the default axis locking hardly useful. Therefore, Blender allows you to quickly set a different alignment mode in the 3D View header (the default is Global). To switch to it, enter the desired axis twice (for example, X+X).
 By changing the global orientation, you are actually changing the orientation of the Transform controllers (Translate, Rotate, Scale).
 One exception to this system (and broadly used) is that when Global is set as the global orientation, you get Local transformations when double-typing your locking axis.
 Additionally, an advanced resource is to add custom Transform Orientations. This is accessible at the end of the 3D View Properties panel.
@@ -204,7 +227,7 @@ To finish the model, you can add the swimmers on the sides. Start by selecting o
 
 You can refine your model as much as you want. The current model is in //assets/shark.4.blend.
 
-## Texturing
+## Texturing <a id="Texturing"></a>
 
 The next step shouldn't take much time. To add the skin of the shark, we will use an image projected into the faces. Images are two-dimensional, while our models are three-dimensional. In order to match them both, we need to do the equivalent of peeling an orange and flattening the peel onto a flat plane. The peel in the plane will be our image of the orange skin, allowing us to use a 2D image for our 3D model. Another example is the representation of the world map where a sphere is projected onto a plane, as you can see in Figure 2.12. The process of mapping the 3D geometry to a 2D plane is called _UV texturing._
 
@@ -215,7 +238,7 @@ Before we start, go to the Modifiers panel and apply the Mirror Modifier. If you
 
 To start creating a UV texture, you need to switch to Edit mode and call the UV Mapping menu (U). This menu has different mapping options. We will be using the first one,  Unwrap, which is a semi-automatic way to calculate the optimal stretching for the 2D texture. The result can be seen and edited in the UV/Image Editor.
 
-In the Editor menu, click Image  New, and in the pop-up menu, set UV Test Grid and confirm. This will produce a sample image where you can check in the 3D model as to how stretched the map image (texture) will be, once it is re-projected onto the shark model. If you look at Figure 2.13, you should spot a problem with the default unwrapping: the image on the side of the shark is too stretched and does not have enough resolution. While the shark tail has a high resolution, that doesn't correspond to its need (the tail is small after all)-the smaller the squares of the UV test grid, the higher the pixel-per-face ratio.
+In the Editor menu, click Image > New, and in the pop-up menu, set UV Test Grid and confirm. This will produce a sample image where you can check in the 3D model as to how stretched the map image (texture) will be, once it is re-projected onto the shark model. If you look at Figure 2.13, you should spot a problem with the default unwrapping: the image on the side of the shark is too stretched and does not have enough resolution. While the shark tail has a high resolution, that doesn't correspond to its need (the tail is small after all)-the smaller the squares of the UV test grid, the higher the pixel-per-face ratio.
 
 ![Bad default unwrapping(Cengage Learning)](../figures/Chapter2/Fig02-13.png "Bad default unwrapping")
 
@@ -227,8 +250,9 @@ Your model is now ready for proper texturing. In the 3D view, switch to the Text
 
 
 >**No Paint, No Pain**
-There is more to texture painting than we can cover here. But it's important to know that the feature is there, and it works great for 3D touch-up painting of your game textures.
-Thus, if you don't want to paint the model, you can use the reference image as texture. Turn back to the side view and in the UV Mapping menu (U), set Project from View. In the UV/Image Editor, select the image you used for reference. For the side-swimmers, go to top view and, selecting only them, repeat the procedure and choose the top reference image.
+>
+>There is more to texture painting than we can cover here. But it's important to know that the feature is there, and it works great for 3D touch-up painting of your game textures.
+Thus, if you don't want to paint the model, you can use the reference image as texture. Turn back to the side view and in the UV Mapping menu (U), set Project from View. In the UV/Image Editor, select the image you used for reference. For the side-swimmers, go to top view and, selecting only them, repeat >the procedure and choose the top reference image.
 Another option is to use the simple "shark tattoo" texture I painted for the final game file. This fish is a small part of the texture, because the texture corresponds to the UV layout of the whole mesh. If the image looks strange in your shark, you will have to edit your UV layout to make it match the UV of the //assets/shark.6.blend. You will find the texture in \Book\Chapter02\game\_final\assets\textures\shader.png.
 
 
@@ -236,7 +260,7 @@ The texture needs to be part of a material. Select the object, and in the Proper
 
 If you are not familiar with materials in Blender, refer to Chapter 5, "Graphics." You can also import the materials Shark and SharkEyes from the current file at //assets/shark.6.blend .
 
-## Rigging
+## Rigging <a id="Rigging"></a>
 
 _Animate the shark…_
 
@@ -271,18 +295,20 @@ In the Object mode, select the shark mesh and then the shark armature and Ctrl+P
 
 
 >**X-Ray and Auto-Normalize**
-With the armature selected, go to the Properties Data panel and set X-Ray on in the armature display-this will make the bones always be visible. Also, while weight painting, you can set Auto Normalize in the Tool panel-this ensures that all bone-deforming vertex groups don't add up to 1.0 while weight painting.
+>
+>With the armature selected, go to the Properties Data panel and set X-Ray on in the armature display-this will make the bones always be visible. Also, while weight painting, you can set Auto Normalize in the Tool panel-this ensures that all bone-deforming vertex groups don't add up to 1.0 while weight painting.
 
 
 To test the bone weighting, move the bones around (in the Pose not Edit Mode) and see if the mesh goes with it. The file is ready for animation and can be found here: //assets/shark.8.blend.
 
-## Animation
+## Animation <a id="Animation"></a>
 
 To create an animation, you need to define the individual poses that will build up the illusion of movement. As an artist, you can define the poses frame by frame or work in a few moments of the animation. For example, you can define just a few frames, and Blender will automatically calculate the missing frames for the animation. It depends on how much control you want.
 
 
 >**When 206 Bones Are Too Many**
-The animation complexity is also directly related to the number of bones created in your rig. For this game, we are not using many bones for simplicity's sake. In Chapter 4, "Animation," you will find more robust examples.
+>
+>The animation complexity is also directly related to the number of bones created in your rig. For this game, we are not using many bones for simplicity's sake. In Chapter 4, "Animation," you will find more robust examples.
 
 
 We will create a swimming cycle-an animation where the first and the last poses are the same and can be played seamlessly in a loop. Let's start by the following these steps:
@@ -327,8 +353,9 @@ The middle pose of the animation cycle should be opposite to the initial (and fi
 
 
 >**Bones Mirroring**
-If your rigs have bones bifurcating from the main bone chain, there is a special way to make them mirror. By default, Blender will try to paste the pose of the same bone mirrored relative to the Y axis. Sometimes, however, you want to swap the transformations between two bones-a left and right. The classic example is walking animations when you need to animate only half of the strides.
-To have Blender interpret the bones as two sides of the same bone, you need to name them L (for left bones) and R (for right bones). This way, the bone Swimmer.001.L will be treated as the pair of Swimmer.001.R, and their poses will be swapped and mirrored when using the Pose Flip Paste option. To learn more about this, refer to the walking cycle tutorial in the Chapter 4.
+>
+>If your rigs have bones bifurcating from the main bone chain, there is a special way to make them mirror. By default, Blender will try to paste the pose of the same bone mirrored relative to the Y axis. Sometimes, however, you want to swap the transformations between two bones-a left and right. The classic example is walking animations when you need to animate only half of the strides.
+>To have Blender interpret the bones as two sides of the same bone, you need to name them L (for left bones) and R (for right bones). This way, the bone Swimmer.001.L will be treated as the pair of Swimmer.001.R, and their poses will be swapped and mirrored when using the Pose Flip Paste option. To learn more about this, refer to the walking cycle tutorial in the Chapter 4.
 
 
 The swimming animation is now finished. In the Timeline, set the final playback frame to 30. Playing back the animation (Alt+A) will reveal our lovely and clumsy swimming cycle. In the Dopesheet, switch the Display mode to Action Editor. There you can change the name of the current action to "SharkSwimming," as shown in Figure 2.21.
@@ -339,13 +366,14 @@ The current snapshot of this file is //assets/shark.10.blend.
 
 You can also do a "SharkAttack" animation. For a smooth transition, make the new action with the same initial and final poses as the "SharkSwimming." If you go with that, use the attack animation when the shark eats a fish.
 
-## Camera and Keyboard
+## Camera and Keyboard <a id="Camera and Keyboard"></a>
 
 After all the hard work of setting up your main character, it's time to bring in the game. If you play (P) the game now, you will see nothing but the shark standing still.
 
 
 >**Playing and Quitting the Game**
-Every time you need to test the current status of the game, you can launch it from the Game menu (available when the Engine is set to Game Engine) or by using the shortcut P. To quit the running game and go back to the regular Blender environment, use the Exit key set in the game Render panel (Esc by default).
+>
+>Every time you need to test the current status of the game, you can launch it from the Game menu (available when the Engine is set to Game Engine) or by using the shortcut P. To quit the running game and go back to the regular Blender environment, use the Exit key set in the game Render panel (Esc by default).
 
 
 We will now set up the logic bricks. You'll learn more about logic bricks in the next chapter. They are the visual components of the logic and interaction of the game. The shark animation and movement will be controlled with logic bricks. We will also set up the camera control and motion.
@@ -396,7 +424,7 @@ If you are modeling everything from scratch, you should tweak the speed and angl
 
 With the shark alone in the scene, it's hard to tell how it is moving. It's time to add other objects to the scene so you can make sure that the camera settings and the shark motion are well adjusted. Thus, the next step is to add the world (the SeaBed et al). In the meantime, you can compare the status of your file with: //assets/shark.12.blend.
 
-## World and Environment
+## World and Environment <a id="World and Environment"></a>
 
 We will leave the shark file for now and put the game pieces together. Open the file //game.1.blend. This empty file will be the main file of the game. If you want to start a file from scratch, open the Blender default file, delete everything from it (press A to select all and then X to delete), and change engine to Blender Game and Shading mode to GLSL.
 
@@ -430,7 +458,7 @@ In order to preview the color and the mist effect in the 3D Viewport, you need t
 
 Play your game and swim around with the shark. However, there is one basic element missing in our survival shark game: the food.
 
-## Artificial Intelligence
+## Artificial Intelligence <a id="Artificial Intelligence"></a>
 
 While the shark is 100 percent interactive, controlled by the player, the fish will be controlled through a simple AI (artificial intelligence) mechanic. The principles are simple: the fish's swimming cycle is handled by logic bricks, while the fish's constant spawning inflow is controlled by an individual "program" (a script) responsible for the following components:
 
@@ -444,7 +472,8 @@ While the shark is 100 percent interactive, controlled by the player, the fish w
 
 
 >**Speaking of Scripts**
-Scripts can also be used to complement the functionality of a component of the game. The score scene is using logic bricks to handle the score, but it needs a script to handle the time out, the game over, and to change the resolution of all the text objects. We'll explain more about that in the "Scoring System" section of this chapter.
+>
+>Scripts can also be used to complement the functionality of a component of the game. The score scene is using logic bricks to handle the score, but it needs a script to handle the time out, the game over, and to change the resolution of all the text objects. We'll explain more about that in the "Scoring System" section of this chapter.
 
 
 Once again, we will take advantage of a system with linkable assets. Instead of creating the fish school yourself, you will bring it inside your game, ready to use.
@@ -459,7 +488,8 @@ The script allows for more direct manipulation of your game elements, complex ma
 
 
 >**Art Versus Math**
-"But I'm an artist and don't understand math." Sure, we get that a lot. But bear in mind that here you only need to understand the mechanics of when to rely on a script and what you can do with it. For a more in-depth overview of this topic, see Chapter 7, "Python Scripting," later in the book. Also, the math you need for Python scripting is more accessible than most people assume. Unless, of course, you are planning to run for Miss U.S.A. [http://youtu.be/9QBv2CFTSWU](http://youtu.be/9QBv2CFTSWU)
+>
+>"But I'm an artist and don't understand math." Sure, we get that a lot. But bear in mind that here you only need to understand the mechanics of when to rely on a script and what you can do with it. For a more in-depth overview of this topic, see Chapter 7, "Python Scripting," later in the book. Also, the math you need for Python scripting is more accessible than most people assume. Unless, of course, you are planning to run for Miss U.S.A. [http://youtu.be/9QBv2CFTSWU](http://youtu.be/9QBv2CFTSWU)
 
 
 If you want to do your own customizations, try to animate the fish with bones. You can follow all the steps we did for the shark. Additionally, remember to change the object being added by the FishLeader "AddFish" actuator (see Figure 2.27). Instead of adding the fish, you will have to add the fish parent (the FishArmature object you will create). The armature child (the fish itself) will be added together automatically.
@@ -468,7 +498,7 @@ If you want to do your own customizations, try to animate the fish with bones. Y
 
 The current checkpoint is at //game.4.blend. If you changed your //assets/school.blend file, you need only replace the one in the sources with yours. As we mentioned (three times already, anyone counting?), the new data will be automatically synced in the game. Play your game, and get ready to wrap up the shark feeding.
 
-## All You Can Eat
+## All You Can Eat <a id="All You Can Eat"></a>
 
 If you try to catch the fish with the shark, you will see that the shark pushes the fish away. For the game, we need three things to happen: (1) the fish needs to die, (2) the shark needs to get bigger, (3) a score on the screen needs to tell how many fish we caught and how much time we have left.
 
@@ -514,7 +544,7 @@ We started by creating an animation for the shark. This animation is played acco
 
 Apart from that, the shark needs the "shark" game property to be detected by the fish school. This will trigger the collision. The collision sensor simply checks if the object has a property with a given name, so the type and value of the property are arbitrary (in our case, we are using a Boolean property, but it could be any other property type). Now one by one, we can eat the fish. And it's time to count sheep.
 
-## Scoring System
+## Scoring System <a id="Scoring System"></a>
 
 The score system of the game is part of its interface built on top of the 3D view. In Figure 2.30, you can see the main elements of the interface: the score on the top left, the time countdown on the top right, and the title of the game on the bottom right.
 
@@ -550,7 +580,7 @@ Now the game is a combination of two scenes that work as separate layers. The fi
 
 ![Game over(Cengage Learning)](../figures/Chapter2/Fig02-34.png "Game over")
 
-## Music for Your Ears
+## Music for Your Ears <a id="Music for Your Ears"></a>
 
 A game is not complete without sound effects. There are three sounds under // sounds/: the ambient sound (water.m4a), the eating-fish effect (sharked.m4a), and the ending sound (gameover.m4a). This is the farewell set of instructions for this chapter and a prelude for the following chapter (entirely on logic bricks). Speaking of the lack of images, those are sound samples. Feel free to whistle along.
 
@@ -572,7 +602,7 @@ Connect this sensor to the And controller of the game over Sound actuator. Optio
 
 The final file is at //game.6.blend.
 
-## Where to Go from Here
+## Where to Go from Here <a id="Where to Go from Here"></a>
 
 The game is complete: the final files are in \Book\Chapter02\game\_final\game.blend.
 
