@@ -1,57 +1,32 @@
-Slug: Mastering Game Blender Engine
+# Chapter 3: Logic Bricks
 
-Production: Please replace [md] with em dash
+What makes a game different than a movie? Let's see. In both you can find yourself buried in a comfortable seat eating junk food and alienated from the world. And funny 3D goggles are not exclusive to either. But what about interactivity? In a game you can control a player and interact with the virtual (or real!) world and the game elements. The story can be dynamically created in front of your eyes.
 
-[ms] minus sign
+Therefore, as a director and content creator you will play different roles in a movie or a game. In a movie, for example, you have to direct the flow of the story, but for a game, you have to direct how the player controls and experiences this flow. Those are the times of super computers to Watson, IBM's Jeopardy "intelligent" machine. More than ever, it's time to narrow the gap between what technology can deliver and what the public can experiment with and assimilate as part of their own nature. As Kevin Flynn praised in _Tron_ and _Tron Legacy_the Disney game-related movie and prequel   _all the power to the user_.
 
-[r] registered mark sign
+Traditionally, to design your game interaction in the past, you would have needed coding expertise and a highly technical background. If, as a creative artist, any words such as _technical, code,_ or _programming_ scare you, Have confidence!
+"Pure artists" are still scared with code. The idea here is not that they will no longer be afraid of it. Instead, with the BGE they will not have to face their fears. Logic Bricks are an alternative to hardcore coding, known to be "artists friendly" more. Logic Bricks is here to rescue you. Logic Bricks is a visual set of tools responsible for integrating the game components together. By using Logic Bricks, you can determine what to do after a mouse click, when to play an animation, how to move your character, and so on, as shown in Figure 3.1.
 
-[c] copyright sign
+![Example of playing an animation when pressing Space.](../figures/Chapter3/Fig03-01.png  "Example of playing an animation when pressing Space.")
 
-underlined text should be code font
+>**Note**
+>
+>Logic Bricks is high level visual programming.
 
-### Chapter 3
+The Logic Brick system is composed of three main elements: **sensors**, **controllers**, and **actuators**. Sensors are an event system used to trigger an action upon a specific event (for example, an object collides with another object or the joystick is used). Once one or more sensors is triggered, you can use a controller to control whether or not this set of events will produce an event in the game (and which effect). Controllers work as logic pipes, evaluating sensors through simple logic conditions, such as And, Or, and Not. Finally, when a controller validates a set of sensors, it will activate an actuator. An actuator is responsible for a specific action of the game (such as ending the game, moving an object, and so on).
 
-### Logic Bricks
+In this chapter, we'll cover sensors, controllers, and actuators in detail specifically, how and when to use them. Additionally, you will learn about object game properties, the State Machine system, how the interface works, and the architecture of the system as a whole. As a system used to build new worlds, this is no place for _do's_ and _don'ts_. It will be up to you to find the best set of features that fits your project and creativity. Nevertheless, when possible, we'll present suggestions of when and how people have used the tools in the past, but you don't have to feel constrained by that. Treat Logic Bricks as small Lego pieces and surprise us and yourself.
 
-What makes a game different than a movie? Let's see. In both you can find yourself buried in a comfortable seat eating junk food and alienated from the world. And funny 3D goggles are not exclusive to either. But what about interactivity? In a game you can control a player and interact with the world and the game elements. The story can be dynamically created in front of your eyes.
+>**Leave Your Python at the Door**
+>
+>Logic Bricks are really easy and quick to use. You can make entire games with them with absolutely no need for coding.
 
-Therefore, as a director and content creator you will play different roles in a movie or a game. In a movie, for example, you have to direct the flow of the story, but for a game, you have to direct how the player controls and experiences this flow. Those are the times of super computers[md]ode to Watson, IBM's Jeopardy "intelligent" machine. More than ever, it's time to narrow the gap between what technology can deliver and what the public can experiment with and assimilate as part of their own nature. As Kevin Flynn praised in _Tron_ and _Tron Legacy_[md]the Disney game-related movie and prequel[md]_all the power to the user_.
 
-Traditionally, to design your game interaction in the past, you would have needed coding expertise and a highly technical background. If, as a creative artist, any words such as _technical, code,_ or _programming_ scare you, be afraid no
-#
-[ANNOTATION:
-
-BY 'Dalai Q Felinto'
-ON '2013-03-30T19:38:00'DF
-NOTE: '"Pure artists" are still scared with code. The idea here is not that they will no longer be afraid of it. Instead, with the BGE they will not have to face their fears. Logic Bricks are an alternative to hardcore coding, known to be 'artists'friendly'"']
-more. Logic Bricks is here to rescue you. Logic Bricks is a visual set of tools responsible for integrating the game components together. By using Logic Bricks, you can determine what to do after a mouse click, when to play an animation, how to move your character, and so on, as shown in Figure 3.1.
-
-\*\*\*Insert Fig03-01.tif
-
-Figure 3.1
-
-Example of playing an animation when pressing Space.
-
-Source: Blender Foundation.
-
-The Logic Brick system is composed of three main elements: sensors, controllers, and actuators. Sensors are an event system used to trigger an action upon a specific event (for example, an object collides with another object or the joystick is used). Once one or more sensors is triggered, you can use a controller to control whether or not this set of events will produce an event in the game (and which effect). Controllers work as logic pipes, evaluating sensors through simple logic conditions, such as And, Or, and Not. Finally, when a controller validates a set of sensors, it will activate an actuator. An actuator is responsible for a specific action of the game (such as ending the game, moving an object, and so on).
-
-In this chapter, we'll cover sensors, controllers, and actuators in detail[md] specifically, how and when to use them. Additionally, you will learn about object game properties, the State Machine system, how the interface works, and the architecture of the system as a whole. As a system used to build new worlds, this is no place for _do's_ and _don'ts_. It will be up to you to find the best set of features that fits your project and creativity. Nevertheless, when possible, we'll present suggestions of when and how people have used the tools in the past, but you don't have to feel constrained by that. Treat Logic Bricks as small Lego pieces and surprise us and yourself.
-
-\*\*\* Begin Note
-
-Leave Your Python at the Door
-
-Logic Bricks are really easy and quick to use. You can make entire games with them with absolutely no need for coding.
-
-\*\*\* End Note
-
-### General Overview
+# General Overview
 
 Thus far, you know that this whole system will allow you to create those little pieces that compose the interaction of your game. There are multiple ways to put those little parts together and even more ways to combine them. It's impossible to show all the possibilities, but there is a common principle as to how they operate that we can look at.
 
-### Simple Example
+## Simple Example
 
 From the book files, open _\Book\Chapter3\bowling\_base.blend_.
 
