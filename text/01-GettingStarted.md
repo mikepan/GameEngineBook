@@ -4,10 +4,6 @@
 
 - [An Origin Story](#anOriginStory)
 - [About Blender](#aboutBlender)
-- [3D Basics](#3dBasics)
-- [Setting Up](#settingUp)
-- [Blender Basics](#blenderBasics)
-- [Onward](#onward)
 
 Here is something you don't know about Mike. He has read more Linux books than he cares to admit. Unfortunately, Mike rarely makes it past chapter 2. Given that the first two chapters usually contain nothing more than a warm introduction and a history of the software, this practice has two profound consequences. The first is that Mike can articulate the history of Linux far better than almost anyone. The second is that he still does not know how to actually use Linux. Granted, the former happens to be far more useful at a party than knowing the difference between "tar cvfz" and "lshw."
 
@@ -85,7 +81,7 @@ One downside to writing about software is that it's constantly improving. Even t
 >
 > If the latest version is not fresh good enough, you can find official daily builds on [builder.blender.org](https://builder.blender.org/download/). Additionally, many non-official test builds of Blender are available from [graphicall.org](http://graphicall.org/).
 
-## <a name="3dBasics"></a>3D Basics
+## 3D Basics
 
 If you haven't used any 3D application before, the terms modeling, animation, and rendering might be foreign to you. So before you go off to create the spectacular game that you always wanted to make, let's have a quick refresher on the basics of computer graphics. You don't have to endure the boring section below if you are already know what RGB stands for and the difference between Cartesian and Gaussian.
 
@@ -221,7 +217,7 @@ The above list is not meant to be exhaustive, but it should give you an idea of 
 >
 > Making a video game is a constant balancing act between quality and performance. As artists, you want to make the virtual world as rich and detailed as possible; on the other hand, you need to make sure the game can run smoothly for people who might not have top-of-the-line computers. Throughout the process of game-making, you will run into cases where you have to make a decision whether to prioritize the visual quality or the performance of the game. You will also learn tricks to achieve high-quality visual without compromising the performance, as well as how to optimize the game by identifying what is slowing it down.
 
-## <a name="settingUp></a>Setting up
+## Setting up
 
 It's finally time to dive into Blender! From now on, you may be better off reading the book with the computer at your side. In this section, we will give you a short tour of Blender, just enough to get you familiar with the software.
 
@@ -241,7 +237,7 @@ Even though you need Blender to develop the game, Blender games can be packaged 
 
 Blender has no explicit system requirement. The performance of the software is dependent on the complexity of the project. Needless to say, the faster your computer is, the better Blender will run.
 
-## <a name="blenderBasics"></a>Blender Basics
+## Blender Basics
 
 When you start Blender, you will be greeted with the splash screen.Although you can customize all aspect of Blender, in this book, we will assume you are using the default Blender settings and shortcuts.
 
@@ -504,6 +500,6 @@ Blender is designed so that older files can be opened with newer versions of Ble
 
 Due to the Blender Python API change in Blender 2.5, old scripts written for 2.4x will be broken in later versions of Blender. But by the time you are reading this, there should be enough new content available for you to find.
 
-## <a name="onward"></a>Onward
+## Onward
 
 This concludes the crash course on Blender and the game engine. By now, you should have a cursory understanding of the function of a game engine and be familiar with the Blender interface. In the next chapter, you will get your hands dirty and build a simple game by following the step-by-step tutorial.
