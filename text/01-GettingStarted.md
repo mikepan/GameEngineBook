@@ -1,23 +1,67 @@
-# Chapter 1: Getting Started
+**Table of Contents**
+
+- [Chapter 1: Getting Started](#Chapter 1: Getting Started)
+	- [An Origin Story](#An Origin Story)
+		- [Blender Begins](#Blender Begins)
+		- [The Dark Nights](#The Dark Nights)
+		- [Blender Rises](#Blender Rises)
+	- [About Blender](#About Blender)
+		- [About the Game Engine](#About the Game Engine)
+		- [Future of BGE](#Future of BGE)
+	- [3D Basics](#3D Basics)
+		- [Coordinate System](#Coordinate System)
+		- [Points, Edges, Triangles, and Meshes](#Points, Edges, Triangles, and Meshes)
+		- [Basic Transforms](#Basic Transforms)
+		- [Materials and Textures](#Materials and Textures)
+		- [Lights](#Lights)
+		- [Camera](#Camera)
+		- [Animation](#Animation)
+		- [Game](#Game)
+	- [Setting up](#Setting up)
+		- [Installation](#Installation)
+		- [System Requirements](#System Requirements)
+	- [Blender Basics](#Blender Basics)
+			- [Main Menu](#Main Menu)
+			- [3D Viewport](#3D Viewport)
+			- [Outliner](#Outliner)
+			- [Properties Editor](#Properties Editor)
+			- [Timeline](#Timeline)
+			- [Workspace Customization](#Workspace Customization)
+		- [More on the 3D View](#More on the 3D View)
+			- [Viewport Shading Modes](#Viewport Shading Modes)
+		- [Editing Modes](#Editing Modes)
+		- [Keyboard and Mouse](#Keyboard and Mouse)
+		- [Search](#Search)
+		- [Blender Philosophy](#Blender Philosophy)
+		- [Interface](#Interface)
+		- [Keyboard](#Keyboard)
+		- [Mouse](#Mouse)
+		- [Context](#Context)
+		- [Datablocks](#Datablocks)
+		- [Parenting and Grouping](#Parenting and Grouping)
+		- [Backward Compatibility](#Backward Compatibility)
+	- [Onward](#)
+
+# Chapter 1: Getting Started <a id="Chapter 1: Getting Started"></a>
 Here is something you don't know about Mike. He has read more Linux books than he cares to admit. Unfortunately, Mike rarely makes it past chapter 2. Given that the first two chapters usually contain nothing more than a warm introduction and a history of the software, this practice has two profound consequences. The first is that Mike can articulate the history of Linux far better than almost anyone. The second is that he still does not know how to actually use Linux. Granted, the former happens to be far more useful at a party than knowing the difference between "tar cvfz" and "lshw."
 
 In keeping with this tech book tradition, this book won't be any different. In this chapter, you will learn Blender's rich history and be introduced to the very basics of this application.
 
-## An Origin Story
+## An Origin Story <a id="An Origin Story"></a>
 
 It was the mid-1990s, and the personal computer was taking off faster than anyone had anticipated. With it, there arose the advent of animated graphics and 3D games.
 
-### Blender Begins
+### Blender Begins <a id="Blender Begins"></a>
 It was at this ripe time that Blender came into being. Blender started off as an in-house 3D animation software created by a small Dutch animation studio called NeoGeo. Perhaps it was because of the lack of a cheap and capable substitute; perhaps it was due to sheer ambition, NeoGeo decided to create its own animation software from scratch rather than using what was available. The chief programmer of Blender was *Ton Roosendaal*, who was responsible for writing a large part of the core Blender functionalities.
 
 For the next few years, Blender remained the internal tool of a very successful animation studio. The software became so good that in 1998, Blender was made available to the public. A new company, Not a Number (NaN), was formed to oversee the development and distribution of Blender. Largely via the Internet, Blender was distributed as two separate versions: a free version with limited functionality and a version that was not free (called Blender Publisher) that had a few additional features. Being the only complete 3D animation and game creation package available for free at a time when computer graphics was still in its infancy, Blender started gaining popularity, and many online communities developed that allowed artists to share knowledge and their work.
 
 ![Left: Blender 1.6. Right: Blender 2.65](../figures/Chapter1/Fig01-01.jpg)
 
-###  The Dark Nights
+###  The Dark Nights <a id="The Dark Nights"></a>
 Alas, with the collapse of the Internet bubble and some other unfortunate circumstances, Not a Number (NaN) filed for bankruptcy in 2002. Since Blender was the intellectual property of the company at the time, dissolving the company meant an uncertain future for Blender. The Blender community did not want to see their favorite software go down with NaN. So a deal was struck in which NaN would release the source code of Blender to the public for a payment of €100,000. A "Free the Blender" fundraising campaign was started. The online community responded very generously. A few months later, enough money was collected to convince NaN to re-release Blender as an open source software to the newly established Blender Foundation. The foundation was created specifically to manage the now open source Blender. Ton Roosendaal, the original creator of Blender, heads the foundation.
 
-### Blender Rises
+### Blender Rises <a id="Blender Rises"></a>
 Located in beautiful Amsterdam, the Blender Foundation now oversees the development, distribution, and marketing of Blender. But because of the open source nature of the software, its development has been driven largely by volunteer contributors from across the world.
 
 The Blender Foundation also created the Blender Institute, an animation and game studio that focuses on movie and game development using Blender. The Institute produced the movies _Elephants Dream_, _Big Buck Bunny_, _Sintel_, _Tears of Steel_, Cosmos Laundromat and the game _Yo, Frankie!_ These projects serve two main goals: The production process is an opportunity to improve Blender in a real studio environment, and the end result also serves as an advertisement for the software itself.
@@ -37,7 +81,7 @@ Of course, software exists to serve the users - that's you. Every time a Blender
 
 ---
 
-## About Blender
+## About Blender <a id="About Blender"></a>
 
 Chances are, you already know that Blender is an open source 3D software that is capable of modeling, animation, rendering, compositing, and producing a game all in one package. Even if you are not sure what each of those term means, don't fret!
 
@@ -59,7 +103,7 @@ The term "software" suggests that Blender is a tool-a tool that allows you to cr
 
 As this is a book about the tools, this is not a book on game design. Topics such as storyline, art direction, and game playability are beyond the scope of this book. Blender is merely a platform that enables you to make art.
 
-### About the Game Engine
+### About the Game Engine <a id="About the Game Engine"></a>
 
 Blender is a multi-faceted tool. This book will focus on one aspect of it: the game-creation process. If you are new to Blender, learning the game engine means you will pick up basic modeling, animation, and other necessary skills along the way. If you already have Blender experience, great! The skills you already know will make transitioning to the game engine much easier.
 
@@ -67,7 +111,7 @@ Compared to some of the commercial game engines available today, the Blender Gam
 
 To give you some idea of what the game engine is capable of, Chapter 10, "Case Studies," is dedicated to projects that were done in the GE.
 
-### Future of BGE
+### Future of BGE <a id="Future of BGE"></a>
 
 One downside to writing about software is that it's constantly improving. Even today, projects such as [UPBGE](https://upbge.org/) is promising to dramatically improve the features and functionalities of the Blender Game Engine. We will try our best to keep this ebook as up-to-date as possible. What you should do as a reader, is to make sure you are always using the latest version of Blender.
 
@@ -75,19 +119,19 @@ One downside to writing about software is that it's constantly improving. Even t
 >
 > If the latest version is not fresh good enough, you can find official daily builds on [builder.blender.org](https://builder.blender.org/download/). Additionally, many non-official test builds of Blender are available from [graphicall.org](http://graphicall.org/).
 
-## 3D Basics
+## 3D Basics <a id="3D Basics"></a>
 
 If you haven't used any 3D application before, the terms modeling, animation, and rendering might be foreign to you. So before you go off to create the spectacular game that you always wanted to make, let's have a quick refresher on the basics of computer graphics. You don't have to endure the boring section below if you are already know what RGB stands for and the difference between Cartesian and Gaussian.
 
 The knowledge in this section is universal and applies to all other 3D applications. So even if you are coming from a different application, the same concepts drive all of them.
 
-### Coordinate System
+### Coordinate System <a id="Coordinate System"></a>
 
 <img alt="The three axes illustrated" src="../figures/Chapter1/Fig01-05.png" width="33%" align="right">
 We live in a three-dimensional world that has width, height, and depth. So to represent anything that resembles real life as a virtual world inside a computer, we need to think and work in three dimensions. The most common system used is called the Cartesian coordinate system, where the three dimensions are represented by X, Y, and Z, laid out as intersecting planes. Where the three axes meet is called the _origin_. You can think of the origin as the center of your digital universe. A single position in space is represented by a set of numbers that corresponds to its position from the origin: thus (2, -4, 8) is a point in space that is 2 units from the origin along the X axis, 4 units from the origin along the -Y axis, and 8 units up in the Z direction.
 
 
-### Points, Edges, Triangles, and Meshes
+### Points, Edges, Triangles, and Meshes <a id="Points, Edges, Triangles, and Meshes"></a>
 
 Although we can define a position in space using the XYZ coordinates, a single point (or a "vertex," as it's more commonly known in computer graphics) is not terribly useful; after all, you can't see a dot that is infinitesimally small. But you can join this vertex with another vertex to form a line (also known as an "edge"). An edge by itself still wouldn't be very visible, so you create another vertex and join all three vertices together with lines and fill in the middle. Suddenly, something far more interesting is created[md]a triangle (also known as a "face")! By linking multiple faces together, you can create any shape, the result of which is called a "mesh" or "model." Figure below shows how a mesh can be broken down into faces, then edges, and ultimately, as vertices.
 
@@ -112,7 +156,7 @@ Another concept that a modeler will likely encounter is surface normals, or "nor
 >
 > Technically, there are other approaches to computer graphics that do not rely on triangles or polygons, such as NURBS (Non-uniform rational B-spline) and voxel (short for VOlumetric piXEL). But polygon modeling and rendering is by far the most common, and it is the only supported method in the game engine.
 
-### Basic Transforms
+### Basic Transforms <a id="Basic Transforms"></a>
 
 The three basic transforms that you should be familiar with are:
 
@@ -124,7 +168,7 @@ These three are the most common manipulations you will encounter. They are illus
 
 ![Translation, scaling, and rotation.](../figures/Chapter1/Fig01-09.jpg)
 
-### Materials and Textures
+### Materials and Textures <a id="Materials and Textures"></a>
 
 Using polygons, you can define the shape of a mesh. To alter the color and appearance of it, you need to apply materials to the object. Material controls the color, shininess, bumpiness, and even transparency of the object. These variables ultimately all serve to add details to the object.
 
@@ -141,7 +185,7 @@ A diffuse map controls the base color of the surface. A normal map controls the 
 
 Generally, textures are image files. But there are also other ways to texture a surface, such as using a procedural texture. Procedural texture differs from an image in that it's generated by an algorithm in real time, rather than from a pre-made image file. The Blender game engine does not support procedural textures yet.
 
-### Lights
+### Lights <a id="Lights"></a>
 
 Everything you see is the result of light hitting your eyes-without lights, the world would be pitch black. Likewise, light is just as important in a virtual world. With light comes shadow as well. Shadow might not be something that you think about every day, but the interplay of shadow and light makes a huge difference in how the scene is presented.
 
@@ -151,7 +195,7 @@ In most 3D applications, there are several different types of light available to
 
 Think of lighting as more than something that makes your scene visible. Good lighting can enhance the purpose of the scene by highlighting details while hiding irrelevant areas in shadow. Skillful placement of lighting also adds drama and realism to the scene, making an otherwise boring scene look visually exciting.
 
-### Camera
+### Camera <a id="Camera"></a>
 
 <img alt="Camera objects" src="../figures/Chapter1/Fig01-13.png" width="50%" align="right">
 
@@ -164,7 +208,7 @@ A camera is also treated as a regular object in Blender, so you can manipulate i
 >
 > Speaking of lights and cameras, this is the part where we point out the wonderful book by Marcos Mateu-Mestre called Framed Ink. The book uses tons of beautiful drawings to illustrate the many key principles in visual storytelling.
 
-### Animation
+### Animation <a id="Animation"></a>
 
 In this context, _animation_ refers to the technique of making things change over time. For example, animation can involve moving an object, deforming it, or changing its color. To set up an animation, you create "keyframes," which are snapshots in time that store specific values pertaining to the animation. The software can then automatically interpolate in between those values to create a smooth transition. The image below shows Blender's Dopesheet Editor. The Dopesheet allows you to see the various properties that change during an animation: the horizontal axis represents time; the vertical axis shows the various properties, such as location or rotation that are keyframed.
 
@@ -192,7 +236,7 @@ Finally, keep in mind that making objects move doesn't always have to be a manua
 
 <br>
 
-### Game
+### Game <a id="Game"></a>
 
 So far, we have talked about 3D at length. But how does the game engine fit into? Well, a game engine simply takes the existing 3D assets and attaches a "brain" to them so the objects know how to respond to events. The  "brain" can be in the form of logic bricks (which can perform different actions depending on the user input), scripts (which can extend the functionality of logic bricks), or other physical properties of an object (such as rigid body settings to make an object tumble and fall realistically).
 
@@ -211,11 +255,11 @@ The above list is not meant to be exhaustive, but it should give you an idea of 
 >
 > Making a video game is a constant balancing act between quality and performance. As artists, you want to make the virtual world as rich and detailed as possible; on the other hand, you need to make sure the game can run smoothly for people who might not have top-of-the-line computers. Throughout the process of game-making, you will run into cases where you have to make a decision whether to prioritize the visual quality or the performance of the game. You will also learn tricks to achieve high-quality visual without compromising the performance, as well as how to optimize the game by identifying what is slowing it down.
 
-## Setting up
+## Setting up <a id="Setting up"></a>
 
 It's finally time to dive into Blender! From now on, you may be better off reading the book with the computer at your side. In this section, we will give you a short tour of Blender, just enough to get you familiar with the software.
 
-### Installation
+### Installation <a id="Installation"></a>
 
 Blender runs on Windows, Mac OS X, and Linux, You can find the Blender installer for your operating system from www.blender.org. The complete Blender download size is about 100MB.
 
@@ -227,11 +271,11 @@ Go ahead and install Blender. Start the application once it's installed.
 
 Even though you need Blender to develop the game, Blender games can be packaged as stand-alone applications, so that others playing it don't need to install anything. See Chapter 9, "Publishing and Beyond," for more details.
 
-### System Requirements
+### System Requirements <a id="System Requirements"></a>
 
 Blender has no explicit system requirement. The performance of the software is dependent on the complexity of the project. Needless to say, the faster your computer is, the better Blender will run.
 
-## Blender Basics
+## Blender Basics <a id="Blender Basics"></a>
 
 When you start Blender, you will be greeted with the splash screen.Although you can customize all aspect of Blender, in this book, we will assume you are using the default Blender settings and shortcuts.
 
@@ -241,7 +285,7 @@ Clicking anywhere else to dismiss the splash screen, you are presented with an e
 
 The Blender window is divided into Editors. Each Editor region can be resized, moved, and changed to display a specific set of content. For now, let's focus on the default setup.
 
-#### Main Menu
+#### Main Menu <a id="Main Menu"></a>
 
 At the top of the screen is the main menu, which offers basic functionalities such as Open, Save, and Help. Furthermore, the main menu controls the view for the rest of the Blender window. The Render Engine option in the middle of the menu controls how the interface is configured.
 
@@ -249,7 +293,7 @@ At the top of the screen is the main menu, which offers basic functionalities su
 By default, Cycles Render is selected. In this mode, the interface is configured for doing 3D modeling, animation, and rendering with Cycles. But let's switch it to the Blender Game mode. Click the drop-down menu and select Blender Game from the list. This setting will unlock certain features that are not visible normally, and it also hides features that are not available in the Blender game engine.
 
 
-#### 3D Viewport
+#### 3D Viewport <a id="3D Viewport"></a>
 
 Occupying the majority of the screen is a 3D Viewport. Here you can see the 3D world you created and test the game. For now, feel free to explore the 3D Viewport by holding down your middle mouse button over the 3D Viewport and dragging the mouse; the view should rotate with the mouse movement. (Mac users can use the two-finger rotate gesture on the trackpad) The default scene contains three objects: a cube, a camera, and a light. To select one of the objects, right-click on it. The selected object is highlighted in yellow.
 
@@ -267,33 +311,33 @@ To quickly snap to one of the predetermined views (side, top, front, and so on),
 <br><br>
 
 
-#### Outliner
+#### Outliner <a id="Outliner"></a>
 
 <img alt="Outliner" src="../figures/Chapter1/Fig01-20b.png" width="33%" align="right">
 
 To the right of the screen are two editors. The top portion is the Outliner, which contains a listing of all the data in the current Blender file. For a large project, the Outliner is an indispensable tool for organizing your scene. For now, you can safely ignore it.
 
-#### Properties Editor
+#### Properties Editor <a id="Properties Editor"></a>
 
 
 <img alt="Properties Editor icons." src="../figures/Chapter1/Fig01-24.png" width="33%" align="right">
 Under the Outliner on the right, you have the Properties Editor. Here you can access global settings for the file, as well as settings for individual objects. This is one of the most frequently used panels in Blender, after the 3D view perhaps. The Properties Editor is context sensitive, which means it will automatically display different content, depending on the object that is active. Take a closer look at the row of icons at the top of the Properties Editor, as shown in Figure 1.24. These tabs organize the properties into groups, with the more general settings on the left-most tab, and the more specific settings on the right.
 
 
-#### Timeline
+#### Timeline <a id="Timeline"></a>
 
 At the very bottom of the screen is a timeline window, which will be useful when you start making animations.
 ![Timeline](../figures/Chapter1/Fig01-20c.png)
 
 
-#### Workspace Customization
+#### Workspace Customization <a id="Workspace Customization"></a>
 
 The default screen, as described previously, is set up for general use. At some point, it becomes necessary to change the screen layout to accomplish other tasks. To select a different layout, use the Screens layout drop-down menu from the main menu.
 
 Apart from the predefined screen layouts, you can customize the screen layout however you like. You can either split an existing editor into two or merge two adjacent editors together.
 
->Editor, Region, and Area
-
+>**Editor, Region, and Area**
+>
 >A region within the Blender windows is called an _editor_. An editor displays a specific set of content and tools. Common areas include: 3D View, Properties Editor, UV/Image Editor, and Logic Brick Editor.
 
 
@@ -313,11 +357,11 @@ Not only can you change the size and layout of the editor, but the type of edito
 Almost everything a studio needs to create the game is integrated into a single interface: you can create the game, test the game, and play the game all from the same program. This means that, as an artist, you can create a game in the shortest time possible, without having to worry about importing and exporting files between different applications. As a programmer, you won't have to switch back and forth between different software just to test your code. Figure 1.28 shows some screenshots of different editors that you will be using throughout the book.
 
 
-### More on the 3D View
+### More on the 3D View <a id="More on the 3D View"></a>
 
 The 3D view is where you will spend most of your time, so let's take a look at it in a bit more detail. You've already learned a few ways to navigate around the scene earlier in this chapter, using both the mouse and the keyboard.
 
-#### Viewport Shading Modes
+#### Viewport Shading Modes <a id="Viewport Shading Modes"></a>
 
 <img alt="Drawing Modes" src="../figures/Chapter1/Fig01-29.png" width="25%" align="right">
 Let's look at the four different Viewport Shading modes available in the 3D view. They are used to change the way the scene is displayed onscreen. The four modes are:
@@ -335,7 +379,7 @@ The two most commonly used Shading modes are Wireframe and Solid. Therefore, the
 
 
 
-### Editing Modes
+### Editing Modes <a id="Editing Modes"></a>
 
 To the left of the Shading mode selector is the Editing Mode selector.
 
@@ -352,7 +396,7 @@ In addition to the two editing modes we just discussed, there are a few other mo
 
 Edit mode and Object mode are by far the most commonly used editing modes, so we will refrain from diving too deeply into the other modes for now.
 
-### Keyboard and Mouse
+### Keyboard and Mouse <a id="Keyboard and Mouse"></a>
 
 The joke is that to move an object in Blender, you have to press the G key, which stands for "movinG." This gag stems from the fact that to a beginner, many of the shortcuts in Blender seem counterintuitive. However, there is a very good reason why "G" is preferred over "M." In this case, the G key can be easily accessed on the keyboard by the left hand while the right hand is on the mouse. Also, officially, G stands for Grab.
 
@@ -396,7 +440,7 @@ Once an object is selected, you can start manipulating it. The keyboard shortcut
 
 Pressing one of the keys will start the transformation, and then you can move your mouse to control the degree of the effect. To finalize the transformation, left-click the mouse or press Enter.
 
-### Search
+### Search <a id="Search"></a>
 
 <img alt="The Search Box" src="../figures/Chapter1/Fig01-30.png" width="30%" align="right">
 
@@ -408,17 +452,17 @@ Tapping on the spacebar from anywhere will bring out a search box that contains 
 
 A word of caution, though: the current implementation of the search is not very context-aware, so sometimes operations that are not permitted in the active context might show up.
 
-### Blender Philosophy
+### Blender Philosophy <a id="Blender Philosophy"></a>
 
 Blender is designed with certain philosophies in mind. Understanding these will allow you to use Blender the way it is intended, which allows you to navigate around Blender faster and work more efficiently.
 
 Let the brainwashing begin!
 
-### Interface
+### Interface <a id="Interface"></a>
 
 Because Blender was originally created as an in-house software, its interface is designed to maximize speed and efficiency for users who have mastered it. Since Blender 2.5, a lot of work has been done to make the interface more user-friendly. That said, Blender is probably unlike any other program you've used before, including other kinds of 3D software. Luckily, the Blender interface is very consistent within the application. This means that once you learn to do something, you'll be able to use it in another part of the program.
 
-### Keyboard
+### Keyboard <a id="Keyboard"></a>
 
 Because of the large number of commands Blender is capable of performing, invoking a function through a quick tap on the keyboard is generally faster than using the mouse to find the menu entry. As you follow through the rest of this section, pay special attention to the shortcut keys that are used, because Blender is designed to let you work fast once you learn the shortcuts.
 
@@ -429,7 +473,7 @@ Blender's keyboard shortcuts are optimized for a full-sized English QWERTY keybo
 <img alt="3D Navigator." src="../figures/Chapter1/Fig01-31.png" width="20%" align="right">
 Alternatively, Blender also has an add-on called "3D Navigation" that provides an easier way to navigate around the world for people without a number pad. To enable the 3D navigation plug-in to help you navigate around the 3D Viewport quickly, go to File > User Preferences > Add-Ons, and turn on 3D Views: 3D Navigation. Then you can switch views quickly from the 3D view's Toolshelf.
 
-### Mouse
+### Mouse <a id="Mouse"></a>
 
 Blender is designed for a three-button mouse: a mouse with two buttons and a scroll wheel. Although there is an option to emulate the middle-mouse button (when you click on the scroll wheel), this book will assume that you are working with a three-button mouse for convenience.
 
@@ -437,7 +481,7 @@ Blender is designed for a three-button mouse: a mouse with two buttons and a scr
 >
 > If you don't have a three-button mouse, you can use the Alt+Left mouse button combination to emulate the middle mouse button. To enable this feature, go to File > User Preferences > Input and turn on Emulate 3 Button Mouse.
 
-### Context
+### Context <a id="Context"></a>
 
 In Blender, the actions you can perform at any given time are limited to the current state of Blender, also known collectively as the " context." For example, certain operations can only be invoked when you have an object selected; the Property Editors change, depending on which object is selected; the effect of the keyboard shortcuts even changes, depending on where your mouse is positioned. This context-sensitive nature lets you focus on the task at hand by only providing you with options that makes sense at the time. This is Blender's way of preventing the interface from getting too cluttered.
 
@@ -449,7 +493,7 @@ The "context" usually refers to one or a combination of the following:
 - **Selected object:** All the objects that have been selected (highlighted). Keep in mind that there can be more than one selected object, but only one active object.
 - **Editing mode:** Blender has six different modes of editing. Two of the most commonly used are the Edit mode and the Object mode. In Object mode, you can manipulate objects as a whole. In Edit mode, you can change the shape of a mesh. In each mode, there is a unique set of tools and options at your disposal. You will learn about the other four modes (Sculpt, Vertex Paint, Texture Paint, Weight Paint) in later chapters.
 
-### Datablocks
+### Datablocks <a id="Datablocks"></a>
 
 Often, a single Blender file contains hundreds of objects, each with different colors, textures, and animations. How is all this organized?
 
@@ -470,7 +514,7 @@ Throughout the Blender interface, you will run into many datablock managers. The
 
 Because datablocks can be shared, copied, and reused, large scenes can be managed efficiently through the use of shared datablocks. Figure 1.33 shows a datablock that has been shared by three "users," as denoted by the number next to its name.
 
-### Parenting and Grouping
+### Parenting and Grouping <a id="Parenting and Grouping"></a>
 
 Grouping and parenting both allow you to introduce some form of order to the scene by setting up arbitrary relationships between different objects. But grouping and parenting work in different ways.
 
@@ -488,12 +532,12 @@ Grouping, by itself, it not very useful. But groups can be quickly "instanced" a
 
 A single object can be in multiple groups. A group can have multiple objects.
 
-### Backward Compatibility
+### Backward Compatibility <a id="Backward Compatibility"></a>
 
 Blender is designed so that older files can be opened with newer versions of Blender. But due to the rate that Blender matures, some unexpected behaviors are to be expected when you least expect them.
 
 Due to the Blender Python API change in Blender 2.5, old scripts written for 2.4x will be broken in later versions of Blender. But by the time you are reading this, there should be enough new content available for you to find.
 
-## Onward
+## Onward <a id="Onward"></a>
 
 This concludes the crash course on Blender and the game engine. By now, you should have a cursory understanding of the function of a game engine and be familiar with the Blender interface. In the next chapter, you will get your hands dirty and build a simple game by following the step-by-step tutorial.
