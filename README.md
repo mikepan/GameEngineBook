@@ -31,6 +31,6 @@ Since This book was written 3 years ago, Blender has gone through many many impr
 ## Credits:
 - Mike Pan
 - Dalai Felinto
-- Moritz Brückner
+- Momel15
 - alabd14313
 - You!
