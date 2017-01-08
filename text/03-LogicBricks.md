@@ -7,7 +7,7 @@ Therefore, as a director and content creator you will play different roles in a 
 Traditionally, to design your game interaction in the past, you would have needed coding expertise and a highly technical background. If, as a creative artist, any words such as _technical, code,_ or _programming_ scare you, Have confidence!
 "Pure artists" are still scared with code. The idea here is not that they will no longer be afraid of it. Instead, with the BGE they will not have to face their fears. Logic Bricks are an alternative to hardcore coding, known to be "artists friendly" more. Logic Bricks is here to rescue you. Logic Bricks is a visual set of tools responsible for integrating the game components together. By using Logic Bricks, you can determine what to do after a mouse click, when to play an animation, how to move your character, and so on, as shown in Figure 3.1.
 
-![Example of playing an animation when pressing Space.](../figures/Chapter3/Fig03-01.png  "Example of playing an animation when pressing Space.")
+![Example of playing an animation when pressing Space](../figures/Chapter3/Fig03-01.png "Example of playing an animation when pressing Space")
 
 >**Note**
 >
@@ -22,55 +22,40 @@ In this chapter, we'll cover sensors, controllers, and actuators in detail speci
 >Logic Bricks are really easy and quick to use. You can make entire games with them with absolutely no need for coding.
 
 
-# General Overview
+## General Overview
 
 Thus far, you know that this whole system will allow you to create those little pieces that compose the interaction of your game. There are multiple ways to put those little parts together and even more ways to combine them. It's impossible to show all the possibilities, but there is a common principle as to how they operate that we can look at.
 
-## Simple Example
+### Simple Example
 
-From the book files, open _\Book\Chapter3\bowling\_base.blend_.
-
+From the book files, open _Book/Chapter3/bowling\_base.blend_.
 In this file, you have a small bowling game that includes the bowling ball, the pines, and the rink for the ball to roll around in. The goal here is to launch the ball and keep it rolling as much as you can. If you go to the Blender game menu and start the game, you will see that nothing much seems to happen. Here are some things you may need:
 
-\*\*\* Begin Bulleted List
+- Keyboard sensor to react when keys are pressed.
 
-[lb]Keyboard sensor to react when keys are pressed.
+- Actuator to move the ball.
 
-[lb]Actuator to move the ball.
+- Controller to activate the actuator when the sensor is positive.
 
-[lb]Controller to activate the actuator when the sensor is positive.
-
-\*\*\* End Numbered List
 
 Select the ball, and you will see that some of those Logic Bricks are already there, as pictured in Figure 3.2. Click in the socket by the Keyboard sensor and drag the line all the way to the socket by the Motion actuator. If your aim was good, this will create a Controller to bridge the sensor with the actuator. Start the game again and press the spacebar a few times to roll a strike.
 
-\*\*\*Insert Fig03-02.tif
-
-Figure 3.2
-
-Simple bowling sample game.
-
-Source: Blender Foundation.
+![Simple bowling sample game](../figures/Chapter3/Fig03-02.png "Simple bowling sample game")
 
 To make things more interesting, there is also a timer that will start when the game begins. If you connect the Property sensor (already in the file) to the same controller as the Keyboard sensor, you will only be able to move the ball for a few seconds. The Property sensor will be positive as long as the timer is inside a specified range. So the And controller will be positive only when both the Keyboard and the Property Sensors are positive.
 
 This is a simple example, but it should get you started so that you can experiment with the available options and other Logic Bricks. Go ahead and change a few things. Don't worry because nothing will break. In Figure 3.3, you can see how your final linked Logic Bricks may look. Notice that there are some Logic Bricks pre-created for the camera and the first pine. If you connect them as shown, the camera will animate as soon as the ball hits the pine.
 
-\*\*\*Insert Fig03-03.tif
+![Bowling Logic Bricks](../figures/Chapter3/Fig03-03.png "Bowling Logic Bricks")
 
-Figure 3.3
 
-Bowling Logic Bricks.
-
-Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved..
-
-### Architecture
+## Architecture
 
 The game engine was designed to revolve around game objects. Fifteen years ago, when it was first developed, this was a breakthrough design. The idea of having events controlled per object, as opposed to a central controller, worked well for the early days of 3D engines. Nowadays, some people may advocate that controlling elements per object is less scalable and more difficult to manage. That will be up to you to decide. Regardless of your thoughts on that subject, the game engine still allows you to emulate a centralized controlling system, while giving autonomy to each object to deal with its own business. Part of this flexibility is due to the hooked-up Python layer and the Logic Brick system. Through the Python interface, you can replace or at least control most of the effects and logic setups you create with Logic Bricks. With Logic Bricks, you can quickly set up a system that is easy to visualize, implement, and test. The strength of the game engine comes from the trade-off between the two sibling systems. A flexible design may lack features and performance compared to specific engines. Nevertheless, the different kinds of applications you can prototype and develop quickly with the game engine make up for the compromise.
 
 If you look at a level deep into the object structure, you will find that the architecture of the Logic Bricks system is "controller-centric." It revolves around the controllers of the game because they are the ones to determine what do to with the sensors and what actuators to activate. This doesn't have to be followed strictly, but based on this design, you will want to keep your sensors and actuators to a minimum and optimize their usage with the controllers. Actually, in order to optimize the performance, the game engine disables any sensor and actuator that is unlinked to a controller or linked to a controller in a non-active state. This is one of the (many) reasons why Python controllers are so popular. They allow you to replace the use of multiple sensors and actuators by direct calls to their equivalents in the source code. Chapter 7, "Python Scripting," is entirely dedicated to that aspect of the game engine, and will complement the applications of Logic Bricks discussed in this chapter.
 
-### Interface
+## Interface
 
 Logic Bricks has its own editor inside the Blender interface. While other game settings are spread all over the panels and menus, editing Logic Bricks can be done entirely inside the Logic Editor.
 
@@ -78,32 +63,16 @@ You can see that Logic Bricks are sorted per object and organized according to y
 
 Here are some instructions on how to use the Logic Editor interface.
 
-\*\*\* Begin Note
+>**Note**
+>
+>For those used to the Blender 2.49 interface, you may need some time to get used to the enhanced new design of Blender. The first thing you will notice is that the Physics panel has been moved to the Physics tab at the Properties Logic Editor. If you jumped straight to this chapter and are a bit lost navigating Blender interface, then Chapter 1 should help you find your intended UI element.
 
-2.50 Is the New 2.49
-
-For those used to the Blender 2.49 interface, you may need some time to get used to the enhanced new design of Blender. The first thing you will notice is that the Physics panel has been moved to the Physics tab at the Properties Logic Editor. If you jumped straight to this chapter and are a bit lost navigating Blender interface, then Chapter 1 should help you find your
-#
-[ANNOTATION:
-
-BY 'Dalai Q Felinto'
-ON '2013-03-30T19:38:00'DF
-NOTE: 'should I give the name of chapter 1 here?']
-way.
-
-\*\*\* End Note
 
 ### Add
 
-To add new Logic Bricks is only possible for the active object[md]the one always displayed as first in the Logic Editor list. You can see the Add Sensor/Controller/Actuator button right after the name of the active object on its respective column, as shown in Figure 3.4.
+To add new Logic Bricks, it is only possible for the active object. This one always displayed as first in the Logic Editor list. You can see the Add Sensor/Controller/Actuator button right after the name of the active object on its respective column, as shown in Figure 3.4.
 
-\*\*\*Insert Fig03-04.tif
-
-Figure 3.4
-
-Add controller.
-
-Source: Blender Foundation.
+![Add controller](../figures/Chapter3/Fig03-04.png "Add controller")
 
 When you click in the button, a pop-up list will show you all the available Logic Bricks that are compatible with this kind of object (for example, Armature sensors are only available for Armature objects). Selecting the desired type will create a new Logic Brick with the default parameters for this particular type (which you will likely need to change). The name of the Logic Brick is automatically created, based on its type, for pure convenience.
 
