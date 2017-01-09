@@ -129,13 +129,6 @@ On the top of the Logic Editor, you can access a menu to quickly hide or show th
 ### Move
 
 When you add a new Logic Brick, it will show up in the bottom of the Logic Bricks stack of the active object. You can move it up and down according to your need. In order to rearrange them, you need to set the Logic Brick to be unexpanded and use the up and down arrow
-#
-[ANNOTATION:
-
-BY 'Dalai Q Felinto'
-ON '2013-03-30T19:38:00'DF
-NOTE: 'moved here after suggestion from MS']
-icons.
 
 ### States
 
