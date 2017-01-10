@@ -154,23 +154,19 @@ When you click in the button, a pop-up list will show you all the available Logi
 
 >**Quick Ways to Add a Logic Brick**
 >
->As a quick alternative, you can use the Add Menu (in the Logic Editor header bar) or press Shift+A.
+>As a quick alternative, you can use the Add Menu (in the Logic Editor header bar) or press Shift+A (while mouse pointer is in the Logic Editor).
 
 ### Remove <a id="Remove"></a>
 
-In order to delete individual Logic Bricks, you need to click the "x" icon present in the header of each Logic Brick. By doing this, you are unlinking each Logic Brick with any connected Logic Bricks and removing it. Although this action can be reverted with Undo, simply unlinking a Logic Brick or moving it to an inactive state (for Controllers) is enough to disable it. The game engine will not compute unlinked and disabled Logic Bricks. Thus, it can be handy to have testing sensors and actuators hanging around for later use with no performance impact.
+In order to delete individual Logic Bricks, you need to click the "x" icon present in the header of each Logic Brick. By doing this, you are unlinking each Logic Brick with any connected Logic Bricks and removing it. Although this action can be reverted with Undo (Ctrl + Z), simply unlinking a Logic Brick or moving it to an inactive state (for Controllers) is enough to disable it. There is also a Checkbox button that sets active state of the sensor. The game engine will not compute unlinked and disabled Logic Bricks. Thus, it can be handy to have testing sensors and actuators hanging around for later use with no performance impact.
 
 ### Link <a id="Link"></a>
 
 Every Logic Brick has a connector used to link it with other Logic Bricks. Sensors show the connector on the right side of their header, while actuators show it on the left side. Controllers are placed between the sensors and actuators, so the connectors are presented on both sides. Drag the connector from a Logic Brick and drop it in the connector you want to link to.
 
-\*\*\* Begin Note
-
-Kill Two Birds with One Stone: Linking and Adding a Controller
-
-Try to link a sensor directly with an actuator on the same object. Blender will automatically create an And controller and link it between them.
-
-\*\*\* End Note
+>**Kill Two Birds with One Stone: Linking and Adding a Controller**
+>
+>Try to link a sensor directly with an actuator on the same object. Blender will automatically create an And controller and link it between them.
 
 You don't need to keep the logics self-contained in single objects. When you select more than one object at the same time, you will see all of them in the Logic Editor. That feature allows you to connect a sensor from one object to the controller of another one and again to the actuator of yet another object. This is one of the key elements for group instancing[md]an advanced way of sharing Logic Bricks, which is covered at the end of this chapter.
 
