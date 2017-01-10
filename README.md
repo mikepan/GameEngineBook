@@ -9,7 +9,7 @@ This is a republication of the book originally published by Cengage. We put the 
 
 [Chapter 2 - Your First Game](text/02-FirstGame.md)
 
-Chapter 3 - Logic Bricks - Not Ready
+[Chapter 3 - Logic Bricks](text/03-LogicBricks.md)
 
 Chapter 4 - Animation - Not Ready
 
