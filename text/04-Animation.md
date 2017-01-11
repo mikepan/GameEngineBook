@@ -334,7 +334,7 @@ Source: Blender Foundation.
 
 ### Transformation
 
-This is the best bone constraint for sliders. It allows you to map the transformation from the target bone into a completely different transformation of the constrained bone. For example, you can map the location range of a target (slider) bone from [0,[ms]1,0] to [0,1,0] onto the rotation of the constrained bone from [ms]90 degrees to 90 degrees (see Figure 4.11).
+This is the best bone constraint for sliders. It allows you to map the transformation from the target bone into a completely different transformation of the constrained bone. For example, you can map the location range of a target (slider) bone from [0,-1,0] to [0,1,0] onto the rotation of the constrained bone from -90 degrees to 90 degrees (see Figure 4.11).
 
 In the book files, you can see this example of a bone slider where we are using Limit Location, Transformation, Copy Rotation, and a Limit Rotation Bone Constraint to set up a simple arm. It's not the optimal use of those Bone Constraints, but it shows how they can be set up together.
 
@@ -442,7 +442,7 @@ Source: Blender Foundation.
 
 Those parameters allow you to add some control over the otherwise automatic IK computations.
 
-**       ** [lb] **Limit** : In the arm, you need to make sure that the bones behave as real bones would. For example, in real life you can't twist the elbow above certain limits. In order to mimic this behavior you can force the rotation of a bone to be inside a given range. In our case, the limits would be set: X: 5 degrees to 180 degrees; Y: [ms]90 degrees to 90 degrees; Z: 0 degrees to 0 degrees.
+**       ** [lb] **Limit** : In the arm, you need to make sure that the bones behave as real bones would. For example, in real life you can't twist the elbow above certain limits. In order to mimic this behavior you can force the rotation of a bone to be inside a given range. In our case, the limits would be set: X: 5 degrees to 180 degrees; Y: -90 degrees to 90 degrees; Z: 0 degrees to 0 degrees.
 
 **       ** [lb] **        Stiffness:** This parameter sets how difficult it is to rotate the bone. High values make a bone rotates less. Joint stiffness can be one of the earliest symptoms of arthritis. So look after your characters.
 
@@ -1160,7 +1160,7 @@ Source: Blender Foundation.
 
 To set the value in the Motion actuator, you need to calculate the object speed in Blender and convert it to the game engine. The calculation is simple and is going to give you the precise speed. If, however, you don't feel like doing math today, let trial and error be your guide.
 
-The speed[md]in Blender units by seconds[md]is equal to two strides (0.23 x 2) divided by the number of cycles per second[ms]the frame range of your animation cycle (40) divided by the Blender fps playback value. The game engine uses the same frame rate as Blender, to be set in the Render panel to 30fps. So for Momo, the speed we are working with is 0.35 Blender units per second: 0.46 / (40/30).
+The speed-in Blender units by seconds-is equal to two strides (0.23 x 2) divided by the number of cycles per second - the frame range of your animation cycle (40) divided by the Blender fps playback value. The game engine uses the same frame rate as Blender, to be set in the Render panel to 30fps. So for Momo, the speed we are working with is 0.35 Blender units per second: 0.46 / (40/30).
 
 The value to use in the Motion actuator is the object speed times the frequency on which the Motion actuator is activated. Since we are using an Always sensor triggering every logic tic, the frequency is 1/60 or 0.017. If you change your game to run at 30 logic tics per second, the frequency would be double (2/60 or 0.033). The multiplication of the speed times the frequency is the value you will add to the component of the actuator. The final Loc is [0, -0.0059, 0] X, Y, and Z respectively (see Figure 4.47).
 
@@ -1301,9 +1301,9 @@ Second, you need to map the bone transformations to shape influence. To keep the
 
 To move the bone up and down will now drive the shape influence as you want. Your file now should match the book file: _\Book\Chapter4\tutorial\_idle\_3.smile\_shapekeydriver.blend_.
 
-For the second pose, "ooh," you will use the same bone controller but with a different mapping. We want to set the "ooh" pose when the bone is in [ms]0.1 and "smile" when it's 0.1, as we have. This will allow a smooth transition between those two extreme poses. Repeat the previous steps all the way to the creation of the F-Curve.
+For the second pose, "ooh," you will use the same bone controller but with a different mapping. We want to set the "ooh" pose when the bone is in -0.1 and "smile" when it's 0.1, as we have. This will allow a smooth transition between those two extreme poses. Repeat the previous steps all the way to the creation of the F-Curve.
 
-This time the curve will be the reverse of the smile, with two points: [[ms]0.1, 1.0] and [0.0, 0.0]. Figure 4.52 illustrates the final arrangement.
+This time the curve will be the reverse of the smile, with two points: [-0.1, 1.0] and [0.0, 0.0]. Figure 4.52 illustrates the final arrangement.
 
 \*\*\*Insert Fig04-52.tif
 
@@ -1313,7 +1313,7 @@ F-Curves of shape driver influence.
 
 Source: Blender Foundation.
 
-Additionally, you can add a bone constraint to make sure the bone controller is moving only vertically and that it's always inside the range you are using ([ms]0.1 to 0.1).
+Additionally, you can add a bone constraint to make sure the bone controller is moving only vertically and that it's always inside the range you are using (-0.1 to 0.1).
 
 Finally, you need to set up the remaining poses[md]eyelid up and down and eyebrow up and down. The setup is the same as for the pair ooh and smile. This time, we will leave them for you, but you can check the final setup file in _\Book\Chapter4\tutorial\_idle\_4.shapekeysdriver.blend_.
 
