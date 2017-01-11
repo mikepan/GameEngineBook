@@ -154,33 +154,26 @@ When you click in the button, a pop-up list will show you all the available Logi
 
 >**Quick Ways to Add a Logic Brick**
 >
->As a quick alternative, you can use the Add Menu (in the Logic Editor header bar) or press Shift+A.
+>As a quick alternative, you can use the Add Menu (in the Logic Editor header bar) or press Shift+A (while mouse pointer is in the Logic Editor).
 
 ### Remove <a id="Remove"></a>
 
-In order to delete individual Logic Bricks, you need to click the "x" icon present in the header of each Logic Brick. By doing this, you are unlinking each Logic Brick with any connected Logic Bricks and removing it. Although this action can be reverted with Undo, simply unlinking a Logic Brick or moving it to an inactive state (for Controllers) is enough to disable it. The game engine will not compute unlinked and disabled Logic Bricks. Thus, it can be handy to have testing sensors and actuators hanging around for later use with no performance impact.
+In order to delete individual Logic Bricks, you need to click the "x" icon present in the header of each Logic Brick. By doing this, you are unlinking each Logic Brick with any connected Logic Bricks and removing it. Although this action can be reverted with Undo (Ctrl + Z), simply unlinking a Logic Brick or moving it to an inactive state (for Controllers) is enough to disable it. There is also a Checkbox button that sets active state of the sensor. The game engine will not compute unlinked and disabled Logic Bricks. Thus, it can be handy to have testing sensors and actuators hanging around for later use with no performance impact.
 
 ### Link <a id="Link"></a>
 
 Every Logic Brick has a connector used to link it with other Logic Bricks. Sensors show the connector on the right side of their header, while actuators show it on the left side. Controllers are placed between the sensors and actuators, so the connectors are presented on both sides. Drag the connector from a Logic Brick and drop it in the connector you want to link to.
 
-\*\*\* Begin Note
-
-Kill Two Birds with One Stone: Linking and Adding a Controller
-
-Try to link a sensor directly with an actuator on the same object. Blender will automatically create an And controller and link it between them.
-
-\*\*\* End Note
+>**Kill Two Birds with One Stone: Linking and Adding a Controller**
+>
+>Try to link a sensor directly with an actuator on the same object. Blender will automatically create an And controller and link it between them.
 
 You don't need to keep the logics self-contained in single objects. When you select more than one object at the same time, you will see all of them in the Logic Editor. That feature allows you to connect a sensor from one object to the controller of another one and again to the actuator of yet another object. This is one of the key elements for group instancing[md]an advanced way of sharing Logic Bricks, which is covered at the end of this chapter.
 
-\*\*\* Begin Note
+>**Message System**
+>
+>If you found that cross-linked objects can easily become hard to keep track of, welcome to the team. Before getting desperate, make sure that you read about the elegant alternative presented by the Message sensor and Message actuator. Be aware that if you decide for the messaging system, your events will always be delayed by one logic tic, since it will only trigger the sensor in the next logic loop.
 
-Message System
-
-If you found that cross-linked objects can easily become hard to keep track of, welcome to the team. Before getting desperate, make sure that you read about the elegant alternative presented by the Message sensor and Message actuator. Be aware that if you decide for the messaging system, your events will always be delayed by one logic tic, since it will only trigger the sensor in the next logic loop.
-
- \*\*\* End Note
 
 ### Unlink <a id="Unlink"></a>
 
@@ -190,11 +183,9 @@ Drag the mouse holding the left mouse button and the Control key to use the Unli
 
 Visual organization is a key aspect of working with Logic Bricks. You don't need to edit the values of a Logic Brick all the time so you can often keep most of them hidden. You can hide/show one particular Logic Brick using the arrow to the left of its header. If you want to hide/show all the sensors or controllers or actuators of one object, simply click in its corresponding header.
 
-\*\*\* Begin Note
-
-Hide and Show Menus
-
-On the top of the Logic Editor, you can access a menu to quickly hide or show the bricks for sensors, controllers, and actuators for all the selected objects, as seen in Figure 3.5.
+>**Hide and Show Menus**
+>
+>On the top of the Logic Editor, you can access a menu to quickly hide or show the bricks for sensors, controllers, and actuators for all the selected objects, as seen in Figure 3.5.
 
 ![Show/Hide drop-down menu](../figures/Chapter3/Fig03-05.png "Show/Hide drop-down menu")
 
@@ -208,13 +199,9 @@ Above the list of an object controller, you can see a small but important plus i
 
 ![Controller states](../figures/Chapter3/Fig03-06.png "Controller states")
 
-\*\*\* Begin Note
-
-States Layers
-
-When you play the game, the active states of a controller are the ones in the bottom row shown in Figure 3.6, known as _initial states._ The states present in the top row, namely visible states, are a tool to help you visualize different states without messing with the Initial States set. They are reset to the Initial States every time you reopen your file.
-
-\*\*\* End Note
+>**States Layers**
+>
+>When you play the game, the active states of a controller are the ones in the bottom row shown in Figure 3.6, known as _initial states._ The states present in the top row, namely visible states, are a tool to help you visualize different states without messing with the Initial States set. They are reset to the Initial States every time you reopen your file.
 
 The States interface works like the layer system in Blender[md]click to select one state and Shift+click to select more than one. As for the Blender layers, states have no individual names for the time being.
 
@@ -244,19 +231,19 @@ In the first part of this chapter we mentioned some options present in all the l
 
 ![Sensor header](../figures/Chapter3/Fig03-08.png "Sensor header")
 
-**       ** [lb] **        Name:** Can be used to identify your sensor, even when it's not expanded. You will refer to it from inside the Expression and Python controllers.
+- **Name:** Can be used to identify your sensor, even when it's not expanded. You will refer to it from inside the Expression and Python controllers.
 
-**       ** [lb] **        Pulse Positive:** Continuously sends positive pulses to the controller while the sensor is active.
+- **Pulse Positive:** Continuously sends positive pulses to the controller while the sensor is active.
 
-**       ** [lb] **        Pulse Negative:** Continuously sends negative pulses to the controller while the sensor is not active. A negative pulse will not be sent before the sensor is positive at least once or the level is enabled.
+- **Pulse Negative:** Continuously sends negative pulses to the controller while the sensor is not active. A negative pulse will not be sent before the sensor is positive at least once or the level is enabled.
 
-**       ** [lb] **        Frequency:** Sets how often the pulse will trigger the sensor. The frequency is actually the number of logic tics that will be skipped before triggering the sensor again. Keep it at zero to have the sensor pulsing for every logic tic.
+- **Frequency:** Sets how often the pulse will trigger the sensor. The frequency is actually the number of logic tics that will be skipped before triggering the sensor again. Keep it at zero to have the sensor pulsing for every logic tic.
 
-**       ** [lb] **        Level:** Triggers the controller at the beginning of the game or when the controllers are activated from a disabled state. With this option, you can force negative signals (for example, a property is not inside a range, a mouse is not over your object, a key is not pressed) to trigger the controller, even if it never turns positive. Mostly used as part of a state system to force a sensor to be evaluated right after the state of an object changes.
+- **Level:** Triggers the controller at the beginning of the game or when the controllers are activated from a disabled state. With this option, you can force negative signals (for example, a property is not inside a range, a mouse is not over your object, a key is not pressed) to trigger the controller, even if it never turns positive. Mostly used as part of a state system to force a sensor to be evaluated right after the state of an object changes.
 
-**       ** [lb] **        Tap:** Triggers the sensor only one at a time. It works opposite to the pulse, and it's especially useful for Physical sensors, Keyboard sensors, and Mouse sensors.
+- **Tap:** Triggers the sensor only one at a time. It works opposite to the pulse, and it's especially useful for Physical sensors, Keyboard sensors, and Mouse sensors.
 
-**       ** [lb] **        Invert:** Still triggers the sensor as it would normally, but sends a negative signal when it starts and a positive one when it stops being valid (for example, when a key is no longer pressed). If you need the sensor to send a negative signal before ever being positive, remember to turn on Level.
+- **Invert:** Still triggers the sensor as it would normally, but sends a negative signal when it starts and a positive one when it stops being valid (for example, when a key is no longer pressed). If you need the sensor to send a negative signal before ever being positive, remember to turn on Level.
 
 #### Always <a id="Always"></a>
 
@@ -282,13 +269,9 @@ Here comes a chicken-and-egg situation. In order to understand this sensor, you 
 
 ![Actuator sensor](../figures/Chapter3/Fig03-11.png "Actuator sensor")
 
-\*\*\* Begin Note
-
-Actuator Sensor and the Messaging System
-
-In the online files, you can find a file that illustrates how this sensor can be used with the message and the animation system: _\Book\Chapter3\sensor\_actuator.blend_
-
-\*\*\* End Note
+>**Actuator Sensor and the Messaging System**
+>
+>In the online files, you can find a file that illustrates how this sensor can be used with the message and the animation system: _\Book\Chapter3\sensor\_actuator.blend_
 
 #### Joystick <a id="Joystick"></a>
 
@@ -306,33 +289,25 @@ Log Toggle and Target work together. When the Log Toggle property value is True 
 
 In the online files, you can see a sample of that: _\Book\Chapter3\sensor\_keyboard.blend_
 
-\*\*\* Begin Note
-
-Keys Status on Python
-
-The keyboard sensor will send a positive pulse when the specified key is pressed down and a negative one when it is released. The status of the key is represented by Python constants: bge.logic.KX\_INPUT\_JUST\_ACTIVATED right when it's pressed, bge.logic.KX\_INPUT\_ACTIVE while it's being held, and bge.logic.KX\_INPUT\_JUST\_RELEASED right after it's been released. Its status can only be accessed from a Python Controller.
-
-\*\*\* End Note
+>**Keys Status on Python**
+>
+>The keyboard sensor will send a positive pulse when the specified key is pressed down and a negative one when it is released. The status of the key is represented by Python constants: bge.logic.KX\_INPUT\_JUST\_ACTIVATED right when it's pressed, bge.logic.KX\_INPUT\_ACTIVE while it's being held, and bge.logic.KX\_INPUT\_JUST\_RELEASED right after it's been released. Its status can only be accessed from a Python Controller.
 
 #### Mouse <a id="Mouse"></a>
 
 The Mouse sensor is used to control the mouse input in the game. It can be used entirely with Logic Bricks or integrated with Python. Be aware that individual sensors are needed to handle different mouse events and most of them are not handled per object (see Figure 3.14). The mouse events are separated in two different types commonly combined together:
 
-**       ** [lb] **        Mouse inputs** [md]general input: Movement, Wheel Down, Wheel Up, Right Button, Middle Button, and Left Button.
+- **Mouse inputs** - general input: Movement, Wheel Down, Wheel Up, Right Button, Middle Button, and Left Button.
 
-**       ** [lb] **        Mouse actions** [md]per object: Mouse Over and Mouse Over Any.
+- **Mouse actions** - per object: Mouse Over and Mouse Over Any.
 
 ![Mouse sensor event types](../figures/Chapter3/Fig03-14.png "Mouse sensor event types")
 
 If you run an actuator when a mouse input is triggered (for example, Left Button), the action will happen, regardless of where the click is. If you need an actuator to happen when you click on one particular object, then you need a Mouse Over and a Left Button linked through an And Controller.
 
-\*\*\* Begin Note
-
-Collision, Physics and Mouse Click
-
-In order to be clickable, an object must have collision enabled in the Physics Panel.
-
-\*\*\* End Note
+>**Collision, Physics and Mouse Click**
+>
+>In order to be clickable, an object must have collision enabled in the Physics Panel.
 
 #### Armature <a id="Armature"></a>
 
@@ -342,13 +317,10 @@ Armature is an advanced sensor to help you detect error threshold on bone constr
 
 The original goal of this set of functionalities was targeted at robotic studies, so it may rest outside the scope of your project. If you are going to use iTaSC (instantaneous Task Specification using Constraints), this sensor will help you keep track of your armature constraints. For more information, please visit: [http://wiki.blender.org/index.php/Dev:Source/GameEngine/RobotIKSolver](http://wiki.blender.org/index.php/Dev:Source/GameEngine/RobotIKSolver)
 
-\*\*\* Begin Note
+>**To Caesar What Is Caesar's**
+>
+>The armature sensor is only available for armature objects. If you copy this sensor to non-armature objects, the panel will show "Sensor only available for armatures," and the sensor will be inoperative.
 
-To Caesar What Is Caesar's
-
-The armature sensor is only available for armature objects. If you copy this sensor to non-armature objects, the panel will show "Sensor only available for armatures," and the sensor will be inoperative.
-
-\*\*\* End Note
 
 #### Touch <a id="Touch"></a>
 
@@ -362,13 +334,9 @@ The Collision sensor can be used to detect collisions between a game object and 
 
 This sensor is often used with collision proxies, which are invisible low-poly meshes created to spare your heavy graphic objects from the expensive collision tests.
 
-\*\*\* Begin Note
-
-Use It Moderately
-
-Together with the other Physics sensors, this sensor is considered to be expensive computation-wise, so use it reasonably and use physics proxies whenever possible[md]a topic discussed in the Chapter 6 and Chapter 8, "Workflow and Optimization."
-
-\*\*\* End Note
+>**Use It Moderately**
+>
+>Together with the other Physics sensors, this sensor is considered to be expensive computation-wise, so use it reasonably and use physics proxies whenever possible[md]a topic discussed in the Chapter 6 and Chapter 8, "Workflow and Optimization."
 
 #### Near <a id="Near"></a>
 
@@ -378,13 +346,9 @@ For more advanced control over the physics interaction of your game, you can tri
 
 This sensor will be triggered when a detected object is closer than the Trigger Distance. Once triggered, it will only stop being valid after the object is farther than the Reset Distance.
 
-\*\*\* Begin Note
-
-The Amazing Near Sensor
-
-The Near sensor detects all directions. It's the game engine equivalent of the Spider-Man sense.
-
-\*\*\* End Note
+>**The Amazing Near Sensor**
+>
+>The Near sensor detects all directions. It's the game engine equivalent of the Spider-Man sense.
 
 #### Radar <a id="Radar"></a>
 
@@ -392,13 +356,10 @@ The Radar sensor creates a detection cone locked up to one direction (see Figure
 
 ![Radar sensor](../figures/Chapter3/Fig03-18.png "Radar sensor")
 
-\*\*\* Begin Note
+>**Troubleshooting and Debugging**
+>
+>In order to easily debug your radar settings in the game, you can turn on the Show Physics Visualization option in the Game Menu. The result is shown in Figure 3.19.
 
-Troubleshooting and Debugging
-
-In order to easily debug your radar settings in the game, you can turn on the Show Physics Visualization option in the Game Menu. The result is shown in Figure 3.19.
-
-\*\*\* End Note
 
 ![Radar Sensor Physic Visualization](../figures/Chapter3/Fig03-19.png "Radar Sensor Physic Visualization")
 
@@ -418,13 +379,10 @@ The Random sensor generates pulses randomly (see Figure 3.21). Its use is so gen
 
 ![Random sensor](../figures/Chapter3/Fig03-21.png "Random sensor")
 
-\*\*\* Begin Note
+>**Do Not Use It Randomly**
+>
+>Use the Random sensor together with other sensors to add an organic dynamic to them. It's especially useful for environment behavior and artificial intelligence (A.I.).
 
-Do Not Use It Randomly
-
-Use the Random sensor together with other sensors to add an organic dynamic to them. It's especially useful for environment behavior and artificial intelligence (A.I.).
-
-\*\*\* End Note
 
 #### Message <a id="Message"></a>
 
@@ -432,13 +390,10 @@ The Message sensor receives a message sent from a Message actuator or from a Pyt
 
 ![Message sensor](../figures/Chapter3/Fig03-22.png "Message sensor")
 
-\*\*\* Begin Note
+>**Extra Message Information**
+>
+>>The extra information available in the message (subject, body) can be accessed only by a Python controller.
 
-Extra Message Information
-
-The extra information available in the message (subject, body) can be accessed only by a Python controller.
-
-\*\*\* End Note
 
 #### Property <a id="Property"></a>
 
@@ -450,13 +405,9 @@ This sensor has different evaluation types that allow you to detect specific val
 
 The exceptions are properties used by Python scripts, those used by Filters 2D, and Text strings used by Bitmap Texts.
 
-\*\*\* Begin Note
-
-Expressions
-
-Instead of direct values, you can use an expression in the value fields for this sensor. Take a look at the Controller Expression for more details.
-
-\*\*\* End Note
+>**Expressions**
+>
+>Instead of direct values, you can use an expression in the value fields for this sensor. Take a look at the Controller Expression for more details.
 
 ### Controllers <a id="Controllers"></a>
 
@@ -464,13 +415,9 @@ Sensors can't do much for themselves without controllers. As explained in the ar
 
 In this section, the Expression Controller deserves special attention due to the possibilities that it brings. The Python Controller, on the other hand, is the shining star of another section of the book, as it reveals a world of complexity and promises. It can be skipped for now and revisited once you get to Chapter 7, "Python Scripting."
 
-\*\*\* Begin Note
-
-Using States as Organization Layers
-
-The controller state system was designed to help in building advanced state machine systems. But as it turned out, it works great as a way to organize your Logic Bricks. You can use different states as layers, to group controllers and their linked sensors and actuators. The initial state of the controller needs to include all the states you set. But while working, you can alternate the visible states to show only a small parcel of them at a time.
-
-\*\*\* End Note
+>**Using States as Organization Layers**
+>
+>The controller state system was designed to help in building advanced state machine systems. But as it turned out, it works great as a way to organize your Logic Bricks. You can use different states as layers, to group controllers and their linked sensors and actuators. The initial state of the controller needs to include all the states you set. But while working, you can alternate the visible states to show only a small parcel of them at a time.
 
 #### Header <a id="Header"></a>
 
@@ -478,37 +425,33 @@ Similar to the sensors, each controller carries a unique set of information, reg
 
 ![Controller header](../figures/Chapter3/Fig03-24.png "Controller header")
 
-**       ** [lb] **Name** : Unlike the sensors and actuators, the name here has no importance other than to keep your controllers easy to identify when not expanded.
+- **Name** : Unlike the sensors and actuators, the name here has no importance other than to keep your controllers easy to identify when not expanded.
 
-**       ** [lb] **        State** : Set the state (from 1 to 30) of the controller. To read about the State Machine system, check out the "State Machine" section in this chapter.
+- **State** : Set the state (from 1 to 30) of the controller. To read about the State Machine system, check out the "State Machine" section in this chapter.
 
-**       ** [lb] **        Mark** : Forces the controller to run before non-marked controllers.
+- **Mark** : Forces the controller to run before non-marked controllers.
 
 #### Booleans <a id="Booleans"></a>
 
 When you have one single sensor that has to call an actuator, there is not much to worry about. In this case, a simple And controller will make it work. If instead you need to activate the actuator only when the sensor is False, you can use the Invert option to keep using the same Add controller. Too simple? Let's complicate it a bit then. What if you have two sensors and only one of them needs to be True? You could create two And controllers linked to the same actuator. It's not elegant, but it would work.
 
-\*\*\* Begin Note
-
-How Many Times Can You Activate an Actuator?
-
-If you think that the setup above would call the actuator twice, then have fun testing it. An actuator is activated only once per frame, regardless of the number of controllers calling it.
-
-\*\*\* End Note
+>**How Many Times Can You Activate an Actuator?
+>
+>If you think that the setup above would call the actuator twice, then have fun testing it. An actuator is activated only once per frame, regardless of the number of controllers calling it.
 
 But what if you wanted to use only one controller to handle those two sensors? In this case, it would be the Or controller, created specifically for that. That's not all, though. Either for convenience or for more advanced control, you could simplify your controllers by using the other Boolean controllers. Together with And and Or, those are the other logic switches to use when combining multiple sensors and their outcomes.
 
-**       ** [lb] **        And** : True if _all_the sensors are True. False if _any_ of the sensors is False.
+- **And** : True if _all_the sensors are True. False if _any_ of the sensors is False.
 
-**       ** [lb] **        Or** : True if _any_ of the sensors is True. False if _all_ the sensors are False
+- **Or** : True if _any_ of the sensors is True. False if _all_ the sensors are False
 
-**       ** [lb] **        Nand** : True if _any_ of the sensors is False. False if _all_ the sensors are True
+- **Nand** : True if _any_ of the sensors is False. False if _all_ the sensors are True
 
-**       ** [lb] **        Nor** : True if _all_ the sensors are False. False if _any_ of the sensors is True
+- **Nor** : True if _all_ the sensors are False. False if _any_ of the sensors is True
 
-**       ** [lb] **        Xor** : True when _only one_ sensor is True. False if _more than one_ sensor is True or if _all_ the sensors are False.
+- **Xor** : True when _only one_ sensor is True. False if _more than one_ sensor is True or if _all_ the sensors are False.
 
-**       ** [lb] **        Xnor** : True if _more than one_ sensor is True or if _all_ the sensors are False. False when _only one_ sensor is True and _all_ the other sensors are False.
+- **Xnor** : True if _more than one_ sensor is True or if _all_ the sensors are False. False when _only one_ sensor is True and _all_ the other sensors are False.
 
 #### Expression <a id="Expression"></a>
 
@@ -524,25 +467,17 @@ Simple, right? But what if you want to finish the game when you type "quit"? Now
 
 text=="quit\n"
 
-\*\*\* Begin Note
+>**End of Line**
+>
+>Here we are using \n to identify a Return (Enter) right after the word. You can see this last technique combined with other actuators and different objects on: _\Book\Chapter3\controller\_expression.blend._
+>This is especially powerful for quick prototyping and debugging of your game.
 
-End of Line
-
-Here we are using \n to identify a Return (Enter) right after the word. You can see this last technique combined with other actuators and different objects on: _\Book\Chapter3\controller\_expression.blend._
-
-This is especially powerful for quick prototyping and debugging of your game.
-
-\*\*\* End Note
 
 Expressions tend to be as simple as the examples presented. They can grow big, however, and the following parts will show how to combine simple expressions to create more advanced controllers. Keep in mind that expressions are actually used also in the Property sensor and Property actuator. The difference is that for them the result will be directly used as the property value. Therefore, there you will use mostly Values and Arithmetic Operations. For the Expression controller, the expected value is always a Boolean, so you end up using Comparison Test and the Boolean Operations more often.
 
-\*\*\* Begin Caution
-
-Error Checkpoint
-
-Always check the console for errors. If the expression is incorrect, the game engine will print an error when you call the controller.
-
-\*\*\* End Caution
+>**Error Checkpoint**
+>
+>Always check the console for errors. If the expression is incorrect, the game engine will print an error when you call the controller.
 
 #### Values <a id="Values"></a>
 
@@ -552,47 +487,36 @@ my\_property\_that\_may\_be\_true
 
 For the Controller Expression, you will only use the lonely value when dealing with Booleans; however, for the Property sensor, Property actuator and as part of big expressions, you can also use the following types as values:
 
-\*\*\* Begin Bullet List
+- **Boolean** : True, False
 
-[lb] **Boolean** : True, False
+- **Number** : 5, [ms]7, 3.5, 40, 3.5[md]integers and floats, positive, negative, and even zero.
 
-[lb] **Number** : 5, [ms]7, 3.5, 40, 3.5[md]integers and floats, positive, negative, and even zero.
+- **String** : "text"[md]always around quotation marks.
 
-[lb] **String** : "text"[md]always around quotation marks.
+- **Property** : propertyName[md]gives the property value.
 
-[lb] **Property** : propertyName[md]gives the property value.
+- **Sensor** : sensorName[md]gives True or False according to the sensor status.
 
-[lb] **Sensor** : sensorName[md]gives True or False according to the sensor status.
-
-\*\*\* End Bullet List
 
 A single value is not exactly an expression. Let's move on and see what kind of expressions and operations we can make when combining them together:
 
-\*\*\* Begin Note
-
-Sensors in an Expression
-
-In order to use a sensor name, the sensor has to be linked to the Expression controller. Sensors can't be used in the expressions for the Property sensor and the Property actuator.
-
-\*\*\* End Note
+>**Sensors in an Expression**
+>
+>In order to use a sensor name, the sensor has to be linked to the Expression controller. Sensors can't be used in the expressions for the Property sensor and the Property actuator.
 
 #### Comparison Tests <a id="Comparison"></a>
 
 If instead of testing a single variable, you need to compare two values, there are five different comparison tests you can use. The test can be between a variable (property or sensor) and a value, two values, or two variables:
 
-\*\*\* Begin Bullet List
+- **Equal** : fruit = "jabuticaba"
 
-[lb] **Equal** : fruit = "jabuticaba"
+- **Greater** : 2.5 > 2.49
 
-[lb] **Greater** : 2.5 > 2.49
+- **Lesser** : energy < 37
 
-[lb] **Lesser** : energy < 37
+- **Greater or Equal** : speed >= 100.0
 
-[lb] **Greater or Equal** : speed >= 100.0
-
-[lb] **Lesser or Equal** : timer <= 2011
-
-\*\*\* End Bullet List
+- **Lesser or Equal** : timer <= 2011
 
 The result of a comparison test will always be a Boolean. If you need to return a value other than True or False, then what you are looking for is:
 
@@ -604,33 +528,25 @@ The syntax is: IF (Condition, ValueWhenTrue, ValueWhenFalse). If you use the abo
 
 If your value is numeric, you can also manipulate it a bit. This can be used to assign a value based on a variable (for example, speed \* time) or as part of a test (for example, energy + potion > 0). The most basic math operations are supported to operate your value, for the records:
 
-\*\*\* Begin Bullet List
+- **Addition** : 1 + 3.8
 
-[lb] **Addition** : 1 + 3.8
+- **Subtraction** : 10.5 - 5
 
-[lb] **Subtraction** : 10.5 - 5
+- **Multiplication** : 23 \* 1000
 
-[lb] **Multiplication** : 23 \* 1000
+- **Division** : 37 / 400
 
-[lb] **Division** : 37 / 400
-
-[lb] **Modulus** : 10 % 3
-
-\*\*\* End Bullet List
+- **Modulus** : 10 % 3
 
 #### Boolean Operations <a id="Boolean Operations"></a>
 
 Finally, you have the capability of combining Boolean tests together. A Boolean test can be a simple Boolean value (for example, a sensor or a property value) or the result of a comparison test. They work as aggregators through which you can compile big expression tests.
 
-\*\*\* Begin Bullet List
+- **And** : potionKeyboardSensor AND numberPotions > 0 AND energy + 30 < 60
 
-[bl] **And** : potionKeyboardSensor AND numberPotions > 0 AND energy + 30 < 60
+- **Or** : speed <= 0.0 OR stopKeyboardSensor
 
-[bl] **Or** : speed <= 0.0 OR stopKeyboardSensor
-
-[bl] **Not** : jumpKeyboardSensor AND NOT floorCollisionSensor
-
-\*\*\* End Bullet List
+- **Not** : jumpKeyboardSensor AND NOT floorCollisionSensor
 
 The Boolean operations are not commutative or associative when grouped together. For example, try to read the following expressions:
 
@@ -652,13 +568,9 @@ False AND (False OR True)
 
 You can find an elegant use of the Boolean operators to create a toggle mechanism on: _\Book\Chapter3\controller\_expression\_toggle.blend._
 
-\*\*\* Begin Note
-
-Fake Flipper Animation with Expressions
-
-In the accompanying material, you can see a simulation of the Flipper animation mode implemented using the Property mode instead. This is done in two different ways: one with a Expression controller, and another with a Nand and And controllers and an Expression in a Property actuator. It shows the flexibility of the system and is a nice way to regulate the speed of your animation: _\Book\Chapter3\controller\_expression\_flipper.blend_ .
-
-\*\*\* End Note
+>**Fake Flipper Animation with Expressions**
+>
+>In the accompanying material, you can see a simulation of the Flipper animation mode implemented using the Property mode instead. This is done in two different ways: one with a Expression controller, and another with a Nand and And controllers and an Expression in a Property actuator. It shows the flexibility of the system and is a nice way to regulate the speed of your animation: _\Book\Chapter3\controller\_expression\_flipper.blend_ .
 
 #### Python Controller <a id="Python Controller"></a>
 
@@ -666,17 +578,13 @@ With a Python controller, you can evaluate sensors and activate actuators just a
 
 There are two types of Python controllers: Script and Module.
 
-**       ** [lb] **        Script** : This will take an internal Text datablock and run it as a script.
+- **Script** : This will take an internal Text datablock and run it as a script.
 
-**       ** [lb] **        Module** : This will call a module from a script file inside or outside your game file. The Module mode has a Debug option that forces the module to be recompiled every time you call it. This is really slow, but allows you to do changes in your script while your game is playing.
+- **Module** : This will call a module from a script file inside or outside your game file. The Module mode has a Debug option that forces the module to be recompiled every time you call it. This is really slow, but allows you to do changes in your script while your game is playing.
 
-\*\*\* Begin Note
-
-Which Came First, the Controller or the Controller?
-
-For scripts, the order in which the controllers is executed matters. In cases where you need a script to run before the others, you can use the Mark option present in the Controller header. This is commonly used for Python controllers running scripts that are responsible for the initialization of your game variables and settings.
-
-\*\*\* End Note
+>**Which Came First, the Controller or the Controller?**
+>
+>For scripts, the order in which the controllers is executed matters. In cases where you need a script to run before the others, you can use the Mark option present in the Controller header. This is commonly used for Python controllers running scripts that are responsible for the initialization of your game variables and settings.
 
 ### Actuators <a id="Actuators"></a>
 
@@ -688,9 +596,9 @@ The header of the actuators is similar to the sensors. Like the sensors, the Nam
 
 ![Actuator header](../figures/Chapter3/Fig03-25.png "Actuator header")
 
-**       ** [lb] **        Name** : This can be used to identify your actuator, even when it's not expanded. It's also used from Python scripts to activate it.
+- **Name** : This can be used to identify your actuator, even when it's not expanded. It's also used from Python scripts to activate it.
 
-**       ** [lb] **        Pin** : When working with the State Machine system, you can use the State option on top of the actuator list to show only the actuators linked to controllers from visible states. With the Pin option in the actuator header, you can set your actuator to be always visible.
+- **Pin** : When working with the State Machine system, you can use the State option on top of the actuator list to show only the actuators linked to controllers from visible states. With the Pin option in the actuator header, you can set your actuator to be always visible.
 
 #### Action <a id="Action"></a>
 
@@ -698,13 +606,9 @@ Camera, lights, action! And let the animation begin. Whether you want to animate
 
 You can also have the same property present in multiple actions and use individual actions to store different animations.
 
-\*\*\* Begin Note
-
-Short Actions in the Long Run
-
-Before the animation system redesign in Blender, it was only possible to have multiple actions for armatures and shape keys. Therefore, for any other animated action, people would create one really long action with different animations in different frame ranges. This still works well, but it's hard to manage if you ever need to change the length of one of the animations[md]you would have to update the start and end of all the actuators that were playing the other subanimations. You may find yourself still using this technique in order to organize your file; however, sometimes a long action can be easier to manage than multiple small ones.
-
-\*\*\* End Note
+>**Short Actions in the Long Run**
+>
+>Before the animation system redesign in Blender, it was only possible to have multiple actions for armatures and shape keys. Therefore, for any other animated action, people would create one really long action with different animations in different frame ranges. This still works well, but it's hard to manage if you ever need to change the length of one of the animations[md]you would have to update the start and end of all the actuators that were playing the other subanimations. You may find yourself still using this technique in order to organize your file; however, sometimes a long action can be easier to manage than multiple small ones.
 
 The actuator will let you pick an action, set the frame range, and configure how you want to play it (see Figure 3.26). If you are planning to reuse this actuator[md]for example, for linked/shared Logic Bricks[md]you can leave the action blank and set it through the Python API during the game engine. In Chapter 4, "Animation," we will use this actuator in a series of tutorials.
 
@@ -714,17 +618,17 @@ The actuator will let you pick an action, set the frame range, and configure how
 
 Some of the animations you create in Blender can be used in the game engine. The same result you see in the viewport when you play them back with Alt+A, you can also get in the game engine. That includes armature poses, shape keys, and some of the properties of object, material, light, and camera as following:
 
-**       ** [lb] **        Pose** : Any recorded sequence in an Armature object can be played. It's common to have different animated cycles[md]walking, running, jumping, tired walking, taking a break[md]and to alternate between them during an event. When using multiple action actuators, you may have an action currently playing when you start a new one. To make the transition smoothly, you can set the Blend In and Priority to respectively blend the animations for a certain number of frames and to play the new animation on top of the old one.
+- **Pose** : Any recorded sequence in an Armature object can be played. It's common to have different animated cycles[md]walking, running, jumping, tired walking, taking a break[md]and to alternate between them during an event. When using multiple action actuators, you may have an action currently playing when you start a new one. To make the transition smoothly, you can set the Blend In and Priority to respectively blend the animations for a certain number of frames and to play the new animation on top of the old one.
 
-**       ** [lb] **        Shape Keys** : Similar to poses, you can play the shape key actions created in the DopeSheet Editor with control over the blending, priority, frames, and so on. There is even a Continue option common to both that allows you to start the animation when you left the last time you activated it. Remember that you don't play the individual shape keys but rather the action that stores their influence on each other over time.
+- **Shape Keys** : Similar to poses, you can play the shape key actions created in the DopeSheet Editor with control over the blending, priority, frames, and so on. There is even a Continue option common to both that allows you to start the animation when you left the last time you activated it. Remember that you don't play the individual shape keys but rather the action that stores their influence on each other over time.
 
-**       ** [lb] **        Object Properties** : Location, Rotation, Scale, Color, and Physics properties (Location and Rotation Damping, Anisotropic Friction).
+- **Object Properties** : Location, Rotation, Scale, Color, and Physics properties (Location and Rotation Damping, Anisotropic Friction).
 
-**       ** [lb] **        Material** : Diffuse Color.
+- **Material** : Diffuse Color.
 
-**       ** [lb] **        Light** : Energy, Color, Distance, Attenuation, Spot Size and Spot Blend.
+- **Light** : Energy, Color, Distance, Attenuation, Spot Size and Spot Blend.
 
-**       ** [lb] **        Camera** : Start/End Clipping and Focal Length.
+- **Camera** : Start/End Clipping and Focal Length.
 
 ##### What Cannot Be Animated <a id="What Cannot Be Animated"></a>
 
@@ -732,13 +636,9 @@ Unfortunately, not everything we can animate inside Blender can be animated in t
 
 Be aware that this may change in the near future. And some of these settings behave differently, depending on the render mode (GLSL, MultiTexture).
 
-\*\*\* Begin Note
-
-Animating More Elements via Scripting
-
-Some Scene settings, such as Shading Mode, Mouse Cursor, and Eye Separation, can be set through the Python API. The same is valid for World settings, such as Mist, Background Color, Physics and Logic Maximum Steps, and FPS.
-
-\*\*\* End Note
+>**Animating More Elements via Scripting**
+>
+>Some Scene settings, such as Shading Mode, Mouse Cursor, and Eye Separation, can be set through the Python API. The same is valid for World settings, such as Mist, Background Color, Physics and Logic Maximum Steps, and FPS.
 
 ##### Object Settings <a id="Object Settings"></a>
 
@@ -746,11 +646,11 @@ If you are not animating an Armature Pose or a ShapeKey, there are extra options
 
 ![Action Actuator - Dynamic Object settings](../figures/Chapter3/Fig03-27.png "Action Actuator - Dynamic Object settings")
 
-**       ** [lb] **        Force** : If your object is Physical Dynamic, you can apply the transformations (for example, location) as a mechanical force. This avoids the "ghost" effect of having objects trespassing each other when their new location overlaps. With force, they will simply collide.
+- **Force** : If your object is Physical Dynamic, you can apply the transformations (for example, location) as a mechanical force. This avoids the "ghost" effect of having objects trespassing each other when their new location overlaps. With force, they will simply collide.
 
-**       ** [lb] **        Add** : Evaluate the fcurves as relative values. This way you can add the transformations on top of each other, instead of setting a new position/size/rotation.
+- **Add** : Evaluate the fcurves as relative values. This way you can add the transformations on top of each other, instead of setting a new position/size/rotation.
 
-**       ** [lb] **        Local** : Apply the transformations in local or world coordinates.
+- **Local** : Apply the transformations in local or world coordinates.
 
 ##### Play Modes <a id="Play Modes"></a>
 
@@ -758,29 +658,29 @@ The game engine, by default, plays the actions from the start to the end frame, 
 
 ![Action Actuator – Play Mode](../figures/Chapter3/Fig03-28.png "Action Actuator – Play Mode")
 
-**       ** [lb] **        Play** : Plays the action from start to end frames. If you want it to play again, you have to send a new positive signal to the actuator (for example, a Keyboard sensor with Pulse enabled can have the animation playing interruptedly if a key keeps being pressed).
+- **Play** : Plays the action from start to end frames. If you want it to play again, you have to send a new positive signal to the actuator (for example, a Keyboard sensor with Pulse enabled can have the animation playing interruptedly if a key keeps being pressed).
 
-**       ** [lb] **        Ping Pong** : Plays the animation from start to end. Next time, it will play it from end to start. Then start to end, and end to start again. And ping, ping, ping, pong.
+- **Ping Pong** : Plays the animation from start to end. Next time, it will play it from end to start. Then start to end, and end to start again. And ping, ping, ping, pong.
 
-**       ** [lb] **        Flipper** : Plays it until you keep it valid. As soon as you stop with the positive signal (for example, you release the key), it plays back to the initial frame. This happens even if the animation was only halfway through the frames.
+- **Flipper** : Plays it until you keep it valid. As soon as you stop with the positive signal (for example, you release the key), it plays back to the initial frame. This happens even if the animation was only halfway through the frames.
 
-**       ** [lb] **        Loop Stop** : Plays the animation while the actuator is valid. If the animation gets to the final frame, it loops back to the start frame. If the actuator is no longer active, it stops right away.
+- **Loop Stop** : Plays the animation while the actuator is valid. If the animation gets to the final frame, it loops back to the start frame. If the actuator is no longer active, it stops right away.
 
-**       ** [lb] **        Loop End** : Plays the animation continuously going to the initial frame after reaching the final one. If you interrupt the signal in the middle of the action, it will behave like the Play mode and play it all the way until the end frame.
+- **Loop End** : Plays the animation continuously going to the initial frame after reaching the final one. If you interrupt the signal in the middle of the action, it will behave like the Play mode and play it all the way until the end frame.
 
-**       ** [lb] **        Property** : Instead of using a start and final frames, you drive the animation by a game property value. You can use any number, integer or not, as the property value. That way, you can have pretty smooth playbacks. With this option, you can also simulate slow-motion, time-lapse, or even create your own Play mode by controlling the property change as you will.
+- **Property** : Instead of using a start and final frames, you drive the animation by a game property value. You can use any number, integer or not, as the property value. That way, you can have pretty smooth playbacks. With this option, you can also simulate slow-motion, time-lapse, or even create your own Play mode by controlling the property change as you will.
 
 ##### Blendin, Layers, and Priority <a id="Blendin, Layers, and Priority"></a>
 
 If you need to play multiple actions for the same object, you need to configure their transitions and how they will interact. So you need to explore the remaining options in the Action actuator interface: Blendin, Layers, and Priority. Blendin works as a cross fading effect between actions, while Layer allows to have different actions playing at the same time.
 
-**       ** [lb] **        Blendin** is necessary when you need to switch actions. More specifically, it's vital when you want to smoothly fade from one animation to another. Imagine, for example, that your character is walking and then starts to run. Even if the frames of both animation cycles start and end exactly alike, the effect will be strange. The difference in speed of the actions will make the transition too noticeable and unnatural. Thus, unless you are animating an old car with some engine problems, you don't want the transition to be so abrupt. Therefore, you can Blendin the new action (for example, to run) within the current one (to walk). Blendin works even if the old animation is no longer playing. Note that Blendin only works between Action actuators that are in the same animation Layers.
+- **Blendin** is necessary when you need to switch actions. More specifically, it's vital when you want to smoothly fade from one animation to another. Imagine, for example, that your character is walking and then starts to run. Even if the frames of both animation cycles start and end exactly alike, the effect will be strange. The difference in speed of the actions will make the transition too noticeable and unnatural. Thus, unless you are animating an old car with some engine problems, you don't want the transition to be so abrupt. Therefore, you can Blendin the new action (for example, to run) within the current one (to walk). Blendin works even if the old animation is no longer playing. Note that Blendin only works between Action actuators that are in the same animation Layers.
 
-**       ** [lb] **        Priority** will determine the execution order of different actions in the same layer. If you have two or more actions playing at the same time, which one will be played? This will be up to the priority to decide. The actuator with the lowest priority will be the one played (so a low priority number equals a high execution priority).
+- **Priority** will determine the execution order of different actions in the same layer. If you have two or more actions playing at the same time, which one will be played? This will be up to the priority to decide. The actuator with the lowest priority will be the one played (so a low priority number equals a high execution priority).
 
-**       ** [lb] **        Layer** allows you to have concurrently playing animations. In other words, you can stack multiple actions to be played independently. For example, you can have a base layer for the body actions and a top layer for the face animations. While the body can be playing a walking animation, the face can be playing different idle actions. Splitting actions in separate layers (and separate Action actuators) also allows for gradual blending between the actions.
+- **Layer** allows you to have concurrently playing animations. In other words, you can stack multiple actions to be played independently. For example, you can have a base layer for the body actions and a top layer for the face animations. While the body can be playing a walking animation, the face can be playing different idle actions. Splitting actions in separate layers (and separate Action actuators) also allows for gradual blending between the actions.
 
-**       ** [lb] **        Layer Weight** sets the ratio of influence of the previous animation layers to blend into the current Action actuator.
+- **Layer Weight** sets the ratio of influence of the previous animation layers to blend into the current Action actuator.
 
 #### Armature <a id="Armature"></a>
 
@@ -792,25 +692,20 @@ And for more information, please visit: [http://wiki.blender.org/index.php/Dev:S
 
 The actuator modes are the following:
 
-**       ** [lb] **        Run Armature** : Runs the simulation in this armature.
+- **Run Armature** : Runs the simulation in this armature.
 
-**       ** [lb] **        Enable** / **Disable** : Takes a bone and a bone constraint as arguments. It allows you to control when this particular constraint should run.
+- **Enable** / **Disable** : Takes a bone and a bone constraint as arguments. It allows you to control when this particular constraint should run.
 
-[lb] **Set Influence** : Sets the influence of a bone constraint dynamically.
+- **Set Influence** : Sets the influence of a bone constraint dynamically.
 
-**       ** [lb] **        Set Weight** : Sets the weight of the IK influence in a bone.
+- **Set Weight** : Sets the weight of the IK influence in a bone.
 
-**       ** [lb] **        Set Target** : Sets the targets for a bone constraint. When using the Inverse KinematicConstraint, you can also set the Secondary Target (also known as _polar target_).
+- **Set Target** : Sets the targets for a bone constraint. When using the Inverse KinematicConstraint, you can also set the Secondary Target (also known as _polar target_).
 
-\*\*\* Begin Note
-
-Dynamic Constraints
-
+>**Dynamic Constraints**
+>
 This actuator only works for Armature objects. If you want to drive some of the bone parameters (for example a bone constraint influence), you need to have an active Armature actuator with the "Run Armature" option.
-
 You can find an example of Set Influence with Run Armature in the sample file \Book\Chapter3\influence\_dynamic.blend.
-
-\*\*\* End Note
 
 #### Camera <a id="Camera"></a>
 
@@ -818,13 +713,11 @@ The Camera actuator will move your object (usually your active camera) behind th
 
 ![Camera actuator](../figures/Chapter3/Fig03-30.png "Camera actuator")
 
-\*\*\* Begin Note
-
-If You Are Looking to Change the Active Camera, Keep Looking
-
-If you are trying to change the active camera of the scene, please look at the Scene actuator.
-
-\*\*\* End Note
+>**Tips**
+>
+>If You Are Looking to Change the Active Camera, Keep Looking
+>
+>If you are trying to change the active camera of the scene, please look at the Scene actuator.
 
 #### Constraint <a id="Constraint"></a>
 
@@ -842,23 +735,19 @@ The Min and Max are global coordinates and can only restrict one axis at a time.
 
 The Distance Constraint option compares and controls the distance between your object and nearby objects (see Figure 3.32). You first have to determine which axis you want to use for the distance check. If you toggle the **L** button, the actuator uses the object axis; otherwise, it uses the global one. The game engine will cast a ray in that direction and try to find a surface that has the game property or the material specified with the M/P option. It uses the Range to determine the maximum length of the casted ray. If the ray hits a face, the following options will be considered:
 
-**       ** [lb] **        Force Distance** : Sets the new distance between your object and the found/hit surface.
+- **Force Distance** : Sets the new distance between your object and the found/hit surface.
 
-**       ** [lb] **Damping** : The number of frames for the repositioning to be complete.
+- **Damping** : The number of frames for the repositioning to be complete.
 
-**       ** [lb] **        N** : Turn it on, and your object will be aligned with the (normal of the) found/hit surface.
+- **N** : Turn it on, and your object will be aligned with the (normal of the) found/hit surface.
 
-**       ** [lb] **        RotDamping** : The number of frames to complete the alignment rotation.
+- **RotDamping** : The number of frames to complete the alignment rotation.
 
 ![Constraint actuator – Distance](../figures/Chapter3/Fig03-32.png "Constraint actuator – Distance")
 
-\*\*\* Begin Note
-
-Until a Negative Signal Do Us Part
-
-This actuator will be active as soon as it is triggered and will remain active until it receives a negative signal or can no longer find a surface (for example, the floor) in the given range. If you want to keep your actuator active even when it doesn't find a surface to be constrained to, you can turn on the Persistency **(PER)** option. If Time is greater than zero, it will set the maximum activation period of the actuator.
-
-\*\*\* End Note
+>**Until a Negative Signal Do Us Part**
+>
+>This actuator will be active as soon as it is triggered and will remain active until it receives a negative signal or can no longer find a surface (for example, the floor) in the given range. If you want to keep your actuator active even when it doesn't find a surface to be constrained to, you can turn on the Persistency **(PER)** option. If Time is greater than zero, it will set the maximum activation period of the actuator.
 
 #### Orientation Constraint <a id="Orientation Constraint"></a>
 
@@ -874,13 +763,13 @@ The Force Field Constraint simulates a spring field underneath your object (see 
 
 The special options are the following:
 
-**       ** [lb] **        Force** : Spring force of the force field.
+- **Force** : Spring force of the force field.
 
-**       ** [lb] **        Distance** : Height of the force field.
+- **Distance** : Height of the force field.
 
-**       ** [lb] **        RotFh** : Aligns the object axis with the normal of the force field.
+- **RotFh** : Aligns the object axis with the normal of the force field.
 
-**       ** [lb] **        N** : Adds a horizontal force to (the slopes of) the field.
+- **N** : Adds a horizontal force to (the slopes of) the field.
 
 The rest of the options behave as the ones presented for the other Constraint actuator types **:** Direction, M/P, PER, Time, Damping, and RotDamping.
 
@@ -890,35 +779,27 @@ There are a few actuators that feel as if they could be split into individual on
 
 ![Edit Object actuator](../figures/Chapter3/Fig03-35.png "Edit Object actuator")
 
-**       ** [lb] **        AddObject** : If you have objects in one of the non-visible layers, you can add them into the game with this option. The added object will be at the position and with the orientation of the object controlling the actuator. The scale, however, will be a combination of both objects. Other than that, the new object is pretty much autonomous[md]actually game property and logic bricks in the new object will be as good as if the object existed since frame one. The only exception is the Timer game properties that start counting only when the object gets added. You can add multiple instances of the same object, and any of them will behave as an independent duplicated copy of it.
+- **AddObject** : If you have objects in one of the non-visible layers, you can add them into the game with this option. The added object will be at the position and with the orientation of the object controlling the actuator. The scale, however, will be a combination of both objects. Other than that, the new object is pretty much autonomous[md]actually game property and logic bricks in the new object will be as good as if the object existed since frame one. The only exception is the Timer game properties that start counting only when the object gets added. You can add multiple instances of the same object, and any of them will behave as an independent duplicated copy of it.
 
 Through the options in the interface, you can change the initial linear and angular velocity of the object and its life duration.
 
-\*\*\* Begin Note
+>**For More Control Go with Python**
+>
+>There are so many applications for this feature that it is hard to narrow them down to one example. They run from dynamically populating your game to creating short duration particle effects. You may find yourself looking for more control over added objects, and scripting may address this for you. Through the Python API, you can access the previously added object, get its life span, or even completely replace the actuator by its Python equivalent function KX\_Scene.addObject().
 
-For More Control Go with Python
+- **EndObject** : Take a deep look at your game object. Now turn away and say bye! Not only will your object be removed from the game, but also any child object parented to it.
 
-There are so many applications for this feature that it is hard to narrow them down to one example. They run from dynamically populating your game to creating short duration particle effects. You may find yourself looking for more control over added objects, and scripting may address this for you. Through the Python API, you can access the previously added object, get its life span, or even completely replace the actuator by its Python equivalent function KX\_Scene.addObject().
+- **ReplaceMesh** : If your object is not an Armature, a Camera, an Empty, a Lamp, or a Text, it does have a mesh attached to it. And if it has a mesh, it can have it switched into a different one. There are two options here: to replace the graphic mesh[md]the one you see rendered[md]or to replace the physical mesh[md]the one used for physics interactions, viewed with Show Physics Visualization.
 
-\*\*\* End Note
+>**But Isn't This Slow? Not Really**
+>
+>This feature works pretty fast. All meshes in the blender file are preconverted when the game is launched. When the actuator is activated, the game engine simply swaps the current mesh for the new one. This works even if there is no visible object using the mesh you want to replace, or there is no object at all; just make sure to keep the mesh alive with the "fake user" option.
 
-**       ** [lb] **        EndObject** : Take a deep look at your game object. Now turn away and say bye! Not only will your object be removed from the game, but also any child object parented to it.
+This option can be used to implement what is known as level of detail: you swap your object mesh based on its distance to the camera. Whether the extra stress on your Logic and eventual scripting makes up for the gain in rasterizer performance will be up to your particular game.
 
-**       ** [lb] **        ReplaceMesh** : If your object is not an Armature, a Camera, an Empty, a Lamp, or a Text, it does have a mesh attached to it. And if it has a mesh, it can have it switched into a different one. There are two options here: to replace the graphic mesh[md]the one you see rendered[md]or to replace the physical mesh[md]the one used for physics interactions, viewed with Show Physics Visualization.
+- **TrackTo:** Unlike the Camera actuator, this Edit Object option will not move your object but rather change its rotation. Your object will work as a security camera tracking the object specified in the Object field. The 3D tracking option allows for three degrees of freedom in the tracker object. If Time is bigger than zero, it will determine how long a tracking lasts before the actuator is reactivated. To change the tracking axes, go to the Relations Extras options in the Object panel.
 
-\*\*\* Begin Note
-
-But Isn't This Slow? Not Really
-
-This feature works pretty fast. All meshes in the blender file are preconverted when the game is launched. When the actuator is activated, the game engine simply swaps the current mesh for the new one. This works even if there is no visible object using the mesh you want to replace, or there is no object at all; just make sure to keep the mesh alive with the "fake user" option.
-
-\*\*\* End Note
-
-**               ** This option can be used to implement what is known as level of detail: you swap your object mesh based on its distance to the camera. Whether the extra stress on your Logic and eventual scripting makes up for the gain in rasterizer performance will be up to your particular game.
-
-**       ** [lb] **        TrackTo:** Unlike the Camera actuator, this Edit Object option will not move your object but rather change its rotation. Your object will work as a security camera tracking the object specified in the Object field. The 3D tracking option allows for three degrees of freedom in the tracker object. If Time is bigger than zero, it will determine how long a tracking lasts before the actuator is reactivated. To change the tracking axes, go to the Relations Extras options in the Object panel.
-
-**       ** [lb] **        Dynamics** : Rigid Body and Dynamics can be turned off and back on here. That doesn't make a static object into a Rigid Body or Dynamic. It works to temporarily (or permanently) disable the physics behavior of one. The mass of the object can be changed here as well.
+- **Dynamics** : Rigid Body and Dynamics can be turned off and back on here. That doesn't make a static object into a Rigid Body or Dynamic. It works to temporarily (or permanently) disable the physics behavior of one. The mass of the object can be changed here as well.
 
 #### Message <a id="Message"></a>
 
@@ -928,13 +809,9 @@ There are different ways to coordinate actions between different objects. As pre
 
 If you don't know which object to send the message to (or want to send it to more than one), you can broadcast it instead. For that you simply have to omit the To parameter. A Message Sensor[md]the other part of the story[md]can filter messages by their Subject. The Body can only be retrieved by a Python script, and it is commonly left blank when you only want to trigger an event, not to pass a value. The Body can be either a text or the value of a property.
 
-\*\*\* Begin Note
-
-The Real Thing About Real-Time Is That It Has a Delay
-
-Be aware that messages are only going to be detected by the Message sensor in the next Logic cycle. Therefore, it's not a full replacement for linked Logic Bricks.
-
-\*\*\* End Note
+> **The Real Thing About Real-Time Is That It Has a Delay**
+>
+>Be aware that messages are only going to be detected by the Message sensor in the next Logic cycle. Therefore, it's not a full replacement for linked Logic Bricks.
 
 #### Motion <a id="Motion"></a>
 
@@ -942,13 +819,9 @@ _"My body move, move, my body …move!"_[md]hippo dance/pickup line (one of the 
 
 It moves, but it does it in distinct ways. For example, an animated character will use an actuator to control the bones and a Motion actuator to control the general movement of the object into the scene[md]its orientation and position. So unless the game character is doing a windmill exercise, your walking cycle will need this actuator. As a matter of fact, any object[md]with or without an action assigned to it[md]may need to rotate and move around. Therefore, this is one of the most important actuators and vastly used for a game. Let's take a deep look at the two available methods: Simple Motion and Servo Control.
 
-\*\*\* Begin Note
-
-Rotate It Just a Bit
-
-Once activated, this actuator will keep playing until it receives a negative signal or until it stops receiving the positive ones. So if you want to rotate your object a few degrees only when you press a key, you must use the Tap option in the Keyboard sensor.
-
-\*\*\* End Note
+>**Rotate It Just a Bit**
+>
+>Once activated, this actuator will keep playing until it receives a negative signal or until it stops receiving the positive ones. So if you want to rotate your object a few degrees only when you press a key, you must use the Tap option in the Keyboard sensor.
 
 ##### Simple Motion <a id="Simple Motion"></a>
 
@@ -962,13 +835,9 @@ But what happens if your object is a dynamic one? If the object is already being
 
 When your object is a dynamic one, you will see new options in the actuator (see Figure 3.38). Force, Torque, Linear and Angular Velocity, and Damping were all explained earlier. The difference between Force, Torque, and Linear and Angular Velocity is simple: when you use Force and Torque, you are adding physic momentum that will be applied to the object mass and result in a specific velocity. When you set the velocity directly, you have the game engine making sure the applied momentum will result on that velocity. There is also an option to Set or Add the Linear Velocity on top of the existent one and specify the Damping Frames to simulate acceleration; those are the number of frames that it will take to reach the target velocity.
 
-\*\*\* Begin Note
-
-Local and Global Again
-
-In Blender, there are two main coordinate systems: Local and Global. Whenever you refer to an axis, you should be aware of the system you want to use. The default one is always the Global (also known as _World_) and will use the absolute X,Y,Z reference of your scene. When you want to use the Local one, which is shown as an L in the interface, the axis used will always be relative to your object's current orientation.
-
-\*\*\* End Note
+>**Local and Global Again**
+>
+>In Blender, there are two main coordinate systems: Local and Global. Whenever you refer to an axis, you should be aware of the system you want to use. The default one is always the Global (also known as _World_) and will use the absolute X,Y,Z reference of your scene. When you want to use the Local one, which is shown as an L in the interface, the axis used will always be relative to your object's current orientation.
 
 ##### Servo Control <a id="Servo Control"></a>
 
@@ -978,27 +847,22 @@ The Servo Control can (and should) be used for any object, regardless of its dyn
 
 ![Motion actuator - Servo Control](../figures/Chapter3/Fig03-39.png "Motion actuator - Servo Control")
 
-**       ** [lb] **        Reference Object** : Albert Einstein once said that everything is relative. One of the breakthroughs of his scientific findings originated from his observation of a train from different reference points (a station, the same train, another train). The Reference Object here works as such, relativizing the new velocity from its position and velocity.
+- **Reference Object** : Albert Einstein once said that everything is relative. One of the breakthroughs of his scientific findings originated from his observation of a train from different reference points (a station, the same train, another train). The Reference Object here works as such, relativizing the new velocity from its position and velocity.
 
-**       ** [lb] **        Linear Velocity:** The target velocity used in the Servo Control calculation.
+- **Linear Velocity:** The target velocity used in the Servo Control calculation.
 
-**       ** [lb] **        Force Limit X** , **Y** , **Z** : It can control the minimum and maximum of the force applied in the object. The target velocity will eventually be reached so this option works toward speeding up or slowing down the acceleration.
+- **Force Limit X** , **Y** , **Z** : It can control the minimum and maximum of the force applied in the object. The target velocity will eventually be reached so this option works toward speeding up or slowing down the acceleration.
 
-\*\*\* Begin Note
+>**Advanced Motion Control**
+>
+>**PID Servo Control System** : The following options help you to control the responsiveness and the reaction of your movement. In simple English, this is known as a "control loopback mechanism," and it is a constant evaluation procedure that shapes the characteristics of your movement.
+>This is a generic (non-Blender specific) system; for more information, look at external references such as:http://en.wikipedia.org/wiki/PID\_controller
 
-Advanced Motion Control
+- **Proportional Coefficient** : You don't need to change this parameter unless you know what you are doing. It will adjust itself to be 60 times the IntegralCoefficient, so if you want a different value, remember to update it after making any adjustments there.
 
-**PID Servo Control System** : The following options help you to control the responsiveness and the reaction of your movement. In simple English, this is known as a "control loopback mechanism," and it is a constant evaluation procedure that shapes the characteristics of your movement.
+- **Integral Coefficient** : The default value (0.5) will give you a fast response into the system. Values as small as 0.1 will produce very slow responses.
 
-This is a generic (non-Blender specific) system; for more information, look at external references such as:http://en.wikipedia.org/wiki/PID\_controller
-
-\*\*\* End Note
-
-**       ** [lb] **        Proportional Coefficient** : You don't need to change this parameter unless you know what you are doing. It will adjust itself to be 60 times the IntegralCoefficient, so if you want a different value, remember to update it after making any adjustments there.
-
-**       ** [lb] **        Integral Coefficient** : The default value (0.5) will give you a fast response into the system. Values as small as 0.1 will produce very slow responses.
-
-**       ** [lb] **        Derivate Coefficient** : This parameter is not required and has a direct effect on the stability of the movement. High values can cause instability.
+- **Derivate Coefficient** : This parameter is not required and has a direct effect on the stability of the movement. High values can cause instability.
 
 ##### Character Motion <a id="Character Motion"></a>
 
@@ -1016,13 +880,9 @@ Dynamically setting the parent of your objects allows you to make small componen
 
 The ui options are presented in Figure 3.41. If the parent object shape is a compound (set in the Physics panel), you can merge the shapes with the Compound option. From an opposing standpoint, when you don't want your object to interfere with your parent physics geometry, you can check the Ghost option to make it behave as such.
 
-\*\*\* Begin Note
-
-If You Go with Physics, Don't Parent It!
-
-Some of the physic interactions, such as Rigid Body, will behave erratically or not work at all when your object is parented.
-
-\*\*\* End Note
+>**If You Go with Physics, Don't Parent It!**
+>
+>Some of the physic interactions, such as Rigid Body, will behave erratically or not work at all when your object is parented.
 
 #### Property <a id="Property"></a>
 
@@ -1030,29 +890,22 @@ There are a few ways of changing your game properties. You can change them throu
 
 ![Property actuator](../figures/Chapter3/Fig03-42.png "Property actuator")
 
-**       ** [lb] **Add** : Increments or decrements of numbers can be done with this option. Remember to use the minus sign to decrease a number, although when adding a number to a String property, that number will get added to the text, regardless of its signal.
+- **Add** : Increments or decrements of numbers can be done with this option. Remember to use the minus sign to decrease a number, although when adding a number to a String property, that number will get added to the text, regardless of its signal.
 
-**       ** [lb] **        Assign** : This option allows you to specify a new value for your property or to copy it from another property of the same object. When your property is a String, you can enclose the new value in single or double quotes.
+- **Assign** : This option allows you to specify a new value for your property or to copy it from another property of the same object. When your property is a String, you can enclose the new value in single or double quotes.
 
-**       ** [lb] **        Copy** : Copy a property from a different object. See the note that follows on different data type conversions.
+- **Copy** : Copy a property from a different object. See the note that follows on different data type conversions.
 
-**       ** [lb] **        Toggle** : When the property is a Boolean, it will toggle from True to False and vice versa. When it's a number (integer, float or timer), it will toggle from 0 to 1 and anything different than 0 to 0.
+- **Toggle** : When the property is a Boolean, it will toggle from True to False and vice versa. When it's a number (integer, float or timer), it will toggle from 0 to 1 and anything different than 0 to 0.
 
-\*\*\* Begin Note
+>**Mixing Types**
+>
+>When your properties are of different types, Blender will try to accommodate them. Booleans are converted to 0 or 1 when assigned to numbers, and floats are always rounded down.
 
-Mixing Types
 
-When your properties are of different types, Blender will try to accommodate them. Booleans are converted to 0 or 1 when assigned to numbers, and floats are always rounded down.
-
-\*\*\* End Note
-
-\*\*\* Begin Note
-
-Remember the Expressions?
-
-Instead of direct values, you can use an expression in the value fields for the Property actuator. Take a look at the Expression controller for more details.
-
-\*\*\* End Note
+>**Remember the Expressions?**
+>
+>Instead of direct values, you can use an expression in the value fields for the Property actuator. Take a look at the Expression controller for more details.
 
 #### Random <a id="Random"></a>
 
@@ -1068,13 +921,9 @@ Soundtracks and sound effects[md]the possibilities are endless and definitively 
 
 ![Sound actuator](../figures/Chapter3/Fig03-44.png "Sound actuator")
 
-\*\*\* Begin Note
-
-Spatial 3D Sound
-
-If the sound has only a single channel, you can use it as a 3D sound source. That means the sound will be played using your game object position as reference; it gets louder the closer it gets to the camera, and lower when it's farther away. The 3D options cover the distance range of the volume influence of your sound, the audio cone extension, and its angles.
-
-\*\*\* End Note
+>**Spatial 3D Sound**
+>
+>If the sound has only a single channel, you can use it as a 3D sound source. That means the sound will be played using your game object position as reference; it gets louder the closer it gets to the camera, and lower when it's farther away. The 3D options cover the distance range of the volume influence of your sound, the audio cone extension, and its angles.
 
 #### State <a id="State"></a>
 
@@ -1082,19 +931,15 @@ The State machine in the game engine works like a layer system on which every co
 
 ![State actuator](../figures/Chapter3/Fig03-45.png "State actuator")
 
-**       ** [lb] **        SetState** : Replace the current state mask entirely with the one supplied.
+- **SetState** : Replace the current state mask entirely with the one supplied.
 
-**       ** [lb] **AddState** , **RemoveState** : Act on individual states by adding/removing the select ones.
+- **AddState** , **RemoveState** : Act on individual states by adding/removing the select ones.
 
-**       ** [lb] **        ChangeState** : Toggle the selected states reversing their values.
+- **ChangeState** : Toggle the selected states reversing their values.
 
-\*\*\* Begin Note
-
-States Continued…
-
-Read more about how to use the states in the "State Machine" section, later in this chapter.
-
-\*\*\* End Note
+>**States Continued…**
+>
+>Read more about how to use the states in the "State Machine" section, later in this chapter.
 
 #### Visibility <a id="Visibility"></a>
 
@@ -1114,13 +959,9 @@ Multiple scenes are rendered as a stack, the ones in the back first, followed by
 
 Also, you can change the current camera of the scene by assigning a new camera object in the Set Camera option.
 
-\*\*\* Begin Note
-
-Freeze! New Scene!
-
-Every time a new scene is set or added, the game engine has to convert all the assets into its internal objects. This is the same process that occurs for your main scene when you first load up your game. Since the game engine is single threaded for most of its operations, the whole game will freeze waiting for the new scene to load.
-
-\*\*\* End Note
+>**Freeze! New Scene!**
+>
+>Every time a new scene is set or added, the game engine has to convert all the assets into its internal objects. This is the same process that occurs for your main scene when you first load up your game. Since the game engine is single threaded for most of its operations, the whole game will freeze waiting for the new scene to load.
 
 #### Filter 2D <a id="Filter 2D"></a>
 
@@ -1128,47 +969,43 @@ The 2D Filter actuators are post-processing effects applied to the entire screen
 
 ![Filter 2D actuator](../figures/Chapter3/Fig03-48.png "Filter 2D actuator")
 
-\*\*\* Begin Note
-
-Old Graphic Cards Support
-
-Filters 2D require graphic cards with support for GLSL (officially included in OpenGL 2.0 or higher). Otherwise, they will not run and may crash Blender in some cases. Most of today's computers do support it, but you may have trouble running it in some old embedded graphic cards. When not supported, you will see an error report in the Blender console, and it can eventually lead to crashes on Blender. There is no harm for your system, though, so you if you are not sure of the compatibility of your graphic card, you can go ahead and try it.
-
-\*\*\* End Note
+>**Old Graphic Cards Support**
+>
+>Filters 2D require graphic cards with support for GLSL (officially included in OpenGL 2.0 or higher). Otherwise, they will not run and may crash Blender in some cases. Most of today's computers do support it, but you may have trouble running it in some old embedded graphic cards. When not supported, you will see an error report in the Blender console, and it can eventually lead to crashes on Blender. There is no harm for your system, though, so you if you are not sure of the compatibility of your graphic card, you can go ahead and try it.
 
 You may be already familiar with most of the built-in filters. They have similar implementation to traditional filters found in any digital processing software:
 
-**       ** [lb] **        Blur** : It smudges the whole canvas. Neighboring pixels are blended together, thus existent small details are eventually lost.
+- **Blur** : It smudges the whole canvas. Neighboring pixels are blended together, thus existent small details are eventually lost.
 
-**       ** [lb] **Sharpen** : It's the opposite of Blur. The details will jump out of the screen becoming crystal clear.
+- **Sharpen** : It's the opposite of Blur. The details will jump out of the screen becoming crystal clear.
 
-**       ** [lb] **Dilation** : While Blur averages neighboring pixels, Dilation will pick the brightest (maximum RGB value) one of the surrounding pixels and use it as the pixel color. The result is a sharper image but with a loss of details; however, it's a good compromise between Blur and Sharpen.
+- **Dilation** : While Blur averages neighboring pixels, Dilation will pick the brightest (maximum RGB value) one of the surrounding pixels and use it as the pixel color. The result is a sharper image but with a loss of details; however, it's a good compromise between Blur and Sharpen.
 
-**       ** [lb] **Erosion** : It works opposite to the Dilation method. This filter compares the values of all the neighboring pixels and uses the darker (minimum RGB value) one as the pixel color.
+- **Erosion** : It works opposite to the Dilation method. This filter compares the values of all the neighboring pixels and uses the darker (minimum RGB value) one as the pixel color.
 
-**       ** [lb] **Laplacian** : This was originally conceived as an edge detection filter. It will produce dark regions where there are not many changes of color and bright zones when the color changes abruptly.
+- **Laplacian** : This was originally conceived as an edge detection filter. It will produce dark regions where there are not many changes of color and bright zones when the color changes abruptly.
 
-**       ** [lb] **Sobel** : This is another simple edge detection formula that detects the spatial frequency of high changes in the image. It will produce images of high contrast with white lines against a solid dark background.
+- **Sobel** : This is another simple edge detection formula that detects the spatial frequency of high changes in the image. It will produce images of high contrast with white lines against a solid dark background.
 
-**       ** [lb] **Prewitt** : Similar to the Sobel algorithm, this filter also handles edge detection. The difference is that the Prewitt algorithm is more sensitive to vertical and horizontal edges. The Sobel, on the other hand, is isotropic; it's not biased for any particular set of directions.
+- **Prewitt** : Similar to the Sobel algorithm, this filter also handles edge detection. The difference is that the Prewitt algorithm is more sensitive to vertical and horizontal edges. The Sobel, on the other hand, is isotropic; it's not biased for any particular set of directions.
 
-**       ** [lb] **Gray Scale** : This filter discards the color information of your image, keeping the same luminance.
+- **Gray Scale** : This filter discards the color information of your image, keeping the same luminance.
 
-**       ** [lb] **Sepia** : This simulates a photography technique to give a warmer tone for a photo and make it last longer. This effect can set an interesting mood for flashbacks or past scenes in your game. The Sepia effect is reached by first converting the image into grayscale and then mixing it with a bright, desaturated yellow.
+- **Sepia** : This simulates a photography technique to give a warmer tone for a photo and make it last longer. This effect can set an interesting mood for flashbacks or past scenes in your game. The Sepia effect is reached by first converting the image into grayscale and then mixing it with a bright, desaturated yellow.
 
-**       ** [lb] **Invert** : Makes a negative of the frame image. What is white becomes black, what is pure red is converter to cyan, and so on. The inversion is made on top of the RGB values of your scene (instead of the HSV, for example).
+- **Invert** : Makes a negative of the frame image. What is white becomes black, what is pure red is converter to cyan, and so on. The inversion is made on top of the RGB values of your scene (instead of the HSV, for example).
 
 A filter can be applied on top of another one. In order to combine more than one filter, the filters have to run in a controlled order; otherwise, the effects may vary a lot. To run in the correct order, each Filter 2D Actuator has a Pass Number **,** which will determine which runs first by an ascending order.
 
 There are two extra filters that complement the usage of the other ones:
 
-**       ** [lb] **        Custom filter** : This is a more advanced option that allows you to write your own filters for your game (see Figure 3.49). There are interesting effects that can be implemented: depth of field, screen-space ambient occlusion, high dynamic range, color balance, vignetting, noise, and so on
+- **Custom filter** : This is a more advanced option that allows you to write your own filters for your game (see Figure 3.49). There are interesting effects that can be implemented: depth of field, screen-space ambient occlusion, high dynamic range, color balance, vignetting, noise, and so on
 
 ![Filter 2D actuator - Custom filter](../figures/Chapter3/Fig03-49.png "Filter 2D actuator - Custom filter")
 
 It's still important to be aware of the Pass Number, just as for the other filters. The Custom Filter can be mixed with the others with no problems. Finally, you can select a Text datablock to use as the filter source. The filter is actually a GLSL shader, which is a whole topic on its own. Chapter 5 covers that in depth along with other graphic topics.
 
-**       ** [lb] **Motion Blur** : In a video camera, fast objects appear to be blurred the faster they go. It's quite a popular effect and even in real-time rendering, it can be simulated in an artistic way (a euphemism for a trade-off between quality and performance with tons of compromise).
+- **Motion Blur** : In a video camera, fast objects appear to be blurred the faster they go. It's quite a popular effect and even in real-time rendering, it can be simulated in an artistic way (a euphemism for a trade-off between quality and performance with tons of compromise).
 
 This filter has its own option to be enabled and disabled. As you can see in Figure 3.50, there is no Pass Number there. The reason is that Motion Blur is always computed before the other filters. Therefore, it will run prior to the first of your filters. You can set the Value to adjust the sensitivity and general effect of the blur[md]small values will produce very little blur.
 
@@ -1180,13 +1017,9 @@ You can run a Filter 2D just like any other actuator. A positive signal will tri
 
 If you want to turn a filter temporally off, you can use the Disable option. To reactivate the filter, you use Enable. If, however, you know that you will no longer need this filter during the game, you should use Remove to remove it instead. For any of these three options, you have to set the Pass Number of the filter you want to deal with.
 
-\*\*\* Begin Note
-
-Why Does Filter 2D Not Follow the Rest of the Actuators' Behavior?
-
-Although it may sound arbitrary, there is a reason behind the enable/disable design of the Filter 2D system. The filters are actually shaders, small programs that must be sent to the graphic card for them to be compiled and accessible to the game. To avoid the overhead of recompiling the shaders every time you call them, the game engine keeps them in its memory from the first moment you enable them until you finish the game, remove the filter, or remove the scene where the filter belongs._To remove the object that called the Filter 2D will not make the filter stop running._
-
-\*\*\* End Note
+>**Why Does Filter 2D Not Follow the Rest of the Actuators' Behavior?**
+>
+>Although it may sound arbitrary, there is a reason behind the enable/disable design of the Filter 2D system. The filters are actually shaders, small programs that must be sent to the graphic card for them to be compiled and accessible to the game. To avoid the overhead of recompiling the shaders every time you call them, the game engine keeps them in its memory from the first moment you enable them until you finish the game, remove the filter, or remove the scene where the filter belongs._To remove the object that called the Filter 2D will not make the filter stop running._
 
 #### Game <a id="Game"></a>
 
@@ -1196,9 +1029,9 @@ The Game actuator concentrates on top-level functions you can perform on each ga
 
 Start Game From File will stop the game and start/load the new file. It's used to load new levels or simply to access files with new scenes. Blender will go through the whole process of loading a new file and converting the data. That may produce some waiting time where the whole game (shaders included) seems to be frozen. All the events that happened in the game will be lost with the following exceptions:
 
-[lb] **Global dictionary:** The python dictionary bge.logic.globalDict (explained properly in Chapter 7) is persistent through all your gameplay.
+- **Global dictionary:** The python dictionary bge.logic.globalDict (explained properly in Chapter 7) is persistent through all your gameplay.
 
-[lb] **Material settings:** If you change the material render mode from Multitexture to GLSL, for example, it will only be valid for the new file you load. This is very useful for loading files that help you to set up the graphic property according to the user profile.
+- **Material settings:** If you change the material render mode from Multitexture to GLSL, for example, it will only be valid for the new file you load. This is very useful for loading files that help you to set up the graphic property according to the user profile.
 
 Restart Game will load the opened file again. Since it loads the saved file, any changes made before launching the game engine will not be present.
 
@@ -1206,13 +1039,9 @@ Quit Game works the same way as if the exit key is pressed (ESC key is the defau
 
 Load and Save bge.logic.globalDict is only relevant if you are using Python scripts. Once you save the global dictionary, it will create a file in the same folder as your blend file with the extension .bgeconf.
 
-\*\*\* Begin Note
-
-Please Wait While Loads…
-
-If the initial scene of your game is too heavy, you may consider implementing a simpler initial scene/file with the game credits, title, and a "please wait while loads" message. This scene will then have an Always sensor linked to a Game actuator set to Start Game From File.
-
-\*\*\* End Note
+>**Please Wait While Loads…**
+>
+>If the initial scene of your game is too heavy, you may consider implementing a simpler initial scene/file with the game credits, title, and a "please wait while loads" message. This scene will then have an Always sensor linked to a Game actuator set to Start Game From File.
 
 ## State Machine <a id="State Machine"></a>
 
@@ -1228,13 +1057,9 @@ Although all the controllers and actuators are visible, the state 1 (Swim) is th
 
 This is the simplest way of using states. It's not the only one, though. In more complex systems, the states don't need to be exclusive and will work more as individual components that you can turn on and off accordingly. One of the important aspects of this system is that from a controller of any state, you can completely rearrange the status of all the other states, turning them on or off.
 
-\*\*\* Begin Note
-
-Artificial Intelligence and the State Machine
-
-In the artificial intelligence literature, there are multiple techniques to deal with artificial behavior. The State Machine implementation in Blender is flexible enough to be used with your design, whatever you pick. Two of the most popular systems[md]Finite State Machine and Behavior Tree[md]can be implemented with the current features and the other variations might as well. The State system can also be accessed through the Python interface for a pure programming control.
-
-\*\*\* End Note
+>**Artificial Intelligence and the State Machine**
+>
+>In the artificial intelligence literature, there are multiple techniques to deal with artificial behavior. The State Machine implementation in Blender is flexible enough to be used with your design, whatever you pick. Two of the most popular systems[md]Finite State Machine and Behavior Tree[md]can be implemented with the current features and the other variations might as well. The State system can also be accessed through the Python interface for a pure programming control.
 
 ## Sharing and Group Instancing <a id="Sharing and Group Instancing"></a>
 
@@ -1242,13 +1067,9 @@ The game engine centralizes the logic components at the object level. This is at
 
 Group instancing support in the game engine was added for the project Yo Frankie[md]a game demo project organized and developed by the Blender Foundation in 2008. For this particular project, they had to share the Logic Bricks between the NPC enemies (sheeps, rats, etc.) and a different set of Logic Bricks for the two main playable characters (Frankie and Momo).
 
-\*\*\* Begin Note
-
-To Read More…
-
-To read about their specific implementation you can look at Campbell Barton's chapter in _The Blender GameKit, 2nd_Edition_: http://wiki.blender.org/index.php/Doc:2.4/Books/GameKit\_2/12.Yo\_Frankie!#Logic\_Sharing.
-
-\*\*\* End Note
+>**To Read More…**
+>
+>To read about their specific implementation you can look at Campbell Barton's chapter in _The Blender GameKit, 2nd_Edition_: http://wiki.blender.org/index.php/Doc:2.4/Books/GameKit\_2/12.Yo\_Frankie!#Logic\_Sharing.
 
 The first and simplest usage of this feature is to replicate the same set of objects multiple times. Open the file _\Book\Chapter3\group\_instancing\_logic\_1.blend_. As you can see in Figure 3.53, here we have 10 copies of a system compound of balls and fountains. The balls will constantly roll inside the fountain and every once in a while the ball will get more of an impulse at the bottom of the fountain.
 
@@ -1258,13 +1079,9 @@ There are three relevant components here: a fountain for the ball to roll in, a 
 
 ![Add Menu - Group Instance](../figures/Chapter3/Fig03-54.png "Add Menu - Group Instance")
 
-\*\*\* Begin Note
-
-Logic Brick Duplication
-
-There are other ways to duplicate your Logic Brick object. In fact, the Group Instance option from the Add Menu is simply a shortcut for using an Empty with Group as the Duplication type. Vertices and Faces can also be used there, but this will only duplicate the child object in the geometry, not an entire group.
-
-\*\*\* End Note
+>**Logic Brick Duplication**
+>
+>There are other ways to duplicate your Logic Brick object. In fact, the Group Instance option from the Add Menu is simply a shortcut for using an Empty with Group as the Duplication type. Vertices and Faces can also be used there, but this will only duplicate the child object in the geometry, not an entire group.
 
 The most obvious advantage of this is that if you need to change the Logic Bricks, you can at any time edit them in the original elements of the group. This will automatically be replicated to all the instances that share the same Logic Bricks. Group Instance also works for dynamically added objects. In other words, you can add a Group Instance by placing it in the file (as the previous example shows) or by using the Add Object option of the Edit Object actuator.
 
