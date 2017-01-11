@@ -860,7 +860,7 @@ The value to use in the Motion actuator is the object speed times the frequency 
 
 In the end, you might want to set the camera to track Momo during the walk. In the sample file, you will see the camera is parented to an empty with an Edit ObjectTrack To Actuator to follow Momo. Also, the zoom and rotate camera intro effect was brought back from the pretutorial. A checkerboard pattern on the floor will also help to follow the pace of his progression. The final file is shown in Figure 4.47 and can be found on _\Book\Chapter4\tutorial\_walk\_9.playtime.blend_.
 
-## Idle Animation
+### Idle Animation
 
 In the latest file, we set up Momo to walk. We never set it up for him to stop walking, though[md]the Always sensor will play the animation in an infinite loop until you quit the game. To push our animation exercises further, let's create an idle animation for Momo. We will then set up Momo to walk, stop, and walk again. Idle animations are played when the character is waiting for you to make a decision (whether to keep walking, to run, to turn, etc.). So as soon as we stop walking, we will set the character to act accordingly.
 
@@ -896,7 +896,7 @@ As long as your poses are inside the range of the initial and final frames, the 
 
 Before you finish the idle animation, you need to set up drivers for your shape keys. You can find the current snapshot file at the end of the next section.
 
-## Making a Face
+### Making a Face
 
 Do you know the difference between television and a live performance? In television the director has full control of the framing of the shots. It's common to use and abuse close-ups and strong facial expressions as a replacement for expressive body language. In the live theater, the audience may be sitting close or far away from the stage, and they all need to be pleased. (Sure, people fight over a front seat, but the show still has to make sense to everyone.)
 
@@ -906,7 +906,7 @@ In a game, we have the best and the worst of both worlds. You still can use dire
 
 In the previous tutorial, we covered the techniques for a good, full body-language posing. Add some more classic animation techniques (for example, strong silhouettes, lines of action, and exaggeration), and you are good to go. For facial expression, however, we will look at something new. If you have not been reading these chapters in order, now is a good time to go back and read about the shape keys.
 
-### Shape Keys and Bone Drivers
+#### Shape Keys and Bone Drivers
 
 A shape key is like an individual piece of grammar. You need to build a library of poses to use in your animation. Momo already has a few poses previously created. We will use them in our animation posing with the bone-driven technique.
 
@@ -973,7 +973,7 @@ Additionally, you can add a bone constraint to make sure the bone controller is 
 
 Finally, you need to set up the remaining poses[md]eyelid up and down and eyebrow up and down. The setup is the same as for the pair ooh and smile. This time, we will leave them for you, but you can check the final setup file in _\Book\Chapter4\tutorial\_idle\_4.shapekeysdriver.blend_.
 
-## Get Your Hands Dirty
+### Get Your Hands Dirty
 
 With the armature ready to pose, you can complete the idle animation. Once things are set, there is no need to worry about anything but the armature poses. Take the previous file and create the complete cycle.
 
@@ -983,7 +983,7 @@ After the tutorial section, you can check out the idle and walking animation mad
 
 ![Momo idle animation](../figures/Chapter4/Fig04-53.png)
 
-## Wiring Up the Logic Bricks
+### Wiring Up the Logic Bricks
 
 There is only one thing missing. We need to alternate between the two animations: the walking and the idle one. With the latest file open, select RigMomo and in the Logic Editor, make the following changes:
 
@@ -1017,7 +1017,7 @@ Now all that is left to be done is to play the idle action when Momo is not walk
 
 The final file is on _\Book\Chapter4\tutorial\_idle\_6.idlewalkforward.blend_.
 
-## How Many Bricks Does It Take to Turn Momo?
+### How Many Bricks Does It Take to Turn Momo?
 
 Momo can walk and stop. Now, if only we had a jump, we would be set for a side-scroller platform game (due to copyright restrictions, you will not see a figure of Momo running after a spinning-spiked hedgehog). For a 3D game, however, you need to be able to freely navigate into the levels. And there is no better way than allowing the character to turn around.
 
@@ -1061,7 +1061,7 @@ Bottomline: a miso soup with sugar is not a break-even[md]it's bad cooking.
 
 \*\*\* End Note
 
-## Hats Off to Momo and Vice-Versa
+### Hats Off to Momo and Vice-Versa
 
 Momo is a classy monkey, often seen at parties of the animal kingdom's high society. However, when with his inner circle of friends, Momo is actually a very casual monkey[md]not much to show, nothing to hide. One character[md]two quite distinct moments. This is the theme of our animation.
 
@@ -1131,7 +1131,7 @@ The interaction is simple: click on a hat to switch to it; click anywhere else t
 
 This is done by a script that is already hooked up for the camera. This Python script is very simple, and you should be able to understand it after the Chapter 7, "Python Scripting." The script accesses the objects[md]hats and empty placeholders[md]by their names. Therefore, for your local changes, it's important to follow the names as presented here or tweak the script accordingly.
 
-## Mango Jambo Special Animation
+### Mango Jambo Special Animation
 
 The walking cycle you've seen so far is technically correct, and it follows the workflow you can count on, regardless of your animation skills. The bottom line is: with a good method and the understanding of the techniques, although you may not be brilliant, you can't go wrong either.
 
