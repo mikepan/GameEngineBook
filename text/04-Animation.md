@@ -408,7 +408,7 @@ Given that often the screw will not be part of the mesh directly deformed by the
 
 ![Pivot bone constraint](../figures/Chapter4/Fig04-25.png)
 
-# Bone Parenting
+## Bone Parenting
 
 It's not Vegas, but what happens in the armature does stay in the armature. So, how do you make your animation affect other objects? The armature affects the deformed mesh, but that's not all.
 
@@ -426,7 +426,7 @@ In the _Yo Frankie!_ game, they use this feature in a similar way. Both main cha
 
 ![Momo bone-parenting system](../figures/Chapter4/Fig04-26.png)
 
-# Shape Keys
+## Shape Keys
 
 Sometimes bone animation may not give you enough control over the mesh deformation. In those cases, you can animate the mesh directly via Shape Keys. As in Blender, you can define multiple shape keys representing different poses for your character. Each pose holds the position of all the vertices of your mesh.
 
@@ -440,7 +440,7 @@ The level of control that you get from Shape Keys comes with a price. The perfor
 
 \*\*\* End Note
 
-## When to Use Shape Keys
+### When to Use Shape Keys
 
 Use shape keys whenever the animation is too complex for armature animations. That's not the whole story, though. Shape key animations are often integrated with the traditional armature animations, not as something separate. They can work as stand-alone animations, of course; there is indeed an actuator dedicated only to that. However, the greatest application of shape keys is not to replace the bone animation but to complement it.
 
