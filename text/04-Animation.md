@@ -484,13 +484,7 @@ _No keyframes were hurt in the making of those tutorials._
 
 In the following pages, we are going to make a character walk, interact with objects, and have some nice facial expressions for you to play with. For the model, we will be using the monkey, Momo (see Figure 4.31). I cleaned up the original file, removing the shape keys and the animation cycles previously created. You can get Momo in his fresh state in _\Book\Chapter04\tutorials\__tutorials\_momobase.blend_.
 
-\*\*\*Insert Fig04-31.tif
-
-Figure 4.31
-
-Dear Momo, get ready for rock 'n' roll!
-
-Source: Blender Foundation.
+![Dear Momo, get ready for rock 'n' roll!](../figures/Chapter4/Fig04-31.png)
 
 # Pre-Tutorial
 
@@ -536,13 +530,7 @@ However, if you enter the game engine, the camera is not animated. We still need
 
 The logic brick can be seen in Figure 4.32. There is really not much to it other than to make sure that the animation plays once after you run the game.
 
-\*\*\*Insert Fig04-32.tif
-
-Figure 4.32
-
-Setting up an Action actuator.
-
-Source: Blender Foundation.
+![Setting up an Action actuator](../figures/Chapter4/Fig04-32.png)
 
 If the fast zooming of the lens still doesn't make everyone dizzy, it's time to animate the camera rotation. It's good to remember that while the rotation is a property of the camera object, the focal length is part of the camera datablock. As such, these transformations are stored in independent actions. Thus, we will need to create a new action (through keyframing the camera rotation) and set up a new Action actuator.
 
@@ -600,13 +588,7 @@ In this tutorial, we will not cover animation extensively. This topic alone coul
 
 The armature is already created, but not yet ready to animate the character. If you go to the Pose Mode, you can move the individual bones, as shown in Figure 4.33. As you might already know, bones constraints are useful in posing the armature, so let's create some.
 
-\*\*\*Insert Fig04-33.tif
-
-Figure 4.33
-
-Select and move individual bones.
-
-Source: Blender Foundation.
+![Select and move individual bones](../figures/Chapter4/Fig04-33.png)
 
 For Momo, there are two sets of bone constraints that will help your posing. The Inverse Kinematics, IK, for controlling the bone chains from their extreme bones, and Track To for the eyes.
 
@@ -614,13 +596,7 @@ For Momo, there are two sets of bone constraints that will help your posing. The
 
 First, let's take a look at the IK bone constraints. IK can be used to pose arms and legs by moving only the hands and feet. The position of the arm and leg bones will be automatically calculated to accommodate the hand/feet position. Not only Momo's human counterparts (arms, legs, etc.) benefit from it, but also Momo's tail is perfect to demonstrate the usage of IK, so let's start with it. With the file open, follow these steps to get to the configuration shown in Figure 4.34.
 
-\*\*\*Insert Fig04-34.tif
-
-Figure 4.34
-
-Set an IK bone constraint in Momo's tail.
-
-Source: Blender Foundation.
+![Set an IK bone constraint in Momo's tail](../figures/Chapter4/Fig04-34.png)
 
 \*\*\* Begin Numbered List
 
@@ -638,25 +614,13 @@ Source: Blender Foundation.
 
 Now the setup is almost done. Before we finish, try to move the tail bone around. This results in all sorts of twists and revolving poses just by moving only a single control bone. You can see this early iteration in Figure 4.35, which went a bit too far, however. All you need is to control the chain of bones that this bone belongs to; in this case, all six bones from the tail bone group.
 
-\*\*\*Insert Fig04-35.tif
-
-Figure 4.35
-
-IK bone constraint with no limit.
-
-Source: Blender Foundation.
+![IK bone constraint with no limit](../figures/Chapter4/Fig04-35.png)
 
 In order to constraint the Influence of the bone control, you need to set the chain length in the IK Bone Constraint panel. The default value, zero, makes the chain of influenced bones as long as possible. For the tail, you can set the chain length to be five bones.
 
 There are other IK bone constraints that we want to set. So far we have been seeing only the bones from the first bone layer. Bone layers work like the object layers in Blender. A bone can be in more than one layer, and you can choose which layer to set at a time. The bone layers can be found in the armature Object Data panel in the Property Editor, as seen in Figure 4.36.
 
-\*\*\*Insert Fig04-36.tif
-
-Figure 4.36
-
-Bone layers.
-
-Source: Blender Foundation.
+![Bone layers](../figures/Chapter4/Fig04-36.png)
 
 If you can turn on the second bone layer, you will see only the hand, foot, and tail bones. They all need IK bone constraints as well. Try copying the steps for the tail bone. To mimic the original file, you need to set the chain length to be two bones for the forearm and the shin bones, and three bones for the feet. These numbers correspond to how many bones are left in the chain of bones. At this point, your file should be like the one on _\Book\Chapter4\tutorial\_walk\_2.ik.blend._
 
@@ -672,13 +636,7 @@ Those IK bone constraints are targetless. As explained previously in the bone co
 
 Well, if you haven't looked at the hidden third bone layer, now is a good time to do so. As you see in Figure 4.37, in this layer, we have the eye bones and two other bones to be used as trackers. Sure, you could move the eye bones directly, but again, this is not the ideal workflow.
 
-\*\*\*Insert Fig04-37.tif
-
-Figure 4.37
-
-Track To bone system.
-
-Source: Blender Foundation.
+![Track To bone system](../figures/Chapter4/Fig04-37.png)
 
 The two bones in front of the eyes are the tracker bones. Each eye bone will need a Track To bone constraint with those bones set as the targets. Think of the bone trackers as the direction in which Momo is looking. For example, if there is a banana on the floor, you can place the trackers right on the fruit. This will make the eyes converge there.
 
@@ -698,13 +656,7 @@ Setting the Track To bone constraint is not much different than setting the othe
 
 \*\*\* End Numbered List
 
-\*\*\*Insert Fig04-38.tif
-
-Figure 4.38
-
-Track To Bone Constraint panel.
-
-Source: Blender Foundation.
+![Track To Bone Constraint panel](../figures/Chapter4/Fig04-38.png)
 
 To finish the setup, select the RigMomo as the target object and eyes.target.L as the target bone. Do the same for the right eye, and you are ready to move the target bones around. The armature is now ready for the first animation. If you just want to have fun animating the character, you can check the current file status at _\Book\Chapter4\tutorial\_walk\_3.trackto.blend._
 
@@ -718,13 +670,7 @@ On the book files, you can find an image of Momo walking in _\Book\Chapter4\ Ext
 
 In Figure 4.39, you can see those images being used as background in a file ready for posing. This Blender file is the same one we built in the previous section with additional reference images as background. Find it in _\Book\Chapter4\tutorial\_walk\_4.extreme\_reference.blend_.
 
-\*\*\*Insert Fig04-39.tif
-
-Figure 4.39
-
-Reference image as background.
-
-Source: Blender Foundation.
+![Reference image as background](../figures/Chapter4/Fig04-39.png)
 
 \*\*\* Begin Note
 
@@ -772,13 +718,7 @@ In the Render panel in the Properties Editor, you can set the speed (30fps). The
 
 The final file can be found in _\Book\Chapter4\tutorial\_walk\_5.extremeposes.blend._
 
-\*\*\*Insert Fig04-40.tif
-
-Figure 4.40
-
-Action Editor[md]first poses ready.
-
-Source: Blender Foundation.
+![Action Editor - first poses ready](../figures/Chapter4/Fig04-40.png)
 
 # Moving Forward
 
@@ -816,13 +756,7 @@ If your character is walking, eventually you will need to find where its feet wi
 
 After you are done with all the animation (past the polishing stage), you then can clean the bone location F-Curve. During the production of your game, you may need to come back for tweaks in your animation cycle. Therefore, instead of cleaning the bone curve you can simply disable the root bone channel in the Graph Editor. In Figure 4.41, you can see the speaker icon you use for that.
 
-\*\*\*Insert Fig04-41.tif
-
-Figure 4.41
-
-Graph Editor[md]disabling individual bone channels.
-
-Source: Blender Foundation.
+![Graph Editor - disabling individual bone channels](../figures/Chapter4/Fig04-41.png)
 
 The downside of this method comes when you need to change the root bone as part of your animation. For example, sometimes you don't want your animation cycle to be uniformly moving forward. Even for Momo's walk, it's better if there is a break every time he rests one of the feet as he gets ready for the next step. As you know, the movement of the character will be decoupled from the animation cycle. And, no, we don't get tired of repeating that. So, in this case, if you look at the character from a constantly moving point of reference, it will seem as if Momo is moving forward, then backward, and then forward again to the original position. To move all the bones at once, nothing is better than the root bone. It's not a good idea to rely on a bone that you plan to disable though.
 
@@ -834,13 +768,7 @@ A work-around for that is to have one root bone to control the external position
 
 This method is based on the principle that perception is always relative. For example, on your computer screen, there is no way to distinguish between moving the camera away from the character and moving the character away from the camera. The result will be exactly the same. We will be adding moving placeholders that you can use as a guide to position the feet. Figure 4.42 shows the setup.
 
-\*\*\*Insert Fig04-42.tif
-
-Figure 4.42
-
-Animation feet place holders.
-
-Source: Blender Foundation.
+![Animation feet place holders](../figures/Chapter4/Fig04-42.png)
 
 This file is on _\Book\Chapter4\tutorial\_walk\_7.placehold.blend_. You can't tell from the picture, but if you play back the animation, you will see the placeholders moving against Momo (or would it be the other way around?). In fact, the camera is static so Momo doesn't really move.
 
@@ -866,13 +794,7 @@ This file is on _\Book\Chapter4\tutorial\_walk\_7.placehold.blend_. You can't te
 
 This method requires a bit more setup than the previous one, but it has a big advantage. To work in the between poses (the next step of this tutorial), you will need to keep track of the foot position while the character moves forward. While the body is constantly moving, the feet are planted on the ground until it's their time to get up and get smashed on the floor again. This will prevent the undesirable effect known as _sliding feet_. This problem will be revisited next when we create the poses between the extremes. Figure 4.43 shows the complete walking cycle in different moments; note that the feet are always in the same place relative to the placeholders.
 
-\*\*\*Insert Fig04-43.tif
-
-Figure 4.43
-
-Animation feet placeholders.
-
-Source: Blender Foundation.
+![Animation feet placeholders](../figures/Chapter4/Fig04-43.png)
 
 # Between Poses
 
@@ -886,13 +808,7 @@ In both cases, you need to ensure that the feet are not sliding while you pose t
 
 Also, although you can create the animation by posing and keyframing the bones in the 3D view, you might want to tweak them in the Graph Editor. That can spare you from creating too many frames and using the handlers for fine-tuning your transitions. The fewer frames you have, the easier it is to change your animation. In Figure 4.44, you can see the current F-Curves edited for this walking cycle.
 
-\*\*\*Insert Fig04-44.tif
-
-Figure 4.44
-
-F-Curve tweaks.
-
-Source: Blender Foundation.
+![F-Curve tweaks](../figures/Chapter4/Fig04-44.png)
 
 This is no different from the traditional workflow of animation in Blender. It's not even much different from the animation workflow in other 3D software. From the vast amount of techniques and tools available, I used the following for this cycle:
 
@@ -910,13 +826,7 @@ This is no different from the traditional workflow of animation in Blender. It's
 
 In Figure 4.45, you can see the final result of our take on this. This file is in _\Book\Chapter4\tutorial\_walk\_8.pose\_to\_pose.blend_. Play it back to see it animated. From here, you can either keep working out of your file, take it from the book file, or merge both together. An action, as any other data block in Blender, can be imported and saved over different files (as long as the armature bones don't change their names).
 
-\*\*\*Insert Fig04-45.tif
-
-Figure 4.45
-
-Walking cycle complete.
-
-Source: Blender Foundation.
+![Walking cycle complete](../figures/Chapter4/Fig04-45.png)
 
 # Play Time
 
@@ -938,13 +848,7 @@ Let's start by creating the Logic Bricks for the armature. With RigMomo selected
 
 \*\*\* End Numbered List
 
-\*\*\*Insert Fig04-46.tif
-
-Figure 4.46
-
-Logic Bricks for animation playback.
-
-Source: Blender Foundation.
+![Logic Bricks for animation playback](../figures/Chapter4/Fig04-46.png)
 
 To set the value in the Motion actuator, you need to calculate the object speed in Blender and convert it to the game engine. The calculation is simple and is going to give you the precise speed. If, however, you don't feel like doing math today, let trial and error be your guide.
 
@@ -952,13 +856,7 @@ The speed-in Blender units by seconds-is equal to two strides (0.23 x 2) divided
 
 The value to use in the Motion actuator is the object speed times the frequency on which the Motion actuator is activated. Since we are using an Always sensor triggering every logic tic, the frequency is 1/60 or 0.017. If you change your game to run at 30 logic tics per second, the frequency would be double (2/60 or 0.033). The multiplication of the speed times the frequency is the value you will add to the component of the actuator. The final Loc is [0, -0.0059, 0] X, Y, and Z respectively (see Figure 4.47).
 
-\*\*\*Insert Fig04-47.tif
-
-Figure 4.47
-
-Walking Momo.
-
-Source: Blender Foundation.
+![Walking Momo](../figures/Chapter4/Fig04-47.png)
 
 In the end, you might want to set the camera to track Momo during the walk. In the sample file, you will see the camera is parented to an empty with an Edit ObjectTrack To Actuator to follow Momo. Also, the zoom and rotate camera intro effect was brought back from the pretutorial. A checkerboard pattern on the floor will also help to follow the pace of his progression. The final file is shown in Figure 4.47 and can be found on _\Book\Chapter4\tutorial\_walk\_9.playtime.blend_.
 
@@ -968,13 +866,7 @@ In the latest file, we set up Momo to walk. We never set it up for him to stop w
 
 Start off by opening the file _\Book\Chapter4\tutorial\_idle\_1.begin.blend_. This is the same file we made in the previous tutorial, duplicated here for convenience (the spinning camera effect was removed again). Select RigMomo and create a new action in the Action Editor inside the Dopesheet. You actually have two options here: you can either create a new blank action or use the Walk action as reference (duplicate it and make changes on top of it). To duplicate the existing action into a new one, you have to click in the number by the action name, as shown in Figure 4.48. This is useful when you are creating variations of the same action (different walking styles, different jumps, and so on).
 
-\*\*\*Insert Fig04-48.tif
-
-Figure 4.48
-
-Insert a new action.
-
-Source: Blender Foundation.
+![Insert a new action](../figures/Chapter4/Fig04-48.png)
 
 In this case, since the actions are very different, there is not much to recycle from the walking cycle to the idle animation. You want to keep only the first and final frames to guarantee a smoother transition between the two animations. If you don't want to bother deleting keyframes, you can create a new action from scratch, maintaining the initial pose by following these steps:
 
@@ -1022,13 +914,7 @@ Open the file _\Book\Chapter4\tutorial\_idle\_2.shapekeys\_ui.blend_. This is th
 
 In Figure 4.49, you can see all the poses in the Mesh data panel in the Property Editor for the MeshMomo object. The different poses were created in pairs: smile and ooh; eyebrowsUP and eyebrowsDOWN; eyelidUP and eyelidDOWN. They are all relative to the basis shape. To see the poses change the value by their names in the shape keys slot[md]set the influence value to 1.0 and all the other poses to 0.0. If you want to tweak any of the poses, you need to select the shape and go to the Edit mode. You will no longer be working in the basis shape, so any changes will only be applied to this particular shape.
 
-\*\*\*Insert Fig04-49.tif
-
-Figure 4.49
-
-Shape smile[md]Edit mode.
-
-Source: Blender Foundation.
+![Shape smile - Edit mode](../figures/Chapter4/Fig04-49.png)
 
 The shapes are not exclusive. Often, you will have more than one pose active at the same time. Therefore, each shape has very isolated changes. For Momo, you could have a single pose with both the eyelid up and the eyebrow up shapes. However, this would give you no way to play with their influence individually in different actions. Unlike armatures, you have no way to mask out the shapes by using only a few "bones" (or part of the mesh).
 
@@ -1036,13 +922,7 @@ Now you can integrate the shape keys into your idle animation. The first thing y
 
 Select RigMomo and switch to the Pose mode. In the walking tutorial, we looked at the bones in the bone layers 1 to 3. Now you can finally turn on layer 4 to see the last bones of Momo's armature. The bones in this layer are all detached from the main armature, as you can see in Figure 4.50.
 
-\*\*\*Insert Fig04-50.tif
-
-Figure 4.50
-
-Shape key control bones.
-
-Source: Blender Foundation.
+![Shape key control bones](../figures/Chapter4/Fig04-50.png)
 
 To hook up the control bones with the shape keys, you need to follow the steps. The final driver in the Graph Editor will look like Figure 4.51.
 
@@ -1071,13 +951,7 @@ To hook up the control bones with the shape keys, you need to follow the steps. 
 
 \*\*\* End Numbered List
 
-\*\*\*Insert Fig04-51.tif
-
-Figure 4.51
-
-Shape key driver.
-
-Source: Blender Foundation.
+![Shape key driver](../figures/Chapter4/Fig04-51.png)
 
 By default, Blender sets the global X coordinate of the bone to drive the shape influence. In the Pose mode, you can move the mouth bone sideways to see the shape influence increasing and decreasing respectively. As with any other bone, you can keyframe the position of this bone controller (mouth) to animate this shape key influence over time.
 
@@ -1093,13 +967,7 @@ For the second pose, "ooh," you will use the same bone controller but with a dif
 
 This time the curve will be the reverse of the smile, with two points: [-0.1, 1.0] and [0.0, 0.0]. Figure 4.52 illustrates the final arrangement.
 
-\*\*\*Insert Fig04-52.tif
-
-Figure 4.52
-
-F-Curves of shape driver influence.
-
-Source: Blender Foundation.
+![F-Curves of shape driver influence](../figures/Chapter4/Fig04-52.png)
 
 Additionally, you can add a bone constraint to make sure the bone controller is moving only vertically and that it's always inside the range you are using (-0.1 to 0.1).
 
@@ -1113,13 +981,7 @@ Our attempt of a fun idle animation can be seen on the book file _\Book\Chapter4
 
 After the tutorial section, you can check out the idle and walking animation made by Moraes Júnior especially for this book. In the meantime, enjoy our take on Momo, the happiest monkey in the world (see Figure 4.53).
 
-\*\*\*Insert Fig04-53.tif
-
-Figure 4.53
-
-Momo idle animation.
-
-Source: Blender Foundation.
+![Momo idle animation](../figures/Chapter4/Fig04-53.png)
 
 # Wiring Up the Logic Bricks
 
@@ -1137,19 +999,11 @@ There is only one thing missing. We need to alternate between the two animations
 
 These changes can be seen in Figure 4.54. What you are doing here first is to set the action to play when the W key is pressed. Since the Action Actuator is set to Loop End, the animation will still play for a few more frames. In order to make Momo keep moving forward, you need to keep the Motion Actuator active until the frame played is not the final (40). That way when you release the key, you ensure that the Momo animation is in the beginning of its animation cycle, ready to blend with the idle action.
 
-\*\*\*Insert Fig04-54.tif
-
-Figure 4.54
-
-Logic Brick, Part 1[md]keep walking.
+![Logic Brick, Part 1 - keep walking](../figures/Chapter4/Fig04-54.png)
 
 Now all that is left to be done is to play the idle action when Momo is not walking. Add a Nor Controller connected to the Keyboard and the Property and connect it to a new Action Actuator. The Nor Controller will play this actuator only when both sensors are false. The Action Actuator and the final logic bricks can be seen in Figure 4.55. The explanation for the parameters follows.
 
-\*\*\*Insert Fig04-55.tif
-
-Figure 4.55
-
-Logic Brick, Part 2[md]idle.
+![Logic Brick, Part 2 - idle](../figures/Chapter4/Fig04-55.png)
 
 **       ** [lb] **        Playback type** : Loop Stop will make the action loop until the Keyboard Sensor is active. It will stop immediately after.
 
@@ -1187,11 +1041,7 @@ The simplest way to make Momo turn is by adding new Motion Actuators responding 
 
 Now do the same for the right rotation, and you will have the logic bricks shown in Figure 4.56. You may notice that I'm using three States for the controllers here. They are always turned on, thus the main purpose is purely for organization.
 
-\*\*\*Insert Fig04-56.tif
-
-Figure 4.56
-
-Logic Brick, Part 3 turning.
+![Logic Brick, Part 3 turning](../figures/Chapter4/Fig04-56.png)
 
 Source: Blender Foundation.
 
@@ -1223,11 +1073,7 @@ Start by opening a variation of the latest walking Momo on the book file _\Book\
 
 If you want to carry these changes to your own working file, you need to append the Hats group into your local file. This also includes the camera object and an empty where we are running the script to control the hat switch. You can see the hats in Figure 4.57.
 
-\*\*\*Insert Fig04-57.tif
-
-Figure 4.57
-
-Hats for Momo.
+![Hats for Momo](../figures/Chapter4/Fig04-57.png)
 
 Source: Blender Foundation.
 
@@ -1251,35 +1097,17 @@ This is a simple tutorial, focusing on illustrating the bone parenting technique
 
 With those changes, you can already animate the bone Head.Hat.Steady, and the empty placeholder will follow along. The hat will be placed exactly where the empty is. In the current file, both hats are parented to empties/placeholders close to the camera. In order to animate the hat bones, you need to temporarily bring the hat to the position it will be during the game. For that to work with the Head.Hat.Steady bone, you need to bring the Hat.Cap Blender object to the same position/rotation as the empty placeholder and parent the hat object to it (select the hat, select the empty, in the Transform panel in the 3D view, right-mouse click in the values to "Copy To Selected," Ctrl+P to parent). Now you can go to the armature Edit mode and move the bone to make the hat fit the head properly. Figure 4.58 shows the arrangement of Bone + Empty + Hat. The current snapshot can be found _in \Book\Chapter4\tutorial\_hat\_2.capsetup.blend_.
 
-\*\*\*Insert Fig04-58.tif
-
-Figure 4.58
-
-Hat + empty placeholder + hat bone.
-
-Source: Blender Foundation.
+![Hat + empty placeholder + hat bone](../figures/Chapter4/Fig04-58.png)
 
 Once the bone is in the right place, you can go over the walking and the idle animations and do some tweaks on its position/rotation over time. For this hat, you don't need to move much. In our case, we only tilted it a bit in the middle of the idle animation to follow the eyebrow raising and some subtle bouncing during the walk. When you now run the game, you will see the hat always in the right place during the animations. To make sure you can follow closely, the file with the animated Hat.Cap can be seen in Figure 4.59 and the book file _\Book\Chapter4\tutorial\_hat\_3.animatedcap.blend_.
 
-\*\*\*Insert Fig04-59.tif
-
-Figure 4.59
-
-Momo walking in the game with the cap on his head.
-
-Source: Blender Foundation.
+![Momo walking in the game with the cap on his head](../figures/Chapter4/Fig04-59.png)
 
 So far so good. Let's now set up the second hat. For this one, you will create a new bone and a new placeholder. The reason is that you will make a different animation for this hat. The classy top hat will be a bit looser, so it should bounce more during the animations.
 
 Start by moving/rotating the Hat.Cap back to its original placeholder by the camera and re-parent it to the empty (Camera.PH.Hat.Cap). Now repeat the same steps you did for the other hat. This time name the bone Head.Hat.Bouncy and the empty Head.PH.Hat.Bouncy. For the animation, make it more exaggerated, with the hat slipping during the walk and the idle actions. Figure 4.60 illustrates one of the moments the hat almost fell off. After moving the Hat.Top object back to its original placeholder (Camera.PH.Hat.Top), your file should be ready for the final adjustments.
 
-\*\*\*Insert Fig04-60.tif
-
-Figure 4.60
-
-Classy top hat is too big for Momo's head.
-
-Source: Blender Foundation.
+![Classy top hat is too big for Momo's head](../figures/Chapter4/Fig04-60.png)
 
 \*\*\* Begin Note
 
