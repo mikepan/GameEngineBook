@@ -486,7 +486,7 @@ In the following pages, we are going to make a character walk, interact with obj
 
 ![Dear Momo, get ready for rock 'n' roll!](../figures/Chapter4/Fig04-31.png)
 
-## Pre-Tutorial
+### Pre-Tutorial
 
 In this short pre-tutorial, we will the animate the camera rotation and the camera focal length as an opening effect for the game.
 
@@ -562,7 +562,7 @@ You can get this final file on _\Book\Chapter04\tutorials\pretutorial\_camera\_a
 
 This effect is a bit annoying if you play the file multiple times to test the animation (as you will soon). So this spinning camera is not included in the base file you will use for the actual tutorial. If, however, you want to bring the camera along, you can append it into your other files. All the logic bricks and actions linked to the camera object and camera datablock will follow the Blender object.
 
-## Animation Cycle Tutorial
+### Animation Cycle Tutorial
 
 To start, let's open the Momo file and look at the armature. Open the book file _\Book\Chapter4\tutorial\_walk\_1.begin.blend._
 
@@ -584,7 +584,7 @@ We will create a walking cycle for Momo, following these steps:
 
 In this tutorial, we will not cover animation extensively. This topic alone could fill a whole book. Instead, we will focus on the workflow of integrating your animation skills with the game engine tools. You'll get some tips you can apply to both Blender and the game engine animations. Both platforms work in a similar fashion.
 
-## Armature Setup
+#### Armature Setup
 
 The armature is already created, but not yet ready to animate the character. If you go to the Pose Mode, you can move the individual bones, as shown in Figure 4.33. As you might already know, bones constraints are useful in posing the armature, so let's create some.
 
@@ -592,7 +592,7 @@ The armature is already created, but not yet ready to animate the character. If 
 
 For Momo, there are two sets of bone constraints that will help your posing. The Inverse Kinematics, IK, for controlling the bone chains from their extreme bones, and Track To for the eyes.
 
-### Inverse Kinematics Bone Constraints
+##### Inverse Kinematics Bone Constraints
 
 First, let's take a look at the IK bone constraints. IK can be used to pose arms and legs by moving only the hands and feet. The position of the arm and leg bones will be automatically calculated to accommodate the hand/feet position. Not only Momo's human counterparts (arms, legs, etc.) benefit from it, but also Momo's tail is perfect to demonstrate the usage of IK, so let's start with it. With the file open, follow these steps to get to the configuration shown in Figure 4.34.
 
@@ -632,7 +632,7 @@ Those IK bone constraints are targetless. As explained previously in the bone co
 
 \*\*\* End Note
 
-### Track To Bone Constraints
+##### Track To Bone Constraints
 
 Well, if you haven't looked at the hidden third bone layer, now is a good time to do so. As you see in Figure 4.37, in this layer, we have the eye bones and two other bones to be used as trackers. Sure, you could move the eye bones directly, but again, this is not the ideal workflow.
 
@@ -660,7 +660,7 @@ Setting the Track To bone constraint is not much different than setting the othe
 
 To finish the setup, select the RigMomo as the target object and eyes.target.L as the target bone. Do the same for the right eye, and you are ready to move the target bones around. The armature is now ready for the first animation. If you just want to have fun animating the character, you can check the current file status at _\Book\Chapter4\tutorial\_walk\_3.trackto.blend._
 
-## Extreme Poses
+#### Extreme Poses
 
 The first thing you need for your animation is the start position of the walking cycle. A good cycle shouldn't have a clear beginning or end, so we'll start with the extreme poses. In general, an extreme pose shows a moment when the animation hits a peak, before it changes direction. For the walking cycle, an extreme pose is when one leg is in its maximum stretch and the other is slightly bent, waiting to transfer its weight to the leg in front of it. We will start from there.
 
@@ -720,11 +720,11 @@ The final file can be found in _\Book\Chapter4\tutorial\_walk\_5.extremeposes.bl
 
 ![Action Editor - first poses ready](../figures/Chapter4/Fig04-40.png)
 
-## Moving Forward
+#### Moving Forward
 
 The final walking cycle will have no real forward movement: the character stays in the same place. It's similar to those old Looney Tunes cartoons when the coyote runs past the cliff and keeps running without going anywhere. Then he falls. Nevertheless, you still need to set up a system where you can see the character walking as if you had a Motion Actuator attached to it. To help with this, we will look at two methods: using the central bone or moving the environment.
 
-### Root Bone
+##### Root Bone
 
 The simplest way to make Momo move is by keyframing the root bone along the way. The root bone is the parent of all the bones. Thus, if it moves, the rest of the armature will follow it. To set the root bone to move, go to Pose mode and do the following:
 
@@ -762,7 +762,7 @@ The downside of this method comes when you need to change the root bone as part 
 
 A work-around for that is to have one root bone to control the external position, and another bone (parented to the root bone) to control the internal position, relative to the object location. To avoid this surplus of global control bones, let's look at our second method.
 
-### If Mohamed Won't Go to the Mountain…
+##### If Mohamed Won't Go to the Mountain…
 
 …he goes to the beach. Our dear monkey, however, is suntanned enough and might as well stay put. In other words, in this method, Momo never moves. We will instead animate the environment around him.
 
@@ -796,7 +796,7 @@ This method requires a bit more setup than the previous one, but it has a big ad
 
 ![Animation feet placeholders](../figures/Chapter4/Fig04-43.png)
 
-## Between Poses
+#### Between Poses
 
 So far we have only two poses, the extreme left and the extreme right stride poses. By default, Blender interpolates the keyframed poses, creating a smooth transition between them. This mathematic interpolation is of no use for the final animation. That leaves us with 20 frames to fill between those extreme poses.
 
@@ -828,7 +828,7 @@ In Figure 4.45, you can see the final result of our take on this. This file is i
 
 ![Walking cycle complete](../figures/Chapter4/Fig04-45.png)
 
-## Play Time
+#### Play Time
 
 Now that the animation cycle is done, it's time to bring it from Blender into the game. You need to set an Action actuator to play the walking action and a Motion Actuator to make it move accordingly.
 
