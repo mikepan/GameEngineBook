@@ -26,7 +26,10 @@ Chapter 9 - Publishing - Not Ready
 Chapter 10 - Case Studies - Not Ready
 
 ## Start Contributing:
-Since This book was written 3 years ago, Blender has gone through many many improvements. So there will be omissions and errors, please help us keep this book up-to-date by submitting a pull request on [GitHub](https://github.com/mikepan/GameEngineBook/).
+Since This book was written years ago, Blender has gone through many many improvements. So there will be omissions and errors, please help us keep this book up-to-date by submitting a pull request on [GitHub](https://github.com/mikepan/GameEngineBook/).
+
+## License
+The book is released under the Creative Commons BY-SA license. By contributing to this book (through pull requests or otherwise), you agree that your work becomes part of this book which might be publised on a different non-commercial platform in the future.
 
 ## Credits:
 - Mike Pan
