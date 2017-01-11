@@ -69,23 +69,15 @@ We will first talk about the main animation tools and available techniques. This
 
 The second part is organized as a tutorial. I worked with artist Moraes Júnior to expose his animation workflow. In this part, we will revisit the game engine animation features and learn how an artist integrates them into a production environment. For this part, it's especially important that you follow along with the steps in the book files.
 
-\*\*\* Begin Note
-
-Keyframing a Keyframe
-
-_Keyframe_ is used both as a verb and a noun in this chapter. The latter (noun) refers to the animation frames that you will manually create. The first (verb) is the action of creating those frames (through the "I" key shortcut or the Auto Recording system).
-
-\*\*\* End Note
+>**Keyframing a Keyframe**
+>
+>_Keyframe_ is used both as a verb and a noun in this chapter. The latter (noun) refers to the animation frames that you will manually create. The first (verb) is the action of creating those frames (through the "I" key shortcut or the Auto Recording system).
 
 In order to use the animation system properly, it will help if you know how to produce astonishing animations. For that there is a lot of good literature available, whether it is Blender specific or not. This book will not teach you how to do nice animations. Nonetheless, we want you, the artist, to understand how to animate for the game engine.
 
-\*\*\* Begin Note
-
-Before You Start
-
-If this is your first time working with animation in Blender, make sure that you haven't skipped the first chapter. The game engine uses the animations created in Blender with Keyframes, F-Curves, interpolations, and so on. To learn how to master animation, you will have a better time consulting a Blender-specific book. Nevertheless, it doesn't hurt to refresh your mind regarding basic concepts and interface navigation topics covered in Chapter 1.
-
-\*\*\* End Note
+>**Before You Start**
+>
+>If this is your first time working with animation in Blender, make sure that you haven't skipped the first chapter. The game engine uses the animations created in Blender with Keyframes, F-Curves, interpolations, and so on. To learn how to master animation, you will have a better time consulting a Blender-specific book. Nevertheless, it doesn't hurt to refresh your mind regarding basic concepts and interface navigation topics covered in Chapter 1.
 
 ## Every Pot Has a Cover <a id="Every Pot Has a Cover"></a>
 
@@ -93,15 +85,11 @@ _Every animated pot has an F-Curve._
 
 Where do we use animations in a game? The most obvious place is for character animation; for example, whenever the player walks, jumps, or flies, you'll see game animations running. That is not the only time, though, when you'll see animations. You will also see them in cut scenes, background elements, the user interface, and so on[md]the list is endless. In order to cover such a wide variety of usages, there are three mechanisms that the game engine provides to animate your game elements: object transformations, armature poses, and shape keys.
 
-\*\*\* Begin Bullet List
+- **Object transformations** enable you to change object transformations such as size, rotation, and location.
 
-[lb] **Object transformations** enable you to change object transformations such as size, rotation, and location.
+- **Armatures** let you work with a bone structure, deformed mesh, and bone special settings, such as bone constraint and bone parenting.
 
-[lb] **Armatures** let you work with a bone structure, deformed mesh, and bone special settings, such as bone constraint and bone parenting.
-
-[lb] **Shape keys** give you complete mesh transformation control.
-
-\*\*\* End Bullet List
+- **Shape keys** give you complete mesh transformation control.
 
 These are different systems, but there is a lot of overlap among them. More importantly, you often will use them together. In the next pages, we will talk about these mechanisms individually and also see how they complement each other. In the practical aspects of how to use them effectively, we will focus on character animation, which is the most complex form of animation you can have in your game. Once you understand the concepts of character animation, you will have no difficulty in bringing life to your menu elements, shake your environments, and direct your cut scenes.
 
@@ -117,13 +105,9 @@ Animation cycles are at the core of the character animation in a game. A library
 
 A lot of the basic actions of a game can be expressed as moving animation cycles: to walk, to run, to spin, to fly, to roll, and to swim. You may have noticed that all these example actions express the idea of movement in space as well. However, an animation cycle does not have any influence in the displacement of the animated object. Rather, you get the final animation look and feel through a combination of external motion control (for example, a Motion Actuator) and playback of an animation cycle. Indeed, if you play back only the animation action alone, you will see that it looks more like a treadmill exercise.
 
-\*\*\* Begin Note
-
-Still Not Convinced?
-
-What we are doing here is splitting the bone pose animation from the object animation. We could indeed make the character move forward by moving all the bones in that direction. Although this would make the object mesh display in the right place, it wouldn't move the object's center, which would result in errors for the physics computations and eventually for the display of the object itself. The physics bounding box is calculated around the object's center, as does the camera culling test[md]the routine that makes sure that objects outside the camera range are not rendered.
-
-\*\*\* End Note
+>**Still Not Convinced?**
+>
+>What we are doing here is splitting the bone pose animation from the object animation. We could indeed make the character move forward by moving all the bones in that direction. Although this would make the object mesh display in the right place, it wouldn't move the object's center, which would result in errors for the physics computations and eventually for the display of the object itself. The physics bounding box is calculated around the object's center, as does the camera culling test[md]the routine that makes sure that objects outside the camera range are not rendered.
 
 ## Still Animation Cycles <a id="Still Animation Cycles"></a>
 
@@ -137,17 +121,11 @@ But what are F-Curves? Functional Curves are curves created by control points (t
 
 When we talk about the action of an object, we are referring to the current action linked to it. This is the animation that will be played when you play back the animation in the viewport, or if you render the animation from Blender. This is also the action the keyframes are stored in. To play this action in the game engine, you need to get the action name to use in the Action actuator[md]select the object, and you will find the action in the Dope Sheet when set to Action Editor.
 
-\*\*\* Begin Note
-
-Don't Lose Your Action
-
-If you want to play different actions for the same object during a game, you need to create them in Blender. An action is a datablock that can be named, removed, imported, and linked as any other Blender datablock.
-
-It is important to set the Fake User option (in the header of the Dope Sheet set to Action Editor) if you plan to unlink an action from an object and create a new one. Otherwise, the software will assume you no longer need that action and will remove it the next time you save and reopen your file.
-
-Also, you can use an action created by one object into another object, proven that they are compatible. For most objects all they need is to be of the same type. For armatures, they also should have the same amount of bones with the same names. For meshes with shape key actions, the shape key channels need to have the same name.
-
-\*\*\* End Note
+>**Don't Lose Your Action**
+>
+>If you want to play different actions for the same object during a game, you need to create them in Blender. An action is a datablock that can be named, removed, imported, and linked as any other Blender datablock.
+>It is important to set the Fake User option (in the header of the Dope Sheet set to Action Editor) if you plan to unlink an action from an object and create a new one. Otherwise, the software will assume you no longer need that action and will remove it the next time you save and reopen your file.
+>Also, you can use an action created by one object into another object, proven that they are compatible. For most objects all they need is to be of the same type. For armatures, they also should have the same amount of bones with the same names. For meshes with shape key actions, the shape key channels need to have the same name.
 
 At first we don't edit a curve directly in the F-Curve editor. The usual workflow is to first keyframe some parameters (for example, position and rotation) in the 3D view. After the blocking of your key and in-between poses, you may want to do tiny adjustments in the curve. This is the time when you can go to the F-Curve editor and make changes directly in the curves. With some practice you may even look at the chaos as in Figure 4.2 and see bouncing balls and smooth fade-ins and fade-outs.
 
@@ -161,29 +139,19 @@ Other actions can be used to animate your object as a whole without affecting it
 
 The Bone animation system works in the game engine very closely to the way it does in Blender. You will create a Mesh object and an Armature object to deform the first.
 
-\*\*\* Begin Note
-
-Mesh and Armature
-
-Both the Armature and the Mesh objects need to be present in the game for them to work. In fact, if you are adding the animated object dynamically (for example, through an Add Object actuator), you will refer to the Armature object to bring in the animated conjunct.
-
-As in Blender, the Armature object is the parent of the Mesh object. Therefore the armature will be the game object running most of the animation sensors and actuators. Thus you may as well dump all the Logic Bricks of your object in the armature. An exception is the Replace Mesh option in the Edit Object Actuator. In that case you need to run the Actuator in the Mesh object itself.
-
-\*\*\* End Note
+>**Mesh and Armature**
+>
+>Both the Armature and the Mesh objects need to be present in the game for them to work. In fact, if you are adding the animated object dynamically (for example, through an Add Object actuator), you will refer to the Armature object to bring in the animated conjunct.
+>As in Blender, the Armature object is the parent of the Mesh object. Therefore the armature will be the game object running most of the animation sensors and actuators. Thus you may as well dump all the Logic Bricks of your object in the armature. An exception is the Replace Mesh option in the Edit Object Actuator. In that case you need to run the Actuator in the Mesh object itself.
 
 The workflow for Armature and Bones resembles the NLA (Non-Linear Animation) Editor in Blender. You create individual animation actions that you want to be played at a certain time. Those are the actions we referred to when talking about the animation cycles, earlier in this chapter.
 
 The first difference is that you don't need to predefine the order and length of all the action you want to play. For example, in the NLA Editor if you want to animate a shark turning, you will create an action for "Straight Swimming" and another for "Turning." You will alternate between them based on your script: maybe the shark turns at the same time you throw bait close by.
 
-\*\*\* Begin Note
-
-Speaking of NLA
-
-Even though NLA animation is not supported in the game engine, you can still use the NLA Editor to make your animation sequences. Cut scenes or complex dialog scenes can benefit a lot from a NLA based workflow.
-
-For example, you can combine dialog actions from a MoCap (motion capture) system with pregenerated idle body animation cycles. Once the animation editing is done you need to combine the actions into a single action with the Bake Action operator, available via the Search Menu (spacebar).
-
-\*\*\* End Note
+>**Speaking of NLA**
+>
+>Even though NLA animation is not supported in the game engine, you can still use the NLA Editor to make your animation sequences. Cut scenes or complex dialog scenes can benefit a lot from a NLA based workflow.
+>For example, you can combine dialog actions from a MoCap (motion capture) system with pregenerated idle body animation cycles. Once the animation editing is done you need to combine the actions into a single action with the Bake Action operator, available via the Search Menu (spacebar).
 
 Unlike in the NLA Editor, we have a chance to play actions based on the player decisions or AI predesigned interactions. In our shark example, we can have the player controlling the shark and turning it when it gets tired of swimming in a straight line. Maybe this shark likes to chase its tail restlessly. Either way, we can play and stop playing the individual animations ("Straight Swimming" and "Turning") anytime. Figure 4.3 illustrates this.
 
@@ -219,25 +187,17 @@ The way bone constraints work in the game engine is quite similar to Blender its
 
 In Blender, bone constraints can be used in two ways. The first and simplest way is to use them to help with posing. For example, the Track To bone constraint helps you indirectly animate the eyes' rotations by animating the target the eyes are looking at. In this case, even though you are not directly animating the eye bones, the animation process is much more intuitive. This is how you do it in Blender, and this is how you will do it for the game engine. Another way of using them is by setting up the constraints and animating their Influence values. Each bone constraint has an influence that ranges from zero to one.
 
-\*\*\* Begin Note
-
-Bone Constraint Influence
-
-When you start a game, the current influence of the bone constraints will determine the initial armature behavior. If you need to change it during the game, you can use an Armature actuator with the Set Influence option.
-
-\*\*\* End Note
+>**Bone Constraint Influence**
+>
+>When you start a game, the current influence of the bone constraints will determine the initial armature behavior. If you need to change it during the game, you can use an Armature actuator with the Set Influence option.
 
 ### Bone Constraints Not Supported <a id="Bone Constraints Not Supported"></a>
 
 Because the constrained bone and the target bone need to be in the same armature, some constraints that rely on external curves, hinges, and objects are incompatible with the game engine. In the current version of Blender, the nonsupported bone constraints are: Spline IK, Follow Path, Rigid Body Joint, Script, Shrinkwrap, and, partially, the ChildOf.
 
-\*\*\* Begin Note
-
-Rigid Body Joint Partly Supported
-
-Rigid Body Joint is supported as an object constraint, but not as a bone constraint. You will learn how to use it in the chapter 6 Physics.
-
-\*\*\* End Note
+>**Rigid Body Joint Partly Supported**
+>
+>Rigid Body Joint is supported as an object constraint, but not as a bone constraint. You will learn how to use it in the chapter 6 Physics.
 
 ### Bone Constraints Supported <a id="Bone Constraints Supported"></a>
 
@@ -357,21 +317,17 @@ When a bone is under the influence of an IK Bone Constraint, you can set specifi
 
 Those parameters allow you to add some control over the otherwise automatic IK computations.
 
-**       ** [lb] **Limit** : In the arm, you need to make sure that the bones behave as real bones would. For example, in real life you can't twist the elbow above certain limits. In order to mimic this behavior you can force the rotation of a bone to be inside a given range. In our case, the limits would be set: X: 5 degrees to 180 degrees; Y: -90 degrees to 90 degrees; Z: 0 degrees to 0 degrees.
+- **Limit** : In the arm, you need to make sure that the bones behave as real bones would. For example, in real life you can't twist the elbow above certain limits. In order to mimic this behavior you can force the rotation of a bone to be inside a given range. In our case, the limits would be set: X: 5 degrees to 180 degrees; Y: -90 degrees to 90 degrees; Z: 0 degrees to 0 degrees.
 
-**       ** [lb] **        Stiffness:** This parameter sets how difficult it is to rotate the bone. High values make a bone rotates less. Joint stiffness can be one of the earliest symptoms of arthritis. So look after your characters.
+- **Stiffness:** This parameter sets how difficult it is to rotate the bone. High values make a bone rotates less. Joint stiffness can be one of the earliest symptoms of arthritis. So look after your characters.
 
-**       ** [lb] **Stretch:** Cartoon arms often need to stretch beyond their original sizes. The Stretch factor has to be set per bone. (Stretch needs to be enabled in the Bone Constraint as well, but it's on by default.)
+- **Stretch:** Cartoon arms often need to stretch beyond their original sizes. The Stretch factor has to be set per bone. (Stretch needs to be enabled in the Bone Constraint as well, but it's on by default.)
 
 Unlike the Stretch To bone constraint, the volume of the bone is not entirely preserved when using the IK stretch. In order words, the arm seems fat when stretched. To use IK stretching and the Stretch To bone constraint, you need to set up two bone chains separately: one for the IK, and the other[md]with Stretch To[md]to deform the mesh. The Stretch To is what preserves the correct volume for the bones. You can see a sample file in the Stretch To section later in this chapter.
 
-\*\*\* Begin Note
-
-Target-less Bone Constraint
-
-If you don't select a target for the bone constraint, you can still use the IK in a special way. In this case, the constrained bone is the self-target, and as such it's free to be placed anywhere. This technique, known as _fake IK,_ is really light in terms of computation. In the traditional IK, you keyframe only the target bone, thus the IK computation has to run every time you play the animation. With fake IK, the computation is valid during the transformation (when you are moving the target bone around). You have to keyframe all the individual constrained bones for this to work. (This is automatically done when AutoKey is enabled from the Timeline editor.) Since there is no IK happening when you play the animation, the computation of fake IK is far superior to real IK.
-
-\*\*\* End Note
+>**Target-less Bone Constraint**
+>
+>If you don't select a target for the bone constraint, you can still use the IK in a special way. In this case, the constrained bone is the self-target, and as such it's free to be placed anywhere. This technique, known as _fake IK,_ is really light in terms of computation. In the traditional IK, you keyframe only the target bone, thus the IK computation has to run every time you play the animation. With fake IK, the computation is valid during the transformation (when you are moving the target bone around). You have to keyframe all the individual constrained bones for this to work. (This is automatically done when AutoKey is enabled from the Timeline editor.) Since there is no IK happening when you play the animation, the computation of fake IK is far superior to real IK.
 
 ###### iTaSC Solver <a id="iTaSC Solver"></a>
 
@@ -413,13 +369,9 @@ You first create a separated action with two extremes[md]the car and the robot b
 
 Now you create a bone[md]disconnected from the main chain[md]to control the influence of this action over the bone's pose. This bone will be used as a target in the Action bone constraints you need to create for all the bones (and by that I mean create one bone constraint, set it properly, and copy over to the other bones).
 
-\*\*\* Begin Note
-
-Slider-like Controllers
-
-This is indeed a classic usage of a bone controller as a slider. Since only one of the transformations of the bone ( Location X) will be used to influence the played action, you can even lock the other pose transformations (Location YZ, Rotation XYZ, Scale XYZ) and create a limit location bone constraint for this bone. In Figure 4.22 you can see an example of this setup.
-
-\*\*\* End Note
+>**Slider-like Controllers**
+>
+>This is indeed a classic usage of a bone controller as a slider. Since only one of the transformations of the bone ( Location X) will be used to influence the played action, you can even lock the other pose transformations (Location YZ, Rotation XYZ, Scale XYZ) and create a limit location bone constraint for this bone. In Figure 4.22 you can see an example of this setup.
 
 ![Bone constraint slider](../figures/Chapter4/Fig04-22.png)
 
@@ -441,13 +393,9 @@ In Blender, you can have multiple Child Of bone constraints and alternate betwee
 
 Another option for this type of animation is to use bone parenting. With that, the sword can even be a Physics object and interact with other elements of the game. This is covered in the last tutorial of this chapter, titled "Hats off for Momo and vice-versa."
 
-\*\*\* Begin Note
-
-Not Supported Yet Useful
-
-As with the other bone constraints not properly supported in the game engine, you can still use it fully to help animating in Blender. However, you will need to bake the constrained bone transformations in order to see the changes in the game engine. This topic is covered later in Chapter 8, "Workflow and Optimization Chapter 8."
-
-\*\*\* End Note
+>**Not Supported Yet Useful**
+>
+>As with the other bone constraints not properly supported in the game engine, you can still use it fully to help animating in Blender. However, you will need to bake the constrained bone transformations in order to see the changes in the game engine. This topic is covered later in Chapter 8, "Workflow and Optimization Chapter 8."
 
 ##### Floor <a id="Floor"></a>
 
@@ -487,13 +435,9 @@ Sometimes bone animation may not give you enough control over the mesh deformati
 
 The workflow with shape keys is different from armature animations. You start defining your base pose, and on top of that, you create pose variations. If you change your geometry later on, it will be a painful process to merge the change back to all the previously created poses, so make sure your mesh is ready before you create your shapes.
 
-\*\*\* Begin Note
-
-Shape Keys Performance
-
-The level of control that you get from Shape Keys comes with a price. The performance required for the per-vertex calculation is considerably heavier than regular armature control. Thus, you should not abuse this technique.
-
-\*\*\* End Note
+>**Shape Keys Performance**
+>
+>The level of control that you get from Shape Keys comes with a price. The performance required for the per-vertex calculation is considerably heavier than regular armature control. Thus, you should not abuse this technique.
 
 ### When to Use Shape Keys <a id="When to Use Shape Keys"></a>
 
@@ -505,13 +449,9 @@ In the game _Yo Frankie_, both of the main characters used shape key animations 
 
 ![Momo blinking shape key poses](../figures/Chapter4/Fig04-27.png)
 
-\*\*\* Begin Note
-
-Isn't This Overkill?
-
-You may be wondering if those poses could have been created with regular bone poses. You bet they could. However, the _Yo Frankie_ project has an important educational mission. One of the goals of the project was to demonstrate the multiple features of the game engine. Actually, the support for shape keys in the game engine was implemented specifically for this project. Thus, those files are the first reference that animators studied on how to use them.
-
-\*\*\* End Note
+>**Isn't This Overkill?**
+>
+>You may be wondering if those poses could have been created with regular bone poses. You bet they could. However, the _Yo Frankie_ project has an important educational mission. One of the goals of the project was to demonstrate the multiple features of the game engine. Actually, the support for shape keys in the game engine was implemented specifically for this project. Thus, those files are the first reference that animators studied on how to use them.
 
 The poses left[md]Smile and Ooh[md]are a bit more complex. They are opposite extremes of the same shape key animation with the Natural pose in between them. Momo can be smiling, natural, or ooh'ing. Since the latter is not a real verb, take a look at Figure 4.28 to better appreciate all the monkey sex appeal. It would be hard to get those results without adding lots of bones, which would create a system hard to animate. So shape keys are a far more elegant solution.
 
@@ -525,13 +465,9 @@ Those shape keys are not used isolated as an action. Instead, they are used as p
 
 ![Shape key driven by a control bone](../figures/Chapter4/Fig04-30.png)
 
-\*\*\* Begin Note
-
-Action Actuator
-
-Shape keys can also be used directly by the Action actuator. This is useful when you need to animate your whole mesh exclusively through the vertex manipulation. Although you will probably not use it for your main character, you can make nice groundbreaking effects with this.
-
-\*\*\* End Note
+>**Action Actuator**
+>
+>Shape keys can also be used directly by the Action actuator. This is useful when you need to animate your whole mesh exclusively through the vertex manipulation. Although you will probably not use it for your main character, you can make nice groundbreaking effects with this.
 
 ## Tutorials <a id="Tutorials"></a>
 
@@ -549,39 +485,31 @@ The whole tutorial is based on using the Action actuators to control the Momo an
 
 Open the base file from the _\Book\Chapter04\tutorials\tutorials\_momobase.blend_.
 
-\*\*\* Begin Numbered List
+1. Change the current frame to 1.
 
-1.Change the current frame to 1.
+2. Select the camera object.
 
-2.Select the camera object.
+3. In the Camera panel in the Properties Editor, set focal length to 10.0.
 
-3.In the Camera panel in the Properties Editor, set focal length to 10.0.
+4. With the mouse over the value, press I to keyframe it for frame 1.
 
-4.With the mouse over the value, press I to keyframe it for frame 1.
+5. Go to the frame 30.
 
-5.Go to the frame 30.
+6. Change the focal length to 100.0.
 
-6.Change the focal length to 100.0.
-
-7.Keyframe the new value for this frame.
-
-\*\*\* End Numbered List
+7. Keyframe the new value for this frame.
 
 What we did was set an initial focal length for the camera to animate over a specific range (90mm over 30 frames ~ 1 second). If you play back the animation in Blender (Alt + A), you can see the camera zoom changing quickly over the initial frames
 
 However, if you enter the game engine, the camera is not animated. We still need to hook this animation with the logic bricks. So with the camera still selected, we need to do the following:
 
-\*\*\* Begin Numbered List
+1. Create an Always sensor. Leave the default options so it runs only once.
 
-1.Create an Always sensor. Leave the default options so it runs only once.
-
-2.Create an Action actuator. Change the frame range from 1 to 30.
+2. Create an Action actuator. Change the frame range from 1 to 30.
 
 3. Set CameraAction as the actuator Action. (This is the action we created by keyframing the camera lens; it's automatic named by Blender).
 
-4.Connect both bricks. (This will create an And controller.)
-
-\*\*\*End Numbered List
+4. Connect both bricks. (This will create an And controller.)
 
 The logic brick can be seen in Figure 4.32. There is really not much to it other than to make sure that the animation plays once after you run the game.
 
@@ -589,29 +517,25 @@ The logic brick can be seen in Figure 4.32. There is really not much to it other
 
 If the fast zooming of the lens still doesn't make everyone dizzy, it's time to animate the camera rotation. It's good to remember that while the rotation is a property of the camera object, the focal length is part of the camera datablock. As such, these transformations are stored in independent actions. Thus, we will need to create a new action (through keyframing the camera rotation) and set up a new Action actuator.
 
-\*\*\* Begin Numbered List
+1. Change the current frame to 1.
 
-1.Change the current frame to 1.
+2. Select the camera object.
 
-2.Select the camera object.
+3. With the mouse over the 3D viewport, invoke the Keyframe menu (I key) and select Rotation.
 
-3.With the mouse over the 3D viewport, invoke the Keyframe menu (I key) and select Rotation.
+4. Advance 5 frames.
 
-4.Advance 5 frames.
+5. Change camera rotation along its local Z axis by 60 degrees so it keeps looking forward but spinning (press R + Z + Z + 60).
 
-5.Change camera rotation along its local Z axis by 60 degrees so it keeps looking forward but spinning (press R + Z + Z + 60).
+6. Keyframe the rotation again.
 
-6.Keyframe the rotation again.
+7. Repeat the previous steps until you get (and keyframe) frame 30,which will complete a full loop of 360 degrees.
 
-7.Repeat the previous steps until you get (and keyframe) frame 30,which will complete a full loop of 360 degrees.
+8. Create an Action actuator. Change frame range from 1 to 30.
 
-8.Create an Action actuator. Change frame range from 1 to 30.
+9. Set CameraAction.001 as the actuator Action. (This is the new action we created.)
 
-9.Set CameraAction.001 as the actuator Action. (This is the new action we created.)
-
-10.Link the And controller with this Action actuator.
-
-\*\*\* End Numbered List
+10. Link the And controller with this Action actuator.
 
 You can get this final file on _\Book\Chapter04\tutorials\pretutorial\_camera\_actions.blend_.
 
@@ -623,19 +547,15 @@ To start, let's open the Momo file and look at the armature. Open the book file 
 
 We will create a walking cycle for Momo, following these steps:
 
-\*\*\* Begin Numbered List
+1. Armature setup
 
-1.Armature setup
+2. Extreme poses
 
-2.Extreme poses
+3. Moving forward
 
-3.Moving forward
+4. Between poses
 
-4.Between poses
-
-5.Play time
-
-\*\*\* End Numbered List
+5. Play time
 
 In this tutorial, we will not cover animation extensively. This topic alone could fill a whole book. Instead, we will focus on the workflow of integrating your animation skills with the game engine tools. You'll get some tips you can apply to both Blender and the game engine animations. Both platforms work in a similar fashion.
 
@@ -653,19 +573,15 @@ First, let's take a look at the IK bone constraints. IK can be used to pose arms
 
 ![Set an IK bone constraint in Momo's tail](../figures/Chapter4/Fig04-34.png)
 
-\*\*\* Begin Numbered List
+1. Select the armature object.
 
-1.Select the armature object.
+2. Change to Pose mode.
 
-2.Change to Pose mode.
+3. Select the last tail bone (RigMomo.tail.001).
 
-3.Select the last tail bone (RigMomo.tail.001).
+4. Select Bone Constraints in the Property Editor.
 
-4.Select Bone Constraints in the Property Editor.
-
-5.Add an Inverse Kinematics bone constraint.
-
-\*\*\* End Numbered List
+5. Add an Inverse Kinematics bone constraint.
 
 Now the setup is almost done. Before we finish, try to move the tail bone around. This results in all sorts of twists and revolving poses just by moving only a single control bone. You can see this early iteration in Figure 4.35, which went a bit too far, however. All you need is to control the chain of bones that this bone belongs to; in this case, all six bones from the tail bone group.
 
@@ -679,13 +595,9 @@ There are other IK bone constraints that we want to set. So far we have been see
 
 If you can turn on the second bone layer, you will see only the hand, foot, and tail bones. They all need IK bone constraints as well. Try copying the steps for the tail bone. To mimic the original file, you need to set the chain length to be two bones for the forearm and the shin bones, and three bones for the feet. These numbers correspond to how many bones are left in the chain of bones. At this point, your file should be like the one on _\Book\Chapter4\tutorial\_walk\_2.ik.blend._
 
-\*\*\* Begin Note
-
-Targetless Constraints
-
-Those IK bone constraints are targetless. As explained previously in the bone constraints section, they are a fake IK. They are used only to help in posing and can be removed from the final file once the animation is done.
-
-\*\*\* End Note
+>**Targetless Constraints**
+>
+>Those IK bone constraints are targetless. As explained previously in the bone constraints section, they are a fake IK. They are used only to help in posing and can be removed from the final file once the animation is done.
 
 ##### Track To Bone Constraints <a id="Track To Bone Constraints"></a>
 
@@ -697,19 +609,15 @@ The two bones in front of the eyes are the tracker bones. Each eye bone will nee
 
 Setting the Track To bone constraint is not much different than setting the other bone constraints. If you follow the steps in the list below, you should see the settings shown in Figure 4.38:
 
-\*\*\* Begin Numbered List
+1. Select the armature object.
 
-1.Select the armature object.
+2. Change to Pose mode.
 
-2.Change to Pose mode.
+3. Select the left eye bone.
 
-3.Select the left eye bone.
+4. Select Bone Constraints in the Property Editor.
 
-4.Select Bone Constraints in the Property Editor.
-
-5.Add a Track To bone constraint.
-
-\*\*\* End Numbered List
+5. Add a Track To bone constraint.
 
 ![Track To Bone Constraint panel](../figures/Chapter4/Fig04-38.png)
 
@@ -727,41 +635,33 @@ In Figure 4.39, you can see those images being used as background in a file read
 
 ![Reference image as background](../figures/Chapter4/Fig04-39.png)
 
-\*\*\* Begin Note
-
-Reference Images
-
-The reference images are used here in the background. If you prefer to see them on top of the view, you have two options. You can use the "Front" option in the Background Images panel. Or you can use empties instead. Add empties with the Display type set to Image. Place them in the desired location and lock their selection in the Outliner.
-
-\*\*\* End Note
+>**Reference Images**
+>
+>The reference images are used here in the background. If you prefer to see them on top of the view, you have two options. You can use the "Front" option in the Background Images panel. Or you can use empties instead. Add empties with the Display type set to Image. Place them in the desired location and lock their selection in the Outliner.
 
 Try to match your armature to the reference image. In the Pose mode, move and rotate the bones around. (You don't want to change the armature in Edit mode.) Pay special attention to the feet bones to make sure they are well planted in the ground.
 
 After you are done with the initial pose, you can go for a bit of monkey see-monkey do. Follow the steps below. The explanation follows.
 
-\*\*\* Begin Numbered List
+1. Change current frame to 1.
 
-1.Change current frame to 1.
+2. Select all bones.
 
-2.Select all bones.
+3. Keyframe Loc/Sca/Rot (I key)
 
-3.Keyframe Loc/Sca/Rot (I key)
+4. Change frame to 41[md]this will be the end frame of our animation.
 
-4.Change frame to 41[md]this will be the end frame of our animation.
+5. Keyframe Loc/Sca/Rot again (with the bones still selected).
 
-5.Keyframe Loc/Sca/Rot again (with the bones still selected).
+6. Change frame to 21[md]the half of the animation where the second stride begins.
 
-6.Change frame to 21[md]the half of the animation where the second stride begins.
+7. Copy all the bone transformations (Ctrl + C or the icon in the 3D View header).
 
-7.Copy all the bone transformations (Ctrl + C or the icon in the 3D View header).
+8. Paste them mirrored (Shift + Ctrl + V or the last icon in the 3D View header).
 
-8.Paste them mirrored (Shift + Ctrl + V or the last icon in the 3D View header).
+9. Keyframe Loc/Sca/Rot yet again.
 
-9.Keyframe Loc/Sca/Rot yet again.
-
-10.In the F-Curve Editor, select all bones and change Extrapolation Mode to Constant (Shift + E or Channel Menu  Extrapolation Mode).
-
-\*\*\* End Numbered List
+10. In the F-Curve Editor, select all bones and change Extrapolation Mode to Constant (Shift + E or Channel Menu > Extrapolation Mode).
 
 What we just did was first define the animation length for 40 frames (1.3 seconds at 30 fps for one complete set of two strides). The first and last frames need to match; so we copied the transformation of the bones over frame 1 to 41. (You can copy them in the Dopesheet Editor as well.) We copied to frame 41 and not to frame 40 because we don't want a duplicated frame in the animation. We want the transition from the last frame (40) to the first frame (1) to be the same as from the last frame (40) to the next frame (41), which is outside the loop range.
 
@@ -783,31 +683,23 @@ The final walking cycle will have no real forward movement: the character stays 
 
 The simplest way to make Momo move is by keyframing the root bone along the way. The root bone is the parent of all the bones. Thus, if it moves, the rest of the armature will follow it. To set the root bone to move, go to Pose mode and do the following:
 
-\*\*\* Begin Numbered List
+1. Select the bone. In RigMomo you will find the Bone.main on the floor level.
 
-1.Select the bone. In RigMomo you will find the Bone.main on the floor level.
+2. Insert a Location keyframe. This will be the initial position of the bone and armature.
 
-2.Insert a Location keyframe. This will be the initial position of the bone and armature.
+3. Advance from frame 1 to 41.
 
-3.Advance from frame 1 to 41.
+4. Move the bone forward the distance of one stride[md]0.23 (see the note below).
 
-4.Move the bone forward the distance of one stride[md]0.23 (see the note below).
+5. Keyframe the new bone position.
 
-5.Keyframe the new bone position.
-
-6.Change the Channel Extrapolation mode of the root bone to Linear Extrapolation.
-
-\*\*\* End Numbered List
+6. Change the Channel Extrapolation mode of the root bone to Linear Extrapolation.
 
 In the book files, you can see Momo setup with the root bone steps at _\Book\Chapter4\tutorial\_walk\_6.rootbone.blend_.
 
-\*\*\* Begin Note
-
-How Big Is a Stride?
-
-If your character is walking, eventually you will need to find where its feet will land after each stride. This varies from person to person, and is a function of the leg's size, the speed of the movement (walking, running, jumping), and other factors such as the environment (for example, snow). For this walking cycle, you can use 23cm (or 0.23 Blender units) for the complete two strides.
-
-\*\*\* End Note
+>**How Big Is a Stride?**
+>
+>If your character is walking, eventually you will need to find where its feet will land after each stride. This varies from person to person, and is a function of the leg's size, the speed of the movement (walking, running, jumping), and other factors such as the environment (for example, snow). For this walking cycle, you can use 23cm (or 0.23 Blender units) for the complete two strides.
 
 After you are done with all the animation (past the polishing stage), you then can clean the bone location F-Curve. During the production of your game, you may need to come back for tweaks in your animation cycle. Therefore, instead of cleaning the bone curve you can simply disable the root bone channel in the Graph Editor. In Figure 4.41, you can see the speaker icon you use for that.
 
@@ -827,25 +719,21 @@ This method is based on the principle that perception is always relative. For ex
 
 This file is on _\Book\Chapter4\tutorial\_walk\_7.placehold.blend_. You can't tell from the picture, but if you play back the animation, you will see the placeholders moving against Momo (or would it be the other way around?). In fact, the camera is static so Momo doesn't really move.
 
-\*\*\* Begin Numbered List
+1. Create a simple, easy-to-spot object.
 
-1.Create a simple, easy-to-spot object.
+2. Create an Array modifier[md]set the constant offset to be equivalent to one stride and set enough copies to fill the screen.
 
-2.Create an Array modifier[md]set the constant offset to be equivalent to one stride and set enough copies to fill the screen.
+3. Move the Array object to be aligned with Momo. The feet from your extreme pose should match the position of the array elements.
 
-3.Move the Array object to be aligned with Momo. The feet from your extreme pose should match the position of the array elements.
+4. Insert a location keyframe.
 
-4.Insert a location keyframe.
+5. Advance from frames 1 to 41.
 
-5.Advance from frames 1 to 41.
+6. Move the array object forward the distance of two strides[md]0.46. (See the note on root bone.)
 
-6.Move the array object forward the distance of two strides[md]0.46. (See the note on root bone.)
-
-7.Keyframe the new array object position.
+7. Keyframe the new array object position.
 
 8. In the Graph Editor, change the array object Extrapolation mode to linear extrapolation.
-
-\*\*\* End Numbered List
 
 This method requires a bit more setup than the previous one, but it has a big advantage. To work in the between poses (the next step of this tutorial), you will need to keep track of the foot position while the character moves forward. While the body is constantly moving, the feet are planted on the ground until it's their time to get up and get smashed on the floor again. This will prevent the undesirable effect known as _sliding feet_. This problem will be revisited next when we create the poses between the extremes. Figure 4.43 shows the complete walking cycle in different moments; note that the feet are always in the same place relative to the placeholders.
 
@@ -867,17 +755,13 @@ Also, although you can create the animation by posing and keyframing the bones i
 
 This is no different from the traditional workflow of animation in Blender. It's not even much different from the animation workflow in other 3D software. From the vast amount of techniques and tools available, I used the following for this cycle:
 
-\*\*\* Begin Bullet List
+- **IK bone constraints:** Use the IK constrained bones as guides, but remember to keyframe the affected bones as well.
 
-[lb] **IK bone constraints:** Use the IK constrained bones as guides, but remember to keyframe the affected bones as well.
+- **AutoKey:** Automatic keyframe insertion in the Timeline Editor header, especially for the straight-ahead action will spare you from a lot of manual keyframing.
 
-[lb] **AutoKey:** Automatic keyframe insertion in the Timeline Editor header, especially for the straight-ahead action will spare you from a lot of manual keyframing.
+- **Show/Hide Handlers (Ctrl+H):** My personal favorite shortcut in the Graph Editor.
 
-[lb]**Show/Hide Handlers (Ctrl+H):** My personal favorite shortcut in the Graph Editor.
-
-[lb] **UV grid:** In the floor to spot feet sliding.
-
-\*\*\* End Bullet List
+- **UV grid:** In the floor to spot feet sliding.
 
 In Figure 4.45, you can see the final result of our take on this. This file is in _\Book\Chapter4\tutorial\_walk\_8.pose\_to\_pose.blend_. Play it back to see it animated. From here, you can either keep working out of your file, take it from the book file, or merge both together. An action, as any other data block in Blender, can be imported and saved over different files (as long as the armature bones don't change their names).
 
@@ -889,19 +773,15 @@ Now that the animation cycle is done, it's time to bring it from Blender into th
 
 Let's start by creating the Logic Bricks for the armature. With RigMomo selected, follow the steps in order. In Figure 4.46, you can see how the Logic Editor will look.
 
-\*\*\* Begin Numbered List
+1. Add an Always sensor and set Positive Pulse on.
 
-1.Add an Always sensor and set Positive Pulse on.
+2. Add an Action actuator. Set the action created (for example, Walk), the Play mode to Loop End, and the Start and End Frames to 1 and 40 respectively.
 
-2.Add an Action actuator. Set the action created (for example, Walk), the Play mode to Loop End, and the Start and End Frames to 1 and 40 respectively.
+3. Link the Action actuator with the Always sensor; this will automatically create an And controller.
 
-3.Link the Action actuator with the Always sensor; this will automatically create an And controller.
+4. Add a Motion actuator and leave the values blank for now.
 
-4.Add a Motion actuator and leave the values blank for now.
-
-5.Link the Motion actuator with the same And controller.
-
-\*\*\* End Numbered List
+5. Link the Motion actuator with the same And controller.
 
 ![Logic Bricks for animation playback](../figures/Chapter4/Fig04-46.png)
 
@@ -913,7 +793,7 @@ The value to use in the Motion actuator is the object speed times the frequency 
 
 ![Walking Momo](../figures/Chapter4/Fig04-47.png)
 
-In the end, you might want to set the camera to track Momo during the walk. In the sample file, you will see the camera is parented to an empty with an Edit ObjectTrack To Actuator to follow Momo. Also, the zoom and rotate camera intro effect was brought back from the pretutorial. A checkerboard pattern on the floor will also help to follow the pace of his progression. The final file is shown in Figure 4.47 and can be found on _\Book\Chapter4\tutorial\_walk\_9.playtime.blend_.
+In the end, you might want to set the camera to track Momo during the walk. In the sample file, you will see the camera is parented to an empty with an Edit Object > Track To Actuator to follow Momo. Also, the zoom and rotate camera intro effect was brought back from the pretutorial. A checkerboard pattern on the floor will also help to follow the pace of his progression. The final file is shown in Figure 4.47 and can be found on _\Book\Chapter4\tutorial\_walk\_9.playtime.blend_.
 
 ### Idle Animation <a id="Idle Animation"></a>
 
@@ -925,23 +805,19 @@ Start off by opening the file _\Book\Chapter4\tutorial\_idle\_1.begin.blend_. Th
 
 In this case, since the actions are very different, there is not much to recycle from the walking cycle to the idle animation. You want to keep only the first and final frames to guarantee a smoother transition between the two animations. If you don't want to bother deleting keyframes, you can create a new action from scratch, maintaining the initial pose by following these steps:
 
-\*\*\* Begin Numbered List
+1. Go to frame 1.
 
-1.Go to frame 1.
+2. Unlink the Walk action from the armature (click the X button).
 
-2.Unlink the Walk action from the armature (click the X button).
+3. Create a new action (click in the + or New button).
 
-3.Create a new action (click in the + or New button).
+4. Rename your new action "Idle."
 
-4.Rename your new action "Idle."
+5. Select all the bones of the armature and keyframe them.
 
-5.Select all the bones of the armature and keyframe them.
+6. Go to a later frame, which will be the final frame for your idle animation. For example, to make an idle animation of 4 seconds, go to frame 121.
 
-6.Go to a later frame, which will be the final frame for your idle animation. For example, to make an idle animation of 4 seconds, go to frame 121.
-
-7.Set a keyframe for all the bones again.
-
-\*\*\* End Numbered List
+7. Set a keyframe for all the bones again.
 
 Now you have a new, blank action to play with. The only rule you need to follow is to avoid animations that require Momo to move around. The reason is that you may need to interrupt the idle animation at any moment as soon as you get back to walking.
 
@@ -981,30 +857,27 @@ Select RigMomo and switch to the Pose mode. In the walking tutorial, we looked a
 
 To hook up the control bones with the shape keys, you need to follow the steps. The final driver in the Graph Editor will look like Figure 4.51.
 
-\*\*\* Begin Numbered List
-
 1. Select the MeshMomo object.
+
 2. Select a shape key (for example, smile).
 
-3.Click with the right mouse button in the Influence value.
+3. Click with the right mouse button in the Influence value.
 
-4.Select Add Driver.
+4. Select Add Driver.
 
-5.Open the Graph Editor.
+5. Open the Graph Editor.
 
-6 .Switch the Edit mode from F-Curve Editor to Drivers.
+6. Switch the Edit mode from F-Curve Editor to Drivers.
 
-7.Inside the "Key" channel, select the curve to edit (for example, Value(smile)).
+7. Inside the "Key" channel, select the curve to edit (for example, Value(smile)).
 
-8.Open the Property panel (N).
+8. Open the Property panel (N).
 
-9.Change Type from Script Expression into Averaged Value.
+9. Change Type from Script Expression into Averaged Value.
 
-10.Delete the F-Curve modifier (created by default).
+10. Delete the F-Curve modifier (created by default).
 
-11.In the Object/Bone panel, set RigMomo and the bone to use as controller (for example, Mouth).
-
-\*\*\* End Numbered List
+11. In the Object/Bone panel, set RigMomo and the bone to use as controller (for example, Mouth).
 
 ![Shape key driver](../figures/Chapter4/Fig04-51.png)
 
@@ -1042,15 +915,11 @@ After the tutorial section, you can check out the idle and walking animation mad
 
 There is only one thing missing. We need to alternate between the two animations: the walking and the idle one. With the latest file open, select RigMomo and in the Logic Editor, make the following changes:
 
-\*\*\* Begin Numbered List
+1. Change the Always sensor to a Keyboard sensor with Key set to W.
 
-1.Change the Always sensor to a Keyboard sensor with Key set to W.
+2. Add a Property Sensor to check whether the frame property is between 39 and 40. Set Invert and turn on Positive and Negative Pulse modes.
 
-2.Add a Property Sensor to check whether the frame property is between 39 and 40. Set Invert and turn on Positive and Negative Pulse modes.
-
-3.Connect the Property Sensor to the Motion actuator (Move Forward).
-
-\*\*\* End Numbered List
+3. Connect the Property Sensor to the Motion actuator (Move Forward).
 
 These changes can be seen in Figure 4.54. What you are doing here first is to set the action to play when the W key is pressed. Since the Action Actuator is set to Loop End, the animation will still play for a few more frames. In order to make Momo keep moving forward, you need to keep the Motion Actuator active until the frame played is not the final (40). That way when you release the key, you ensure that the Momo animation is in the beginning of its animation cycle, ready to blend with the idle action.
 
@@ -1060,15 +929,15 @@ Now all that is left to be done is to play the idle action when Momo is not walk
 
 ![Logic Brick, Part 2 - idle](../figures/Chapter4/Fig04-55.png)
 
-**       ** [lb] **        Playback type** : Loop Stop will make the action loop until the Keyboard Sensor is active. It will stop immediately after.
+- **Playback type** : Loop Stop will make the action loop until the Keyboard Sensor is active. It will stop immediately after.
 
-**       ** [lb] **        Priority** : 2[md]it has to be higher than the walking Action Actuator. Lower priority actions have precedence over higher ones.
+- **Priority** : 2[md]it has to be higher than the walking Action Actuator. Lower priority actions have precedence over higher ones.
 
-**       ** [lb] **        Start/End Frame** : 1 and 160[md]the range of your animation.
+- **Start/End Frame** : 1 and 160[md]the range of your animation.
 
-**       ** [lb] **        Blendin** : 11[md]If the pose of the initial frame of the idle animation is the same as the walking, you don't need to blend them (Blendin = 0). Otherwise, this parameter will make the transition smooth.
+- **Blendin** : 11[md]If the pose of the initial frame of the idle animation is the same as the walking, you don't need to blend them (Blendin = 0). Otherwise, this parameter will make the transition smooth.
 
-**       ** [lb] **        Continue** : False[md]ye want the animation to start over from frame 1 every time you stop walking.
+- **Continue** : False[md]ye want the animation to start over from frame 1 every time you stop walking.
 
 The final file is on _\Book\Chapter4\tutorial\_idle\_6.idlewalkforward.blend_.
 
@@ -1078,21 +947,17 @@ Momo can walk and stop. Now, if only we had a jump, we would be set for a side-s
 
 The simplest way to make Momo turn is by adding new Motion Actuators responding to a new set of Keyboard Sensors. Let's use the key A to turn left and D to turn right. To make it turn left, follow these instructions:
 
-\*\*\* Begin Numbered List
+1. Add Keyboard sensor[md]key A.
 
-1.Add Keyboard sensor[md]key A.
+2. Add Motion actuator with Rot Z 2.5 degrees.
 
-2.Add Motion actuator with Rot Z 2.5 degrees.
+3. Connect Sensor with Actuator, which creates a new And controller.
 
-3.Connect Sensor with Actuator, which creates a new And controller.
+4. Change the original cWalk controller from And to Or.
 
-4.Change the original cWalk controller from And to Or.
+5. Connect the new sensor to this controller as well.
 
-5.Connect the new sensor to this controller as well.
-
-6.Connect the new sensor to the Nor controller.
-
-\*\*\* End Numbered List
+6. Connect the new sensor to the Nor controller.
 
 Now do the same for the right rotation, and you will have the logic bricks shown in Figure 4.56. You may notice that I'm using three States for the controllers here. They are always turned on, thus the main purpose is purely for organization.
 
@@ -1102,19 +967,12 @@ Source: Blender Foundation.
 
 The final file is on _\Book\Chapter4\tutorial\_idle\_7.turning.blend_.
 
-\*\*\* Begin Note
-
-The Dilemma of the Sweet Miso Soup
-
-Once when I was younger, my hand slipped while seasoning the miso soup and, brilliantly, I thought it was a good idea to compensate for the salt by sweetening it. Guess what, it didn't work (and yes, I had to eat it all).
-
-The same goes for animation. No one needs to turn right and left the same way. It can be because of a soccer injury, a shorter leg, you name it.
-
-So sometimes (not always, not now), you need more control over the turning. For the _Yo Frankie_ project, they had specific animations for each side Momo would be turning. Those subanimations make for both good transitions between actions and for more artistic control. It's always a matter of compromising between what you can afford to do and what you can't, which is addressed between the technical and artistic teams. Thus, even though a programmer may insist it is so, an animation for "getting up" is not the same as a "sitting down" animation played backward. For our simple walking cycle, this will do.
-
-Bottomline: a miso soup with sugar is not a break-even[md]it's bad cooking.
-
-\*\*\* End Note
+>**The Dilemma of the Sweet Miso Soup
+>
+>Once when I was younger, my hand slipped while seasoning the miso soup and, brilliantly, I thought it was a good idea to compensate for the salt by sweetening it. Guess what, it didn't work (and yes, I had to eat it all).
+>The same goes for animation. No one needs to turn right and left the same way. It can be because of a soccer injury, a shorter leg, you name it.
+>So sometimes (not always, not now), you need more control over the turning. For the _Yo Frankie_ project, they had specific animations for each side Momo would be turning. Those subanimations make for both good transitions between actions and for more artistic control. It's always a matter of compromising between what you can afford to do and what you can't, which is addressed between the technical and artistic teams. Thus, even though a programmer may insist it is so, an animation for "getting up" is not the same as a "sitting down" animation played backward. For our simple walking cycle, this will do.
+>Bottomline: a miso soup with sugar is not a break-even[md]it's bad cooking.
 
 ### Hats Off to Momo and Vice-Versa <a id="Hats Off to Momo and Vice-Versa"></a>
 
@@ -1134,21 +992,17 @@ Source: Blender Foundation.
 
 This is a simple tutorial, focusing on illustrating the bone parenting technique. Thus, most of the components are ready for you to hook up with your file (for example, the scripts). Let's first set up one of the hats.
 
-\*\*\* Begin Numbered List
+1. Select the armature and go to Edit mode.
 
-1.Select the armature and go to Edit mode.
+2. Create one bone in the middle of the head named Head.Hat.Steady.
 
-2.Create one bone in the middle of the head named Head.Hat.Steady.
+3. Parent the bone to the head bone.
 
-3.Parent the bone to the head bone.
+4. Change Armature mode to Pose mode.
 
-4.Change Armature mode to Pose mode.
+5. Go to Object mode and create an empty with the same position/rotation as the Head.Hat.Steady bone. Name the empty Head.PH.Hat.Steady.
 
-5.Go to Object mode and create an empty with the same position/rotation as the Head.Hat.Steady bone. Name the empty Head.PH.Hat.Steady.
-
-6.With the empty selected, select the bone you just created and make it the parent of the empty (Ctrl+P  Set Parent To  Bone).
-
-\*\*\* End Numbered List
+6. With the empty selected, select the bone you just created and make it the parent of the empty (Ctrl+P  Set Parent To  Bone).
 
 With those changes, you can already animate the bone Head.Hat.Steady, and the empty placeholder will follow along. The hat will be placed exactly where the empty is. In the current file, both hats are parented to empties/placeholders close to the camera. In order to animate the hat bones, you need to temporarily bring the hat to the position it will be during the game. For that to work with the Head.Hat.Steady bone, you need to bring the Hat.Cap Blender object to the same position/rotation as the empty placeholder and parent the hat object to it (select the hat, select the empty, in the Transform panel in the 3D view, right-mouse click in the values to "Copy To Selected," Ctrl+P to parent). Now you can go to the armature Edit mode and move the bone to make the hat fit the head properly. Figure 4.58 shows the arrangement of Bone + Empty + Hat. The current snapshot can be found _in \Book\Chapter4\tutorial\_hat\_2.capsetup.blend_.
 
@@ -1164,19 +1018,12 @@ Start by moving/rotating the Hat.Cap back to its original placeholder by the cam
 
 ![Classy top hat is too big for Momo's head](../figures/Chapter4/Fig04-60.png)
 
-\*\*\* Begin Note
-
-Copy Menu Attributes Add-on
-
-As soon as you start parenting your objects, you will see that it's not so easy to copy over transformations. Blender built-in copy tools work only on top of the local transformations, and this is not enough when you want to copy the visual or world transformations. The difference is that the visual transformations (what you see) are an accumulated result from the different local transformations of the chain of parents.
-
-Blender comes with an add-on that allows you to do all sorts of advanced copy operations. Go to the User Preferences, Add-Ons and enable the Copy Attributes Menu add-on.
-
-This add-on was originally intended only to bring over the copy menu (Ctrl+C) from Blender 2.49. Bassam Kurdali, its original developer and maintainer, was kind enough to expand it to help with this tutorial. Kudos to him.
-
-If you don't want to use add-ons, you can go old school with Blender 2.49 work-arounds. Duplicate your empty and do a Clear Parent  Clear and Keep Transformation in the new empty. Now you can use this object to copy the transformations from, delete it, and parent the hat to the original empty.
-
-\*\*\* End Note
+>**Copy Menu Attributes Add-on**
+>
+>As soon as you start parenting your objects, you will see that it's not so easy to copy over transformations. Blender built-in copy tools work only on top of the local transformations, and this is not enough when you want to copy the visual or world transformations. The difference is that the visual transformations (what you see) are an accumulated result from the different local transformations of the chain of parents.
+>Blender comes with an add-on that allows you to do all sorts of advanced copy operations. Go to the User Preferences, Add-Ons and enable the Copy Attributes Menu add-on.
+>This add-on was originally intended only to bring over the copy menu (Ctrl+C) from Blender 2.49. Bassam Kurdali, its original developer and maintainer, was kind enough to expand it to help with this tutorial. Kudos to him.
+>If you don't want to use add-ons, you can go old school with Blender 2.49 work-arounds. Duplicate your empty and do a Clear Parent  Clear and Keep Transformation in the new empty. Now you can use this object to copy the transformations from, delete it, and parent the hat to the original empty.
 
 Now that the animations are done and the armature set up, we can move on to look to the implementation of hats switching on the fly.
 
@@ -1196,20 +1043,16 @@ Now, as the icing on the cake, I've asked the animator Moraes Júnior to do the 
 
 Finally, dedicate the proper time to mastering the ways of animation. Learning how to make animation work in Blender is still not the same thing as knowing what to do. Here is a list of classic materials for learning animation[md]modern references for animation and character control in games and Blender-specific reading.
 
-\*\*\* Begin Bullet List
+- _Drawn to Life_ by Walt Stanchfield
 
-[lb]_Drawn to Life_ by Walt Stanchfield
+- _The Animator's Survival__Kit_ by Richard Williams
 
-[lb]_The Animator's Survival__Kit_ by Richard Williams
+- _Cartoon Animation_ by Preston Blair
 
-[lb]_Cartoon Animation_ by Preston Blair
+- _3rd Person Action Platformer Hero Animation Graph_ by Rune Vendler
 
-[lb]_3rd Person Action Platformer Hero Animation Graph_ by Rune Vendler
+- [_http://altdevblogaday.org/2011/04/14/3rd-person-action-platformer-hero-animation-graph_](http://altdevblogaday.org/2011/04/14/3rd-person-action-platformer-hero-animation-graph)
 
-[lb] [_http://altdevblogaday.org/2011/04/14/3rd-person-action-platformer-hero-animation-graph_](http://altdevblogaday.org/2011/04/14/3rd-person-action-platformer-hero-animation-graph)
+- _Character Animation DVD_ by William Reynish
 
-[lb]_Character Animation DVD_ by William Reynish
-
-[lb]Blender 2.5 Character Animation Cookbook by Virgilio Vasconcelos
-
-\*\*\* End Bullet List
+- Blender 2.5 Character Animation Cookbook by Virgilio Vasconcelos
