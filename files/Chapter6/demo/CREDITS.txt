@@ -1,0 +1,6 @@
+Most of those files were originally part of Blender test suite.
+They were adjusted to work in the latest Blender, and at some point
+will be re-uploaded back to Blender SVN test suite.
+
+Their licenses are independent as of the other book files, and we claim
+no ownership over them.
