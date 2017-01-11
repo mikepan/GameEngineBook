@@ -1,11 +1,3 @@
-Slug: Mastering Game Blender Engine
-
-Production: Please replace [md] with em dash
-
-Note: please replace deg. with degree symbol.
-
-Replace [ms] with minus sign
-
 # Chapter 4
 
 # Animation
@@ -14,13 +6,7 @@ _Written in collaboration with Moraes Júnior[md]Mango Jambo for friends[md]know
 
 Animation is the breath of life. It's the soul of your characters. And we swear we're not making that up. Take a look at the etymological origin of the word, and you will find that animation comes from _anima_, which means _soul_ in Latin. Try to remember that. If for nothing else, it can help you to sound smart for the next person who wonders why you are paid to play video games. Figure 4.1 highlights what animation can be.
 
-\*\*\*Insert Fig04-01.tif
-
-Figure 4.1
-
-This chapter is about what? Hmmm? I can't see!
-
-Source: Blender Foundation
+![This chapter is about what? Hmmm? I can't see!](../figures/Chapter4/Fig04-01.png)
 
 Back on the right track, in this chapter you will note a different structure than the previous chapters.
 
@@ -110,13 +96,7 @@ Also, you can use an action created by one object into another object, proven th
 
 At first we don't edit a curve directly in the F-Curve editor. The usual workflow is to first keyframe some parameters (for example, position and rotation) in the 3D view. After the blocking of your key and in-between poses, you may want to do tiny adjustments in the curve. This is the time when you can go to the F-Curve editor and make changes directly in the curves. With some practice you may even look at the chaos as in Figure 4.2 and see bouncing balls and smooth fade-ins and fade-outs.
 
-\*\*\*Insert Fig04-02.tif
-
-Figure 4.2
-
-F-Curve chaos.
-
-Source: Blender Foundation.
+![F-Curve chaos](../figures/Chapter4/Fig04-02.png)
 
 Even when you are using the Action actuator, you will be internally manipulating F-Curves (through the Dope Sheet or luckily the 3D view). The only actions that will change your object geometry are the bone pose action and the shape key actions. The former will play the bone pose action for your armature, while the latter plays a shape key action affecting the whole mesh.
 
@@ -152,13 +132,7 @@ For example, you can combine dialog actions from a MoCap (motion capture) system
 
 Unlike in the NLA Editor, we have a chance to play actions based on the player decisions or AI predesigned interactions. In our shark example, we can have the player controlling the shark and turning it when it gets tired of swimming in a straight line. Maybe this shark likes to chase its tail restlessly. Either way, we can play and stop playing the individual animations ("Straight Swimming" and "Turning") anytime. Figure 4.3 illustrates this.
 
-\*\*\*Insert Fig04-03.tif
-
-Figure 4.3
-
-Shark stuck in the Turning Action.
-
-[c] Dalai Felinto, All Rights Reserved.
+![Shark stuck in the Turning Action](../figures/Chapter4/Fig04-03.png)
 
 The second difference is regarding the bone constraints. We will cover it in more detail later. It's important to know that not all the Bone Constraints that work in Blender will work in the game engine. Most of them do, so it shouldn't be much of a hassle. Also, the constrained bone and the target bone should be part of the same armature.
 
@@ -166,13 +140,7 @@ The third difference is the general simplicity of the armature and bone system. 
 
 A good example is Frankie the Flying Squirrel in the animated short _Big Buck Bunny_ and in the _Yo Frankie!_ game. As you can see in Figure 4.4, the original model had 11,777 faces and 388 bones, while the model remade for the game has only 2,509 faces and 52 bones. Even though the role of Frankie was pumped up from a side film character to the game main character, the complexity of the game file is much simpler. (The film-file face count goes to 128,404 when you apply the Subdivision Surface modifiers.)
 
-\*\*\*Insert Fig04-04.tif
-
-Figure 4.4
-
-_Big Buck Bunny_ (left) and _Yo Frankie_ (right) rigging comparison.
-
-Source: Blender Foundation.
+![_Big Buck Bunny_ (left) and _Yo Frankie_ (right) rigging comparison](../figures/Chapter4/Fig04-04.png)
 
 # When to Use Pose Actions
 
@@ -186,13 +154,7 @@ Animated characters are not the only game objects that can use the armature anim
 
 To animate a mesh with bones is a relatively expensive task for the computer. Therefore, when you set an object to play a pose action, you are changing only the graphic mesh of the object[md]the mesh used for the game render. All the physics computations, however, are done in another instance of this mesh, and are not updated with the animation. In Figure 4.5 you can see the screen when Show Physics Visualization is on and the game has an object armature animated. The original rest pose of the armature is used for the physics/collision mesh. This is the mesh with the arms lying still. Although we can see the correct pose on top of that, this is not the one used for the physics computations.
 
-\*\*\*Insert Fig04-05.tif
-
-Figure 4.5
-
-Physic mesh not updated for armatures meshes.
-
-Source: Blender Foundation.
+![Physic mesh not updated for armatures meshes](../figures/Chapter4/Fig04-05.png)
 
 # Bone Constraints
 
@@ -228,13 +190,7 @@ All the Transform, Tracking, and Relationship bone constraints that were not men
 
 In Figure 4.6, you can see the menu with all the bone constraints compatible with the game engine highlighted.
 
-\*\*\*Insert Fig04-06.tif
-
-Figure 4.6
-
-Supported bone constraints.
-
-Source: Blender Foundation.
+![Supported bone constraints](../figures/Chapter4/Fig04-06.png)
 
 If you're not familiar with bone constraints, following is a brief overview of them and their functionalities. As with almost every other feature of the game engine, the suggested usages illustrate but do not limit their potential application.
 
@@ -250,29 +206,11 @@ A simple use would be building control armatures with bones duplicated between t
 
 An artistic example of its use would be clothes or armor. The external bone chains (for clothes) can copy the base bone chain (for the body) to use as a base transformation. Since there is no locking, you can animate the external bones independently of the body animation. The offset can be used to match the real separation between the body and cloth geometries.
 
-\*\*\*Insert Fig04-07a.tif
+![Copy Location bone constraint](../figures/Chapter4/Fig04-07a.png)
 
-Figure 4.7a
+![Copy Rotation, bone constraint](../figures/Chapter4/Fig04-07b.png)
 
-Copy Location bone constraint.
-
-Source: Blender Foundation.
-
-\*\*\*Insert Fig04-07b.tif
-
-Figure 4.7b
-
-Copy Rotation, bone constraint.
-
-Source: Blender Foundation.
-
-\*\*\*Insert Fig04-07c.tif
-
-Figure 4.7c
-
-Copy Scale bone constraint.
-
-Source: Blender Foundation.
+![Copy Scale bone constraint](../figures/Chapter4/Fig04-07c.png)
 
 ### Copy Transforms
 
@@ -280,13 +218,7 @@ Unlike the previous bone constraints, you cannot set the bone offset in this con
 
 As a rule of thumb, an influence different than 1.0 produces more interesting behaviors.
 
-\*\*\*Insert Fig04-8.tif
-
-Figure 4.8
-
-Copy Transforms bone constraint.
-
-Source: Blender Foundation.
+![Copy Transforms bone constraint](../figures/Chapter4/Fig04-08.png)
 
 ### Limit Distance, Limit Rotation, Limit Scale
 
@@ -294,29 +226,11 @@ When you use a bone transformation to influence another bone (for example, bone 
 
 They can also be used to complement Copy Location/Rotation/Scale bone constraints by copying the transformation but limiting some of the parameters (for example, copy location but not allow Z to be below zero[md]under the bone used as a ground reference).
 
-\*\*\*Insert Fig04-09a.tif
+![Limit Distance bone constraint](../figures/Chapter4/Fig04-09a.png)
 
-Figure 4.9a
+![Limit Rotation bone constraint](../figures/Chapter4/Fig04-09b.png)
 
-Limit Distance bone constraint.
-
-Source: Blender Foundation.
-
-\*\*\*Insert Fig04-09b.tif
-
-Figure 4.9b
-
-Limit Rotation bone constraint.
-
-Source: Blender Foundation.
-
-\*\*\*Insert Fig04-09c.tif
-
-Figure 4.9c
-
-Limi Scale bone constraint.
-
-Source: Blender Foundation.
+![Limi Scale bone constraint](../figures/Chapter4/Fig04-09c.png)
 
 ### Maintain Volume
 
@@ -324,13 +238,7 @@ This bone constraint does not use a target (see Figure 4.10). The transformation
 
 It's used for squash and stretch, the classic cartoon effect for squeezing bouncing balls.
 
-\*\*\*Insert Fig04-10.tif
-
-Figure 4.10
-
-Maintain Volume bone constraint.
-
-Source: Blender Foundation.
+![Maintain Volume bone constraint](../figures/Chapter4/Fig04-10.png)
 
 ### Transformation
 
@@ -338,23 +246,11 @@ This is the best bone constraint for sliders. It allows you to map the transform
 
 In the book files, you can see this example of a bone slider where we are using Limit Location, Transformation, Copy Rotation, and a Limit Rotation Bone Constraint to set up a simple arm. It's not the optimal use of those Bone Constraints, but it shows how they can be set up together.
 
-\*\*\*Insert Fig04-11.tif
-
-Figure 4.11
-
-Transformation bone constraint.
-
-Source: Blender Foundation.
+![Transformation bone constraint](../figures/Chapter4/Fig04-11.png)
 
 You can find the file in _\Book\Chapter04\1\_constraints\_transform.blend_ (see Figure 4.12).
 
-\*\*\*Insert Fig04-12.tif
-
-Figure 4.12
-
-Bone slider.
-
-[c] Cengage Learning[r]. All Rights Reserved.
+![Bone slider](../figures/Chapter4/Fig04-12.png)
 
 # Tracking
 
@@ -366,13 +262,7 @@ The Clamp To bone constraint forces the bone along a curve object (see Figure 4.
 
 It's quite handy for cyclic environment animation of assets from your game. For example, you can make birds flying in the sky by having a predefined curve for the bones to follow along. Cars driving or even people walking in the background also can be accomplished with this technique.
 
-\*\*\*Insert Fig04-13.tif
-
-Figure 4.13
-
-Clamp To bone constraint.
-
-Source: Blender Foundation.
+![Clamp To bone constraint](../figures/Chapter4/Fig04-13.png)
 
 ### Damped Track, Locked Track, and Track To
 
@@ -380,33 +270,15 @@ Those three bone constraints work in a similar way. You select a target bone[md]
 
 The Damped Track gives you the most freedom between them, and it's the simplest to set up. You only have to select the axis to lock, and it allows you to adjust the rotation of any axis of the constrained bone (see Figure 4.14). You can see an example of this used in robotic eyes. The basic effect is to track a target object. But you can still spin the eye around for a cheesy, I mean, classic "droid target locked" effect.
 
-\*\*\*Insert Fig04-14.tif
-
-Figure 4.14
-
-Damped Track bone constraint.
-
-Source: Blender Foundation.
+![Damped Track bone constraint](../figures/Chapter4/Fig04-14.png)
 
 Locked Track will work as a compromise between the other two trackers. It allows you to adjust the rotation of the non-tracked axis (see Figure 4.15). A security camera can be simulated with this bone constraint. A main axis is tracked by the camera (for example, doing a horizontal spin-around routine), while the other axes are independently controlled/animated.
 
-\*\*\*Insert Fig04-15.tif
-
-Figure 4.15
-
-Locked Track bone constraint.
-
-Source: Blender Foundation.
+![Locked Track bone constraint](../figures/Chapter4/Fig04-15.png)
 
 Track To locks the constrained bone for any rotation adjustment, leaving its rotation to be controlled entirely by the bone constraint (see Figure 4.16). By default, it rotates only one axis. However, you can track the other axis of the bone by setting Target Z in this Bone Constraint panel. The classic use of this is for eyes. Instead of rotating the eye bones directly, you can set them to track a target bone at which the eyes will be staring.
 
-\*\*\*Insert Fig04-16.tif
-
-Figure 4.16
-
-Track To bone constraint.
-
-Source: Blender Foundation.
+![Track To bone constraint](../figures/Chapter4/Fig04-16.png)
 
 ### Inverse Kinematics
 
@@ -416,13 +288,7 @@ It's very easy to lose yourself in going back and forth to fine-tune the positio
 
 With IK, you only need to move the hand to the target place. The rotation of the forearm, arm, and shoulder will be automatically calculated by Blender.
 
-\*\*\*Insert Fig04-17.tif
-
-Figure 4.17
-
-Inverse Kinematics bone constraint.
-
-Source: Blender Foundation.
+![Inverse Kinematics bone constraint](../figures/Chapter4/Fig04-17.png)
 
 The target bone can't be a parent or child of any bone constrained by this bone constraint[md]this produces cyclic unpredictable effects. This includes not only the bone where you added the IK, but also as many bones as you set in your chain length. (Leaving it as zero influences the whole bone chain.)
 
@@ -432,13 +298,7 @@ By default, Blender uses the Legacy solver for the Inverse Kinematics calculatio
 
 When a bone is under the influence of an IK Bone Constraint, you can set specific IK settings in the Bone panel, as you can see in Figure 4.18.
 
-\*\*\*Insert Fig04-18.tif
-
-Figure 4.18
-
-Inverse Kinematics Bone panel.
-
-Source: Blender Foundation.
+![Inverse Kinematics Bone panel](../figures/Chapter4/Fig04-18.png)
 
 Those parameters allow you to add some control over the otherwise automatic IK computations.
 
@@ -466,13 +326,7 @@ The calculation or the armature structure is calculated on the fly, based on pre
 
 The iTaSC solver is faster than the Legacy one and definitively better at handling real dynamic constraints (see Figure 4.19).
 
-\*\*\*Insert Fig04-19.tif
-
-Figure 4.19
-
-iTaSC Bone panel.
-
-Source: Blender Foundation.
+![iTaSC Bone panel](../figures/Chapter4/Fig04-19.png)
 
 The other bone constraints are great to help you animate your armature, but they are not as efficient in dealing with the real-time changes in the armature to produce dynamically plausible movement. If you are into robotics or simply want to explore more advanced settings in this solver, please refer to the official documentation:
 
@@ -484,13 +338,7 @@ A stretched bone allows you to produce cartoon body transformations (see Figure 
 
 In the book files, you can find an example of a more advanced technique that integrates Stretch To, IK, and Copy Rotation bone constraints. Study it carefully; further instructions are inside the file _\Book\Chapter04\2\_cartoon\_arm.blend_.
 
-\*\*\*Insert Fig04-20.tif
-
-Figure 4.20
-
-Stretch To bone constraint.
-
-Source: Blender Foundation.
+![Stretch To bone constraint](../figures/Chapter4/Fig04-20.png)
 
 # Relationship
 
@@ -502,13 +350,7 @@ A bone constraint worth mention is the Action bone constraint. With it, you can 
 
 With the Action bone constraint, you can play back an entire action by controlling one single bone (see Figure 4.21). Make sure that the target bone is not animated in the action you are playing; otherwise, this will produce unpredictable results. Since this is a more complicated bone constraint, the best way to show possible usages is by a pseudo-mini-tutorial as you see next.
 
-\*\*\*Insert Fig04-21.tif
-
-Figure 4.21
-
-Action bone constraint.
-
-Source: Blender Foundation.
+![Action bone constraint](../figures/Chapter4/Fig04-21.png)
 
 An example of using this is for Transformers-like animations. Let's say you need to create a character similar to Optimus Prime. The armature has two very distinct base poses: a regular car and a bad-ass robot. Some of your animation cycles will happen in the car shape and others in the robot.
 
@@ -524,13 +366,7 @@ This is indeed a classic usage of a bone controller as a slider. Since only one 
 
 \*\*\* End Note
 
-\*\*\*Insert Fig04-22.tif
-
-Figure 4.22
-
-Bone constraint slider.
-
-Source: Blender Foundation.
+![Bone constraint slider](../figures/Chapter4/Fig04-22.png)
 
 After all the setup is done, you only need to worry about the target bone when you need to switch between the poses. Move the bone to the left, and you have a car. Move it to the right, and you have a robot. Animate the bone going from left to right, and you can integrate the "Transformers" animation as part of any other action.
 
@@ -546,13 +382,7 @@ The bone to be dynamic parented (for example, the sword bone) needs to have no t
 
 In Blender, you can have multiple Child Of bone constraints and alternate between the current parent for a bone. In the game engine, however, since you can't animate the Influence of bone constraint, the use is not so flexible. In the end, you will be using it as if it were the Copy Transformations bone constraints. The difference is that the Child Of allows you to select which transformations to copy over (for example, Location and Rotation), and its Set Inverse option is similar to the Offset option of the Copy Location, Rotation, and Scale bone constrains (see Figure 4.23).
 
-\*\*\*Insert Fig04-23.tif
-
-Figure 4.23
-
-Child Of bone constraint.
-
-Source: Blender Foundation.
+![Child Of bone constraint](../figures/Chapter4/Fig04-23.png)
 
 Another option for this type of animation is to use bone parenting. With that, the sword can even be a Physics object and interact with other elements of the game. This is covered in the last tutorial of this chapter, titled "Hats off for Momo and vice-versa."
 
@@ -568,13 +398,7 @@ As with the other bone constraints not properly supported in the game engine, yo
 
 The floor allows you to create an imaginary plane to constraint your bone transformations to. It creates the equivalent of a floor, a ceiling, or a wall that cannot be transposed. The pose location from the constrained bone must be cleaned for the clamping to the plane to work (Alt+G). See Figure 4.24.
 
-\*\*\*Insert Fig04-24.tif
-
-Figure 4.24
-
-Floor bone constraint.
-
-Source: Blender Foundation.
+![Floor bone constraint](../figures/Chapter4/Fig04-24.png)
 
 ### Pivot
 
@@ -582,13 +406,7 @@ This bone constraint helps rotate bones around a specific bone. An example would
 
 Given that often the screw will not be part of the mesh directly deformed by the armature (unless you are animating Frankenstein preparing himself for an IQ test), the Pivot bone can be the parent of an external object you use as a placeholder for the screw. More on that in the next section.
 
-\*\*\*Insert Fig04-25.tif
-
-Figure 4.25
-
-Pivot bone constraint.
-
-Source: Blender Foundation.
+![Pivot bone constraint](../figures/Chapter4/Fig04-25.png)
 
 # Bone Parenting
 
@@ -606,13 +424,7 @@ As soon as the Collision object (our parented empty) touches the target object, 
 
 In the _Yo Frankie!_ game, they use this feature in a similar way. Both main characters[md]Frankie and Momo[md]have an empty parented to the wrist bone. When the player tries to catch some nuts or sheep, the game calls a Python script to control that interaction. Internally, a collision sensor checks to see if the picked object is close to the player, and it parents the picked object to the "Throw Place Carry," the bone-parented empty. In Figure 4.26, you can see Momo's "Throw Place Carry" empty in the middle of the throwing animation.
 
-\*\*\*Insert Fig04-26.tif
-
-Figure 4.26
-
-Momo bone-parenting system.
-
-Source: Blender Foundation.
+![Momo bone-parenting system](../figures/Chapter4/Fig04-26.png)
 
 # Shape Keys
 
@@ -636,13 +448,7 @@ The most popular usage is for character facial animation. You can create a face 
 
 In the game _Yo Frankie_, both of the main characters used shape key animations together with armatures. Momo used six shape poses to help its animations. The simple ones help with eye blinking. What would our cute monkey be if it couldn't wink at its mates? In Figure 4.27, you can see the Momo base pose and variations of it created by changing only the influence of the four eye poses[md]eye lids up, eye lids down, eye brows up, and eye brow down.
 
-\*\*\*Insert Fig04-27.tif
-
-Figure 4.27
-
-Momo blinking shape key poses.
-
-Source: Blender Foundation.
+![Momo blinking shape key poses](../figures/Chapter4/Fig04-27.png)
 
 \*\*\* Begin Note
 
@@ -654,33 +460,15 @@ You may be wondering if those poses could have been created with regular bone po
 
 The poses left[md]Smile and Ooh[md]are a bit more complex. They are opposite extremes of the same shape key animation with the Natural pose in between them. Momo can be smiling, natural, or ooh'ing. Since the latter is not a real verb, take a look at Figure 4.28 to better appreciate all the monkey sex appeal. It would be hard to get those results without adding lots of bones, which would create a system hard to animate. So shape keys are a far more elegant solution.
 
-\*\*\*Insert Fig04-28.tif
-
-Figure 4.28
-
-Momo shape keys poses: ooh, basis, and smile.
-
-Source: Blender Foundation.
+![Momo shape keys poses: ooh, basis, and smile](../figures/Chapter4/Fig04-28.png)
 
 Frankie, the flying squirrel, also uses shape keys for some facial expressions and to control its wings. Like Momo, it would be too hard to control the wings' deformation using only bones. Therefore, a shape pose was created to show how the mesh should be when the wing is tucked in. In Figure 4.29, you can see Frankie in a natural pose and with wings active.
 
-\*\*\*Insert Fig04-29.tif
-
-Figure 4.29
-
-Frankie[md]Ready to fly (left) and a natural pose (right).
-
-Source: Blender Foundation.
+![Frankie - Ready to fly (left) and a natural pose (right)](../figures/Chapter4/Fig04-29.png)
 
 Those shape keys are not used isolated as an action. Instead, they are used as part of an armature pose, driven by a bone, like all the other animation bones. This bone is used as a driver for the shape action it is intended to control. Like the other bone-over-bone controls with constraints (which we will see next), the driver bone itself is unaware of its role as the shape key controller. Figure 4.30 shows the regular setting of the shape action to a control bone. You will learn more about this later in the tutorial section.
 
-\*\*\*Insert Fig04-30.tif
-
-Figure 4.30
-
-Shape key driven by a control bone.
-
-Source: Blender Foundation.
+![Shape key driven by a control bone](../figures/Chapter4/Fig04-30.png)
 
 \*\*\* Begin Note
 
