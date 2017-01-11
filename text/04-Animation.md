@@ -1,6 +1,6 @@
 # Chapter 4
 
-# Animation
+## Animation
 
 _Written in collaboration with Moraes Júnior[md]Mango Jambo for friends[md]known for his work as the main character animator in the Blender Foundation open game project Yo Frankie._
 
@@ -32,7 +32,7 @@ If this is your first time working with animation in Blender, make sure that you
 
 \*\*\* End Note
 
-# Every Pot Has a Cover
+## Every Pot Has a Cover
 
 _Every animated pot has an F-Curve._
 
@@ -52,13 +52,13 @@ These are different systems, but there is a lot of overlap among them. More impo
 
 Rousing reading awaits you. Let the fun begin. First, let's look at one fundamental concept for game animation[md]the animation cycle.
 
-# Animation Cycles
+## Animation Cycles
 
 An animation cycle is usually a short action that when repeated produces the illusion of a continuous long movement. A classic example is the walking animation of a character. You don't need to animate the left step, then the right step, then left, then right … ad infinitum. An action with a left and right step can produce the same result. Just make sure the action starts and ends in the same pose, and you can keep playing it in a loop.
 
 Animation cycles are at the core of the character animation in a game. A library of multiple animations can provide a diverse and rich behavior for your game character. As a reference, in a game project such as _Yo Frankie_, the main characters[md]Frankie and Momo[md]have 87 and 70 individual unique actions, respectively. A few of the actions you can find there are: Walk, Walk Back, Walk Faster, Turn Left, Turn Right, Jump, Pick, Thrown, Jump, Idle Sleep, Idle, Idle Show Off, and many others.
 
-# Moving Animation Cycles
+## Moving Animation Cycles
 
 A lot of the basic actions of a game can be expressed as moving animation cycles: to walk, to run, to spin, to fly, to roll, and to swim. You may have noticed that all these example actions express the idea of movement in space as well. However, an animation cycle does not have any influence in the displacement of the animated object. Rather, you get the final animation look and feel through a combination of external motion control (for example, a Motion Actuator) and playback of an animation cycle. Indeed, if you play back only the animation action alone, you will see that it looks more like a treadmill exercise.
 
@@ -70,11 +70,11 @@ What we are doing here is splitting the bone pose animation from the object anim
 
 \*\*\* End Note
 
-# Still Animation Cycles
+## Still Animation Cycles
 
 There are cases where you don't need to displace your object while playing its animations, and we call them still _animation cycles._ An animation cycle without the displacement component is like a dog chasing its own tail. And if this is what you want to animate, you need the animation cycle and nothing more. In fact, any idle or secondary animations can be used directly without the need of a Motion actuator. For example, if you are doing a breath animation cycle or making your character tap his feet while waiting impatiently for you to make a move, all the animation is controlled by the armature poses. Even if your character has to move around a bit, you would not use a Motion actuator here. In these cases, make sure that the final pose is in the same position as the initial one.
 
-# Actions and F-Curves
+## Actions and F-Curves
 
 An action in Blender is something special for animation. By its definition, an action is a collection of channels of F-Curves. It allows a property (object size, bone position, etc.) to have a different value along different frames.
 
@@ -102,7 +102,7 @@ Even when you are using the Action actuator, you will be internally manipulating
 
 Other actions can be used to animate your object as a whole without affecting its internal geometry. You can move the object, change its size, rotate it, and animate its specific type parameters. For example, you can animate a camera to follow a predetermined path or animate a lamp to flicker a dimly colored dynamic light. Does your camera need to change the lens during the game? An action can easily do that for you.
 
-# Armature and Poses
+## Armature and Poses
 
 The Bone animation system works in the game engine very closely to the way it does in Blender. You will create a Mesh object and an Armature object to deform the first.
 
@@ -142,7 +142,7 @@ A good example is Frankie the Flying Squirrel in the animated short _Big Buck Bu
 
 ![_Big Buck Bunny_ (left) and _Yo Frankie_ (right) rigging comparison](../figures/Chapter4/Fig04-04.png)
 
-# When to Use Pose Actions
+## When to Use Pose Actions
 
 Always! The main usage of pose actions is the one explained earlier when talking about animation cycles. Full animation cycles will not be the only ones in your character repertory.
 
@@ -150,13 +150,13 @@ You don't need to have all the bones posed in all the actions you want to play. 
 
 Animated characters are not the only game objects that can use the armature animation system, though. You can use armatures anytime you need more control than the Motion Actuator can provide. Even a simple object like a door can use an armature to help open and close it. The problem with a door is that you often need to use the door as a colliding object[md]to keep the three little pigs safe from the wolf. That leads us to our next topic.
 
-# Graphic Mesh vs. Physic Shape
+## Graphic Mesh vs. Physic Shape
 
 To animate a mesh with bones is a relatively expensive task for the computer. Therefore, when you set an object to play a pose action, you are changing only the graphic mesh of the object[md]the mesh used for the game render. All the physics computations, however, are done in another instance of this mesh, and are not updated with the animation. In Figure 4.5 you can see the screen when Show Physics Visualization is on and the game has an object armature animated. The original rest pose of the armature is used for the physics/collision mesh. This is the mesh with the arms lying still. Although we can see the correct pose on top of that, this is not the one used for the physics computations.
 
 ![Physic mesh not updated for armatures meshes](../figures/Chapter4/Fig04-05.png)
 
-# Bone Constraints
+## Bone Constraints
 
 The constraints are a handy set of tools to facilitate the animation process. They are more familiar to riggers than to animators, since they are used to build easier-to-animate armatures. Thanks to bone constraints, we can build bone controllers to ease the work with complex game armatures. Because of constraints such as the IK (Inverse Kinematics), we can create poses in very simplified ways. In a nutshell, bone constraints will spare you from animating all the bones individually by setting relations between them.
 
@@ -172,7 +172,7 @@ When you start a game, the current influence of the bone constraints will determ
 
 \*\*\* End Note
 
-# Bone Constraints Not Supported
+## Bone Constraints Not Supported
 
 Because the constrained bone and the target bone need to be in the same armature, some constraints that rely on external curves, hinges, and objects are incompatible with the game engine. In the current version of Blender, the nonsupported bone constraints are: Spline IK, Follow Path, Rigid Body Joint, Script, Shrinkwrap, and, partially, the ChildOf.
 
@@ -184,7 +184,7 @@ Rigid Body Joint is supported as an object constraint, but not as a bone constra
 
 \*\*\* End Note
 
-# Bone Constraints Supported
+## Bone Constraints Supported
 
 All the Transform, Tracking, and Relationship bone constraints that were not mentioned previously can be used as you would in Blender.
 
@@ -194,7 +194,7 @@ In Figure 4.6, you can see the menu with all the bone constraints compatible wit
 
 If you're not familiar with bone constraints, following is a brief overview of them and their functionalities. As with almost every other feature of the game engine, the suggested usages illustrate but do not limit their potential application.
 
-# Transform
+## Transform
 
 The Transformation bone constraints help you build a bone control system. This control armature is a high-level armature, with only a few bones directly affecting the real armature.
 
@@ -252,7 +252,7 @@ You can find the file in _\Book\Chapter04\1\_constraints\_transform.blend_ (see 
 
 ![Bone slider](../figures/Chapter4/Fig04-12.png)
 
-# Tracking
+## Tracking
 
 A tracked bone constraint can be part of your main armature or your control bones. For example, it's common to have the Inverse Kinematics bone constraint in one bone that is part of the chain. At the same time, the Track To often uses a bone not connected to the chain and not deforming any mesh directly.
 
@@ -340,7 +340,7 @@ In the book files, you can find an example of a more advanced technique that int
 
 ![Stretch To bone constraint](../figures/Chapter4/Fig04-20.png)
 
-# Relationship
+## Relationship
 
 The following are the bone constraints that are supported the least. Ironically, apart from the category name, there is not much relationship between them.
 
@@ -440,7 +440,7 @@ The level of control that you get from Shape Keys comes with a price. The perfor
 
 \*\*\* End Note
 
-# When to Use Shape Keys
+## When to Use Shape Keys
 
 Use shape keys whenever the animation is too complex for armature animations. That's not the whole story, though. Shape key animations are often integrated with the traditional armature animations, not as something separate. They can work as stand-alone animations, of course; there is indeed an actuator dedicated only to that. However, the greatest application of shape keys is not to replace the bone animation but to complement it.
 
@@ -478,7 +478,7 @@ Shape keys can also be used directly by the Action actuator. This is useful when
 
 \*\*\* End Note
 
-# Tutorials
+## Tutorials
 
 _No keyframes were hurt in the making of those tutorials._
 
@@ -486,7 +486,7 @@ In the following pages, we are going to make a character walk, interact with obj
 
 ![Dear Momo, get ready for rock 'n' roll!](../figures/Chapter4/Fig04-31.png)
 
-# Pre-Tutorial
+## Pre-Tutorial
 
 In this short pre-tutorial, we will the animate the camera rotation and the camera focal length as an opening effect for the game.
 
@@ -562,7 +562,7 @@ You can get this final file on _\Book\Chapter04\tutorials\pretutorial\_camera\_a
 
 This effect is a bit annoying if you play the file multiple times to test the animation (as you will soon). So this spinning camera is not included in the base file you will use for the actual tutorial. If, however, you want to bring the camera along, you can append it into your other files. All the logic bricks and actions linked to the camera object and camera datablock will follow the Blender object.
 
-# Animation Cycle Tutorial
+## Animation Cycle Tutorial
 
 To start, let's open the Momo file and look at the armature. Open the book file _\Book\Chapter4\tutorial\_walk\_1.begin.blend._
 
@@ -584,7 +584,7 @@ We will create a walking cycle for Momo, following these steps:
 
 In this tutorial, we will not cover animation extensively. This topic alone could fill a whole book. Instead, we will focus on the workflow of integrating your animation skills with the game engine tools. You'll get some tips you can apply to both Blender and the game engine animations. Both platforms work in a similar fashion.
 
-# Armature Setup
+## Armature Setup
 
 The armature is already created, but not yet ready to animate the character. If you go to the Pose Mode, you can move the individual bones, as shown in Figure 4.33. As you might already know, bones constraints are useful in posing the armature, so let's create some.
 
@@ -660,7 +660,7 @@ Setting the Track To bone constraint is not much different than setting the othe
 
 To finish the setup, select the RigMomo as the target object and eyes.target.L as the target bone. Do the same for the right eye, and you are ready to move the target bones around. The armature is now ready for the first animation. If you just want to have fun animating the character, you can check the current file status at _\Book\Chapter4\tutorial\_walk\_3.trackto.blend._
 
-# Extreme Poses
+## Extreme Poses
 
 The first thing you need for your animation is the start position of the walking cycle. A good cycle shouldn't have a clear beginning or end, so we'll start with the extreme poses. In general, an extreme pose shows a moment when the animation hits a peak, before it changes direction. For the walking cycle, an extreme pose is when one leg is in its maximum stretch and the other is slightly bent, waiting to transfer its weight to the leg in front of it. We will start from there.
 
@@ -720,7 +720,7 @@ The final file can be found in _\Book\Chapter4\tutorial\_walk\_5.extremeposes.bl
 
 ![Action Editor - first poses ready](../figures/Chapter4/Fig04-40.png)
 
-# Moving Forward
+## Moving Forward
 
 The final walking cycle will have no real forward movement: the character stays in the same place. It's similar to those old Looney Tunes cartoons when the coyote runs past the cliff and keeps running without going anywhere. Then he falls. Nevertheless, you still need to set up a system where you can see the character walking as if you had a Motion Actuator attached to it. To help with this, we will look at two methods: using the central bone or moving the environment.
 
@@ -796,7 +796,7 @@ This method requires a bit more setup than the previous one, but it has a big ad
 
 ![Animation feet placeholders](../figures/Chapter4/Fig04-43.png)
 
-# Between Poses
+## Between Poses
 
 So far we have only two poses, the extreme left and the extreme right stride poses. By default, Blender interpolates the keyframed poses, creating a smooth transition between them. This mathematic interpolation is of no use for the final animation. That leaves us with 20 frames to fill between those extreme poses.
 
@@ -828,7 +828,7 @@ In Figure 4.45, you can see the final result of our take on this. This file is i
 
 ![Walking cycle complete](../figures/Chapter4/Fig04-45.png)
 
-# Play Time
+## Play Time
 
 Now that the animation cycle is done, it's time to bring it from Blender into the game. You need to set an Action actuator to play the walking action and a Motion Actuator to make it move accordingly.
 
@@ -860,7 +860,7 @@ The value to use in the Motion actuator is the object speed times the frequency 
 
 In the end, you might want to set the camera to track Momo during the walk. In the sample file, you will see the camera is parented to an empty with an Edit ObjectTrack To Actuator to follow Momo. Also, the zoom and rotate camera intro effect was brought back from the pretutorial. A checkerboard pattern on the floor will also help to follow the pace of his progression. The final file is shown in Figure 4.47 and can be found on _\Book\Chapter4\tutorial\_walk\_9.playtime.blend_.
 
-# Idle Animation
+## Idle Animation
 
 In the latest file, we set up Momo to walk. We never set it up for him to stop walking, though[md]the Always sensor will play the animation in an infinite loop until you quit the game. To push our animation exercises further, let's create an idle animation for Momo. We will then set up Momo to walk, stop, and walk again. Idle animations are played when the character is waiting for you to make a decision (whether to keep walking, to run, to turn, etc.). So as soon as we stop walking, we will set the character to act accordingly.
 
@@ -896,7 +896,7 @@ As long as your poses are inside the range of the initial and final frames, the 
 
 Before you finish the idle animation, you need to set up drivers for your shape keys. You can find the current snapshot file at the end of the next section.
 
-# Making a Face
+## Making a Face
 
 Do you know the difference between television and a live performance? In television the director has full control of the framing of the shots. It's common to use and abuse close-ups and strong facial expressions as a replacement for expressive body language. In the live theater, the audience may be sitting close or far away from the stage, and they all need to be pleased. (Sure, people fight over a front seat, but the show still has to make sense to everyone.)
 
@@ -973,7 +973,7 @@ Additionally, you can add a bone constraint to make sure the bone controller is 
 
 Finally, you need to set up the remaining poses[md]eyelid up and down and eyebrow up and down. The setup is the same as for the pair ooh and smile. This time, we will leave them for you, but you can check the final setup file in _\Book\Chapter4\tutorial\_idle\_4.shapekeysdriver.blend_.
 
-# Get Your Hands Dirty
+## Get Your Hands Dirty
 
 With the armature ready to pose, you can complete the idle animation. Once things are set, there is no need to worry about anything but the armature poses. Take the previous file and create the complete cycle.
 
@@ -983,7 +983,7 @@ After the tutorial section, you can check out the idle and walking animation mad
 
 ![Momo idle animation](../figures/Chapter4/Fig04-53.png)
 
-# Wiring Up the Logic Bricks
+## Wiring Up the Logic Bricks
 
 There is only one thing missing. We need to alternate between the two animations: the walking and the idle one. With the latest file open, select RigMomo and in the Logic Editor, make the following changes:
 
@@ -1017,7 +1017,7 @@ Now all that is left to be done is to play the idle action when Momo is not walk
 
 The final file is on _\Book\Chapter4\tutorial\_idle\_6.idlewalkforward.blend_.
 
-# How Many Bricks Does It Take to Turn Momo?
+## How Many Bricks Does It Take to Turn Momo?
 
 Momo can walk and stop. Now, if only we had a jump, we would be set for a side-scroller platform game (due to copyright restrictions, you will not see a figure of Momo running after a spinning-spiked hedgehog). For a 3D game, however, you need to be able to freely navigate into the levels. And there is no better way than allowing the character to turn around.
 
@@ -1061,7 +1061,7 @@ Bottomline: a miso soup with sugar is not a break-even[md]it's bad cooking.
 
 \*\*\* End Note
 
-# Hats Off to Momo and Vice-Versa
+## Hats Off to Momo and Vice-Versa
 
 Momo is a classy monkey, often seen at parties of the animal kingdom's high society. However, when with his inner circle of friends, Momo is actually a very casual monkey[md]not much to show, nothing to hide. One character[md]two quite distinct moments. This is the theme of our animation.
 
@@ -1131,13 +1131,13 @@ The interaction is simple: click on a hat to switch to it; click anywhere else t
 
 This is done by a script that is already hooked up for the camera. This Python script is very simple, and you should be able to understand it after the Chapter 7, "Python Scripting." The script accesses the objects[md]hats and empty placeholders[md]by their names. Therefore, for your local changes, it's important to follow the names as presented here or tweak the script accordingly.
 
-# Mango Jambo Special Animation
+## Mango Jambo Special Animation
 
 The walking cycle you've seen so far is technically correct, and it follows the workflow you can count on, regardless of your animation skills. The bottom line is: with a good method and the understanding of the techniques, although you may not be brilliant, you can't go wrong either.
 
 Now, as the icing on the cake, I've asked the animator Moraes Júnior to do the same thing we did together[md]a new walking cycle and idle animation using the same base file. For reference, he created Momo for the _Yo Frankie_ project and its original animations. After our using and abusing of Momo in the previous pages, it's only fair to see what his "father" would have done instead. Here you can see and study his work and the final contribution: \Book\Chapter4\mangojambo.blend
 
-# To Learn More
+## To Learn More
 
 Finally, dedicate the proper time to mastering the ways of animation. Learning how to make animation work in Blender is still not the same thing as knowing what to do. Here is a list of classic materials for learning animation[md]modern references for animation and character control in games and Blender-specific reading.
 
