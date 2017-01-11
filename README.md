@@ -11,7 +11,7 @@ This is a republication of the book originally published by Cengage. We put the 
 
 [Chapter 3 - Logic Bricks](text/03-LogicBricks.md)
 
-Chapter 4 - Animation - Not Ready
+[Chapter 4 - Animation](text/04-Animation.md)
 
 Chapter 5 - Graphics - Not Ready
 
