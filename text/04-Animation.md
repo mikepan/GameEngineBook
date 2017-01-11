@@ -142,7 +142,7 @@ A good example is Frankie the Flying Squirrel in the animated short _Big Buck Bu
 
 ![_Big Buck Bunny_ (left) and _Yo Frankie_ (right) rigging comparison](../figures/Chapter4/Fig04-04.png)
 
-## When to Use Pose Actions
+### When to Use Pose Actions
 
 Always! The main usage of pose actions is the one explained earlier when talking about animation cycles. Full animation cycles will not be the only ones in your character repertory.
 
