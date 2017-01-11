@@ -172,7 +172,7 @@ When you start a game, the current influence of the bone constraints will determ
 
 \*\*\* End Note
 
-## Bone Constraints Not Supported
+### Bone Constraints Not Supported
 
 Because the constrained bone and the target bone need to be in the same armature, some constraints that rely on external curves, hinges, and objects are incompatible with the game engine. In the current version of Blender, the nonsupported bone constraints are: Spline IK, Follow Path, Rigid Body Joint, Script, Shrinkwrap, and, partially, the ChildOf.
 
@@ -184,7 +184,7 @@ Rigid Body Joint is supported as an object constraint, but not as a bone constra
 
 \*\*\* End Note
 
-## Bone Constraints Supported
+### Bone Constraints Supported
 
 All the Transform, Tracking, and Relationship bone constraints that were not mentioned previously can be used as you would in Blender.
 
@@ -194,11 +194,11 @@ In Figure 4.6, you can see the menu with all the bone constraints compatible wit
 
 If you're not familiar with bone constraints, following is a brief overview of them and their functionalities. As with almost every other feature of the game engine, the suggested usages illustrate but do not limit their potential application.
 
-## Transform
+#### Transform
 
 The Transformation bone constraints help you build a bone control system. This control armature is a high-level armature, with only a few bones directly affecting the real armature.
 
-### Copy Location, Rotation, Scale
+##### Copy Location, Rotation, Scale
 
 These allow you to copy part of the transformation and to set an offset for the copy. The bone doesn't get locked, allowing for further adjustments of the bone transformation (see Figures 4.7a-c).
 
@@ -212,7 +212,7 @@ An artistic example of its use would be clothes or armor. The external bone chai
 
 ![Copy Scale bone constraint](../figures/Chapter4/Fig04-07c.png)
 
-### Copy Transforms
+##### Copy Transforms
 
 Unlike the previous bone constraints, you cannot set the bone offset in this constraint, so with influence 1.0, the constrained bone and the target bone will be exactly in the same place (see Figure 4.8).
 
@@ -220,7 +220,7 @@ As a rule of thumb, an influence different than 1.0 produces more interesting be
 
 ![Copy Transforms bone constraint](../figures/Chapter4/Fig04-08.png)
 
-### Limit Distance, Limit Rotation, Limit Scale
+##### Limit Distance, Limit Rotation, Limit Scale
 
 When you use a bone transformation to influence another bone (for example, bone control sliders or bone drivers), you are mapping a range of transformation (the position from [0,0,0] to [0,1,0] into the constrained bone[md]see the Transformation bone constraint). Limit bone constraints restrict the bone to transformations inside the expected range they are being mapped from (see Figures 4.9a-c).
 
@@ -232,7 +232,7 @@ They can also be used to complement Copy Location/Rotation/Scale bone constraint
 
 ![Limi Scale bone constraint](../figures/Chapter4/Fig04-09c.png)
 
-### Maintain Volume
+##### Maintain Volume
 
 This bone constraint does not use a target (see Figure 4.10). The transformation happens only dependent on the bone itself (and within the axis opposite to the selected Free axis).
 
@@ -240,7 +240,7 @@ It's used for squash and stretch, the classic cartoon effect for squeezing bounc
 
 ![Maintain Volume bone constraint](../figures/Chapter4/Fig04-10.png)
 
-### Transformation
+##### Transformation
 
 This is the best bone constraint for sliders. It allows you to map the transformation from the target bone into a completely different transformation of the constrained bone. For example, you can map the location range of a target (slider) bone from [0,-1,0] to [0,1,0] onto the rotation of the constrained bone from -90 degrees to 90 degrees (see Figure 4.11).
 
@@ -252,11 +252,11 @@ You can find the file in _\Book\Chapter04\1\_constraints\_transform.blend_ (see 
 
 ![Bone slider](../figures/Chapter4/Fig04-12.png)
 
-## Tracking
+#### Tracking
 
 A tracked bone constraint can be part of your main armature or your control bones. For example, it's common to have the Inverse Kinematics bone constraint in one bone that is part of the chain. At the same time, the Track To often uses a bone not connected to the chain and not deforming any mesh directly.
 
-### Clamp To
+##### Clamp To
 
 The Clamp To bone constraint forces the bone along a curve object (see Figure 4.13). The bone needs to be disconnected from the bone chain to properly constrain its location into the curve.
 
@@ -264,7 +264,7 @@ It's quite handy for cyclic environment animation of assets from your game. For 
 
 ![Clamp To bone constraint](../figures/Chapter4/Fig04-13.png)
 
-### Damped Track, Locked Track, and Track To
+##### Damped Track, Locked Track, and Track To
 
 Those three bone constraints work in a similar way. You select a target bone[md]where the constrained bone will be facing[md]and an axis indicating the internal direction to point to that target. The difference is how much manual control over the bone rotation you need after setting up the bone constraint. While the Track To completely locks the constrained bone rotation, the Damped Track keeps it completely loose for transformations on top of the bone constraint influence.
 
@@ -280,7 +280,7 @@ Track To locks the constrained bone for any rotation adjustment, leaving its rot
 
 ![Track To bone constraint](../figures/Chapter4/Fig04-16.png)
 
-### Inverse Kinematics
+##### Inverse Kinematics
 
 The IK (Inverse Kinematics) bone constraint helps you bypass the FK (Forward Kinematics) architecture of the armature bones. FK is designed for individual changes of rotation over the bone chain (from the parent to the children). In order to change a bone location, you need to rotate all the bones that lead to it and make sure the resulting rotation places the bone into the desired location (see Figure 4.17).
 
@@ -292,7 +292,7 @@ With IK, you only need to move the hand to the target place. The rotation of the
 
 The target bone can't be a parent or child of any bone constrained by this bone constraint[md]this produces cyclic unpredictable effects. This includes not only the bone where you added the IK, but also as many bones as you set in your chain length. (Leaving it as zero influences the whole bone chain.)
 
-#### Legacy Solver
+###### Legacy Solver
 
 By default, Blender uses the Legacy solver for the Inverse Kinematics calculations. This is how most of the animation software works and how animators are used to work.
 
@@ -318,7 +318,7 @@ If you don't select a target for the bone constraint, you can still use the IK i
 
 \*\*\* End Note
 
-#### iTaSC Solver
+###### iTaSC Solver
 
 Additionally, you can change the IK solver in the Armature panel to use iTaSC. This name stands for _Instantaneous Task Specification using Constraints._ This IK solver was developed especially for robotics, but can be used as a more advanced replacement for the old IK (Legacy) solver.
 
@@ -332,7 +332,7 @@ The other bone constraints are great to help you animate your armature, but they
 
 _http://wiki.blender.org/index.php/Dev:Source/GameEngine/RobotIKSolver_
 
-### Stretch To
+##### Stretch To
 
 A stretched bone allows you to produce cartoon body transformations (see Figure 4.20). Different from a scaled bone, a stretched one maintains its volume. The target bone needs to be completely isolated from and not connected at all to the constrained bone. It can't be either a child or a parent.
 
@@ -340,13 +340,13 @@ In the book files, you can find an example of a more advanced technique that int
 
 ![Stretch To bone constraint](../figures/Chapter4/Fig04-20.png)
 
-## Relationship
+#### Relationship
 
 The following are the bone constraints that are supported the least. Ironically, apart from the category name, there is not much relationship between them.
 
 A bone constraint worth mention is the Action bone constraint. With it, you can play complete actions in the armature by moving one single bone around. Given the complexity of this constraint, the example part of this text evolved as a pseudo-tutorial. I say _pseudo-tutorial_ because we are working on top of no file, although you should be able to follow the instructions and reproduce the effect yourself.
 
-### Action
+##### Action
 
 With the Action bone constraint, you can play back an entire action by controlling one single bone (see Figure 4.21). Make sure that the target bone is not animated in the action you are playing; otherwise, this will produce unpredictable results. Since this is a more complicated bone constraint, the best way to show possible usages is by a pseudo-mini-tutorial as you see next.
 
@@ -372,7 +372,7 @@ After all the setup is done, you only need to worry about the target bone when y
 
 Another use for this bone constraint is to play two actions influencing the same bones at the same time. This is a work-around for the game engine's limitation of only being able to play one action that influences a bone at a time. In the book files, you can see a sample of this in _\Book\Chapter04\3\_action\_constraint.blend_. Note in the file that each Action actuator is set to its own layer, so they can be stacked together for the same object.
 
-### Child Of
+##### Child Of
 
 _It's only partially supported._
 
@@ -394,13 +394,13 @@ As with the other bone constraints not properly supported in the game engine, yo
 
 \*\*\* End Note
 
-### Floor
+##### Floor
 
 The floor allows you to create an imaginary plane to constraint your bone transformations to. It creates the equivalent of a floor, a ceiling, or a wall that cannot be transposed. The pose location from the constrained bone must be cleaned for the clamping to the plane to work (Alt+G). See Figure 4.24.
 
 ![Floor bone constraint](../figures/Chapter4/Fig04-24.png)
 
-### Pivot
+##### Pivot
 
 This bone constraint helps rotate bones around a specific bone. An example would be to create a screwdriver animation. The screw position would be represented by a bone used as a pivot (the target bone in this bone constraint). The hand with the screwdriver would have its rotation locked to the pivot. To make the Influence propagate through the bone chain, you would need the hand bone to have an IK bone constraint (see Figure 4.25).
 
