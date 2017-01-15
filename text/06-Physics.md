@@ -227,24 +227,24 @@ Physics settings apply to all game objects types, including mesh, empty, lamp, a
 
 How do you decide which physics type to pick for an object? That largely depends on the role of the object in the game. Table 6.1 shows all the physics types that are available in Blender and their corresponding characteristics.
 
-|    Type       |    Collision G,F,T    |    Roll Typical Use                |
-| ------------- |:---------------------:|:------------------|
-| No collision  | No  No  No            | Effects, high-resolution mesh |
-| Static        | Yes  No  No           | Buildings, immovable structures |
-| Dynamic | Yes  Yes  No | Yes  Yes  No |
-| Rigid Body | Yes  Yes  Yes | Movable barrels, crates, general objects |
-| Soft Body | Yes  Partial  Yes | Hair, cloth, rubber ducky |
-| Occluder | No  No  No | Walls for performance optimization |
-| Sensor | Yes  No  No | Event triggers |
-| Navigation | No  No  No | Pathfinding helper |
-| Character | Yes  No  No | Designed specifically for characters |
+|    Type       |    Collision G,F,T    |    Roll Typical Use                      |
+| ------------- |:---------------------:|:-----------------------------------------|
+| No collision  | No  No  No            | Effects, high-resolution mesh            |
+| Static        | Yes  No  No           | Buildings, immovable structures          |
+| Dynamic       | Yes  Yes  No          | None                                     |
+| Rigid Body    | Yes  Yes  Yes         | Movable barrels, crates, general objects |
+| Soft Body     | Yes  Partial  Yes     | Hair, cloth, rubber ducky                |
+| Occluder      | No  No  No            | Walls for performance optimization       |
+| Sensor        | Yes  No  No           | Event triggers                           |
+| Navigation    | No  No  No            | Pathfinding helper                       |
+| Character     | Yes  No  No           | Designed specifically for characters     |
 
 Table 6.1: Physics Types
-Collision: Whether the object detects collision.
+- **Collision**: Whether the object detects collision.
 
-G,F,T: Whether the object can be moved by Gravity, Force, and Torque.
+- **G,F,T**: Whether the object can be moved by Gravity, Force, and Torque.
 
-Roll: Whether the objects roll and tumble when they are on an incline.
+- **Roll**: Whether the objects roll and tumble when they are on an incline.
 
 To familiarize yourself with the different physics types, open the demo file available from /Book/Chapter6/demo/physicsTypes.blend. It shows some of the common physics types and their behavior, as shown in Figure 6.15.
 
@@ -256,13 +256,9 @@ Let's look at the settings in more detail.
 
 No Collision skips all physics calculation. The objects will be effectively invisible to the physics engine. Other objects will not be able to detect collision with the object, nor collide with it. No Collision objects can still be moved using the Motion actuator. Use this for objects that you don't intend to interact with at all during the game, such as leaves of vegetation.
 
-\*\*\* Begin Note
-
-Collision Proxy
-
-Setting an object to No Collision completely skips collision detection on the object, which can speed up the game considerably on a high-polygon mesh. A common practice is to set the high-polygon mesh to No Collision and then manually create a simplified "collision proxy" mesh object that approximates the shape of the high-polygon mesh. Then attach the high-polygon mesh to the collision proxy using parenting. This way, the low-polygon mesh will be used for all collision calculation, which is fast, and a high-polygon version of the object will be used for display, which is visually nicer. As this is an optimization technique, a step-by-step tutorial on creating a collision proxy is covered in Chapter 8.
-
-\*\*\* End Note
+>**Collision Proxy**
+>
+>Setting an object to No Collision completely skips collision detection on the object, which can speed up the game considerably on a high-polygon mesh. A common practice is to set the high-polygon mesh to No Collision and then manually create a simplified "collision proxy" mesh object that approximates the shape of the high-polygon mesh. Then attach the high-polygon mesh to the collision proxy using parenting. This way, the low-polygon mesh will be used for all collision calculation, which is fast, and a high-polygon version of the object will be used for display, which is visually nicer. As this is an optimization technique, a step-by-step tutorial on creating a collision proxy is covered in Chapter 8.
 
 ### Static <a id="Static"></a>
 
@@ -278,13 +274,9 @@ Rigid body behaves very similarly to a dynamic object: they have a defined mass,
 
 If the Suzanne model in the aforementioned sample Blender file is set to Rigid Body, it will behave like a real object, fall toward the ground, and come to rest on one of its ears.
 
-\*\*\* Begin Note
-
-Avoid DLoc Movement
-
-When using a dynamics based object (Dynamic, Rigid Body, and so on), you should use physics-based options, such as force and linear velocity for movement, and not change its location directly by dLoc.
-
-\*\*\* End Note
+>**Avoid DLoc Movement**
+>
+>When using a dynamics based object (Dynamic, Rigid Body, and so on), you should use physics-based options, such as force and linear velocity for movement, and not change its location directly by dLoc.
 
 ### Soft Body <a id="Soft Body"></a>
 
@@ -292,13 +284,9 @@ Whereas all the previously described physics types operate on the objects by mov
 
 As seen in the Suzanne model in the sample file, it will fall due to gravity, and once it hits the ground, it collapses as if it's made of a rubber shell. This is the power of Soft Body physics.
 
-\*\*\* Begin Note
-
-Apply Scale
-
-The physics engine works more reliably when the objects have a scale of 1. Thus, it is highly recommended to Apply Scale by pressing Ctrl+A on most of the objects before you run the game. This will prevent a lot of the strange issues that might crop up later.
-
-\*\*\* End Note
+>**Apply Scale**
+>
+>The physics engine works more reliably when the objects have a scale of 1. Thus, it is highly recommended to Apply Scale by pressing Ctrl+A on most of the objects before you run the game. This will prevent a lot of the strange issues that might crop up later.
 
 ### Occluder <a id="Occluder"></a>
 
@@ -320,49 +308,45 @@ This setting turns an object into a helper object that is used for pathfinding n
 
 Since Blender 2.6, the game engine has a fully automated AI pathfinding routine. It can be used to direct an AI character through the 3D world, reaching a target, while avoiding obstacles.
 
-\*\*\*Insert Tutorial
-
 #### Hands-on Tutorial: Navigation <a id="Hands-on Tutorial: Navigation"></a>
 
-1.Open /Book/Chapter6/navigation.blend
+1. Open /Book/Chapter6/navigation.blend
 
-2.This scene is set up with four objects (excluding the lamp and the camera).
+2. This scene is set up with four objects (excluding the lamp and the camera).
 
-3._Monkey_ is our main character; it will be navigating through the maze (the VisualMesh) to get to the Target. To aid its quest, we have created a simple helper geometry that outlines where the character can walk. This object is known as the _NavMesh_. Figure 6.17 shows the initial setup.
+3. _Monkey_ is our main character; it will be navigating through the maze (the VisualMesh) to get to the Target. To aid its quest, we have created a simple helper geometry that outlines where the character can walk. This object is known as the _NavMesh_. Figure 6.17 shows the initial setup.
 
 ![Navigation system](../figures/Chapter6/Fig06-17.png)
 
-4.A navigation mesh is a helper object (invisible while the game is running) that is used to help guide other objects along a path. The NavMesh object is a regular mesh object that defines the shape of the accessible area for the pathfinding routine.
+4. A navigation mesh is a helper object (invisible while the game is running) that is used to help guide other objects along a path. The NavMesh object is a regular mesh object that defines the shape of the accessible area for the pathfinding routine.
 
-5.There are two ways to create a navigation mesh. One is to manually model a geometry that covers all the areas that are accessible to a character. This is what we have done with NavMesh.
+5. There are two ways to create a navigation mesh. One is to manually model a geometry that covers all the areas that are accessible to a character. This is what we have done with NavMesh.
 
-6.Another option is to ask Blender to create a navigation automatically. It might be easier for larger maps, but the result is far less predictable. We will cover this functionality at the end of this hands-on tutorial.
+6. Another option is to ask Blender to create a navigation automatically. It might be easier for larger maps, but the result is far less predictable. We will cover this functionality at the end of this hands-on tutorial.
 
-7.Make sure that the NavMesh object is selected and change its physics type to Navigation Mesh. The NavMesh will turn into a colorful grid, but don't be alarmed[md]this is normal. It means the object now can be used to aid in navigation. Navigation meshes becomes invisible when the game is running.
+7. Make sure that the NavMesh object is selected and change its physics type to Navigation Mesh. The NavMesh will turn into a colorful grid, but don't be alarmed[md]this is normal. It means the object now can be used to aid in navigation. Navigation meshes becomes invisible when the game is running.
 
-8.Select the Monkey object and add a "steering" Logic Brick actuator to it, as shown in Figure 6.18. Define the target and navigation mesh object, as shown in Figure 6.19.
+8. Select the Monkey object and add a "steering" Logic Brick actuator to it, as shown in Figure 6.18. Define the target and navigation mesh object, as shown in Figure 6.19.
 
 ![Steering actuator setup](../figures/Chapter6/Fig06-18.png)
 
-9.And you are done! Start the game and watch the monkey seek out the cone. The Steering actuator contains additional options that you can explore.
+9. And you are done! Start the game and watch the monkey seek out the cone. The Steering actuator contains additional options that you can explore.
 
-10.Figure 6.19 shows the finished game running in the Blender game engine. You can check out navigation-finished.blend.
+10. Figure 6.19 shows the finished game running in the Blender game engine. You can check out navigation-finished.blend.
 
 ![Finished](../figures/Chapter6/Fig06-19.png)
 
-11.As promised, another way to create a navigation mesh is to use the automatic generator. To do this, delete the NavMeshobject first so you can start with a clean slate.
+11. As promised, another way to create a navigation mesh is to use the automatic generator. To do this, delete the NavMeshobject first so you can start with a clean slate.
 
-12.Select the object you want to use as the guide in creating the navigation mesh. In this case, you need to select VisualMesh. Blender will build a new navigation mesh based on this mesh.
+12. Select the object you want to use as the guide in creating the navigation mesh. In this case, you need to select VisualMesh. Blender will build a new navigation mesh based on this mesh.
 
-13.Go to the Scene tab of the Properties Editor, as seen in Figure 6.20. You should see a "Build Navigation Mesh" button, along with a whole slew of settings.
+13. Go to the Scene tab of the Properties Editor, as seen in Figure 6.20. You should see a "Build Navigation Mesh" button, along with a whole slew of settings.
 
 ![Automatic navigation mesh generation](../figures/Chapter6/Fig06-20.png)
 
-14.Pressing the aforementioned button will create a navigation mesh automatically from the visual mesh.
+14. Pressing the aforementioned button will create a navigation mesh automatically from the visual mesh.
 
-15.If the result isn't optimal, play with the settings. Agent Radius is a good place to start.
-
-\*\*\*End Tutorial
+15. If the result isn't optimal, play with the settings. Agent Radius is a good place to start.
 
 ### Characters <a id="Characters"></a>
 
@@ -372,79 +356,66 @@ This is a specialized physics type that is designed specifically for player-cont
 
 Whew. With all the physics types out of the way, let's look at some of the shared settings common to most of the physics types described earlier.
 
-**       ** [lb] **        Actor:** Makes the object part of the physics evaluation loop. An object not marked as an actor is ignored by the Near and Radar sensors, although it will still obey the laws of physics.
+- **Actor:** Makes the object part of the physics evaluation loop. An object not marked as an actor is ignored by the Near and Radar sensors, although it will still obey the laws of physics.
 
-[lb] **Ghost:** Makes an object not react to collisions such that it will pass through another[md]like a ghost. Collisions are still detected for ghost objects, so any sensors that detect collision between two ghost objects will still fire, but the objects will not bounce apart as they normally would.
+- **Ghost:** Makes an object not react to collisions such that it will pass through another[md]like a ghost. Collisions are still detected for ghost objects, so any sensors that detect collision between two ghost objects will still fire, but the objects will not bounce apart as they normally would.
 
-[lb] **Invisible:** Skips rendering of the object while still calculating all the physics and logic. This is useful for creating invisible walls and edges of maps to prevent players from visiting places you do not want them to go.
+- **Invisible:** Skips rendering of the object while still calculating all the physics and logic. This is useful for creating invisible walls and edges of maps to prevent players from visiting places you do not want them to go.
 
-[lb] **Mass:** Sets the mass of the object. A heavier object requires more force to move. Contrary to intuition, a heavier object does not fall faster than a lighter object (see note, "Hammer and Feather"). So increasing the mass will not make your object fall faster. To make objects fall faster, lower the damping on the object or increase the gravity in World settings.
+- **Mass:** Sets the mass of the object. A heavier object requires more force to move. Contrary to intuition, a heavier object does not fall faster than a lighter object (see note, "Hammer and Feather"). So increasing the mass will not make your object fall faster. To make objects fall faster, lower the damping on the object or increase the gravity in World settings.
 
-\*\*\* Begin Note
-
-Hammer and Feather
-
-A hammer and a feather fall at the same rate in vacuum! In air, the drag force will slow down a lighter object more than a heavier object, so a heavier object indeed falls faster than a lighter object. But since Blender does not model air friction, object mass does not affect how fast they fall. This is not a bug!
-
-\*\*\* End Note
+>**Hammer and Feather**
+>>
+>A hammer and a feather fall at the same rate in vacuum! In air, the drag force will slow down a lighter object more than a heavier object, so a heavier object indeed falls faster than a lighter object. But since Blender does not model air friction, object mass does not affect how fast they fall. This is not a bug!
 
 Just as an 18-wheeler truck hitting a bunny won't have a happy ending (for the bunny), the physics engine works best when the objects interacting have masses of a similar magnitude. When an object with a very large mass collides with an object with a very small mass, instability might be created in the physics engine. As a general rule, keep all objects within 2 magnitudes of mass to each other. So, if an object weighs 1.0, it shouldn't interact with an object that is much heavier than 100.0.
 
-[lb] **Radius:** Controls the radius of the collision sphere. If a collision bound other than Sphere is selected, this setting has no effect.
+- **Radius:** Controls the radius of the collision sphere. If a collision bound other than Sphere is selected, this setting has no effect.
 
-[lb] **No sleeping:** By default, the physics engine automatically suspends the physics calculation for an object when its motion is sufficiently slow. This is known as "sleeping." Putting the object to sleep can free up the CPU cycle and increase game performance until another object interacts with it again. Putting objects to sleep can cause some odd-looking behaviors, such as slow-moving objects coming to a sudden stop. "No sleeping" disables this optimization. The downside is that "no sleeping" might lead to some odd, jittery behavior for objects that are not perfectly stable.
+- **No sleeping:** By default, the physics engine automatically suspends the physics calculation for an object when its motion is sufficiently slow. This is known as "sleeping." Putting the object to sleep can free up the CPU cycle and increase game performance until another object interacts with it again. Putting objects to sleep can cause some odd-looking behaviors, such as slow-moving objects coming to a sudden stop. "No sleeping" disables this optimization. The downside is that "no sleeping" might lead to some odd, jittery behavior for objects that are not perfectly stable.
 
 Additionally, there are options for controlling when objects go to sleep in the World properties under the "Physics Deactivation" label. This settings can be used to change the global delay before objects are deactivated.
 
-[lb] **Damping:** Applies a drag force on an object. A damping of 0 corresponds to no friction at all, just like a spherical cow traveling in a vacuum. A damping of 1.0 corresponds to a drag force so strong that the object will be unable to move. Translational damping slows down an object's movement; rotational damping slows down an object's spinning.
+- **Damping:** Applies a drag force on an object. A damping of 0 corresponds to no friction at all, just like a spherical cow traveling in a vacuum. A damping of 1.0 corresponds to a drag force so strong that the object will be unable to move. Translational damping slows down an object's movement; rotational damping slows down an object's spinning.
 
-[lb] **Anisotropic Friction:** Controls the friction force per axis. You can use this to mimic objects that have different coefficients of friction, depending on the orientation of the object. For example, a skateboard slides easily along its length, but is almost unmovable sideways.
+- **Anisotropic Friction:** Controls the friction force per axis. You can use this to mimic objects that have different coefficients of friction, depending on the orientation of the object. For example, a skateboard slides easily along its length, but is almost unmovable sideways.
 
-[lb] **Form Factor:** The tooltip says this setting "scales the inertia tensor." Make sense? No? Well, aren't you glad you have this book! Form factor controls the tendency for an object to roll. The bigger the value, the less likely an object will roll and tumble. A smaller value makes the object much more likely to rotate. Set the value too low, and the object will become unstable. The default value is a good balance between physics stability and realism.
+- **Form Factor:** The tooltip says this setting "scales the inertia tensor." Make sense? No? Well, aren't you glad you have this book! Form factor controls the tendency for an object to roll. The bigger the value, the less likely an object will roll and tumble. A smaller value makes the object much more likely to rotate. Set the value too low, and the object will become unstable. The default value is a good balance between physics stability and realism.
 
-[lb] **Collision Bounds:** This is the shape of the object as it appears to the physics engine. This might sound surprising, but the shape of the object used for physics calculation is not always the same as the one that is displayed. The distinction is important because, for performance reasons, a rough proxy shape is often used in place of the actual geometry. This way, the user still sees a fully detailed object on the screen, but the physics engine can run a lot faster using a simplified collision bound. It is important to try to use the simplest collision bounds possible in order to keep the game engine's performance fast.
+- **Collision Bounds:** This is the shape of the object as it appears to the physics engine. This might sound surprising, but the shape of the object used for physics calculation is not always the same as the one that is displayed. The distinction is important because, for performance reasons, a rough proxy shape is often used in place of the actual geometry. This way, the user still sees a fully detailed object on the screen, but the physics engine can run a lot faster using a simplified collision bound. It is important to try to use the simplest collision bounds possible in order to keep the game engine's performance fast.
 
-**       ** [lb] **        Capsule** , **Box** , **Sphere** , **Cylinder,** and **Cone:** These are some of the basic primitives that can be used to approximate different collision bounds (see Figure 6.21). Their shapes are self-explanatory. To see exactly how the bounding box is applied to your model in-game, turn on "Show Physics Visualization" in the Game Options screen.
+- **Capsule** , **Box** , **Sphere** , **Cylinder,** and **Cone:** These are some of the basic primitives that can be used to approximate different collision bounds (see Figure 6.21). Their shapes are self-explanatory. To see exactly how the bounding box is applied to your model in-game, turn on "Show Physics Visualization" in the Game Options screen.
 
 When the collision bound is set to Convex Hull, the collision bound takes the shape of the object, but with all the concave areas filled in. Convex Hull can accurately approximate an object of any shape as long as it doesn't have any "negative" space, such as holes. For example, a doughnut-shaped rigid body object set to Convex Hull will be treated as if the hole isn't there.
 
 ![Collision bounds visualization: Top row: box, sphere, cylinder; Bottom row: cone, convex hull, triangle mesh](../figures/Chapter6/Fig06-21.png)
 
-**        [lb]        Triangle Mesh:** This is the most robust collision bound type. It will create a collision bound that is an exact duplicate of the actual mesh. If you want to ensure that the collision bound matches the visual mesh exactly, this is the setting to use. So why don't we use this setting all the time? The reason is performance and stability. The physics engine is far better optimized for simple primitives, such as a box, than an arbitrarily shaped triangle mesh.
+- **Triangle Mesh:** This is the most robust collision bound type. It will create a collision bound that is an exact duplicate of the actual mesh. If you want to ensure that the collision bound matches the visual mesh exactly, this is the setting to use. So why don't we use this setting all the time? The reason is performance and stability. The physics engine is far better optimized for simple primitives, such as a box, than an arbitrarily shaped triangle mesh.
 
-\*\*\* Begin Note
+>**Visualizing Collision Bounds**
+>
+>Once the collision bound is set, you should notice that the collision bound is visualized as a dashed lines in the 3D viewport. This helps you visualize the relationship between the collision bounds and the visual mesh.
+>To visualize the collision bounds in-game, turn on "Show Physics Visualization" in the Game Options screen and run the game.
 
-Visualizing Collision Bounds
+- **Collision Margin:** The Bullet Physics Engine SDK Manual explains that the collision margin is an internal setting that improves the performance and stability of the collision detection by giving thickness to each face. It is highly recommended that you do not adjust this setting outside its normal range (0.05). In some cases, too high of a value will result in a tiny air gap between colliding objects. Too small of a value will increase the chance of missed collisions between objects.
 
-Once the collision bound is set, you should notice that the collision bound is visualized as a dashed lines in the 3D viewport. This helps you visualize the relationship between the collision bounds and the visual mesh.
-
-To visualize the collision bounds in-game, turn on "Show Physics Visualization" in the Game Options screen and run the game.
-
-\*\*\* End Note
-
-[lb] **Collision Margin:** The Bullet Physics Engine SDK Manual explains that the collision margin is an internal setting that improves the performance and stability of the collision detection by giving thickness to each face. It is highly recommended that you do not adjust this setting outside its normal range (0.05). In some cases, too high of a value will result in a tiny air gap between colliding objects. Too small of a value will increase the chance of missed collisions between objects.
-
-**       ** [lb] **Compound:** The compound setting makes objects linked together by parent-children relationships behave as if they are a single physics entity.
+- **Compound:** The compound setting makes objects linked together by parent-children relationships behave as if they are a single physics entity.
 
 But, why use compound when you can just join your objects together with Ctrl+J? Apart from the fact that there might be times when you need to control individual objects (so joining them might not be an option), using compound collision bounds made up of simple primitives is actually recommended over using one triangle mesh collision bound. The reason is again that a combination of simple primitives is faster to compute than a triangle meshes.
-
-\*\*\*Begin tutorial
 
 ### Hands-on Tutorial: Creating Compound Objects <a id="Hands-on Tutorial: Creating Compound Objects"></a>
 
 To create a compound physics object (see Figure 6.22):
 
-1.Open /Book/Chapter6/compound.blend.
+1. Open /Book/Chapter6/compound.blend.
 
-2.Run the game. Notice that even though the three objects are parented together, they do not react to the ground plane in a convincing way. Only the parent object collides with the ground.
+2. Run the game. Notice that even though the three objects are parented together, they do not react to the ground plane in a convincing way. Only the parent object collides with the ground.
 
-3.To change that, from the Physics Properties Editor, turn on Compound for each of the three objects.
+3. To change that, from the Physics Properties Editor, turn on Compound for each of the three objects.
 
-4.Run the game now and notice that all objects contribute to the kinematics of the group.
+4. Run the game now and notice that all objects contribute to the kinematics of the group.
 
 ![Compound objects physics](../figures/Chapter6/Fig06-22.png)
-
-\*\*\*End Tutorial
 
 ## Material Panel Physics Settings <a id="Material Panel Physics Settings"></a>
 
@@ -452,15 +423,13 @@ By adding a material to the object, you enable additional options that give you 
 
 ![Material physics settings](../figures/Chapter6/Fig06-23.png)
 
-[lb] **Friction:** Controls the force that slows down a moving object when it comes in contact with another object. The effective friction force between two objects is dependent on the friction settings on both objects. So if one object with a high friction setting comes in contact with another object with low friction, the effective friction force would be somewhere in the middle of the two values.
+- **Friction:** Controls the force that slows down a moving object when it comes in contact with another object. The effective friction force between two objects is dependent on the friction settings on both objects. So if one object with a high friction setting comes in contact with another object with low friction, the effective friction force would be somewhere in the middle of the two values.
 
-[lb] **Elasticity:** Controls the "bounciness" of the objects when they collide with another. An object with low elasticity does not bounce away as far after a collision; an object with high elasticity loses almost no momentum in a collision and bounces away at almost the same speed as it came in. The effective elasticity between two colliding objects takes both objects into account. A tennis ball hitting a hardwood floor would be an example of an elastic object colliding with another elastic object. A tennis ball hitting carpet would be an example of an elastic object colliding with a non-elastic object.
+- **Elasticity:** Controls the "bounciness" of the objects when they collide with another. An object with low elasticity does not bounce away as far after a collision; an object with high elasticity loses almost no momentum in a collision and bounces away at almost the same speed as it came in. The effective elasticity between two colliding objects takes both objects into account. A tennis ball hitting a hardwood floor would be an example of an elastic object colliding with another elastic object. A tennis ball hitting carpet would be an example of an elastic object colliding with a non-elastic object.
 
-[lb] **Force Field:** The next set of settings controls what Blender calls _force field._ When the force and distance are set to non-zero, a force field is generated on all the faces so that any object that comes within range (as specified by the distance setting) is pushed away with a certain force (as specified by the force setting). The result of this is that object that comes close to a force field surface will be repelled. The effect on the object is exactly as the name implies: it mimics a magnetic field. The damping setting slows down the object.
+- **Force Field:** The next set of settings controls what Blender calls _force field._ When the force and distance are set to non-zero, a force field is generated on all the faces so that any object that comes within range (as specified by the distance setting) is pushed away with a certain force (as specified by the force setting). The result of this is that object that comes close to a force field surface will be repelled. The effect on the object is exactly as the name implies: it mimics a magnetic field. The damping setting slows down the object.
 
 Once Force Field is enabled in the Material panel, you will need to tell individual objects to respect that setting by going into the Physics Properties Editor and turning on Use Material Force Field.
-
-\*\*\*Begin Tutorial\*\*\*
 
 ### Hands-on Tutorial: Force Field Water Surface <a id="Hands-on Tutorial: Force Field Water Surface"></a>
 
@@ -468,31 +437,29 @@ Force field can be used to create a convincing[md]you guessed it![md]force field
 
 As you might imagine, the Force Field setting is used to simulate the realistic interaction of floating objects on a calm water surface. To do this:
 
-1.Open /Book/Chapter6/water.blend.
+1. Open /Book/Chapter6/water.blend.
 
-2.Select the _Cube_. You want this object to behave like a basic wooden crate, a crate that bounces, tumbles, and floats in water. So let's add some dynamics to it. Go to the Physics Properties Editor and set the Type from Static to Rigid Body.
+2. Select the _Cube_. You want this object to behave like a basic wooden crate, a crate that bounces, tumbles, and floats in water. So let's add some dynamics to it. Go to the Physics Properties Editor and set the Type from Static to Rigid Body.
 
-3.For extra fun, let's make a lot of these crates! But instead of manually creating them, we'll dynamically add them in-game on the player's command.
+3. For extra fun, let's make a lot of these crates! But instead of manually creating them, we'll dynamically add them in-game on the player's command.
 
-4.Select the Camera object in the Logic Editor panel and add a new Keyboard sensor, a new And controller, and an Edit Object actuator, as shown in Figure 6.24.
+4. Select the Camera object in the Logic Editor panel and add a new Keyboard sensor, a new And controller, and an Edit Object actuator, as shown in Figure 6.24.
 
 ![Logic bricks](../figures/Chapter6/Fig06-24.png)
 
-5.To make sure that the cube objects get instantiated when you run the game, you need to hide the original cube object. To do this, simply move the Cube to the second layer by pressing M and then 2.
+5. To make sure that the cube objects get instantiated when you run the game, you need to hide the original cube object. To do this, simply move the Cube to the second layer by pressing M and then 2.
 
-6.With only layer one selected, run the game now. Notice how the cubes all collide with the ground plane, but because the ground plane is hard, the motion is rather jarring. It doesn't look like objects floating on water at all.
+6. With only layer one selected, run the game now. Notice how the cubes all collide with the ground plane, but because the ground plane is hard, the motion is rather jarring. It doesn't look like objects floating on water at all.
 
-7.To make the ground plane have a water-like property, we will turn on Force Field. First, select the object called _WaterPlane._
+7. To make the ground plane have a water-like property, we will turn on Force Field. First, select the object called _WaterPlane._
 
-8.Head to the Material Properties Editor and create a new material. Then simply copy the force field physics setting, as shown in Figure 6.25.
+8. Head to the Material Properties Editor and create a new material. Then simply copy the force field physics setting, as shown in Figure 6.25.
 
 ![Material physics settings](../figures/Chapter6/Fig06-25.png)
 
-9.Et voilà! Start the game, press the spacebar, and watch the crates tumble into the ocean.
+9. Et voilà! Start the game, press the spacebar, and watch the crates tumble into the ocean.
 
-10.For added realism, create a No-Collision Plane on top of the WaterPlane to act as the water surface.
-
-\*\*\*End Tutorial
+10. For added realism, create a No-Collision Plane on top of the WaterPlane to act as the water surface.
 
 ## Constraints <a id="Constraints"></a>
 
@@ -506,29 +473,25 @@ Figure 6.27 illustrates the variety of pivot types.
 
 ![Constraints illustrated](../figures/Chapter6/Fig06-27.png)
 
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+- **Ball:** Joins two objects together using a ball-and-socket joint. This type of constraint is free to rotate around all three axes.
 
-**       ** [lb] **        Ball:** Joins two objects together using a ball-and-socket joint. This type of constraint is free to rotate around all three axes.
+- **Hinge:** Joins two objects together using one axis[md]the hinge axis. This constraint is often used to simulate a door hinge or a wheel on an axle.
 
-**       ** [lb] **        Hinge:** Joins two objects together using one axis[md]the hinge axis. This constraint is often used to simulate a door hinge or a wheel on an axle.
+- **Cone-twist:** This is an extension of the Ball constraint that supports limiting the angle of rotation. This is especially useful for animating limbs using ragdoll physics. You can set the individual angle limits for each of the three axes.
 
-**       ** [lb] **        Cone-twist:** This is an extension of the Ball constraint that supports limiting the angle of rotation. This is especially useful for animating limbs using ragdoll physics. You can set the individual angle limits for each of the three axes.
-
-**       ** [lb] **        Generic 6 DoF:** If none of the above constraints meet your needs, chances are this generic constraint will give you enough control to accomplish any mechanical linkage you can dream up.
+- **Generic 6 DoF:** If none of the above constraints meet your needs, chances are this generic constraint will give you enough control to accomplish any mechanical linkage you can dream up.
 
 Once you have decided on the pivot type you need, you'll need to set the Targetobject. The Target object is the object that the current object will be linking to.
 
 The rest of the settings should be very self-explanatory. Refer to /Book/Chapter6/demo/constraints.blend to see each constraint's type in action.
 
-[lb] **Extending Constraints:** While one constraint might not be too useful, constraints can be daisy-chained to simulate many different objects. See ConstraintsChain.blend, ConstraintsWaterMill.blend and ConstraintsTrampoline.blend for examples of how to set up multiple constraints.
+- **Extending Constraints:** While one constraint might not be too useful, constraints can be daisy-chained to simulate many different objects. See ConstraintsChain.blend, ConstraintsWaterMill.blend and ConstraintsTrampoline.blend for examples of how to set up multiple constraints.
 
 ## Vehicle Physics <a id="Vehicle Physics"></a>
 
 The Blender physics engine has built-in support for vehicle physics. It is a very stable physics constraints system that provides easy-to-set-up car physics. The result is a fast-performing vehicle physics engine with easily tweakable settings that maps well into a real vehicle (steering, suspension length, suspension stiffness)
 
 Of course, you can also try to create a car physics setup without using the built-in physics constraints; however, it will be far more time-consuming. This section will demonstrate how to set up a playable car object in the game engine using the built-in Bullet engine and a bit of Python scripting.
-
-\*\*\*Begin Tutorial
 
 ### Hands-on Tutorial: Vehicle Physics Using Python <a id="Hands-on Tutorial: Vehicle Physics Using Python"></a>
 
@@ -556,27 +519,25 @@ Every time a key is pressed, script.keyHandler() is run. It figures out which ke
 
 With these three Python functions, the car comes alive.
 
-\*\*\*End Tutorial
-
 ## Game Settings <a id="Game Settings"></a>
 
 Game settings are global settings that affect the running of the game. These settings are shown in Figure 6.29 and can be found in the Render panel.
 
 ![Additional game settings](../figures/Chapter6/Fig06-29.png)
 
-[lb] **Animation Playback Speed:** Closely related to the frame-rate setting is the animation playback speed. This setting controls the speed of the F-Curve and armature animation. By default, the value is set to 24, meaning all F-Curve and actions will be played back as if they are running at a 24fps timebase. This setting can be found in the Render panel.
+- **Animation Playback Speed:** Closely related to the frame-rate setting is the animation playback speed. This setting controls the speed of the F-Curve and armature animation. By default, the value is set to 24, meaning all F-Curve and actions will be played back as if they are running at a 24fps timebase. This setting can be found in the Render panel.
 
-[lb] **Debug Property:** Shows the value of the Game Properties that are marked with the Debug flag. This can be useful when you want to keep an eye on the values of certain variables while the game is running.
+- **Debug Property:** Shows the value of the Game Properties that are marked with the Debug flag. This can be useful when you want to keep an eye on the values of certain variables while the game is running.
 
-[lb] **Frame Rate and Profile:** Shows the frame rate and other performance statistics in-game. These statistics will be displayed in the top-left corner of the screen in-game.
+- **Frame Rate and Profile:** Shows the frame rate and other performance statistics in-game. These statistics will be displayed in the top-left corner of the screen in-game.
 
-[lb] **Physics Visualization:** Visualizes the internal computation of the physics engine. This can help you see what the physics engine is really doing when the game is running.
+- **Physics Visualization:** Visualizes the internal computation of the physics engine. This can help you see what the physics engine is really doing when the game is running.
 
 Rigid Body objects are displayed in white, and sleeping objects are drawn in green.
 
-[lb] **Deprecation Warning:** Gives warnings about outdated Python API called in the console (see Chapter 7).
+- **Deprecation Warning:** Gives warnings about outdated Python API called in the console (see Chapter 7).
 
-[lb] **Mouse Cursor:** Draws the mouse cursor in-game. This is useful if the game uses mouse-input. Mouse cursor can also be turned on and off via Python.
+- **Mouse Cursor:** Draws the mouse cursor in-game. This is useful if the game uses mouse-input. Mouse cursor can also be turned on and off via Python.
 
 ## Stabilizing Physics <a id="Stabilizing Physics"></a>
 
@@ -586,16 +547,16 @@ Okay, so what is unstable physics anyway? When you see objects jitter around whe
 
 Here are some tips to help you regain control of your game. All of the settings here are already covered in the chapter; this list is simply a collection of the most common actions to take to stabilize physics.
 
-[lb] **Avoid Extremes:** Avoid interaction between an extremely heavy object and an exceptionally light object. Avoid interaction between extremely fast objects. Avoid interaction between objects of very different sizes, especially if neither object is static.
+- **Avoid Extremes:** Avoid interaction between an extremely heavy object and an exceptionally light object. Avoid interaction between extremely fast objects. Avoid interaction between objects of very different sizes, especially if neither object is static.
 
-[lb] **Physics Substeps**** (World Properties Editor):** Crank it. Higher will be slower but gives much a more accurate physics simulation result.
+- **Physics Substeps**** (World Properties Editor):** Crank it. Higher will be slower but gives much a more accurate physics simulation result.
 
-**       ** [lb]**        Bounding Box (Physics Properties Editor):** Try to use collision primitives (sphere, cube, cylinder) rather than mesh-based collision boxes (triangle mesh or convex hull). The former will be more stable and perform faster.
+- **Bounding Box (Physics Properties Editor):** Try to use collision primitives (sphere, cube, cylinder) rather than mesh-based collision boxes (triangle mesh or convex hull). The former will be more stable and perform faster.
 
-**       ** [lb]**Form Factor (Physics Properties Editor):** Controls the rotational tendency of an object. Setting this too small will make moving objects extremely unstable. Increasing the form factor usually helps calm down the object, at the cost of making the object feel sluggish on collision.
+- **Form Factor (Physics Properties Editor):** Controls the rotational tendency of an object. Setting this too small will make moving objects extremely unstable. Increasing the form factor usually helps calm down the object, at the cost of making the object feel sluggish on collision.
 
-**       ** [lb]**        No Sleeping (Physics Properties Editor):** By default, this option is off, meaning objects "freeze" when their movement falls below a certain threshold for a certain time. Keeping the option off improves physics stability and performance.
+- **No Sleeping (Physics Properties Editor):** By default, this option is off, meaning objects "freeze" when their movement falls below a certain threshold for a certain time. Keeping the option off improves physics stability and performance.
 
-**       ** [lb]**        Object Damping (Physics Properties Editor):** For non-static objects, Translational Damping and Rotational Damping can be used to slow objects down. Setting this to a non-zero value ensures that objects eventually will slow down to a stop, which might help with stability.
+- **Object Damping (Physics Properties Editor):** For non-static objects, Translational Damping and Rotational Damping can be used to slow objects down. Setting this to a non-zero value ensures that objects eventually will slow down to a stop, which might help with stability.
 
-**       ** [lb]**        Margin (Physics Properties Editor):** If objects go through each other when they are not supposed to, and you've exhausted the other options listed above, increasing the object collision margin might help.
+- **Margin (Physics Properties Editor):** If objects go through each other when they are not supposed to, and you've exhausted the other options listed above, increasing the object collision margin might help.
