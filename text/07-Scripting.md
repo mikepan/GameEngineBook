@@ -64,11 +64,11 @@
 					- [Sub-Class KX_Camera](#Sub-Class KX_Camera)
 					- [Sub-Class KX_Lamp](#Sub-Class KX_Lamp)
 			- [bge.render](#bge.render)
-				- [Window and Mouse:](#Window and Mouse:)
-				- [World Settings:](#World Settings:)
-				- [Stereo Settings:](#Stereo Settings:)
-				- [Material Settings:](#Material Settings:)
-				- [Others:](#Others:)
+				- [Window and Mouse](#Window and Mouse)
+				- [World Settings](#World Settings)
+				- [Stereo Settings](#Stereo Settings)
+				- [Material Settings](#Material Settings)
+				- [Others](#Others)
 			- [bge.events](#bge.events)
 			- [bge.texture](#bge.texture)
 			- [bge.constraints](#bge.constraints)
@@ -1760,7 +1760,7 @@ The parameters that can be changed with Python include all that can be animated 
 
 If we compare gaming with traditional 3D artwork, rasterizer would be the rendering phase of the process. Internally, it's when all the geometry is finally drawn to the screen with the light calculation, the filters applied, and the canvas set. For this reason, the Rasterizer module presents functions related to stereoscopy, windows and mouse management, world settings, and global GLSL material settings.
 
-##### Window and Mouse:
+##### Window and Mouse
 
 getWindowWidth() / getWindowHeight()
 
@@ -1774,7 +1774,7 @@ setMousePosition(x, y)
 
 Set the mouse cursor position (in pixels).
 
-##### World Settings:
+##### World Settings
 
 setBackgroundColor(rgba), setAmbientColor(rgb)
 
@@ -1784,7 +1784,7 @@ setMistColor(rgb), disableMist(), setMistStart(start), setMistEnd(end)
 
 Configure the mist (fog) settings.
 
-##### Stereo Settings:
+##### Stereo Settings
 
 getEyeSeparation() / setEyeSeparation(eyesep)
 
@@ -1794,7 +1794,7 @@ getFocalLength() / setFocalLength(focallength)
 
 Get the current focal length for stereo mode. It uses the current camera focal length as initial value
 
-##### Material Settings:
+##### Material Settings
 
 getMaterialMode(mode) / setMaterialMode(mode)
 
@@ -1808,7 +1808,7 @@ Get/set the state of a GLSL material setting. The available settings are:
 
 "lights", "shaders", "shadows", "ramps", "nodes", "extra\_textures"
 
-##### Others:
+##### Others
 
 drawLine(fromVec, toVec, color)
 
