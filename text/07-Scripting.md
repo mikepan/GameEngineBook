@@ -1592,13 +1592,13 @@ endObject(), rayCast(), getAxisVect(), suspendDynamics(), getPropertyNames() . .
 
 If it looks like a function, it should be one. Every game engine object provides you with a set of functions to interact with them or from them to the others. Here are some methods you should know about:
 
-####### rayCast (objto, objfrom, dist, prop, face, xray, poly)
+- **rayCast (objto, objfrom, dist, prop, face, xray, poly)**
 
 _"Look from a point/object to another point/object and find first object hit within dist that matches prop."_
 
 This method is a more complete version of the rayCastTo(). It has so many applications that it becomes hard to delimitate its usage. For instance, this was the method used to calculate the collision in the navigation system script we studied previously.
 
-####### getPropertyNames()
+- **getPropertyNames()**
 
 _"Get a list of all property names."_
 
@@ -1612,13 +1612,13 @@ Properties have multiple uses in the game engine. One of those uses is to mark a
 
 \*\*\* End Note
 
-####### endObject()
+- **endObject()**
 
 _"Delete this object can be used in place of the EndObject Actuator."_
 
 This method is one of the functions that mimic existent actuators. You will also find this design in methods such as sendMessage(), setParent(), and replaceMesh().
 
-####### applyRotation()
+- **applyRotation()**
 
 _"Set the game object's movement/rotation."_
 
@@ -1642,19 +1642,19 @@ obj.worldOrientation.transpose()
 
 print(obj.worldTransform)
 
-####### position, localPosition, worldPosition
+- **position, localPosition, worldPosition**
 
 Position is a vector [x, y, z] with the location of the object in the scene. We can get the absolute position (worldPosition) or the position relative to the parent of the object (localPosition). And what about accessing the position variable directly? This is deprecated, but you may run into it in old files you find online. If you access the position variable directly, you get the world position on reading and set the local position on writing. Confusing? That is why this is deprecated ;)
 
-####### orientation, localOrientation, worldOrientation
+- **orientation, localOrientation, worldOrientation**
 
 This variable gives you access to a matrix 3x3 with the orientation of the object. The orientation matrix is the result of the rotation transformation of an object and the influence of its parent object. As with position, the orientation variable will give you the world orientation on reading and set the local orientation on writing. As with position, you should always specify whether you want the local or world orientation.
 
-####### visible
+- **visible**
 
 We have different ways to set the visibility of an object. If your material is not set to invisible in the game panel, you can use this method. To change the visibility recursively (to the children of the object), you must use the method setVisibility.
 
-####### sensors, controllers, actuators
+- **sensors, controllers, actuators**
 
 All the logic bricks of an object can be accessed through those dictionaries. The name of the sensor/controller/actuator will be used as the dictionary key, for it's important to name them correctly.
 
