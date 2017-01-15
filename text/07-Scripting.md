@@ -734,7 +734,7 @@ The diagram in Figure 7.10 illustrates how they relate to one another. Now let's
 
 ![Script architecture](../figures/Chapter7/Fig07-10.png)
 
-#### Global Initialization
+##### Global Initialization
 
 camera\_navigation.init\_world()
 
@@ -818,7 +818,7 @@ Last, but not least, we need to create the variables we are going to read and wr
 
 104 G.nav\_mode = "orbit"
 
-#### Event Management
+##### Event Management
 
 camera\_navigation.mouse\_move
 
@@ -826,7 +826,7 @@ camera\_navigation.keyboard
 
 Apart from the Always sensor needed for the camera\_navigation.init\_world() function, there are two other sensors we need[md]a keyboard and a mouse sensor. All the interaction you will have with this navigation system will run through those functions.
 
-##### scripts.mouse\_move
+###### scripts.mouse\_move
 
 Let's first take a look at the mouse sensor controlling system:
 
@@ -854,7 +854,7 @@ def mouse\_move():
 
     cont = G.getCurrentController()
 
-##### scripts.keyboard
+###### scripts.keyboard
 
 The second event management function handles keyboard inputs. This function takes the sensor input and calls internal functions according to the pressed key. If the pressed key is W, A, S, or D, we move the camera. If the key is 1, 2, or 3, we switch it.
 
@@ -928,7 +928,7 @@ If you don't want to use a keyboard sensor, you can use an internal instance of 
 
 \*\*\* End Note
 
-#### Internal Functions
+##### Internal Functions
 
 scripts.move\_camera
 
@@ -938,7 +938,7 @@ scripts.look\_camera
 
 These three functions are called from the event management functions. In their lines, you can find the math responsible for the camera movement. We're calling them "internal functions" because they are the bridge between the sensors' inputs and the outputs in the game engine world.
 
-##### scripts.move\_camera
+###### scripts.move\_camera
 
 The function responsible for the camera movement is very simple. In the walk and fly mode, we are going to move the pivot in the desired direction (which is passed as argument). Therefore, we first need to create a vector to this course. If you are unfamiliar with vectorial math, think of vector as the direction between the origin [0, 0, 0] and the vector coordinates [X, Y, Z].
 
@@ -974,7 +974,7 @@ The function responsible for the camera movement is very simple. In the walk and
 
 Here the vector is the movement we need to apply to the pivot in order to get it moving. The size of the vector (MOVE) will act as intensity or speed of the movement.
 
-##### scripts.orbit\_camera
+###### scripts.orbit\_camera
 
 We decided to use different methods for the walk/fly camera and the orbit one. In the orbit camera, every position on the screen corresponds to an orientation of the camera.
 
@@ -1082,7 +1082,7 @@ Next find in the .blend file the pivot empty (ORB\_PIVOT) and play with its rota
 
 ![Orbit pivot rotation](../figures/Chapter7/Fig07-11.png)
 
-##### scripts.look\_camera
+###### scripts.look\_camera
 
 The function to rotate the walk/fly camera is quite different from the orbit one. We don't have a direct relation between mouse coordinate and camera rotation anymore. Here we get the relative position of the cursor (from the center) and later force the mouse to be re-centered[md]to avoid continuous movement unless the mouse is moved again.
 
@@ -1114,7 +1114,7 @@ The solution is to get the current camera vertical angle and see if by adding th
 
 For the actual project this was originally designed for, we ended up moving the orbit camera code to be a subset of the walk/fly. Having the mouse always centered comes in handy when you have a user interface on top of that, and it needs to alternate between mouse clicking and camera rotating. Although the methods are different, the results are the same.
 
-#### Game Interaction
+##### Game Interaction
 
 camera\_navigation.change\_view
 
@@ -1128,7 +1128,7 @@ camera\_navigation.orbit\_camera
 
 In the previous section, we saw how the angles and directions were calculated with Python. However, we deliberately skipped the most important part: applying it to the game engine elements. It includes activating actuators (as we do in the change\_view() function) or directly interfering in our game elements (cameras and pivots).
 
-##### Outcome of the functions: scripts.move\_camera, scripts.look\_camera, and scripts.orbit\_camera
+###### Outcome of the functions: scripts.move\_camera, scripts.look\_camera, and scripts.orbit\_camera
 
 Let's put the pieces together now. We already know the camera future orientation and position. Therefore, there is almost nothing left to be calculated here. Nevertheless, there are distinct ways to change the object position and orientation.
 
@@ -1190,7 +1190,7 @@ The orientation is a Python built-in variable that can be read and written direc
 
 263     pivot.orientation = ori
 
-##### scripts.change\_view
+###### scripts.change\_view
 
 After the user presses a key (1, 2, or 3) to change the view, we call the change\_view() function to switch to the new camera (with a parameter specifying which camera to use). This function consists of two parts: first, we set the correct position and orientation for the camera and pivot; secondly, we change the current camera to the new one.
 
@@ -1256,7 +1256,7 @@ Now that the new camera and pivot have the correct position and orientation, we 
 
 182     cont.activate(act\_camera)
 
-#### More Python
+##### More Python
 
 scripts.collision\_check
 
