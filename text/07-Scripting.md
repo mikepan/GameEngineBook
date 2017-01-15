@@ -104,7 +104,7 @@ Once you start to work with scripts, you will see how easy it is to assume contr
 
 ### Access to Blender's Advanced Features
 
-You will be happy to know that the game engine has a powerful set of features beyond those found in the logic brick's interface. Also, almost all the functionality found in the logic bricks can be accomplished through an equivalent method of the game engine API (which will be covered in the section "Using the Game Engine API[md]Application Programming Interface"). The API ranges from tasks that could be performed with logic bricks, such as to change a property in a sensor or to completely remove an object from the game, all the way to functionality not available otherwise, such as playing videos and network connection.
+You will be happy to know that the game engine has a powerful set of features beyond those found in the logic brick's interface. Also, almost all the functionality found in the logic bricks can be accomplished through an equivalent method of the game engine API (which will be covered in the section "Using the Game Engine API - Application Programming Interface"). The API ranges from tasks that could be performed with logic bricks, such as to change a property in a sensor or to completely remove an object from the game, all the way to functionality not available otherwise, such as playing videos and network connection.
 
 \*\*\* Begin Note
 
@@ -318,7 +318,7 @@ If, like me, you never understood the reason for the number/pound sign key (#) o
 
 ### OOP - Object-Oriented Programming
 
-Since games deal with 3D world objects, it makes sense to use a language that is oriented to them. The game engine itself is written in C++, a very strong and object-oriented language, and Python OOP capabilities let you handle the game data in a Python-native way. It reflects in the game engine objects having their own set of functions and variables directly accessed from a Python API (to be explained later in this chapter in the section "Using the Game Engine API[md]Application Programming Interface").
+Since games deal with 3D world objects, it makes sense to use a language that is oriented to them. The game engine itself is written in C++, a very strong and object-oriented language, and Python OOP capabilities let you handle the game data in a Python-native way. It reflects in the game engine objects having their own set of functions and variables directly accessed from a Python API (to be explained later in this chapter in the section "Using the Game Engine API - Application Programming Interface").
 
 In the Python code, you can (and will) create your own classes, modules, and elements. For example, you may want to control some 3D elements as a group defined by your code. It will make it easy to get to all of them at once. Therefore, you can have a custom class that will store all the related objects you want to access and preserve some properties as a group.
 
@@ -632,13 +632,13 @@ As you probably know, Blender has its own internal text editor (see Figure 7.7).
 
 ![Blender internal text editor](../figures/Chapter7/Fig07-07.png)
 
-### Reference Material and Documentation
+#### Reference Material and Documentation
 
 Since the game engine Python API is available online, you have an official excuse to keep a Web browser open while you work. It's not a bad idea to keep an offline version of it, too. (You can find it on the book files.) Use it when you need to be more productive and the Internet is getting in your way (as in, always).
 
 It's good if you can start to gather example materials from the Internet and keep them organized. If you use the append feature in Blender to navigate to and import text files from your "collection," you will not even need to open another Blender application. Also, if you are consistent with your naming style, indentation rules, and file structures, you will find easy to reuse your own scripts.
 
-### Testing Your Scripts
+#### Testing Your Scripts
 
 It doesn't matter how easy Python is, you will spend evenings testing and retesting your scripts before you have them working properly. The more complete way to test your script is to play it inside the game engine. However, you may not want to load your game every time you need to be sure of some Python syntax, data types' built-in functions, or simply to check if the math of a result is correct.
 
@@ -654,7 +654,7 @@ Now you can use it to type simple codes, or to run a help or a dir into any of t
 
 Another important strategy is to keep the development of new functionalities outside the main file. For example, if you need to develop a navigation system (as we will soon), you don't need to use your real big, high-textured scenario. Definitively not for the early tests. If you keep independent systems that work together, you will be able to identify errors faster and easier and even to port fixes over to other projects smoothly.
 
-## Designing Your Python Script - Study Example
+### Designing Your Python Script - Study Example
 
 We are now going to dive into an example of writing and planning a Python script for the game engine from scratch. We will assume that you have already covered all the basics of Python scripting and the general understanding of game engine internals so we can move on to its real usage. More specifically, we are going over the writing process of a camera navigation system for an architectural visualization walkthrough. This study case is actually the system developed for a commercial project for an Italian book project. In general, we needed to implement a system to navigate and interact in a virtual model of an Italian Doric temple. Here, however, we are going to develop it under a sandbox and reapply it into another file, emulating what you could do with your own projects.
 
@@ -704,7 +704,7 @@ To switch modes press 1, 2, or 3. This will change the mode to orbit, walk, and 
 
 \*\*\* End Note
 
-### 3D World Elements
+#### 3D World Elements
 
 Open up the file \Book\Chapter7\4\_navigation\_system\camera\_navigation.blend.
 
@@ -724,7 +724,7 @@ ORB\_PIVOT[md]the pivot for the orbit camera.
 
 In the second layer, you will find the collision meshes[md]the ground and the vertical elements. Everything is very simple here, since we only need to test the system, and for that a few low poly obstacles work fine.
 
-### Understanding the Code
+#### Understanding the Code
 
 \Book\Chapter7\4\_navigation\_system\camera\_navigation.py
 
@@ -734,7 +734,7 @@ The diagram in Figure 7.10 illustrates how they relate to one another. Now let's
 
 ![Script architecture](../figures/Chapter7/Fig07-10.png)
 
-### Global Initialization
+#### Global Initialization
 
 camera\_navigation.init\_world()
 
@@ -818,7 +818,7 @@ Last, but not least, we need to create the variables we are going to read and wr
 
 104 G.nav\_mode = "orbit"
 
-### Event Management
+#### Event Management
 
 camera\_navigation.mouse\_move
 
@@ -826,7 +826,7 @@ camera\_navigation.keyboard
 
 Apart from the Always sensor needed for the camera\_navigation.init\_world() function, there are two other sensors we need[md]a keyboard and a mouse sensor. All the interaction you will have with this navigation system will run through those functions.
 
-#### scripts.mouse\_move
+##### scripts.mouse\_move
 
 Let's first take a look at the mouse sensor controlling system:
 
@@ -854,7 +854,7 @@ def mouse\_move():
 
     cont = G.getCurrentController()
 
-#### scripts.keyboard
+##### scripts.keyboard
 
 The second event management function handles keyboard inputs. This function takes the sensor input and calls internal functions according to the pressed key. If the pressed key is W, A, S, or D, we move the camera. If the key is 1, 2, or 3, we switch it.
 
@@ -928,7 +928,7 @@ If you don't want to use a keyboard sensor, you can use an internal instance of 
 
 \*\*\* End Note
 
-### Internal Functions
+#### Internal Functions
 
 scripts.move\_camera
 
@@ -938,7 +938,7 @@ scripts.look\_camera
 
 These three functions are called from the event management functions. In their lines, you can find the math responsible for the camera movement. We're calling them "internal functions" because they are the bridge between the sensors' inputs and the outputs in the game engine world.
 
-#### scripts.move\_camera
+##### scripts.move\_camera
 
 The function responsible for the camera movement is very simple. In the walk and fly mode, we are going to move the pivot in the desired direction (which is passed as argument). Therefore, we first need to create a vector to this course. If you are unfamiliar with vectorial math, think of vector as the direction between the origin [0, 0, 0] and the vector coordinates [X, Y, Z].
 
@@ -974,7 +974,7 @@ The function responsible for the camera movement is very simple. In the walk and
 
 Here the vector is the movement we need to apply to the pivot in order to get it moving. The size of the vector (MOVE) will act as intensity or speed of the movement.
 
-#### scripts.orbit\_camera
+##### scripts.orbit\_camera
 
 We decided to use different methods for the walk/fly camera and the orbit one. In the orbit camera, every position on the screen corresponds to an orientation of the camera.
 
@@ -1082,7 +1082,7 @@ Next find in the .blend file the pivot empty (ORB\_PIVOT) and play with its rota
 
 ![Orbit pivot rotation](../figures/Chapter7/Fig07-11.png)
 
-#### scripts.look\_camera
+##### scripts.look\_camera
 
 The function to rotate the walk/fly camera is quite different from the orbit one. We don't have a direct relation between mouse coordinate and camera rotation anymore. Here we get the relative position of the cursor (from the center) and later force the mouse to be re-centered[md]to avoid continuous movement unless the mouse is moved again.
 
@@ -1114,7 +1114,7 @@ The solution is to get the current camera vertical angle and see if by adding th
 
 For the actual project this was originally designed for, we ended up moving the orbit camera code to be a subset of the walk/fly. Having the mouse always centered comes in handy when you have a user interface on top of that, and it needs to alternate between mouse clicking and camera rotating. Although the methods are different, the results are the same.
 
-### Game Interaction
+#### Game Interaction
 
 camera\_navigation.change\_view
 
@@ -1128,7 +1128,7 @@ camera\_navigation.orbit\_camera
 
 In the previous section, we saw how the angles and directions were calculated with Python. However, we deliberately skipped the most important part: applying it to the game engine elements. It includes activating actuators (as we do in the change\_view() function) or directly interfering in our game elements (cameras and pivots).
 
-#### Outcome of the functions: scripts.move\_camera, scripts.look\_camera, and scripts.orbit\_camera
+##### Outcome of the functions: scripts.move\_camera, scripts.look\_camera, and scripts.orbit\_camera
 
 Let's put the pieces together now. We already know the camera future orientation and position. Therefore, there is almost nothing left to be calculated here. Nevertheless, there are distinct ways to change the object position and orientation.
 
@@ -1190,7 +1190,7 @@ The orientation is a Python built-in variable that can be read and written direc
 
 263     pivot.orientation = ori
 
-#### scripts.change\_view
+##### scripts.change\_view
 
 After the user presses a key (1, 2, or 3) to change the view, we call the change\_view() function to switch to the new camera (with a parameter specifying which camera to use). This function consists of two parts: first, we set the correct position and orientation for the camera and pivot; secondly, we change the current camera to the new one.
 
@@ -1256,7 +1256,7 @@ Now that the new camera and pivot have the correct position and orientation, we 
 
 182     cont.activate(act\_camera)
 
-### More Python
+#### More Python
 
 scripts.collision\_check
 
@@ -1280,11 +1280,11 @@ If the collision\_check() test finds any obstacle in front of the camera, it ret
 
 The code of those functions is very particular to this project; therefore, we're not going into more detail here. (You are encouraged to take a look at the complete code in the book file, though). Nevertheless, the key point is to understand the role of those functions in the script architecture. Those scripts can complement the functionality of other functions, to rule your game in a global and direct way, or simply to tie things together.
 
-### Reusing Your Script
+#### Reusing Your Script
 
 One of the reasons this system was designed so carefully is because of the need for portability. You don't want to rewrite a navigation system every time you have a new project. This is not particular to this script example. Very often, you will be recycling your own scripts to adapt them to new files. Let's go over some principles you should know.
 
-#### File Organization[md]Groups and Layers
+##### File Organization - Groups and Layers
 
 The first thing to have in mind is how your final file will look. Do you want the script system to be merged with the rest of the existent Blender file? Do you want to keep them in separated scenes (very common for user interfaces)? Will you need to access/edit the script system elements later?
 
@@ -1292,7 +1292,7 @@ In our case, there is no need for an extra scene. However, we need to make sure 
 
 If it's not possible to have all your elements in a single layer, you can create a group for them. That way, you can always quickly isolate them to be listed in the outliner and selected individually. The other advantage of using groups is during importing. It's easier to select a group to be imported than to go over all the individual objects, determining which one should be imported and which one is part of the test environment (which usually doesn't have to be imported).
 
-#### Tweaks and Adjustments[md]Getting Your Hands Dirty
+##### Tweaks and Adjustments - Getting Your Hands Dirty
 
 Open the file \Book\Chapter7\4\_navigation\_system\walkthrough\_1\_base\walkthrough.blend
 
@@ -1302,7 +1302,7 @@ This small file is part of the presentation of an architectural walkthrough of a
 
 It's time for redemption. Let's replace its navigation system with the Python system we just studied. For convenience, this file was already organized to receive the navigation elements (cameras, empties, and so on.).
 
-##### Organize and Append Your File
+###### Organize and Append Your File
 
 In this case, we decided to group all the navigation elements in a group called NAVIGATIONSYSTEM and to make sure they are all in layer 1. You can use the Outliner to make sure you didn't miss any object out of the group. Leave the lamps and the collision objects out of the group.
 
@@ -1332,7 +1332,7 @@ Now if you run the application, the navigation system should work[md]kind of (se
 
 ![Still not there](../figures/Chapter7/Fig07-13.png)
 
-##### Adjustments in Loco
+###### Adjustments in Loco
 
 As you can see in Figure 7.13, the new camera system looks absurdly wrong. There are two main reasons for that: the walkthrough file elements are far away from the file origin [0, 0, 0], and the cameras are not prepared for a project with this magnitude (their clipping parameters are way too low). We will need to move the objects to their new correct places, adjust the camera parameters, and do a small intervention in the script file:
 
@@ -1370,7 +1370,7 @@ All the houses, the ground, and the other 3D objects already have collision enab
 
 \*\*\* End Note
 
-##### Script Tweaks
+###### Script Tweaks
 
 Finally, it's good to fiddle a bit with the script. Due to the particularities of this project (mainly its scale), you may feel that everything happens a bit too fast. It's up to you to change the settings in the init\_world function. Also, it would be interesting to explore multiple viewpoints for this presentation. We have already positioned the side and back empties. Although we were not using them previously, their names are present in the script as part of the available cameras list:
 
@@ -1396,7 +1396,7 @@ The final file is on the book files as:
 
 \Book\Chapter7\4\_navigation\_system\walkthrough\_4\_final\walkthrough.blend.
 
-## Using the Game Engine API[md]Application Programming Interface
+### Using the Game Engine API - Application Programming Interface
 
 The game engine API is a bridge connecting your Python scripts with your game data. Through those modules, methods, and variables you can interact with your existent logic bricks, game objects, and general game functions.
 
@@ -1422,6 +1422,8 @@ We will now walk through the highlights of the modules. After you are familiar w
 
 [lb]Physics Constraints (bge.constraints)
 
+- Application Data (bge.app)  //TODO
+
 \*\*\* End Bullet List
 
 **Stand-Alone Modules**
@@ -1438,11 +1440,11 @@ We will now walk through the highlights of the modules. After you are familiar w
 
 \*\*\* End Bullet List
 
-### bge.logic
+#### bge.logic
 
 The main module is a mix of utility functions, global game settings, and logic bricks replacements. Some of those functions were already covered in the tutorial, but they are here again for convenience sake. We will look at some of the highlights.
 
-### getCurrentController()
+##### getCurrentController()
 
 Returns the current controller. This is used to get a list of sensors and actuators (to check status and deactivate respectively), and the object the controller belongs to:
 
@@ -1460,23 +1462,23 @@ def moduleFunction(cont):
 
     sensor = cont.sensors['mysensor']
 
-### getCurrentScene()
+##### getCurrentScene()
 
 This function returns the current scene the script was called from. The most common usage is to give you a list of all the game objects:
 
 for object in bge.logic.getCurrentScene().objects: print(object)
 
-### expandPath()
+##### expandPath()
 
 If you need to access an external file (image, video, Blender, etc.), you need to first get its absolute path in the computer. Use single backslash (/) to separate folders and double backslash (//) if you need to refer to the current folder:
 
 video\_absolute\_path  = bge.logic.expandPath('//videos/video01.ogg')
 
-### sendMessage(), addScene(), start/restart/endGame(),
+##### sendMessage(), addScene(), start/restart/endGame(),
 
 These functions copy the functionality of existent actuators. They are Python replacement for those global events when you need a direct way to call them, bypassing the logic bricks.
 
-### LibLoad(), LibNew(), LibFree(), LibList()
+##### LibLoad(), LibNew(), LibFree(), LibList()
 
 There are cases when you need to load the content of an external Blender file at runtime. This is known as _dynamic loading._ The game engine supports dynamic loading of actions, meshes, or complete scenes. The new data blocks are merged into the current scene and behave just like internal objects:
 
@@ -1490,7 +1492,7 @@ New Lamp objects can be dynamically loaded from external files. However, in GLSL
 
 \*\*\* End Note
 
-### globalDict, loadGlobalDict(), saveGlobalDict()
+##### globalDict, loadGlobalDict(), saveGlobalDict()
 
 The bge.logic.globalDict is a Python dictionary that is alive during the whole game. It's a game place to store data if you need to restart the game or load a new file (level) and need to save some properties. In fact, you can even save the globalDict with the Blender file during the game and reload later.
 
@@ -1500,7 +1502,7 @@ bge.logic.saveGlobalDict() # save globalDict externally
 
 bge.logic.loadGlobalDict() # replace the current globalDict with the saved one
 
-### keyboard
+##### keyboard
 
 You can handle all the keyboard inputs directly from a script. The usage and syntax are very similar to the Keyboard sensor. You need a script running every logic tic (Always sensor pulsing with a frequency of 0 or every time a key is pressed; Keyboard sensor with "All Keys" set) where you can read the status of all the keys in the bge.logic.keyboard. events dictionary. If instead of inquiry for the status of a particular key (e.g., if spacebar is pressed), you want to list all the pressed keys, you can use the dictionary bge.logic.keyboard.active\_events.
 
@@ -1528,7 +1530,7 @@ else: # bge.logic.KX\_INPUT\_NONE
 
 A sample file can be seen at \Book\Chapter7\5\_game\_keys\key\_detector\_python.blend . This shows the more Python-centric way of handling keyboard. For the classic method of using a Keyboard sensor, look further in this chapter into the "bge.events" section.
 
-### mouse
+##### mouse
 
 Similar to the keyboard, this Python object can work as a replacement for the Mouse sensor. There are a few differences that make it even more appealing for scripting[md]in particular, the fact that the mouse coordinates are already normalized. As we explained in the tutorial, this helps you get consistent results, regardless of the desktop resolution. The available attributes are:
 
@@ -1538,7 +1540,7 @@ Similar to the keyboard, this Python object can work as a replacement for the Mo
 
 **       ** [lb] **visible** : Dhow/hide the mouse cursor (can also be set in the Render panel for the initial state).
 
-### joysticks
+##### joysticks
 
 This is a list of all the joysticks your computer supports. That means the list is mainly populated by None objects, and a few, if any, joystick Python objects. To print the index, name, number of axis, and active buttons of the connected joysticks, you can do:
 
@@ -1554,11 +1556,11 @@ For the complete list of all the parameters supported by the Joystick python obj
 
 A sample file can be found on \Book\Chapter7\joystick.blend.
 
-### Others
+##### Others
 
 There are even more functions available in this module (setMist, getLogicTicRate, and setGravity, for example). Make sure that you visit the online documentation (or the documentation included on the book files) to see them all.
 
-## bge.types
+#### bge.types
 
 Objects, meshes, logic bricks, and even shaders are all different game types. Every time you call an internal function from one of them, you are accessing one of those functions. This happens when you get a position of an object, change an actuator value, and so on.
 
@@ -1566,7 +1568,7 @@ Each one of the classes has the same anatomy. You can access instance methods an
 
 Some of the variables will only work inside the correct context. Therefore, you can't get the mouse position of a Mouse sensor if the sensor was not triggered yet. Be aware of the right context and the game type.
 
-### Class KX\_GameObject
+##### Class KX\_GameObject
 
 If you run a print(dir (object)) inside your script, you will get a very confusing list. It includes Python internal methods, instance methods, and instance variables. Most of them are common to all objects, so we are going to talk about them first. However, lamps and cameras not only inherit all the game object methods but also extend them with specific ones.
 
@@ -1578,25 +1580,25 @@ In order to see all available methods, please refer to the documentation. We are
 
 \*\*\* End Note
 
-#### Python Internal Methods
+###### Python Internal Methods
 
 \_\_class\_\_, \_\_doc\_\_, \_\_delattr\_\_ . . .
 
 Most of those methods are inherited from the Python object we are dealing with. However, given the nature of the Python classes presented in Blender, some of those methods may not be fully accessible. It's unlikely you will be using them. So for now it's safe to ignore any method starting and ending with double underlines (\_\_ignoreme\_\_).
 
-#### Instance Methods
+###### Instance Methods
 
 endObject(), rayCast(), getAxisVect(), suspendDynamics(), getPropertyNames() . . .
 
 If it looks like a function, it should be one. Every game engine object provides you with a set of functions to interact with them or from them to the others. Here are some methods you should know about:
 
-##### rayCast (objto, objfrom, dist, prop, face, xray, poly)
+####### rayCast (objto, objfrom, dist, prop, face, xray, poly)
 
 _"Look from a point/object to another point/object and find first object hit within dist that matches prop."_
 
 This method is a more complete version of the rayCastTo(). It has so many applications that it becomes hard to delimitate its usage. For instance, this was the method used to calculate the collision in the navigation system script we studied previously.
 
-##### getPropertyNames()
+####### getPropertyNames()
 
 _"Get a list of all property names."_
 
@@ -1610,13 +1612,13 @@ Properties have multiple uses in the game engine. One of those uses is to mark a
 
 \*\*\* End Note
 
-##### endObject()
+####### endObject()
 
 _"Delete this object can be used in place of the EndObject Actuator."_
 
 This method is one of the functions that mimic existent actuators. You will also find this design in methods such as sendMessage(), setParent(), and replaceMesh().
 
-##### applyRotation()
+####### applyRotation()
 
 _"Set the game object's movement/rotation."_
 
@@ -1624,7 +1626,7 @@ There are a few methods that will free you from doing 3D math manually. This par
 
 Other methods are applyMovement(), applyForce(), applyTorque(), getDistanceTo(), getVectTo(), getAxisVect(), and alignAxisToVect().
 
-#### Instance Variables
+###### Instance Variables
 
 _name, position, mass, sensors, actuators . . ._
 
@@ -1640,39 +1642,39 @@ obj.worldOrientation.transpose()
 
 print(obj.worldTransform)
 
-##### position, localPosition, worldPosition
+####### position, localPosition, worldPosition
 
 Position is a vector [x, y, z] with the location of the object in the scene. We can get the absolute position (worldPosition) or the position relative to the parent of the object (localPosition). And what about accessing the position variable directly? This is deprecated, but you may run into it in old files you find online. If you access the position variable directly, you get the world position on reading and set the local position on writing. Confusing? That is why this is deprecated ;)
 
-##### orientation, localOrientation, worldOrientation
+####### orientation, localOrientation, worldOrientation
 
 This variable gives you access to a matrix 3x3 with the orientation of the object. The orientation matrix is the result of the rotation transformation of an object and the influence of its parent object. As with position, the orientation variable will give you the world orientation on reading and set the local orientation on writing. As with position, you should always specify whether you want the local or world orientation.
 
-##### visible
+####### visible
 
 We have different ways to set the visibility of an object. If your material is not set to invisible in the game panel, you can use this method. To change the visibility recursively (to the children of the object), you must use the method setVisibility.
 
-##### sensors, controllers, actuators
+####### sensors, controllers, actuators
 
 All the logic bricks of an object can be accessed through those dictionaries. The name of the sensor/controller/actuator will be used as the dictionary key, for it's important to name them correctly.
 
-#### Sub-Class KX\_Camera
+###### Sub-Class KX\_Camera
 
 Not all the objects have access to the same methods and variables. For example, an empty object doesn't have mass, and a static object doesn't have torque.
 
 When the object is a camera, the difference is even more distinct. The camera object has its own class derived from KX\_GameObject. It inherits all the instance variables and methods and expands it with its own. You will find some screen space functions (getScreenPosition(),getScreenVect(), getScreenRay()), some frustum methods (sphereInsideFrustum(), boxInsideFrustum(), pointInsideFrustum()), and some instance variables (lens, near, far, frustum\_culling, world\_to\_camera, camera\_to\_world).
 
-#### Sub-Class KX\_Lamp
+###### Sub-Class KX\_Lamp
 
 Like cameras, lamps also have their own subclass. It inherits all the instance variables and methods, and only expands the available variables.
 
 The parameters that can be changed with Python include all that can be animated with the Action actuator: energy, color, distance, attenuation, spot size, and spot blend. Additionally, you can change the lamp layer in runtime.
 
-## bge.render
+#### bge.render
 
 If we compare gaming with traditional 3D artwork, rasterizer would be the rendering phase of the process. Internally, it's when all the geometry is finally drawn to the screen with the light calculation, the filters applied, and the canvas set. For this reason, the Rasterizer module presents functions related to stereoscopy, windows and mouse management, world settings, and global GLSL material settings.
 
-### Window and Mouse:
+##### Window and Mouse:
 
 getWindowWidth() / getWindowHeight()
 
@@ -1686,7 +1688,7 @@ setMousePosition(x, y)
 
 Set the mouse cursor position (in pixels).
 
-### World Settings:
+##### World Settings:
 
 setBackgroundColor(rgba), setAmbientColor(rgb)
 
@@ -1696,7 +1698,7 @@ setMistColor(rgb), disableMist(), setMistStart(start), setMistEnd(end)
 
 Configure the mist (fog) settings.
 
-### Stereo Settings:
+##### Stereo Settings:
 
 getEyeSeparation() / setEyeSeparation(eyesep)
 
@@ -1706,7 +1708,7 @@ getFocalLength() / setFocalLength(focallength)
 
 Get the current focal length for stereo mode. It uses the current camera focal length as initial value
 
-### Material Settings:
+##### Material Settings:
 
 getMaterialMode(mode) / setMaterialMode(mode)
 
@@ -1720,7 +1722,7 @@ Get/set the state of a GLSL material setting. The available settings are:
 
 "lights", "shaders", "shadows", "ramps", "nodes", "extra\_textures"
 
-### Others:
+##### Others:
 
 drawLine(fromVec, toVec, color)
 
@@ -1734,7 +1736,7 @@ makeScreenshot(filename)
 
 Write a screenshot to the given filename.
 
-## bge.events
+#### bge.events
 
 The Keyboard sensor allows you to set individual keys. As you can see in Figure 7.15, it can also be triggered by any key once you enable the option "All Keys." This is very useful to configure text input in your game or to centralize all keyboard events with a single sensor and script.
 
@@ -1808,7 +1810,7 @@ The status of a key is what informs you whether the key has just been pressed or
 
 \*\*\* End Note
 
-## bge.texture
+#### bge.texture
 
 The texture module was first discussed in the Chapter 5, "Graphics." With the texture module, you can change any texture from your game while the game is running. The texture can be replaced by a single image, a video, a game camera, and even a webcam stream.
 
@@ -1910,11 +1912,11 @@ Webcam sample:
 
 _\Book\Chapter7\6\_texture\webcam.blend_
 
-## bge.constraints
+#### bge.constraints
 
 The Bullet Physics engine allows for advanced control over the physics simulation in your game. Using Bullet as a backend, this module (formerly known as _Physics Constraints_) allows you to create and set up rigid joints, dynamic constraints, and even a vehicle wrapper. The constraints' functionalities make sense only when you understand the context in which they are to be used (with physic dynamic objects). Therefore, this module is covered in the previous chapter on game physics.
 
-## Mathutils[md]Math Types and Utilities
+#### Mathutils - Math Types and Utilities
 
 Mathutils is a generic module common to both Blender and the game engine. There are a lot of methods to facilitate your script in handling 3D math operations. You won't have to reinvent the wheel every time you need to multiply vectors or transpose matrixes. Simply using the mathutils classes and built-in methods frees you to invest your time in something far more important: relearning all of the long-forgotten math lessons you skipped.
 
@@ -1922,7 +1924,7 @@ Unless your background is in math, physics, or engineering, you won't use this m
 
 We are going to present the four available classes in this module: vector, matrix, Euler, and quaternion. For a list of the available methods, refer to the API documentation.
 
-### Vector
+##### Vector
 
 This class was already present in the KX\_GameObject class and in the script example. It behaves like a list object, with some advanced features (for example, swizzle and slicing) expanded with its instance methods. Some of those methods are: reflect, dot, cross, and normalize.
 
@@ -1942,7 +1944,7 @@ new\_vector = vector.copy()
 
 new\_vector is a new Vector, an independent copy of the old\_vector object.
 
-### Matrix
+##### Matrix
 
 While vectors behave similarly to lists, matrices behave similarly to multidimensional lists. A multidimensional list is a list of a list, organized either in columns or rows.
 
@@ -1968,7 +1970,7 @@ It's important to be aware of the ordering of your matrices; otherwise, you end 
 
 If your matrix represents a transformation matrix (rotation, translation, and scale) you can get its values separately. Matrix.to\_quaternion() and Matrix.to\_euler() will give you the rotation part of the matrix in the form you prefer (see next section), and Matrix.to\_translation() and Matrix.to\_scale () will give you the translation and the scale vector, respectively.
 
-### Euler and Quaternion
+##### Euler and Quaternion
 
 Euler and quaternion are different rotation systems. The same rotation can be represented using Euler, quaternion, or an orientation matrix.
 
@@ -2000,13 +2002,13 @@ In this example, converted\_matrix ends up as the same matrix as original\_matri
 
 \*\*\* End Note
 
-## aud[md]Audio System
+#### aud - Audio System
 
 This module allows you to play sounds directly from your scripts. There are three classes you will be working with: Device, Factory, and Handle.
 
 The audaspace module in a nutshell: you need to create one audio Device per game. You need one Factory per audio file (which can also be any video file containing a sound track). And every time you need to play a sound, a new Handle object will be generated from the Factory (this is where its name comes from).
 
-### Example: Basic Audio Playback
+##### Example: Basic Audio Playback
 
 import aud
 
@@ -2050,7 +2052,7 @@ The possible statuses are:
 
 \*\*\* End Note
 
-## bgl[md]OpenGL Wrapper
+#### bgl - OpenGL Wrapper
 
 This module is a wrapping of OpenGL constants and functions. It allows you to access low-level graphic resources within the game engine. You can use this module to draw directly to the screen or to read OpenGL matrices and buffers directly.
 
@@ -2064,7 +2066,7 @@ You can find good OpenGL learning material on the Internet or in a bookstore. _T
 
 \*\*\* End Note
 
-### Example 01: Line Width Changing
+##### Example 01: Line Width Changing
 
 Open the file \Book\Chapter7\7\_bgl\line\_width.blend.
 
@@ -2088,7 +2090,7 @@ This code needs to run only once per frame and will change the line width of the
 
 You will find on the book files another example where the line width changes dynamically[md] \Book\Chapter7\7\_bgl\line\_width\_animate.blend.
 
-### Example 02: Color Picker
+##### Example 02: Color Picker
 
 Open the file \Book\Chapter7\7\_bgl\color\_pickup.blend.
 
@@ -2154,7 +2156,7 @@ And, finally, let's apply the pixel color to the lamp:
 
 lamp.color = [pixels[0], pixels[1], pixels[2]]
 
-## blf[md]Font Drawing
+#### blf - Font Drawing
 
 If you need to control text drawing directly from your scripts, you may need to use this module. Be aware, though, that this module is a low-level API that has to be combined with the OpenGL wrapper to handle texts properly.
 
@@ -2170,7 +2172,7 @@ The blf module works in three stages:
 
 \*\*\* End Numbered List
 
-### Example: Writing Hello World
+##### Example: Writing Hello World
 
 Open the file \Book\Chapter7\8\_blf\hello\_world.blend.
 
