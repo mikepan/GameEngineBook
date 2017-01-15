@@ -14,13 +14,7 @@ Please replace [c] with copyright symbol
 
 Welcome to Physics 101! We are going to be your professors for this chapter. Follow along as we dive into a dynamic world of falling apples, run alongside bouncing balls, and soar with flying spaghetti (see Figure 6.1).
 
-\*\*\*Insert Fig6-01.tif
-
-Figure 6.1
-
-A physics demo.
-
-[c] 2014 Mike Pan.
+![A physics demo](../figures/Chapter6/Fig06-01.png)
 
 # What Is Physics?
 
@@ -38,63 +32,27 @@ The physics settings can be broken down into these sections:
 
 **       ** [lb] **        World settings:** Contain settings that affect the entire scene. Global settings such as gravity strength can be found here. Figure 6.2 shows the World Properties Editor.
 
-\*\*\*Insert Fig6-02.tif
-
-Figure 6.2
-
-World Properties Editor.
-
-Source: Blender Foundation.
+![World Properties Editor](../figures/Chapter6/Fig06-02.png)
 
 **       ** [lb] **        Object Physics settings:** Any game-engine object (mesh, lamp, camera, empty, and text) can be turned into a physical object. Once physics is enabled for an object, it starts obeying the rules of the physics engine, transforming the object from a static object into something that falls, collides, tumbles, and deforms. Figure 6.3 shows the Physics Properties Editor.
 
-\*\*\*Insert Fig6-03.tif
-
-Figure 6.3
-
-Physics Properties Editor.
-
-Source: Blender Foundation.
+![Physics Properties Editor](../figures/Chapter6/Fig06-03.png)
 
 [lb] **Material Physics settings:** The Material panel is not only a place where all the graphic magic happens; it also contains additional physics that control how the surface of the object behaves. Settings such as surface friction can be found here. Because an object can have multiple materials, material physics settings allow the artist to assign different surface materials for different parts of a single object. Figure 6.4 shows the Material Properties Editor.
 
-\*\*\*Insert Fig6-04.tif
-
-Figure 6.4
-
-Material Properties Editor.
-
-Source: Blender Foundation.
+![Material Properties Editor](../figures/Chapter6/Fig06-04.png)
 
 **        [**lb] **        Object constraints:** When you were young, your parents probably set out certain rules that you needed to abide by. If any of the rules were broken, bad things happened. Physics constraints work in roughly the same way (without all the drama and door slamming). They allow you to set up simple rules that the objects follow, rules such as tracking one object to another or limiting their range of motion. With constraints, it's possible to realistically represent many of the structures that have a limited degree of motion, such as hinges, wheels, and chains. Figure 6.5 shows the Object Constraints Properties Editor.
 
-\*\*\*Insert Fig6-05.tif
-
-Figure 6.5
-
-Object Constraints Properties Editor.
-
-Source: Blender Foundation.
+![Object Constraints Properties Editor](../figures/Chapter6/Fig06-05.png)
 
 [lb] **Physics sensors and actuators:** Except for maybe the case of a Rube Goldberg machine, where everything happens in a predetermined manner, most games would be pretty boring if there were no way to make an object move at a user's command or to trigger a reaction when two objects collide. Actuators and sensors fulfill these two roles, respectively. Actuators are part of logic brick that carries out an action (such as applying a force to the object to make it move). Sensors are triggers that detect when something happens in the game, such as when two objects touch. A combination of sensors and actuators makes a game truly interactive, by giving the game engine the ability to make decisions. Figure 6.6 shows the Logic Brick Editor. In case you forgot, Chapter 3 is all about logic bricks.
 
-\*\*\*Insert Fig6-06.tif
-
-Figure 6.6
-
-Logic Brick Editor.
-
-Source: Blender Foundation.
+![Logic Brick Editor](../figures/Chapter6/Fig06-06.png)
 
 **       ** [lb] **        Python:** In addition to all the physics settings one can access from the graphic user interface, an extensive Python API is at your disposal. The Python API gives you programmable control over many aspects of the physics engine. With Python, you can dynamically set many of the physics options while the game is running. It even allows you to accomplish a few things that are not possible from the graphic interface. For instance, Python can be used to create realistic vehicle physics. Figure 6.7 shows the Text Editor with a Python script open.
 
- \*\*\*Insert Fig6-07.tif
-
-Figure 6.7
-
-Text Editor.
-
-Source: Blender Foundation.
+![Text Editor](../figures/Chapter6/Fig06-07.png)
 
 So now that you have an overview of what physics is all about and where to find all the settings, the rest of the chapter will explain how to use these settings in combination to achieve various effects.
 
@@ -104,13 +62,7 @@ World Properties Editor is generally the first place to visit when setting up ph
 
 In the World Properties Editor, there are numerous global physics settings that affect how the scene behaves. Again, remember that game-specific settings are only visible when the engine selector is set to Blender Game, as shown in Figure 6.8.
 
-\*\*\*Insert Fig6-08.tif
-
-Figure 6.8
-
-Set engine to Blender Game to see the relevant game settings.
-
-Source: Blender Foundation.
+![Set engine to Blender Game to see the relevant game settings](../figures/Chapter6/Fig06-08.png)
 
 # Physics Engine
 
@@ -120,13 +72,7 @@ When the engine selector is set to none, all physics calculation is disabled. Dy
 
 Figure 6.9 shows the World Physics settings.
 
-\*\*\*Insert Fig6-09.tif
-
-Figure 6.9
-
-World Physics settings.
-
-Source: Blender Foundation.
+![World Physics settings](../figures/Chapter6/Fig06-09.png)
 
 \*\*\* Begin Note
 
@@ -156,57 +102,27 @@ To create a game with two scenes:
 
 2.First, rename the default scene from "Scene" to something more descriptive, such as "Earth," by clicking on the Scene data block and typing in a new name, as shown in Figure 6.10.
 
-\*\*\*Insert Fig6-10.tif
-
-Figure 6.10
-
-Renaming the scene.
-
-Source: Blender Foundation.
+![Renaming the scene](../figures/Chapter6/Fig06-10.png)
 
 3.Go to the World Properties Editor; set the Horizon color to a light blue, as shown in Figure 6.11. This way, you can easily tell which scene is which.
 
-\*\*\*Insert Fig6-11.tif
-
-Figure 6.11
-
-Changing the color of the world.
-
-Source: Blender Foundation.
+![Changing the color of the world](../figures/Chapter6/Fig06-11.png)
 
 4.To make another world, you create a copy of Earth scene by clicking on the + sign beside the scene browser. From the drop-down list, select Full Copy, as shown in Figure 6.12. This will be the scene for your second world.
 
-\*\*\*Insert Fig6-12.tif
-
-Figure 6.12
-
-Making a full copy of the scene.
-
-Source: Blender Foundation.
+![Making a full copy of the scene](../figures/Chapter6/Fig06-12.png)
 
 5.Rename the new scene you just created from "Earth.001" to "Mars."
 
 6.Go to the World Properties Editor; set the Horizon color to a dark orange (see Figure 6.13).
 
-\*\*\*Insert Fig6-13.tif
-
-Figure 6.13
-
-"Mars" world settings.
-
-Source: Blender Foundation.
+!["Mars" world settings](../figures/Chapter6/Fig06-13.png)
 
 7.Lower the gravity from 9.8 to 3.7, which is the gravity on Mars.
 
 8.To toggle between the two scenes, you need to add a simple logic brick to both of your scenes, so that when the spacebar is pressed in the Earth scene, it will jump to the Mars scene, and vice versa. Set up the logic brick as shown in Figure 6.14. In this case, it doesn't matter which object the logic brick is attached to because the action it carries out is global. The camera is used in our example to host the logic brick.
 
-\*\*\*Insert Fig6-14.tif
-
-Figure 6.14
-
-Logic brick setup.
-
-Source: Blender Foundation.
+![Logic brick setup](../figures/Chapter6/Fig06-14.png)
 
 9.Recreate the logic brick in the other scene as well. Set it to load the corresponding scene.
 
@@ -352,13 +268,7 @@ Roll: Whether the objects roll and tumble when they are on an incline.
 
 To familiarize yourself with the different physics types, open the demo file available from /Book/Chapter6/demo/physicsTypes.blend. It shows some of the common physics types and their behavior, as shown in Figure 6.15.
 
-\*\*\*Insert Fig6-15.tif
-
-Figure 6.15
-
-Different physics types visualized.
-
-Source: Blender Foundation.
+![Different physics types visualized](../figures/Chapter6/Fig06-15.png)
 
 Let's look at the settings in more detail.
 
@@ -418,13 +328,7 @@ Figure 6.16 explains how occluders work.
 
 From left to right, the first image shows the scene setup of /Book/Chapter6/PhysicsOccluder.blend. The second image shows what the camera sees. Notice the monkey head is not visible because the plane is blocking it. The third image is the view from the same camera while in-game, in wireframe mode. Notice that even though the monkey head is behind the wall, it is still being rendered, thus wasting precious computing time. The last image is the same in-game view as the previous image, but with the wall set to Occluder, the monkey head is not displayed.
 
-\*\*\*Insert Fig6-16.tif
-
-Figure 6.16
-
-Occluder culling.
-
-Source: Blender Foundation.
+![Occluder culling](../figures/Chapter6/Fig06-16.png)
 
 ### Sensor
 
@@ -446,13 +350,7 @@ Since Blender 2.6, the game engine has a fully automated AI pathfinding routine.
 
 3._Monkey_ is our main character; it will be navigating through the maze (the VisualMesh) to get to the Target. To aid its quest, we have created a simple helper geometry that outlines where the character can walk. This object is known as the _NavMesh_. Figure 6.17 shows the initial setup.
 
-\*\*\*Insert Fig6.17.tif
-
-Figure 6.17
-
-Navigation system.
-
-Source: Blender Foundation.
+![Navigation system](../figures/Chapter6/Fig06-17.png)
 
 4.A navigation mesh is a helper object (invisible while the game is running) that is used to help guide other objects along a path. The NavMesh object is a regular mesh object that defines the shape of the accessible area for the pathfinding routine.
 
@@ -464,25 +362,13 @@ Source: Blender Foundation.
 
 8.Select the Monkey object and add a "steering" Logic Brick actuator to it, as shown in Figure 6.18. Define the target and navigation mesh object, as shown in Figure 6.19.
 
-\*\*\*Insert Fig6-18.tif
-
-Figure 6.18
-
-Steering actuator setup.
-
-Source: Blender Foundation.
+![Steering actuator setup](../figures/Chapter6/Fig06-18.png)
 
 9.And you are done! Start the game and watch the monkey seek out the cone. The Steering actuator contains additional options that you can explore.
 
 10.Figure 6.19 shows the finished game running in the Blender game engine. You can check out navigation-finished.blend.
 
-\*\*\*Insert Fig6-19.tif
-
-Figure 6.19
-
-Finished.
-
-Source: Blender Foundation.
+![Finished](../figures/Chapter6/Fig06-19.png)
 
 11.As promised, another way to create a navigation mesh is to use the automatic generator. To do this, delete the NavMeshobject first so you can start with a clean slate.
 
@@ -490,13 +376,7 @@ Source: Blender Foundation.
 
 13.Go to the Scene tab of the Properties Editor, as seen in Figure 6.20. You should see a "Build Navigation Mesh" button, along with a whole slew of settings.
 
-\*\*\*Insert Fig6-20.tif
-
-Figure 6.20
-
-Automatic navigation mesh generation.
-
-Source: Blender Foundation.
+![Automatic navigation mesh generation](../figures/Chapter6/Fig06-20.png)
 
 14.Pressing the aforementioned button will create a navigation mesh automatically from the visual mesh.
 
@@ -548,13 +428,7 @@ Additionally, there are options for controlling when objects go to sleep in the 
 
 When the collision bound is set to Convex Hull, the collision bound takes the shape of the object, but with all the concave areas filled in. Convex Hull can accurately approximate an object of any shape as long as it doesn't have any "negative" space, such as holes. For example, a doughnut-shaped rigid body object set to Convex Hull will be treated as if the hole isn't there.
 
-\*\*\*Insert Fig6-21.tif
-
-Figure 6.21
-
-Collision bounds visualization: Top row: box, sphere, cylinder; Bottom row: cone, convex hull, triangle mesh.
-
-Source: Blender Foundation. Art: [c] 2014 Mike Pan.
+![Collision bounds visualization: Top row: box, sphere, cylinder; Bottom row: cone, convex hull, triangle mesh](../figures/Chapter6/Fig06-21.png)
 
 **        [lb]        Triangle Mesh:** This is the most robust collision bound type. It will create a collision bound that is an exact duplicate of the actual mesh. If you want to ensure that the collision bound matches the visual mesh exactly, this is the setting to use. So why don't we use this setting all the time? The reason is performance and stability. The physics engine is far better optimized for simple primitives, such as a box, than an arbitrarily shaped triangle mesh.
 
@@ -588,13 +462,7 @@ To create a compound physics object (see Figure 6.22):
 
 4.Run the game now and notice that all objects contribute to the kinematics of the group.
 
-\*\*\*Insert Fig6-22.tif
-
-Figure 6.22
-
-Compound objects physics.
-
-[c]2014 Cengage Learning[r]. All Rights Reserved.
+![Compound objects physics](../figures/Chapter6/Fig06-22.png)
 
 \*\*\*End Tutorial
 
@@ -602,13 +470,7 @@ Compound objects physics.
 
 By adding a material to the object, you enable additional options that give you finer control over some of the physical properties of the surface. Figure 6.23 shows the physics settings found in the Material panel.
 
-\*\*\*Insert Fig6-23.tif
-
-Figure 6.23
-
-Material physics settings.
-
-Source: Blender Foundation.
+![Material physics settings](../figures/Chapter6/Fig06-23.png)
 
 [lb] **Friction:** Controls the force that slows down a moving object when it comes in contact with another object. The effective friction force between two objects is dependent on the friction settings on both objects. So if one object with a high friction setting comes in contact with another object with low friction, the effective friction force would be somewhere in the middle of the two values.
 
@@ -634,13 +496,7 @@ As you might imagine, the Force Field setting is used to simulate the realistic 
 
 4.Select the Camera object in the Logic Editor panel and add a new Keyboard sensor, a new And controller, and an Edit Object actuator, as shown in Figure 6.24.
 
-\*\*\*Insert Fig6-24.tif
-
-Figure 6.24
-
-Logic bricks.
-
-Source: Blender Foundation.
+![Logic bricks](../figures/Chapter6/Fig06-24.png)
 
 5.To make sure that the cube objects get instantiated when you run the game, you need to hide the original cube object. To do this, simply move the Cube to the second layer by pressing M and then 2.
 
@@ -650,13 +506,7 @@ Source: Blender Foundation.
 
 8.Head to the Material Properties Editor and create a new material. Then simply copy the force field physics setting, as shown in Figure 6.25.
 
-\*\*\*Insert Fig6-25.tif
-
-Figure 6.25
-
-Material physics settings.
-
-Source: Blender Foundation.
+![Material physics settings](../figures/Chapter6/Fig06-25.png)
 
 9.Et voilà! Start the game, press the spacebar, and watch the crates tumble into the ocean.
 
@@ -668,23 +518,13 @@ Source: Blender Foundation.
 
 Constraints are frequently used to create joints and mechanical linkages, indispensible components of many games. The Constraints Properties Editor is shown in Figure 6.26.
 
-\*\*\*Insert Fig6.26.tif
-
-Figure 6.26
-
-Adding a Rigid Body Joint in the Constraints Properties Editor.
-
-Source: Blender Foundation.
+![Adding a Rigid Body Joint in the Constraints Properties Editor](../figures/Chapter6/Fig06-26.png)
 
 The only supported object constraint is the Rigid Body Joint. It is used to connect two objects together using a user-defined joint.
 
 Figure 6.27 illustrates the variety of pivot types.
 
-\*\*\*Insert Fig6-27.tif
-
-Figure 6.27
-
-Constraints illustrated.
+![Constraints illustrated](../figures/Chapter6/Fig06-27.png)
 
 [c] 2014 Cengage Learning[r]. All Rights Reserved.
 
@@ -726,13 +566,7 @@ That's pretty much it[md]a car body object and four tires make up the vehicle.
 
 As already mentioned, the actual vehicle physics relies on some Python script to function. Figure 6.28 shows all the logic bricks that are attached to the car body object. Notice that script plays a big part in it.
 
-\*\*\*Insert Fig6.28.tif
-
-Figure 6.28
-
-Vehicle logic brick setup.
-
-Source: Blender Foundation.
+![Vehicle logic brick setup](../figures/Chapter6/Fig06-28.png)
 
 The script.carInit() functionality is run when the game is started. Here, it initializes the car as a "vehicle constraint," also known as constraint type11, and stores it as a Python object called _vehicle_. The same script then looks for the four wheels by accessing an actuator with specific names (in this case, wheel1, wheel2, etc.), and then the script attaches the wheels to the car body using the settings specified in the script. Variables such as RollInfluence, SuspensionStiffness, and TyreFriction can all be set on a per-tire basis once the vehicle object is created. The job of carInit() is now done. Your car body is now considered to be a vehicle by the game engine, and it will behave like one.
 
@@ -748,13 +582,7 @@ With these three Python functions, the car comes alive.
 
 Game settings are global settings that affect the running of the game. These settings are shown in Figure 6.29 and can be found in the Render panel.
 
-\*\*\*Insert Fig6.29.tif
-
-Figure 6.29
-
-Additional game settings.
-
-Source: Blender Foundation.
+![Additional game settings](../figures/Chapter6/Fig06-29.png)
 
 [lb] **Animation Playback Speed:** Closely related to the frame-rate setting is the animation playback speed. This setting controls the speed of the F-Curve and armature animation. By default, the value is set to 24, meaning all F-Curve and actions will be played back as if they are running at a 24fps timebase. This setting can be found in the Render panel.
 
