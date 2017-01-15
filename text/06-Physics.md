@@ -1,4 +1,41 @@
-# Chapter 6: Physics
+**Table of Contents**
+
+- [Chapter 6: Physics](#Chapter 6: Physics)
+	- [What Is Physics?](#What Is Physics?)
+	- [Overview](#Overview)
+	- [World Properties](#World Properties)
+	- [Physics Engine](#Physics Engine)
+		- [Hands-on: World Settings for Multiple Scenes](#Hands-on: World Settings for Multiple Scenes)
+	- [Culling Resolution](#Culling Resolution)
+	- [Physics Substeps](#Physics Substeps)
+	- [On the Issue of Time](#On the Issue of Time)
+	- [Physics Steps](#Physics Steps)
+	- [Logic Steps](#Logic Steps)
+	- [FPS](#FPS)
+	- [Physics Deactivation](#Physics Deactivation)
+	- [Physics Panel Settings](#Physics Panel Settings)
+	- [Physics Types](#Physics Types)
+		- [No Collision](#No Collision)
+		- [Static](#Static)
+		- [Dynamic](#Dynamic)
+		- [Rigid Body](#Rigid Body)
+		- [Soft Body](#Soft Body)
+		- [Occluder](#Occluder)
+		- [Sensor](#Sensor)
+		- [Navigation Mesh](#Navigation Mesh)
+			- [Hands-on Tutorial: Navigation](#Hands-on Tutorial: Navigation)
+		- [Characters](#Characters)
+	- [Common Settings](#Common Settings)
+		- [Hands-on Tutorial: Creating Compound Objects](#Hands-on Tutorial: Creating Compound Objects)
+	- [Material Panel Physics Settings](#Material Panel Physics Settings)
+		- [Hands-on Tutorial: Force Field Water Surface](#Hands-on Tutorial: Force Field Water Surface)
+	- [Constraints](#Constraints)
+	- [Vehicle Physics](#Vehicle Physics)
+		- [Hands-on Tutorial: Vehicle Physics Using Python](#Hands-on Tutorial: Vehicle Physics Using Python)
+	- [Game Settings](#Game Settings)
+	- [Stabilizing Physics](#Stabilizing Physics)
+
+# Chapter 6: Physics <a id="Chapter 6: Physics"></a>
 
 Welcome to Physics 101! We are going to be your professors for this chapter. Follow along as we dive into a dynamic world of falling apples, run alongside bouncing balls, and soar with flying spaghetti (see Figure 6.1).
 
