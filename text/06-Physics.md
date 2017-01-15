@@ -55,27 +55,27 @@ Because physics is such an integral part of the Blender game engine, physics-rel
 
 The physics settings can be broken down into these sections:
 
-**       ** [lb] **        World settings:** Contain settings that affect the entire scene. Global settings such as gravity strength can be found here. Figure 6.2 shows the World Properties Editor.
+- **World settings:** Contain settings that affect the entire scene. Global settings such as gravity strength can be found here. Figure 6.2 shows the World Properties Editor.
 
 ![World Properties Editor](../figures/Chapter6/Fig06-02.png)
 
-**       ** [lb] **        Object Physics settings:** Any game-engine object (mesh, lamp, camera, empty, and text) can be turned into a physical object. Once physics is enabled for an object, it starts obeying the rules of the physics engine, transforming the object from a static object into something that falls, collides, tumbles, and deforms. Figure 6.3 shows the Physics Properties Editor.
+- **Object Physics settings:** Any game-engine object (mesh, lamp, camera, empty, and text) can be turned into a physical object. Once physics is enabled for an object, it starts obeying the rules of the physics engine, transforming the object from a static object into something that falls, collides, tumbles, and deforms. Figure 6.3 shows the Physics Properties Editor.
 
 ![Physics Properties Editor](../figures/Chapter6/Fig06-03.png)
 
-[lb] **Material Physics settings:** The Material panel is not only a place where all the graphic magic happens; it also contains additional physics that control how the surface of the object behaves. Settings such as surface friction can be found here. Because an object can have multiple materials, material physics settings allow the artist to assign different surface materials for different parts of a single object. Figure 6.4 shows the Material Properties Editor.
+- **Material Physics settings:** The Material panel is not only a place where all the graphic magic happens; it also contains additional physics that control how the surface of the object behaves. Settings such as surface friction can be found here. Because an object can have multiple materials, material physics settings allow the artist to assign different surface materials for different parts of a single object. Figure 6.4 shows the Material Properties Editor.
 
 ![Material Properties Editor](../figures/Chapter6/Fig06-04.png)
 
-**        [**lb] **        Object constraints:** When you were young, your parents probably set out certain rules that you needed to abide by. If any of the rules were broken, bad things happened. Physics constraints work in roughly the same way (without all the drama and door slamming). They allow you to set up simple rules that the objects follow, rules such as tracking one object to another or limiting their range of motion. With constraints, it's possible to realistically represent many of the structures that have a limited degree of motion, such as hinges, wheels, and chains. Figure 6.5 shows the Object Constraints Properties Editor.
+- **Object constraints:** When you were young, your parents probably set out certain rules that you needed to abide by. If any of the rules were broken, bad things happened. Physics constraints work in roughly the same way (without all the drama and door slamming). They allow you to set up simple rules that the objects follow, rules such as tracking one object to another or limiting their range of motion. With constraints, it's possible to realistically represent many of the structures that have a limited degree of motion, such as hinges, wheels, and chains. Figure 6.5 shows the Object Constraints Properties Editor.
 
 ![Object Constraints Properties Editor](../figures/Chapter6/Fig06-05.png)
 
-[lb] **Physics sensors and actuators:** Except for maybe the case of a Rube Goldberg machine, where everything happens in a predetermined manner, most games would be pretty boring if there were no way to make an object move at a user's command or to trigger a reaction when two objects collide. Actuators and sensors fulfill these two roles, respectively. Actuators are part of logic brick that carries out an action (such as applying a force to the object to make it move). Sensors are triggers that detect when something happens in the game, such as when two objects touch. A combination of sensors and actuators makes a game truly interactive, by giving the game engine the ability to make decisions. Figure 6.6 shows the Logic Brick Editor. In case you forgot, Chapter 3 is all about logic bricks.
+- **Physics sensors and actuators:** Except for maybe the case of a Rube Goldberg machine, where everything happens in a predetermined manner, most games would be pretty boring if there were no way to make an object move at a user's command or to trigger a reaction when two objects collide. Actuators and sensors fulfill these two roles, respectively. Actuators are part of logic brick that carries out an action (such as applying a force to the object to make it move). Sensors are triggers that detect when something happens in the game, such as when two objects touch. A combination of sensors and actuators makes a game truly interactive, by giving the game engine the ability to make decisions. Figure 6.6 shows the Logic Brick Editor. In case you forgot, Chapter 3 is all about logic bricks.
 
 ![Logic Brick Editor](../figures/Chapter6/Fig06-06.png)
 
-**       ** [lb] **        Python:** In addition to all the physics settings one can access from the graphic user interface, an extensive Python API is at your disposal. The Python API gives you programmable control over many aspects of the physics engine. With Python, you can dynamically set many of the physics options while the game is running. It even allows you to accomplish a few things that are not possible from the graphic interface. For instance, Python can be used to create realistic vehicle physics. Figure 6.7 shows the Text Editor with a Python script open.
+- **Python:** In addition to all the physics settings one can access from the graphic user interface, an extensive Python API is at your disposal. The Python API gives you programmable control over many aspects of the physics engine. With Python, you can dynamically set many of the physics options while the game is running. It even allows you to accomplish a few things that are not possible from the graphic interface. For instance, Python can be used to create realistic vehicle physics. Figure 6.7 shows the Text Editor with a Python script open.
 
 ![Text Editor](../figures/Chapter6/Fig06-07.png)
 
@@ -99,23 +99,15 @@ Figure 6.9 shows the World Physics settings.
 
 ![World Physics settings](../figures/Chapter6/Fig06-09.png)
 
-\*\*\* Begin Note
-
-Disabling Physics
-
-Some functions that seem to be unrelated to the physics engine, such as the raycast and mouseover sensors, also use the physics engine to detect objects. Therefore, disabling physics will break these functions as well.
-
-\*\*\* End Note
+>**Disabling Physics**
+>
+>Some functions that seem to be unrelated to the physics engine, such as the raycast and mouseover sensors, also use the physics engine to detect objects. Therefore, disabling physics will break these functions as well.
 
 With the physics engine set to Bullet, you can set the world gravity value. The higher the number, the faster an object falls. The default value of 9.8 corresponds to acceleration due to gravity on earth; for comparison, Mars has a gravity of 3.7 m/s².
 
-\*\*\* Begin Note
-
-World and Scene Gravity Settings
-
-There are two separate gravity settings in Blender. One in the World panel[md]which controls gravity for the game physics, and one in the Scene panel[md]which controls gravity for the non-game aspect of Blender physics (fluid, particles, and smoke simulation). They are only visible in their respective engines (Blender Game and Blender Render or Cycles Render, respectively).When working with games, make sure you adjust the right setting under World.
-
-\*\*\* End Note
+>**World and Scene Gravity Settings**
+>
+>There are two separate gravity settings in Blender. One in the World panel[md]which controls gravity for the game physics, and one in the Scene panel[md]which controls gravity for the non-game aspect of Blender physics (fluid, particles, and smoke simulation). They are only visible in their respective engines (Blender Game and Blender Render or Cycles Render, respectively).When working with games, make sure you adjust the right setting under World.
 
 ### Hands-on: World Settings for Multiple Scenes <a id="Hands-on: World Settings for Multiple Scenes"></a>
 
@@ -123,37 +115,37 @@ Because Blender supports multiple scenes and each scene can have its own World d
 
 To create a game with two scenes:
 
-1.Open /Book/Chapter6/earthMars.blend. When the game is running, you are in control of a first-person-shooter style camera, which can be moved with the W, A, S, and D keys and rotated with the mouse. Cubes are generated out of thin air and they fall to the ground according to gravity.
+1. Open /Book/Chapter6/earthMars.blend. When the game is running, you are in control of a first-person-shooter style camera, which can be moved with the W, A, S, and D keys and rotated with the mouse. Cubes are generated out of thin air and they fall to the ground according to gravity.
 
-2.First, rename the default scene from "Scene" to something more descriptive, such as "Earth," by clicking on the Scene data block and typing in a new name, as shown in Figure 6.10.
+2. First, rename the default scene from "Scene" to something more descriptive, such as "Earth," by clicking on the Scene data block and typing in a new name, as shown in Figure 6.10.
 
 ![Renaming the scene](../figures/Chapter6/Fig06-10.png)
 
-3.Go to the World Properties Editor; set the Horizon color to a light blue, as shown in Figure 6.11. This way, you can easily tell which scene is which.
+3. Go to the World Properties Editor; set the Horizon color to a light blue, as shown in Figure 6.11. This way, you can easily tell which scene is which.
 
 ![Changing the color of the world](../figures/Chapter6/Fig06-11.png)
 
-4.To make another world, you create a copy of Earth scene by clicking on the + sign beside the scene browser. From the drop-down list, select Full Copy, as shown in Figure 6.12. This will be the scene for your second world.
+4. To make another world, you create a copy of Earth scene by clicking on the + sign beside the scene browser. From the drop-down list, select Full Copy, as shown in Figure 6.12. This will be the scene for your second world.
 
 ![Making a full copy of the scene](../figures/Chapter6/Fig06-12.png)
 
-5.Rename the new scene you just created from "Earth.001" to "Mars."
+5. Rename the new scene you just created from "Earth.001" to "Mars."
 
-6.Go to the World Properties Editor; set the Horizon color to a dark orange (see Figure 6.13).
+6. Go to the World Properties Editor; set the Horizon color to a dark orange (see Figure 6.13).
 
 !["Mars" world settings](../figures/Chapter6/Fig06-13.png)
 
-7.Lower the gravity from 9.8 to 3.7, which is the gravity on Mars.
+7. Lower the gravity from 9.8 to 3.7, which is the gravity on Mars.
 
-8.To toggle between the two scenes, you need to add a simple logic brick to both of your scenes, so that when the spacebar is pressed in the Earth scene, it will jump to the Mars scene, and vice versa. Set up the logic brick as shown in Figure 6.14. In this case, it doesn't matter which object the logic brick is attached to because the action it carries out is global. The camera is used in our example to host the logic brick.
+8. To toggle between the two scenes, you need to add a simple logic brick to both of your scenes, so that when the spacebar is pressed in the Earth scene, it will jump to the Mars scene, and vice versa. Set up the logic brick as shown in Figure 6.14. In this case, it doesn't matter which object the logic brick is attached to because the action it carries out is global. The camera is used in our example to host the logic brick.
 
 ![Logic brick setup](../figures/Chapter6/Fig06-14.png)
 
-9.Recreate the logic brick in the other scene as well. Set it to load the corresponding scene.
+9. Recreate the logic brick in the other scene as well. Set it to load the corresponding scene.
 
-10.Now press P to play the game. Jump between the two scenes using the spacebar. Notice that the gravity and the sky color changes depending on which scene you are on.
+10. Now press P to play the game. Jump between the two scenes using the spacebar. Notice that the gravity and the sky color changes depending on which scene you are on.
 
-11.That's it! The finished game can be found under the name earthMars-finished.blend. To extend this game, you can play around with the physics properties of the cube, which is hidden in layer 2.
+11. That's it! The finished game can be found under the name earthMars-finished.blend. To extend this game, you can play around with the physics properties of the cube, which is hidden in layer 2.
 
 ## Culling Resolution <a id="Culling Resolution"></a>
 
@@ -163,13 +155,9 @@ Occluder objects must be manually defined. For more information on how to set up
 
 The culling resolution setting controls how fine the occlusion test is. Higher value leads to slower performance, but it gives more accurate culling of smaller objects that might otherwise be missed by a low-resolution occlusion buffer. The default value of 128 is optimum for most cases.
 
-\*\*\* Begin Note
-
-Not Visible but Still There
-
-Occlusion culling only skips the display of an object. The object would still be processed by the logic and physics engine. So any physical interaction, logic brick setup, or Python script attached to the object will run as usual even when the object is culled from the display.
-
-\*\*\* End Note
+>**Not Visible but Still There**
+>
+>Occlusion culling only skips the display of an object. The object would still be processed by the logic and physics engine. So any physical interaction, logic brick setup, or Python script attached to the object will run as usual even when the object is culled from the display.
 
 ## Physics Substeps <a id="Physics Substeps"></a>
 
@@ -179,13 +167,9 @@ When physics simulation is not accurate enough, you might see objects going thro
 
 If you run into any physical instability, you might be tempted to immediately raise the substep value. Avoid this impulse: do not rely entirely on substeps to hide a badly designed physics setup; the physics engine is designed to run with a substep of 1 or 2. Use other ways to stabilize the physics as described later in the chapter. Only raise the substep value when all else fails.
 
-\*\*\* Begin Note
-
-Bottom Line
-
-Generally speaking, a value of 1 is sufficient for slow-moving games; 2 is optimum for fast-moving arcade games and action games with lots of physics interactions; driving games might require a 3 or a 4 (well, depending on how fast the car can go); do not use 5 unless your game contains supersonic objects.
-
-\*\*\* End Note
+>**Bottom Line**
+>
+>Generally speaking, a value of 1 is sufficient for slow-moving games; 2 is optimum for fast-moving arcade games and action games with lots of physics interactions; driving games might require a 3 or a 4 (well, depending on how fast the car can go); do not use 5 unless your game contains supersonic objects.
 
 ## On the Issue of Time <a id="On the Issue of Time"></a>
 
@@ -201,25 +185,17 @@ It turns out that ensuring a constant game-time despite fluctuations in the fram
 
 The Max Physics Steps control how many consecutive physical simulation frames the game engine is allowed to run for each rendered frame. A high value (5) is more physically accurate, because it gives the physics engine enough time to complete the physics calculation, regardless of the game frame rate, therefore yielding a more consistent game-time that is independent of the frame rate, at the cost of taking up more processing time. A low value (1) can increase the frame rate of the game slightly by reducing the number of consecutive physical simulation frames the game engine is allowed to run every frame, but at the cost of inaccurate physics behavior, because the game-time would be linked to the frame rate.
 
-\*\*\* Begin Note
-
-Bottom Line
-
-If you are still confused, just set the Max Physics Steps to 5. This ensures that the game-time is as constant as possible, no matter what the frame rate is.
-
-\*\*\* End Note
+>**Bottom Line**
+>
+>If you are still confused, just set the Max Physics Steps to 5. This ensures that the game-time is as constant as possible, no matter what the frame rate is.
 
 ## Logic Steps <a id="Logic Steps"></a>
 
 Very similar to the Max Physics Steps, the Max Logic Steps control how many consecutive game logic tics the game engine is allowed to run for each rendered frame. When the game frame rate is lower than the nominal FPS setting, a high value (5) is more accurate because it makes sure the logic step always gets enough time to finish all the logic computation. Conversely, a low value (1) will yield slightly better performance at the cost of a fluctuation in game-time. So this means that when the frame rate is high, the game will run normally, but if the frame rate drops, the game will appear to slow down.
 
-\*\*\* Begin Note
-
-Bottom Line
-
-The default value of 5 means that the logic always gets enough time to run, no matter what frame rate the game runs at. This ensures that the game-time does not slow down when the frame rate is low.
-
-\*\*\* End Note
+>**Bottom Line**
+>
+>The default value of 5 means that the logic always gets enough time to run, no matter what frame rate the game runs at. This ensures that the game-time does not slow down when the frame rate is low.
 
 ## FPS <a id="FPS"></a>
 
@@ -227,13 +203,9 @@ Frames per second is the Holy Grail of performance benchmarking. For a video gam
 
 Internally, fps sets the number of logic tics and physics tics the game engine runs at. So as you lower the fps setting, the number of logic and physics tics performed by the game will decrease accordingly. This has the effect of slowing down the game-time_._ In another word, if the fps is set too low, not only will the game feel choppy, but it will actually appear as if it's running in slow motion.
 
-\*\*\* Begin Note
-
-Bottom Line
-
-The default value of 60 is good for most game applications. Setting this value higher does not give you better performance. It is also customary for some games to set the fps to a lower value such as 30. The idea is that a game running at a constant 30fps feels smoother than a game that is fluctuating between 30fps and 60fps. Additionally, you can set vsync in your graphic card to force a frame rate ceiling. You don't have control over that in the player's computer, though.
-
-\*\*\* End Note
+>**Bottom Line**
+>
+>The default value of 60 is good for most game applications. Setting this value higher does not give you better performance. It is also customary for some games to set the fps to a lower value such as 30. The idea is that a game running at a constant 30fps feels smoother than a game that is fluctuating between 30fps and 60fps. Additionally, you can set vsync in your graphic card to force a frame rate ceiling. You don't have control over that in the player's computer, though.
 
 ## Physics Deactivation <a id="Physics Deactivation"></a>
 
@@ -255,41 +227,24 @@ Physics settings apply to all game objects types, including mesh, empty, lamp, a
 
 How do you decide which physics type to pick for an object? That largely depends on the role of the object in the game. Table 6.1 shows all the physics types that are available in Blender and their corresponding characteristics.
 
-\*\*\*Insert Table 6.1
+|    Type       |    Collision G,F,T    |    Roll Typical Use                |
+| ------------- |:---------------------:|:------------------|
+| No collision  | No  No  No            | Effects, high-resolution mesh |
+| Static        | Yes  No  No           | Buildings, immovable structures |
+| Dynamic | Yes  Yes  No | Yes  Yes  No |
+| Rigid Body | Yes  Yes  Yes | Movable barrels, crates, general objects |
+| Soft Body | Yes  Partial  Yes | Hair, cloth, rubber ducky |
+| Occluder | No  No  No | Walls for performance optimization |
+| Sensor | Yes  No  No | Event triggers |
+| Navigation | No  No  No | Pathfinding helper |
+| Character | Yes  No  No | Designed specifically for characters |
 
-Table 6.1
-
-Physics Types
-
-Type  Collision G,F,T  Roll Typical Use
-
-No collision No  No  No Effects, high-resolution mesh
-
-Static  Yes  No  No Buildings, immovable structures
-
-Dynamic Yes  Yes  No None
-
-Rigid Body Yes  Yes  Yes Movable barrels, crates, general objects
-
-Soft Body Yes  Partial  Yes Hair, cloth, rubber ducky
-
-Occluder No  No  No Walls for performance optimization
-
-Sensor  Yes  No  No Event triggers
-
-Navigation No  No  No Pathfinding helper
-
-Character Yes  No  No Designed specifically for characters
-
+Table 6.1: Physics Types
 Collision: Whether the object detects collision.
 
 G,F,T: Whether the object can be moved by Gravity, Force, and Torque.
 
 Roll: Whether the objects roll and tumble when they are on an incline.
-
-[c] 2014 Dalai Felinto and Mike Pan.
-
-\*\*\*End of Table
 
 To familiarize yourself with the different physics types, open the demo file available from /Book/Chapter6/demo/physicsTypes.blend. It shows some of the common physics types and their behavior, as shown in Figure 6.15.
 
