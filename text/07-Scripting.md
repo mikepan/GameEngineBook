@@ -1,6 +1,4 @@
-# Chapter 7
-
-# Python Scripting
+# Chapter 7: Python Scripting
 
 Congratulations, you finally arrived at one of the most technical parts of the book. Keep that in mind in case you get lost.
 
@@ -18,7 +16,7 @@ For those experienced Python programmers (or for those catching up with the refe
 
 After the brief overview in the Python basics, we will explain how to apply your knowledge of Python inside the game engine. You'll also learn how to access the Python methods, properties, and objects you'll be using.
 
-# Why Script When You Can Logic Brick It?
+## Why Script When You Can Logic Brick It?
 
 We can compare logic bricks with real bricks. On the one hand, we have strong elements on which to build our system, but, on the other hand, we have a system as flexible as a blind wall.
 
@@ -48,7 +46,7 @@ You can't ever get away from logic bricks. Even when using Python exclusively fo
 
 \*\*\* End Note
 
-# Sane Replacement for Large-Scale Logic-Bricked Objects
+### Sane Replacement for Large-Scale Logic-Bricked Objects
 
 It's always good to have an excuse to show an image in a programming chapter, and here it is. In Figure 7.1 you see the logic bricks for Frankie, the main character of the open game _Yo Frankie!_
 
@@ -92,7 +90,7 @@ Please resist to the temptation to create ASCII art while documenting your scrip
 
 \*\*\*End Note
 
-# Better Handling of Multiple Objects
+### Better Handling of Multiple Objects
 
 Big projects lead to multiple files[md]this is an inevitable truth. Even when you use external linking and libraries, it's crucial to optimize the time spent in changing multiple sets at once. This is one of the weaknesses of logic bricks[md]they make it hard to automatically change a big range of elements at the same time.
 
@@ -104,7 +102,7 @@ If you thought that Figure 7.1 was a mess, try to make sense of Figure 7.2. Here
 
 Once you start to work with scripts, you will see how easy it is to assume control over all your scene elements in a global way. It will give you lots of benefits in the long run.
 
-# Access to Blender's Advanced Features
+### Access to Blender's Advanced Features
 
 You will be happy to know that the game engine has a powerful set of features beyond those found in the logic brick's interface. Also, almost all the functionality found in the logic bricks can be accomplished through an equivalent method of the game engine API (which will be covered in the section "Using the Game Engine API[md]Application Programming Interface"). The API ranges from tasks that could be performed with logic bricks, such as to change a property in a sensor or to completely remove an object from the game, all the way to functionality not available otherwise, such as playing videos and network connection.
 
@@ -126,7 +124,7 @@ To be allowed to extend our own version of Blender in that way was cool. To subm
 
 There are a few reasons for not having all the methods accessible through logic bricks. First, a graphic interface is very limited for complex coding. You may end up with a slow system that is far from optimized. Second, having methods independent from the interface allows it to be expanded more easily and constantly (from a development point of view). Some advanced features, such as mirroring system, dynamic load of meshes, OpenGL calls, and custom constraints would hardly fit in the current Blender game engine interface. They would probably end up not being implemented because of the amount of extra work required. Other things you will find in the game engine built-in methods are: make screenshots; change world settings (gravity, logic tic rates); access the returned data from sensors (pressed keys, mouse position); change object properties (camera lens, light colors, object mass); and many others we will cover in the course of this chapter.
 
-# Use Features That Are Not Part of Blender
+### Use Features That Are Not Part of Blender
 
 No man is an island. No game is an island either (except _Monkey Island_). And the easiest way to integrate your Blender game with the exterior world is with Python. If you want to use external devices to control the game input or to tie external applications to your game, you may find Python suitable for that task.
 
@@ -152,7 +150,7 @@ To use external libraries, you must know the Python version they were built agai
 
 \*\*\* End Note
 
-# Keep Track of Your Changes with a Version Control System
+### Keep Track of Your Changes with a Version Control System
 
 If you take a Blender file in two different moments of your production, you will have a hard time finding what has changed between them. This is because Blender's native file format is a binary type. Binary files are written in a way that you can't get to them directly[md]they are designed to be accessed by programs and not by human beings.
 
@@ -170,7 +168,7 @@ A version control system allows you to move between working versions of your pro
 
 ![TortoiseSVN merging](../figures/Chapter7/Fig07-03.png)
 
-# Debug Your Game While It Runs
+### Debug Your Game While It Runs
 
 Interpreted languages (also known as scripting languages) are slower than compiled code. Therefore, to speed up their performance they are precompiled and cached the first time they run (when you launch your game). This is not mandatory, though, and if you are using external Python scripts (instead of those created inside Blender), you can use the debugging button to have them reloaded every time they are called.
 
@@ -194,7 +192,7 @@ Remember to turn debugging off when you are done with this script. Reloading the
 
 \*\*\* End Note
 
-# So What Exactly Is Python?
+## So What Exactly Is Python?
 
 Now that you are aware of all the benefits of using Python, it's time to understand what Python is. Once again, we can't go over all the aspects of the language here. Nevertheless, a general overview is still desirable to help you understand the examples presented in this book.
 
@@ -210,7 +208,7 @@ To study your scripts, you must be aware of the following aspects:
 
 \*\*\* End Bullet List
 
-# Flexible Data Types
+### Flexible Data Types
 
 Whenever you write a program, you have to use variables to store changing values at runtime. Unlike languages such as C and Java, Python variables are very flexible: they can be declared on the fly when you first use them; you can assign different data types for the same variable; and you can even name them dynamically:
 
@@ -272,7 +270,7 @@ Although we have flexible data types, we must respect variable types while manip
 
  mathutils.Vector(1,0,0) \* object.orientation # the result is a Matrix
 
-# Indentation
+### Indentation
 
 _Indentation[md]the amount of white spaces or tabs you leave before a new line._
 
@@ -318,7 +316,7 @@ If, like me, you never understood the reason for the number/pound sign key (#) o
 
 \*\*\* End Note
 
-# OOP[MD]Object-Oriented Programming
+### OOP - Object-Oriented Programming
 
 Since games deal with 3D world objects, it makes sense to use a language that is oriented to them. The game engine itself is written in C++, a very strong and object-oriented language, and Python OOP capabilities let you handle the game data in a Python-native way. It reflects in the game engine objects having their own set of functions and variables directly accessed from a Python API (to be explained later in this chapter in the section "Using the Game Engine API[md]Application Programming Interface").
 
@@ -422,7 +420,7 @@ change\_visibility(sphere\_group.objects, sphere\_visible)
 
 And we are done with this interaction. Play with the file by adding new elements (tubes, planes, monkeys) and make them interact as we have here. A few copies and pastes should be enough to adapt this code to your new situation. Remember to note the current indentation used.
 
-# Where to Learn Python
+## Where to Learn Python
 
 If you have previous experience with another programming language, you will learn Python in no time. If you go over some basic Python tutorials, look at some script examples, and check the Blender game engine API, that might be enough. But if learning Python is your first step into coding experience, don't worry. Take the time to read through the basics of the language, start with the simplest tasks, and never give up.
 
@@ -480,7 +478,7 @@ help(python\_function)
 
 This built-in function reveals the official documentation for this module or data type.
 
-# Python and the Game Engine
+## Python and the Game Engine
 
 This whole chapter is organized into three main parts: why, what, and how. Thus, if you have read from the beginning, you already have solid reasons to start using scripts for your project, and you understand what Python is. The final part of this chapter will cover how to use your Python knowledge inside the game engine. This part is divided into four submodules:
 
@@ -496,7 +494,7 @@ This whole chapter is organized into three main parts: why, what, and how. Thus,
 
 \*\*\* End List
 
-# Integrating Python in the Game Engine
+### Integrating Python in the Game Engine
 
 In the game engine, the script interface is controller-centric by design. Therefore, you can consider the Python script simply as a more complex controller to replace the Expression or the Boolean controllers. In those cases, the script will be responsible for controlling how the sensors are related with the actuators of a given object. In fact, the sensors, actuators, and even the object where you are calling the script from are all attributes of the controller.
 
@@ -656,7 +654,7 @@ Now you can use it to type simple codes, or to run a help or a dir into any of t
 
 Another important strategy is to keep the development of new functionalities outside the main file. For example, if you need to develop a navigation system (as we will soon), you don't need to use your real big, high-textured scenario. Definitively not for the early tests. If you keep independent systems that work together, you will be able to identify errors faster and easier and even to port fixes over to other projects smoothly.
 
-# Designing Your Python Script[md]Study Example
+## Designing Your Python Script - Study Example
 
 We are now going to dive into an example of writing and planning a Python script for the game engine from scratch. We will assume that you have already covered all the basics of Python scripting and the general understanding of game engine internals so we can move on to its real usage. More specifically, we are going over the writing process of a camera navigation system for an architectural visualization walkthrough. This study case is actually the system developed for a commercial project for an Italian book project. In general, we needed to implement a system to navigate and interact in a virtual model of an Italian Doric temple. Here, however, we are going to develop it under a sandbox and reapply it into another file, emulating what you could do with your own projects.
 
@@ -1398,7 +1396,7 @@ The final file is on the book files as:
 
 \Book\Chapter7\4\_navigation\_system\walkthrough\_4\_final\walkthrough.blend.
 
-# Using the Game Engine API[md]Application Programming Interface
+## Using the Game Engine API[md]Application Programming Interface
 
 The game engine API is a bridge connecting your Python scripts with your game data. Through those modules, methods, and variables you can interact with your existent logic bricks, game objects, and general game functions.
 
@@ -1440,7 +1438,7 @@ We will now walk through the highlights of the modules. After you are familiar w
 
 \*\*\* End Bullet List
 
-# bge.logic
+### bge.logic
 
 The main module is a mix of utility functions, global game settings, and logic bricks replacements. Some of those functions were already covered in the tutorial, but they are here again for convenience sake. We will look at some of the highlights.
 
@@ -1560,7 +1558,7 @@ A sample file can be found on \Book\Chapter7\joystick.blend.
 
 There are even more functions available in this module (setMist, getLogicTicRate, and setGravity, for example). Make sure that you visit the online documentation (or the documentation included on the book files) to see them all.
 
-# bge.types
+## bge.types
 
 Objects, meshes, logic bricks, and even shaders are all different game types. Every time you call an internal function from one of them, you are accessing one of those functions. This happens when you get a position of an object, change an actuator value, and so on.
 
@@ -1670,7 +1668,7 @@ Like cameras, lamps also have their own subclass. It inherits all the instance v
 
 The parameters that can be changed with Python include all that can be animated with the Action actuator: energy, color, distance, attenuation, spot size, and spot blend. Additionally, you can change the lamp layer in runtime.
 
-# bge.render
+## bge.render
 
 If we compare gaming with traditional 3D artwork, rasterizer would be the rendering phase of the process. Internally, it's when all the geometry is finally drawn to the screen with the light calculation, the filters applied, and the canvas set. For this reason, the Rasterizer module presents functions related to stereoscopy, windows and mouse management, world settings, and global GLSL material settings.
 
@@ -1736,7 +1734,7 @@ makeScreenshot(filename)
 
 Write a screenshot to the given filename.
 
-# bge.events
+## bge.events
 
 The Keyboard sensor allows you to set individual keys. As you can see in Figure 7.15, it can also be triggered by any key once you enable the option "All Keys." This is very useful to configure text input in your game or to centralize all keyboard events with a single sensor and script.
 
@@ -1810,7 +1808,7 @@ The status of a key is what informs you whether the key has just been pressed or
 
 \*\*\* End Note
 
-# bge.texture
+## bge.texture
 
 The texture module was first discussed in the Chapter 5, "Graphics." With the texture module, you can change any texture from your game while the game is running. The texture can be replaced by a single image, a video, a game camera, and even a webcam stream.
 
@@ -1912,11 +1910,11 @@ Webcam sample:
 
 _\Book\Chapter7\6\_texture\webcam.blend_
 
-# bge.constraints
+## bge.constraints
 
 The Bullet Physics engine allows for advanced control over the physics simulation in your game. Using Bullet as a backend, this module (formerly known as _Physics Constraints_) allows you to create and set up rigid joints, dynamic constraints, and even a vehicle wrapper. The constraints' functionalities make sense only when you understand the context in which they are to be used (with physic dynamic objects). Therefore, this module is covered in the previous chapter on game physics.
 
-# Mathutils[md]Math Types and Utilities
+## Mathutils[md]Math Types and Utilities
 
 Mathutils is a generic module common to both Blender and the game engine. There are a lot of methods to facilitate your script in handling 3D math operations. You won't have to reinvent the wheel every time you need to multiply vectors or transpose matrixes. Simply using the mathutils classes and built-in methods frees you to invest your time in something far more important: relearning all of the long-forgotten math lessons you skipped.
 
@@ -2002,7 +2000,7 @@ In this example, converted\_matrix ends up as the same matrix as original\_matri
 
 \*\*\* End Note
 
-# aud[md]Audio System
+## aud[md]Audio System
 
 This module allows you to play sounds directly from your scripts. There are three classes you will be working with: Device, Factory, and Handle.
 
@@ -2014,21 +2012,21 @@ import aud
 
 device = aud.device()
 
-# load sound file (it can be a video file with audio)
+## load sound file (it can be a video file with audio)
 
 factory = aud.Factory('music.ogg')
 
-# play the audio, this return a handle to control play/pause
+## play the audio, this return a handle to control play/pause
 
 handle = device.play(factory)
 
-# if the audio is not too big and will be used often you can buffer it
+## if the audio is not too big and will be used often you can buffer it
 
 factory\_buffered = aud.Factory.buffer(factory)
 
 handle\_buffered = device.play(buffered)
 
-# stop the sounds (otherwise they play until their ends)
+## stop the sounds (otherwise they play until their ends)
 
 handle.stop()
 
@@ -2052,7 +2050,7 @@ The possible statuses are:
 
 \*\*\* End Note
 
-# bgl[md]OpenGL Wrapper
+## bgl[md]OpenGL Wrapper
 
 This module is a wrapping of OpenGL constants and functions. It allows you to access low-level graphic resources within the game engine. You can use this module to draw directly to the screen or to read OpenGL matrices and buffers directly.
 
@@ -2156,7 +2154,7 @@ And, finally, let's apply the pixel color to the lamp:
 
 lamp.color = [pixels[0], pixels[1], pixels[2]]
 
-# blf[md]Font Drawing
+## blf[md]Font Drawing
 
 If you need to control text drawing directly from your scripts, you may need to use this module. Be aware, though, that this module is a low-level API that has to be combined with the OpenGL wrapper to handle texts properly.
 
