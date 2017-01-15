@@ -1,15 +1,3 @@
-­\*\*\* Production: Please replace the following:
-
-\_\_PI\_\_  π (the greek letter - 3.14159....)
-
-Replace [md] with em dash
-
-[c] with copyright symbol
-
-[r] with trademark symbol
-
-replace underlined text with code font
-
 # Chapter 7
 
 # Python Scripting
@@ -64,13 +52,7 @@ You can't ever get away from logic bricks. Even when using Python exclusively fo
 
 It's always good to have an excuse to show an image in a programming chapter, and here it is. In Figure 7.1 you see the logic bricks for Frankie, the main character of the open game _Yo Frankie!_
 
-\*\*\*Insert Fig07-01.tif
-
-Figure 7.1
-
-Chapagetti.
-
-Source: Blender Foundation.
+![Chapagetti](../figures/Chapter7/Fig07-01.png)
 
 This system is well organized: different actions belong to different states and sensors; controllers and actuators are properly named. Nevertheless, it's not hard to lose yourself trying to understand which sensor connects to which controller. One of the reasons for such a complex project to rely on logic bricks is because _Yo Frankie!_ serves as a didactic project for artists wanting to start with the game engine. Anyone with a little programming experience can take the files and expand the game freely. (Have you tried it yet?)
 
@@ -118,13 +100,7 @@ If you need to change a property name or initial value of an object, you will ne
 
 If you thought that Figure 7.1 was a mess, try to make sense of Figure 7.2. Here we have the logic bricks of _Frankie,_ plus the objects that have logic bricks connected to it. As you recall, you can restrict the visible logics through the Show Panel option, but this illustrates how difficult it is to get a global view of your system.
 
-\*\*\*Insert Fig07-02.tif
-
-Figure 7.2
-
-Spaghetti.
-
-Source: Blender Foundation.
+![Spaghetti](../figures/Chapter7/Fig07-02.png)
 
 Once you start to work with scripts, you will see how easy it is to assume control over all your scene elements in a global way. It will give you lots of benefits in the long run.
 
@@ -192,13 +168,7 @@ This works only for scripts maintained outside Blender. This is one of the stron
 
 A version control system allows you to move between working versions of your project files. It makes it relatively safe to experiment with different methods in a destructive way. In other words, it's a system to protect you from yourself. In Figure 7.3, you can see an application of this. Someone changed the script file online while we were working locally on it. Instead of manually tracking down the differences, we could use a tool to merge both changes into a new file and commit it. We were using TortoiseSVN for Windows here, a graphic interface to use with a SVN system. For Linux systems, svn command-line plus the software "meld" work just as well.
 
-\*\*\*Insert Fig07-03.tif
-
-Figure 7.3
-
-TortoiseSVN merging.
-
-[c] 2014 Stefan Küng.
+![TortoiseSVN merging](../figures/Chapter7/Fig07-03.png)
 
 # Debug Your Game While It Runs
 
@@ -212,13 +182,7 @@ In Figure 7.4, we have the scripts.reload\_me module that will be reloaded every
 
  speed = 0.025
 
-\*\*\*Insert Fig07-04.tif
-
-Figure 7.4
-
-Python Module controllers.
-
-Source: Blender Foundation.
+![Python Module controllers](../figures/Chapter7/Fig07-04.png)
 
 Without closing Blender or even stopping your game, open the file script.py in a text editor, change this line to 0.05, for example, and save it. You will see the speed changing immediately. Your game is literally being updated at runtime, and you can change any module that's been called with the debug option on.
 
@@ -542,13 +506,7 @@ In the first example, you will find a very simple case study of how to make your
 
 Open the file \Book\Chapter7\3\_template\abracadabra.blend.
 
-\*\*\*Insert Fig07-05.tif
-
-Figure 7.5
-
-Abracadabra.
-
-Source: Blender Foundation. Art [c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Abracadabra](../figures/Chapter7/Fig07-05.png)
 
 Launch the game and keep the spacebar pressed. In Figure 7.5, you can see the result before and after you press the key. Can you read the spinning text? It may not be impressive, but it certainly is didactic. Here is the script behind this effect:
 
@@ -592,13 +550,7 @@ Launch the game and keep the spacebar pressed. In Figure 7.5, you can see the re
 
 This script is triggered from a keyboard sensor, runs from a controller in the camera object, activates an actuator in the camera itself, and changes a property in the text object. Figure 7.6 shows logic bricks for this one.
 
-\*\*\*Insert Fig07-06.tif
-
-Figure 7.6
-
-Simple logic bricks with a Python controller.
-
-Source: Blender Foundation.
+![Simple logic bricks with a Python controller](../figures/Chapter7/Fig07-06.png)
 
 Let's look at it from the beginning:
 
@@ -680,13 +632,7 @@ As you probably know, Blender has its own internal text editor (see Figure 7.7).
 
 [lb]Sync with external files
 
-\*\*\*Insert Fig07-07.tif
-
-Figure 7.7
-
-Blender internal text editor.
-
-Source: Blender Foundation.
+![Blender internal text editor](../figures/Chapter7/Fig07-07.png)
 
 ### Reference Material and Documentation
 
@@ -700,23 +646,11 @@ It doesn't matter how easy Python is, you will spend evenings testing and retest
 
 In those cases, you can use an interactive interpreter to help you. If you have Python installed on your system, you have it already. If you are using Windows, this will be the python.exe application in your Python installation directory (C:\Python31\ by default, considering the installation of Python 3.1), as seen in Figure 7.8. In Linux or OSX, you have to type "python" in any console and you are good to go.
 
-\*\*\*Insert Fig07-08.tif
-
-Figure 7.8
-
-Python IDE.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Python IDE](../figures/Chapter7/Fig07-08.png)
 
 You can also use the Blender Python console. Change one of your current windows into the console, and you should see the screen shown in Figure 7.9.
 
-\*\*\*Insert Fig07-09.tif
-
-Figure 7.9
-
-Blender Python console.
-
-Source: Blender Foundation.
+![Blender Python console](../figures/Chapter7/Fig07-09.png)
 
 Now you can use it to type simple codes, or to run a help or a dir into any of the Python modules. Unfortunately, only Blender modules have the auto-complete working from there.
 
@@ -798,17 +732,9 @@ In the second layer, you will find the collision meshes[md]the ground and the ve
 
 This program is divided into five different parts: (1) Global Initialization, (2) Event Management, (3) Internal Functions, (4) Game Interaction, (5) More Python.
 
-\*\*\*Insert Fig07-10.tif
-
 The diagram in Figure 7.10 illustrates how they relate to one another. Now let's take an inside look at each of them.
 
-\*\*\*Insert Fig07-10.tif
-
-Figure 7.10
-
-Script architecture.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Script architecture](../figures/Chapter7/Fig07-10.png)
 
 ### Global Initialization
 
@@ -1156,13 +1082,7 @@ Next find in the .blend file the pivot empty (ORB\_PIVOT) and play with its rota
 
 250     y = m.pi/2 – y
 
-\*\*\*Insert Fig07-11.tif
-
-Figure 7.11
-
-Orbit pivot rotation.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Orbit pivot rotation](../figures/Chapter7/Fig07-11.png)
 
 #### scripts.look\_camera
 
@@ -1380,13 +1300,7 @@ Open the file \Book\Chapter7\4\_navigation\_system\walkthrough\_1\_base\walkthro
 
 This small file is part of the presentation of an architectural walkthrough of an urban project (see Figure 7.12) that I (Dalai) did. It's an academic project and only my second project using the game engine. As you can see, there are absolutely no scripts in it[md]all the interaction is done with logic bricks. I didn't use Python for this project mainly because I had absolutely no knowledge of Python at all back then (and the project was done in six days).
 
-\*\*\*Insert Fig07-12.tif
-
-Figure 7.12
-
-Architectural walkthrough example file.
-
-[c] 2014 Dalai Felinto.
+![Architectural walkthrough example file](../figures/Chapter7/Fig07-12.png)
 
 It's time for redemption. Let's replace its navigation system with the Python system we just studied. For convenience, this file was already organized to receive the navigation elements (cameras, empties, and so on.).
 
@@ -1418,13 +1332,7 @@ A snapshot with those changes can be found at:
 
 Now if you run the application, the navigation system should work[md]kind of (see Figure 7.13).
 
-\*\*\*Insert Fig07-13.tif
-
-Figure 7.13
-
-Still not there.
-
-Source: Blender Foundation. Art [c] 2014 Dalai Felinto.
+![Still not there](../figures/Chapter7/Fig07-13.png)
 
 ##### Adjustments in Loco
 
@@ -1452,13 +1360,9 @@ A snapshot with those changes can be found at:
 
 \Book\Chapter7\4\_navigation\_system\walkthrough\_3\_partial\walkthrough.blend
 
-\*\*\*Insert Fig07-14a.tif side by side with Fig07-14b.tif, w/ a bit of blank space in the middle
-
-Figure 7.14
-
-Camera clipping of 400 in the left and 1000 in the right.
-
-[c] 2014 Dalai Felinto.
+| Camera clipping of 400    | Camera clipping of 1000   |
+|:-------------------------:|:-------------------------:|
+![Camera clipping of 400](../figures/Chapter7/Fig07-14a.png)  |  ![Camera clipping of 1000](../figures/Chapter7/Fig07-14b.png)
 
 \*\*\* Begin Note
 
@@ -1836,13 +1740,7 @@ Write a screenshot to the given filename.
 
 The Keyboard sensor allows you to set individual keys. As you can see in Figure 7.15, it can also be triggered by any key once you enable the option "All Keys." This is very useful to configure text input in your game or to centralize all keyboard events with a single sensor and script.
 
-\*\*\*Insert Fig07-15.tif
-
-Figure 7.15
-
-Key codes visualizer.
-
-Source: Blender Foundation.
+![Key codes visualizer](../figures/Chapter7/Fig07-15.png)
 
 In this case, every key pressed into a Keyboard sensor, will be registered as a unique integer. Each number corresponds to a specific key, and finding them allows you to control your actions accordingly to the desired key map. In order to clarify this a bit more, try the file in \Book\Chapter7\5\_game\_keys\key\_detector\_logicbrick.blend.
 
