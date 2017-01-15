@@ -41,7 +41,7 @@ Welcome to Physics 101! We are going to be your professors for this chapter. Fol
 
 ![A physics demo](../figures/Chapter6/Fig06-01.png)
 
-## What Is Physics?
+## What Is Physics? <a id="What Is Physics?"></a>
 
 In the real world, the laws of physics govern everything from the smallest subatomic particle to the largest galaxy far, far away. Luckily for us, we don't have to understand quantum mechanics, Newtonian physics, or Euclidean space in order to make a fun game. A physics engine handles game events such as collision detection between objects, moves objects in a physically realistic way, and even deforms objects as if they are made up of a soft material.
 
@@ -49,7 +49,7 @@ A physics engine moves things based on a set of predefined rules so that you, th
 
 As usual, this chapter comes with a collection of example files that showcase what the physics engine can do. You can find them in the folder /chapters6/demos.
 
-## Overview
+## Overview <a id="Overview"></a>
 
 Because physics is such an integral part of the Blender game engine, physics-related settings are found in many different places. However scattered they might look at first glance, there is a pattern in this chaos.
 
@@ -81,7 +81,7 @@ The physics settings can be broken down into these sections:
 
 So now that you have an overview of what physics is all about and where to find all the settings, the rest of the chapter will explain how to use these settings in combination to achieve various effects.
 
-## World Properties
+## World Properties <a id="World Properties"></a>
 
 World Properties Editor is generally the first place to visit when setting up physics, simply because the settings here are truly global: they affect the entire scene.
 
@@ -89,7 +89,7 @@ In the World Properties Editor, there are numerous global physics settings that 
 
 ![Set engine to Blender Game to see the relevant game settings](../figures/Chapter6/Fig06-08.png)
 
-## Physics Engine
+## Physics Engine <a id="Physics Engine"></a>
 
 Under the Physics section of the World Properties Editor, you are presented with a choice to select a physics engine. A physics engine is the underlying computer algorithm that drives all physics simulation. Blender uses Bullet Physics, which is a powerful and open-source physics library developed by Erwin Coumans and others. Not only is Bullet used in Blender, but it is also used by other commercial games, as well as movie productions, as part of the visual effects pipeline.
 
@@ -117,7 +117,7 @@ There are two separate gravity settings in Blender. One in the World panel[md]wh
 
 \*\*\* End Note
 
-### Hands-on: World Settings for Multiple Scenes
+### Hands-on: World Settings for Multiple Scenes <a id="Hands-on: World Settings for Multiple Scenes"></a>
 
 Because Blender supports multiple scenes and each scene can have its own World data block, the physics settings can be set independently per scene. This means it is possible to create multiple worlds (or _levels_, as they are commonly called in games), each with different physics settings, all contained within one Blender file. For example, one could create a game with two scenes, one taking place on earth and another taking place on Mars. By altering world settings such as sky color, mist depth, and the gravity strength for each scene, you can easily convey the idea of a foreign planet.
 
@@ -155,7 +155,7 @@ To create a game with two scenes:
 
 11.That's it! The finished game can be found under the name earthMars-finished.blend. To extend this game, you can play around with the physics properties of the cube, which is hidden in layer 2.
 
-## Culling Resolution
+## Culling Resolution <a id="Culling Resolution"></a>
 
 Occlusion culling skips the rendering of objects that are out of view or behind an Occluder object. By not drawing these objects, you can speed up the display performance of the game. Occlusion culling used to be an option that could be turned off by the user, but in the most recent versions, occlusion culling is always turned on.
 
@@ -171,7 +171,7 @@ Occlusion culling only skips the display of an object. The object would still be
 
 \*\*\* End Note
 
-## Physics Substeps
+## Physics Substeps <a id="Physics Substeps"></a>
 
 The Physics Steps and Logic Steps are two settings that control the behavior of the physics engine. They are considered advanced tweaks that generally should not be tinkered with. And even if you do, the effect might not be obvious at first. This section tries to demystify those settings. Refer to Figure 6.15 as you follow along.
 
@@ -187,7 +187,7 @@ Generally speaking, a value of 1 is sufficient for slow-moving games; 2 is optim
 
 \*\*\* End Note
 
-## On the Issue of Time
+## On the Issue of Time <a id="On the Issue of Time"></a>
 
 For the following discussion, the word _realworld-time_ refers to the flow of time in the real world, the world that we live in. Relativistic physics aside, real time is always constant for our purpose. There are no magic devices, fabled incantations, or speeding DeLoreans to alter the flow of time.
 
@@ -197,7 +197,7 @@ Why is this important? For most games, the game-time should be directly proporti
 
 It turns out that ensuring a constant game-time despite fluctuations in the frame rate is hard! The following few settings are used to control how the game-time is tied together with the frame rate.
 
-## Physics Steps
+## Physics Steps <a id="Physics Steps"></a>
 
 The Max Physics Steps control how many consecutive physical simulation frames the game engine is allowed to run for each rendered frame. A high value (5) is more physically accurate, because it gives the physics engine enough time to complete the physics calculation, regardless of the game frame rate, therefore yielding a more consistent game-time that is independent of the frame rate, at the cost of taking up more processing time. A low value (1) can increase the frame rate of the game slightly by reducing the number of consecutive physical simulation frames the game engine is allowed to run every frame, but at the cost of inaccurate physics behavior, because the game-time would be linked to the frame rate.
 
@@ -209,7 +209,7 @@ If you are still confused, just set the Max Physics Steps to 5. This ensures tha
 
 \*\*\* End Note
 
-## Logic Steps
+## Logic Steps <a id="Logic Steps"></a>
 
 Very similar to the Max Physics Steps, the Max Logic Steps control how many consecutive game logic tics the game engine is allowed to run for each rendered frame. When the game frame rate is lower than the nominal FPS setting, a high value (5) is more accurate because it makes sure the logic step always gets enough time to finish all the logic computation. Conversely, a low value (1) will yield slightly better performance at the cost of a fluctuation in game-time. So this means that when the frame rate is high, the game will run normally, but if the frame rate drops, the game will appear to slow down.
 
@@ -221,7 +221,7 @@ The default value of 5 means that the logic always gets enough time to run, no m
 
 \*\*\* End Note
 
-## FPS
+## FPS <a id="FPS"></a>
 
 Frames per second is the Holy Grail of performance benchmarking. For a video game, a high frame rate is always desired because it means smoother action and faster response to user input. Frame rate is a function of the complexity of the scene and the speed of the computer. Unfortunately, the setting here only acts as a frame rate cap, not the actual frame rate the game is guaranteed to run at. The default value of 60fps means that each second, the game engine evaluates the game logic 60 times. This particular number is chosen since most LCD monitors do not refresh faster than 60Hz, so, any extra frame rendered by the computer will just be wasted.
 
@@ -235,7 +235,7 @@ The default value of 60 is good for most game applications. Setting this value h
 
 \*\*\* End Note
 
-## Physics Deactivation
+## Physics Deactivation <a id="Physics Deactivation"></a>
 
 The values Linear Threshold, Angular Threshold, and Time all control how aggressively the physics engine puts objects to "sleep" in order to reduce the load on the game.
 
@@ -245,13 +245,13 @@ Lower the Linear Threshold if an object comes to a stop earlier than expected.
 
 Lower the Angular Threshold if an object comes to a stop from spinning earlier than expected.
 
-## Physics Panel Settings
+## Physics Panel Settings <a id="Physics Panel Settings"></a>
 
 So now that you are familiar with the World Properties Editor, which contains settings that apply to all physical objects indiscriminately, let's take a look at the Physics Properties Editor. From here, you can alter the physical characteristics of individual objects.
 
 Physics settings apply to all game objects types, including mesh, empty, lamp, and camera.
 
-## Physics Types
+## Physics Types <a id="Physics Types"></a>
 
 How do you decide which physics type to pick for an object? That largely depends on the role of the object in the game. Table 6.1 shows all the physics types that are available in Blender and their corresponding characteristics.
 
@@ -297,7 +297,7 @@ To familiarize yourself with the different physics types, open the demo file ava
 
 Let's look at the settings in more detail.
 
-### No Collision
+### No Collision <a id="No Collision"></a>
 
 No Collision skips all physics calculation. The objects will be effectively invisible to the physics engine. Other objects will not be able to detect collision with the object, nor collide with it. No Collision objects can still be moved using the Motion actuator. Use this for objects that you don't intend to interact with at all during the game, such as leaves of vegetation.
 
@@ -309,15 +309,15 @@ Setting an object to No Collision completely skips collision detection on the ob
 
 \*\*\* End Note
 
-### Static
+### Static <a id="Static"></a>
 
 Static objects are the default physics type for objects. They do not fall due to gravity, nor do they move by external impact, such as another object striking them. By default, the mesh itself is used as the collision mesh, which can be slow if the object has a lot of polygons. Static objects never move on collision with another object. Use this setting for objects that require collision but don't move, such as buildings and fixed structures.
 
-### Dynamic
+### Dynamic <a id="Dynamic"></a>
 
 Dynamic objects are different from static objects in that they have a defined mass and follow the basic Newtonian law of mass and acceleration. They fall due to gravity and react when another object collides with them. By default, the collision bound for dynamic objects is a sphere for performance reasons. Sometimes this is sufficient, but most of the time, it's better to use another shape as the collision bound. More on collision bounds in Chapter 8. Moreover, because dynamic objects do not roll, their usefulness is limited. If you want to simulate a realistic 3D object, Rigid Body is what you want.
 
-### Rigid Body
+### Rigid Body <a id="Rigid Body"></a>
 
 Rigid body behaves very similarly to a dynamic object: they have a defined mass, accelerate due to gravity, and react to collisions. On top of that, rigid body objects have the ability to tumble when needed, whereas a dynamic object will slide awkwardly down a ramp without rotating.
 
@@ -331,7 +331,7 @@ When using a dynamics based object (Dynamic, Rigid Body, and so on), you should 
 
 \*\*\* End Note
 
-### Soft Body
+### Soft Body <a id="Soft Body"></a>
 
 Whereas all the previously described physics types operate on the objects by moving and rotating them around without changing the underlying geometry, Soft Body physics uses a mass-spring system to apply deformations to the actual geometry. With Soft Body, you can create convincing cloth and other soft objects. Although it is very cool to play around with, Soft Body is very computationally intensive compared to the other physics types, and not as stable, so use it sparingly.
 
@@ -345,7 +345,7 @@ The physics engine works more reliably when the objects have a scale of 1. Thus,
 
 \*\*\* End Note
 
-### Occluder
+### Occluder <a id="Occluder"></a>
 
 Occluder objects do not react to gravity and collision. Their only function is to make any objects behind them invisible. Occluder objects are used to help the game engine decide when to remove objects from view to speed up the rendering performance. Strategically-placed occluders can significantly increase the performance of the game.
 
@@ -355,11 +355,11 @@ From left to right, the first image shows the scene setup of /Book/Chapter6/Phys
 
 ![Occluder culling](../figures/Chapter6/Fig06-16.png)
 
-### Sensor
+### Sensor <a id="Sensor"></a>
 
 Similar to Static Object, a Sensor object detects collision with another object. It is usually used as a replacement for the "radar" or "near" sensor because a Sensor object can be made into any arbitrary shape. Furthermore, Sensors will detect collisions, but they do not register a response. In other words, they behave like ghost objects. Additional logic bricks are needed to utilize a Sensor object effectively.
 
-### Navigation Mesh
+### Navigation Mesh <a id="Navigation Mesh"></a>
 
 This setting turns an object into a helper object that is used for pathfinding navigation.
 
@@ -367,7 +367,7 @@ Since Blender 2.6, the game engine has a fully automated AI pathfinding routine.
 
 \*\*\*Insert Tutorial
 
-#### Hands-on Tutorial: Navigation
+#### Hands-on Tutorial: Navigation <a id="Hands-on Tutorial: Navigation"></a>
 
 1.Open /Book/Chapter6/navigation.blend
 
@@ -409,11 +409,11 @@ Since Blender 2.6, the game engine has a fully automated AI pathfinding routine.
 
 \*\*\*End Tutorial
 
-### Characters
+### Characters <a id="Characters"></a>
 
 This is a specialized physics type that is designed specifically for player-controlled characters. This physics type follows the basic rules of kinematics, while ignoring some of the other physical rules in order to make the object's behavior more predicable. For example, the character object type doesn't bounce off walls or slide on ramps. PhysicsType.blend has an example of a playable character object that walks around. Try to move it with the arrow keys.
 
-## Common Settings
+## Common Settings <a id="Common Settings"></a>
 
 Whew. With all the physics types out of the way, let's look at some of the shared settings common to most of the physics types described earlier.
 
@@ -475,7 +475,7 @@ But, why use compound when you can just join your objects together with Ctrl+J? 
 
 \*\*\*Begin tutorial
 
-### Hands-on Tutorial: Creating Compound Objects
+### Hands-on Tutorial: Creating Compound Objects <a id="Hands-on Tutorial: Creating Compound Objects"></a>
 
 To create a compound physics object (see Figure 6.22):
 
@@ -491,7 +491,7 @@ To create a compound physics object (see Figure 6.22):
 
 \*\*\*End Tutorial
 
-## Material Panel Physics Settings
+## Material Panel Physics Settings <a id="Material Panel Physics Settings"></a>
 
 By adding a material to the object, you enable additional options that give you finer control over some of the physical properties of the surface. Figure 6.23 shows the physics settings found in the Material panel.
 
@@ -507,7 +507,7 @@ Once Force Field is enabled in the Material panel, you will need to tell individ
 
 \*\*\*Begin Tutorial\*\*\*
 
-### Hands-on Tutorial: Force Field Water Surface
+### Hands-on Tutorial: Force Field Water Surface <a id="Hands-on Tutorial: Force Field Water Surface"></a>
 
 Force field can be used to create a convincing[md]you guessed it![md]force field effect, where an object moving toward a force field seems to be slowed down by invisible energy. This is very different from the usual rigid body interactions, which are always hard collisions.
 
@@ -539,7 +539,7 @@ As you might imagine, the Force Field setting is used to simulate the realistic 
 
 \*\*\*End Tutorial
 
-## Constraints
+## Constraints <a id="Constraints"></a>
 
 Constraints are frequently used to create joints and mechanical linkages, indispensible components of many games. The Constraints Properties Editor is shown in Figure 6.26.
 
@@ -567,7 +567,7 @@ The rest of the settings should be very self-explanatory. Refer to /Book/Chapter
 
 [lb] **Extending Constraints:** While one constraint might not be too useful, constraints can be daisy-chained to simulate many different objects. See ConstraintsChain.blend, ConstraintsWaterMill.blend and ConstraintsTrampoline.blend for examples of how to set up multiple constraints.
 
-## Vehicle Physics
+## Vehicle Physics <a id="Vehicle Physics"></a>
 
 The Blender physics engine has built-in support for vehicle physics. It is a very stable physics constraints system that provides easy-to-set-up car physics. The result is a fast-performing vehicle physics engine with easily tweakable settings that maps well into a real vehicle (steering, suspension length, suspension stiffness)
 
@@ -575,7 +575,7 @@ Of course, you can also try to create a car physics setup without using the buil
 
 \*\*\*Begin Tutorial
 
-### Hands-on Tutorial: Vehicle Physics Using Python
+### Hands-on Tutorial: Vehicle Physics Using Python <a id="Hands-on Tutorial: Vehicle Physics Using Python"></a>
 
 To get started, open /Book/Chapter6/vehicle/car.blend.
 
@@ -603,7 +603,7 @@ With these three Python functions, the car comes alive.
 
 \*\*\*End Tutorial
 
-## Game Settings
+## Game Settings <a id="Game Settings"></a>
 
 Game settings are global settings that affect the running of the game. These settings are shown in Figure 6.29 and can be found in the Render panel.
 
@@ -623,7 +623,7 @@ Rigid Body objects are displayed in white, and sleeping objects are drawn in gre
 
 [lb] **Mouse Cursor:** Draws the mouse cursor in-game. This is useful if the game uses mouse-input. Mouse cursor can also be turned on and off via Python.
 
-## Stabilizing Physics
+## Stabilizing Physics <a id="Stabilizing Physics"></a>
 
 The Bullet physics engine is good. Really good. But as with anything that is powered by a computer, it is still possible to get into a situation where things go haywire.
 
