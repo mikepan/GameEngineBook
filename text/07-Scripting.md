@@ -1314,23 +1314,29 @@ Now that the new camera and pivot have the correct position and orientation, we 
 
 ##### More Python <a id="More Python"></a>
 
-scripts.collision\_check
+```python
+scripts.collision_check
 
-scripts.stick\_to\_ground
+scripts.stick_to_ground
+```
 
 The script system shown so far handles all the interaction from the game engine sensors to the 3D world elements. Even though this covers most parts of a typical script architecture, I'd be lying if I said this is all you will be doing in your projects. Very often, you will need a script called once in a while that deals directly with the game engine data. In our case, we will have two "PySensors" to control the collision and to stick our camera to the ground while walking.
 
 We could have them both working attached to an Always sensor. However, this would not be too efficient. Since we only need them while walking and flying, they can be integrated with the Keyboard sensor pipeline. The stick\_to\_ground() function will be called after any key is pressed if the current mode is "walk":
 
-142         if G.nav\_mode == "walk" and G.walk\_fly == "walk":
+```python
+142         if G.nav_mode == "walk" and G.walk_fly == "walk":
 
-143             stick\_to\_ground()
+143             stick_to_ground()
+```
 
 The collision system can be used even more specifically. Inside the move\_camera() function, we will use the collision test to validate or discard our moving vector:
 
+```python
 353         # if there is any obstacle reset the vector
 
-354         vector = collision\_check(vector, direction)
+354         vector = collision_check(vector, direction)
+```
 
 If the collision\_check() test finds any obstacle in front of the camera, it returns a null vector ([0, 0, 0]). Otherwise, it leaves the vector as it was set, which will then move the camera.
 
@@ -1350,7 +1356,7 @@ If it's not possible to have all your elements in a single layer, you can create
 
 ##### Tweaks and Adjustments - Getting Your Hands Dirty <a id="Tweaks and Adjustments - Getting Your Hands Dirty"></a>
 
-Open the file \Book\Chapter7\4\_navigation\_system\walkthrough\_1\_base\walkthrough.blend
+Open the file /Book/Chapter7/4_navigation_system/walkthrough_1_base/walkthrough.blend
 
 This small file is part of the presentation of an architectural walkthrough of an urban project (see Figure 7.12) that I (Dalai) did. It's an academic project and only my second project using the game engine. As you can see, there are absolutely no scripts in it[md]all the interaction is done with logic bricks. I didn't use Python for this project mainly because I had absolutely no knowledge of Python at all back then (and the project was done in six days).
 
@@ -1362,29 +1368,25 @@ It's time for redemption. Let's replace its navigation system with the Python sy
 
 In this case, we decided to group all the navigation elements in a group called NAVIGATIONSYSTEM and to make sure they are all in layer 1. You can use the Outliner to make sure you didn't miss any object out of the group. Leave the lamps and the collision objects out of the group.
 
-To see a snapshot of the file at this moment, you can find it in the book files at: \Book\Chapter7\4\_navigation\_system\walkthrough\_2\_partial\camera\_navigation.blend
+To see a snapshot of the file at this moment, you can find it in the book files at: /Book/Chapter7/4_navigation_system/walkthrough_2_partial\camera_navigation.blend
 
 Now open the walkthrough file again and append the NAVIGATIONSYSTEMwe created. It's important not to link the group but to append it. Linked elements can only be moved in their original files; thus, you should avoid them in this case.
 
-\*\*\* Begin Numbered List
-
 1. Open the Append Objects Dialog (Shift+F1).
 
-2. Find the NAVIGATIONSYSTEM group inside the camera\_navigation file.
+2. Find the NAVIGATIONSYSTEM group inside the camera_navigation file.
 
 3. Make sure the option "Instance Groups" is not checked. (This would insert the group, not the individual elements.)
 
-4.Click on the "Link/Append from Library." (This will add the group.)
+4. Click on the "Link/Append from Library." (This will add the group.)
 
-5.Set CAM\_Orbit as the default camera. (Tip: Use the Outliner to find the object; it's inside the ORB\_PIVOT.)
-
-\*\*\* End Numbered List
+5. Set CAM_Orbit as the default camera. (Tip: Use the Outliner to find the object; it's inside the ORB\_PIVOT.)
 
 A snapshot with those changes can be found at:
 
-\Book\Chapter7\4\_navigation\_system\walkthrough\_2\_partial\walkthrough.blend
+/Book/Chapter7/4_navigation_system/walkthrough_2_partial/walkthrough.blend
 
-Now if you run the application, the navigation system should work[md]kind of (see Figure 7.13).
+Now if you run the application, the navigation system should work - kind of (see Figure 7.13).
 
 ![Still not there](../figures/Chapter7/Fig07-13.png)
 
@@ -1398,59 +1400,59 @@ Move them 2000 in X and 350 in Y.
 
 **Empties** :
 
-CAM\_front and CAM\_back[md]Those empties will hold the position for walk cameras. Make sure their position from the ground is at the human eyes (~1.68).
+- CAM_front and CAM_back - Those empties will hold the position for walk cameras. Make sure their position from the ground is at the human eyes (~1.68).
 
-CAM\_top and CAM\_side[md]Those empties will be used in Fly Mode. Here, we should also make sure their initial orientation looks good. The easiest way to do that is by using the Fly Mode (select the object, set it as current camera, and use Shift+F).
+- CAM_top and CAM_side - Those empties will be used in Fly Mode. Here, we should also make sure their initial orientation looks good. The easiest way to do that is by using the Fly Mode (select the object, set it as current camera, and use Shift+F).
 
 The one thing missing for the camera is to increase the clipping distance. That way, we can see all the skydome around the camera (see before and after in Figure 7.14).
 
 **Cameras** :
 
-CAM\_Orbit[md]Adjust initial Z, change clip ending to 1000.
+- CAM_Orbit - Adjust initial Z, change clip ending to 1000.
 
-CAM\_Move - change clip ending to 1000.
+- CAM_Move - change clip ending to 1000.
 
 A snapshot with those changes can be found at:
 
-\Book\Chapter7\4\_navigation\_system\walkthrough\_3\_partial\walkthrough.blend
+/Book/Chapter7/4_navigation_system/walkthrough_3_partial/walkthrough.blend
 
 | Camera clipping of 400    | Camera clipping of 1000   |
 |:-------------------------:|:-------------------------:|
 ![Camera clipping of 400](../figures/Chapter7/Fig07-14a.png)  |  ![Camera clipping of 1000](../figures/Chapter7/Fig07-14b.png)
 
-\*\*\* Begin Note
-
-Make Sure That Collision Is Set Properly
-
-All the houses, the ground, and the other 3D objects already have collision enabled in this file. In other situations, however, you may need to change the collision objects, enabling or disabling their collisions accordingly. The Python raycast uses the internal Bullet Physics engine under the hood. In order to prevent the camera from going through the walls and the ground, set enough collision surfaces (but not too much, so that you don't compromise the performance of your game).
-
-\*\*\* End Note
+>**Make Sure That Collision Is Set Properly**
+>
+>All the houses, the ground, and the other 3D objects already have collision enabled in this file. In other situations, however, you may need to change the collision objects, enabling or disabling their collisions accordingly. The Python raycast uses the internal Bullet Physics engine under the hood. In order to prevent the camera from going through the walls and the ground, set enough collision surfaces (but not too much, so that you don't compromise the performance of your game).
 
 ###### Script Tweaks <a id="Script Tweaks"></a>
 
-Finally, it's good to fiddle a bit with the script. Due to the particularities of this project (mainly its scale), you may feel that everything happens a bit too fast. It's up to you to change the settings in the init\_world function. Also, it would be interesting to explore multiple viewpoints for this presentation. We have already positioned the side and back empties. Although we were not using them previously, their names are present in the script as part of the available cameras list:
+Finally, it's good to fiddle a bit with the script. Due to the particularities of this project (mainly its scale), you may feel that everything happens a bit too fast. It's up to you to change the settings in the `init_world` function. Also, it would be interesting to explore multiple viewpoints for this presentation. We have already positioned the side and back empties. Although we were not using them previously, their names are present in the script as part of the available cameras list:
 
-93     available\_cameras = ["front", "back", "side", "top"]
+```python
+93     available_cameras = ["front", "back", "side", "top"]
+```
 
 The difference now is that we will make the camera actually change to the side and back views when you press the keys four and five respectively. As you can see here, it's really easy to expand a system like this. Try to create a fifth camera (add a new empty) and see how it goes. To enable the "side" and "back" cameras, the only code we have to add is:
 
+```python
 110 def keyboard(cont):
 
     (. . .)
 
 new             elif value == GK.FOURKEY:
 
-new                 change\_view("side")
+new                 change_view("side")
 
 new             elif value == GK.FIVEKEY:
 
-new                 change\_view("back", "fly")
+new                 change_view("back", "fly")
+```
 
 There is not much more to be done here. This is a simple script, but its structure and the workflow we presented are not much different from what you will find in more complex systems you may have to implement or work with. There are different ways to implement a navigation system. This one was designed focusing on a didactic structure (clean code as opposed to a highly optimized system that is hard to read) and robustness (easy to expand). Try to find other examples or, better yet, build one yourself.
 
 The final file is on the book files as:
 
-\Book\Chapter7\4\_navigation\_system\walkthrough\_4\_final\walkthrough.blend.
+/Book/Chapter7/4_navigation_system/walkthrough_4_final/walkthrough.blend.
 
 ### Using the Game Engine API - Application Programming Interface <a id="Using the Game Engine API - Application Programming Interface"></a>
 
@@ -1464,37 +1466,30 @@ We will now walk through the highlights of the modules. After you are familiar w
 
 **Game Engine Internal Modules**
 
-\*\*\* Begin Bullet List
+- Game Logic (bge.logic)
 
-[lb]Game Logic (bge.logic)
+- Game Types (bge.types)
 
-[lb]Game Types (bge.types)
+- Rasterizer (bge.render)
 
-[lb]Rasterizer (bge.render)
+- Game Keys (bge.events)
 
-[lb]Game Keys (bge.events)
+- Video Texture (bge.texture)
 
-[lb]Video Texture (bge.texture)
-
-[lb]Physics Constraints (bge.constraints)
+- Physics Constraints (bge.constraints)
 
 - Application Data (bge.app)  //TODO
 
-\*\*\* End Bullet List
 
 **Stand-Alone Modules**
 
-\*\*\* Begin Bullet List
+- Audio System (aud)
 
-[lb]Audio System (aud)
+- Math Types and Utilities (mathutils)
 
-[lb]Math Types and Utilities (mathutils)
+- OpenGL Wrapper (bgl)
 
-[lb]OpenGL Wrapper (bgl)
-
-[lb]Font Drawing (blf)
-
-\*\*\* End Bullet List
+- Font Drawing (blf)
 
 #### bge.logic <a id="bge.logic"></a>
 
@@ -1504,31 +1499,37 @@ The main module is a mix of utility functions, global game settings, and logic b
 
 Returns the current controller. This is used to get a list of sensors and actuators (to check status and deactivate respectively), and the object the controller belongs to:
 
+```python
 controller  = bge.logic.getCurrentController()
 
 object = controller.owner
 
 sensor = controller.sensors['mysensor']
+```
 
 If you are using Python modules instead of Python scripts directly (see Python Controller), the controller is passed as an argument for the function:
 
+```python
 def moduleFunction(cont):
-
     object = cont.owner
-
     sensor = cont.sensors['mysensor']
-
+```
+    
 ##### getCurrentScene() <a id="getCurrentScene()"></a>
 
 This function returns the current scene the script was called from. The most common usage is to give you a list of all the game objects:
 
+```python
 for object in bge.logic.getCurrentScene().objects: print(object)
+```
 
 ##### expandPath() <a id="expandPath()"></a>
 
 If you need to access an external file (image, video, Blender, etc.), you need to first get its absolute path in the computer. Use single backslash (/) to separate folders and double backslash (//) if you need to refer to the current folder:
 
-video\_absolute\_path  = bge.logic.expandPath('//videos/video01.ogg')
+```python
+video_absolute_path  = bge.logic.expandPath('//videos/video01.ogg')
+```
 
 ##### sendMessage(), addScene(), start/restart/endGame(), <a id="sendMessage(), addScene(), start/restart/endGame(),"></a>
 
@@ -1538,25 +1539,25 @@ These functions copy the functionality of existent actuators. They are Python re
 
 There are cases when you need to load the content of an external Blender file at runtime. This is known as _dynamic loading._ The game engine supports dynamic loading of actions, meshes, or complete scenes. The new data blocks are merged into the current scene and behave just like internal objects:
 
+```python
 bge.logic.LibLoad("//entities.blend", "Scene")
+```
 
-\*\*\* Begin Note
-
-Beware of Lamps
-
-New Lamp objects can be dynamically loaded from external files. However, in GLSL mode, they will not work as a light source for the material shaders, since the shaders would need to be recompiled for that.
-
-\*\*\* End Note
+>**Beware of Lamps**
+>
+>New Lamp objects can be dynamically loaded from external files. However, in GLSL mode, they will not work as a light source for the material shaders, since the shaders would need to be recompiled for that.
 
 ##### globalDict, loadGlobalDict(), saveGlobalDict() <a id="globalDict, loadGlobalDict(), saveGlobalDict()"></a>
 
 The bge.logic.globalDict is a Python dictionary that is alive during the whole game. It's a game place to store data if you need to restart the game or load a new file (level) and need to save some properties. In fact, you can even save the globalDict with the Blender file during the game and reload later.
 
+```python
 bge.logic.globalDict["password"] = "kidding, kids never save your passwords in files!"
 
 bge.logic.saveGlobalDict() # save globalDict externally
 
 bge.logic.loadGlobalDict() # replace the current globalDict with the saved one
+```
 
 ##### keyboard <a id="keyboard"></a>
 
@@ -1564,42 +1565,45 @@ You can handle all the keyboard inputs directly from a script. The usage and syn
 
 The keys for both event dictionaries are the same you use with the Keyboard sensor (see the bge.events module). The status of each key (whether it was pressed, released, kept pressed, or nothing) is the value stored in the dictionary. The keys values are defined in the bge.logic module itself:
 
+```python
 keyboard = bge.logic.keyboard
 
-space\_status = keyboard.events [bge.events.SPACEKEY]
+space_status = keyboard.events [bge.events.SPACEKEY]
 
-if space\_status == bge.logic.KX\_INPUT\_JUST\_ACTIVATED:
+if space_status == bge.logic.KX_INPUT_JUST_ACTIVATED:
 
     print("space key was just pressed.")
 
-elif space\_status == bge.logic.KX\_INPUT\_ACTIVE:
+elif space_status == bge.logic.KX_INPUT_ACTIVE:
 
     print("space key is still pressed.")
 
-elif space\_status == bge.logic.KX\_INPUT\_JUST\_RELEASED:
+elif space_status == bge.logic.KX_INPUT_JUST_RELEASED:
 
     print("space key was just released.")
 
-else: # bge.logic.KX\_INPUT\_NONE
+else: # bge.logic.KX_INPUT_NONE
 
     pass
-
+```
+    
 A sample file can be seen at \Book\Chapter7\5\_game\_keys\key\_detector\_python.blend . This shows the more Python-centric way of handling keyboard. For the classic method of using a Keyboard sensor, look further in this chapter into the "bge.events" section.
 
 ##### mouse <a id="mouse"></a>
 
 Similar to the keyboard, this Python object can work as a replacement for the Mouse sensor. There are a few differences that make it even more appealing for scripting[md]in particular, the fact that the mouse coordinates are already normalized. As we explained in the tutorial, this helps you get consistent results, regardless of the desktop resolution. The available attributes are:
 
-**       ** [lb] **        events:** A dictionary with all the events of the mouse (left-click, wheel up, and so on) and their status (for example, bge.logic.KX\_INPUT\_JUST\_ACTIVED).
+- **events:** A dictionary with all the events of the mouse (left-click, wheel up, and so on) and their status (for example, bge.logic.KX_INPUT_JUST_ACTIVED).
 
-**       ** [lb] **        position** : Normalized position of the mouse cursor in the screen (from [0,0] to [1,1]).
+- **position** : Normalized position of the mouse cursor in the screen (from [0,0] to [1,1]).
 
-**       ** [lb] **visible** : Dhow/hide the mouse cursor (can also be set in the Render panel for the initial state).
+- **visible** : Dhow/hide the mouse cursor (can also be set in the Render panel for the initial state).
 
 ##### joysticks <a id="joysticks"></a>
 
 This is a list of all the joysticks your computer supports. That means the list is mainly populated by None objects, and a few, if any, joystick Python objects. To print the index, name, number of axis, and active buttons of the connected joysticks, you can do:
 
+```python
 for i in bge.logic.joysticks:
 
     joystick = bge.logic.joysticks[i]
@@ -1607,7 +1611,8 @@ for i in bge.logic.joysticks:
     if joystick and joystick.connected:
 
         print(i, joystick.name, joystick.numAxis, joystick.activeButtons)
-
+```
+        
 For the complete list of all the parameters supported by the Joystick python object, visit the official API: _http://www.blender.org/documentation/blender\_python\_api\_2\_66\_release/bge.types.SCA\_JoystickSensor.html_
 
 A sample file can be found on \Book\Chapter7\joystick.blend.
@@ -1628,29 +1633,25 @@ Some of the variables will only work inside the correct context. Therefore, you 
 
 If you run a print(dir (object)) inside your script, you will get a very confusing list. It includes Python internal methods, instance methods, and instance variables. Most of them are common to all objects, so we are going to talk about them first. However, lamps and cameras not only inherit all the game object methods but also extend them with specific ones.
 
-\*\*\* Begin Note
-
-The Truth Is Out There
-
-In order to see all available methods, please refer to the documentation. We are only covering a few of them here.
-
-\*\*\* End Note
+>**The Truth Is Out There**
+>
+>In order to see all available methods, please refer to the documentation. We are only covering a few of them here.
 
 ###### Python Internal Methods <a id="Python Internal Methods"></a>
 
-\_\_class\_\_, \_\_doc\_\_, \_\_delattr\_\_ . . .
+`__class__, __doc__, __delattr__ . . .`
 
-Most of those methods are inherited from the Python object we are dealing with. However, given the nature of the Python classes presented in Blender, some of those methods may not be fully accessible. It's unlikely you will be using them. So for now it's safe to ignore any method starting and ending with double underlines (\_\_ignoreme\_\_).
+Most of those methods are inherited from the Python object we are dealing with. However, given the nature of the Python classes presented in Blender, some of those methods may not be fully accessible. It's unlikely you will be using them. So for now it's safe to ignore any method starting and ending with double underlines (__ignoreme__).
 
 ###### Instance Methods <a id="Instance Methods"></a>
 
-endObject(), rayCast(), getAxisVect(), suspendDynamics(), getPropertyNames() . . .
+`endObject(), rayCast(), getAxisVect(), suspendDynamics(), getPropertyNames() . . .`
 
 If it looks like a function, it should be one. Every game engine object provides you with a set of functions to interact with them or from them to the others. Here are some methods you should know about:
 
 - **rayCast (objto, objfrom, dist, prop, face, xray, poly)**
 
-_"Look from a point/object to another point/object and find first object hit within dist that matches prop."_
+_ "Look from a point/object to another point/object and find first object hit within dist that matches prop."_
 
 This method is a more complete version of the rayCastTo(). It has so many applications that it becomes hard to delimitate its usage. For instance, this was the method used to calculate the collision in the navigation system script we studied previously.
 
@@ -1660,13 +1661,9 @@ _"Get a list of all property names."_
 
 Once you retrieve the list of property names, you can use it to see if the object has a specific property before using it. To get individual properties, you can use _if "prop" in object_: or _object.get("prop", default=None)_.
 
-\*\*\* Begin Note
-
-A Use for Properties
-
-Properties have multiple uses in the game engine. One of those uses is to mark an object to be identified by the Python script. Why not use their names instead? While names work fine to retrieve individual objects, properties allow you to easily mark and access multiple objects at once. Frankly, it's easier to create an organized, named, and tagged MP3 collection than it is to find time to properly name all your Blender data blocks[ms]objects, meshes, materials, textures, images, and so on.
-
-\*\*\* End Note
+>**A Use for Properties**
+>
+>Properties have multiple uses in the game engine. One of those uses is to mark an object to be identified by the Python script. Why not use their names instead? While names work fine to retrieve individual objects, properties allow you to easily mark and access multiple objects at once. Frankly, it's easier to create an organized, named, and tagged MP3 collection than it is to find time to properly name all your Blender data blocks[ms]objects, meshes, materials, textures, images, and so on.
 
 - **endObject()**
 
@@ -1684,10 +1681,11 @@ Other methods are applyMovement(), applyForce(), applyTorque(), getDistanceTo(),
 
 ###### Instance Variables <a id="Instance Variables"></a>
 
-_name, position, mass, sensors, actuators . . ._
+`_name, position, mass, sensors, actuators . . ._`
 
 Last but definitively not least, we have the built-in variables. They work as internal parameters of the object (for example, name, position, orientation) or class objects linked to it (for example, parent, sensors, actuators). In Blender versions prior to 2.49, those variables were only accessible through a conjunct of get and set statements (setPosition(), getOrientation(), and so on). In Blender 2.5, 2.6 and on, they not only can be accessed directly, but also manipulated as any other variable, list, dictionary, vector, or matrix you may have:
 
+```python
 obj.mass = 5.0
 
 obj.worldScale \*= 2ˇ
@@ -1697,6 +1695,7 @@ obj.localPosition [2] += 3.0
 obj.worldOrientation.transpose()
 
 print(obj.worldTransform)
+```
 
 - **position, localPosition, worldPosition**
 
@@ -1718,7 +1717,7 @@ All the logic bricks of an object can be accessed through those dictionaries. Th
 
 Not all the objects have access to the same methods and variables. For example, an empty object doesn't have mass, and a static object doesn't have torque.
 
-When the object is a camera, the difference is even more distinct. The camera object has its own class derived from KX\_GameObject. It inherits all the instance variables and methods and expands it with its own. You will find some screen space functions (getScreenPosition(),getScreenVect(), getScreenRay()), some frustum methods (sphereInsideFrustum(), boxInsideFrustum(), pointInsideFrustum()), and some instance variables (lens, near, far, frustum\_culling, world\_to\_camera, camera\_to\_world).
+When the object is a camera, the difference is even more distinct. The camera object has its own class derived from KX_GameObject. It inherits all the instance variables and methods and expands it with its own. You will find some screen space functions (getScreenPosition(),getScreenVect(), getScreenRay()), some frustum methods (sphereInsideFrustum(), boxInsideFrustum(), pointInsideFrustum()), and some instance variables (lens, near, far, frustum_culling, world_to_camera, camera_to_world).
 
 ###### Sub-Class KX\_Lamp <a id="Sub-Class KX\_Lamp"></a>
 
@@ -1732,63 +1731,63 @@ If we compare gaming with traditional 3D artwork, rasterizer would be the render
 
 ##### Window and Mouse <a id="Window and Mouse"></a>
 
-getWindowWidth() / getWindowHeight()
+`getWindowWidth() / getWindowHeight()`
 
 Get the width/height of the window (in pixels).
 
-showMouse(visible)
+`showMouse(visible)`
 
 Enable or disable the operating system mouse cursor.
 
-setMousePosition(x, y)
+`setMousePosition(x, y)`
 
 Set the mouse cursor position (in pixels).
 
 ##### World Settings <a id="World Settings"></a>
 
-setBackgroundColor(rgba), setAmbientColor(rgb)
+`setBackgroundColor(rgba), setAmbientColor(rgb)`
 
 Set the ambient and background color.
 
-setMistColor(rgb), disableMist(), setMistStart(start), setMistEnd(end)
+`setMistColor(rgb), disableMist(), setMistStart(start), setMistEnd(end)`
 
 Configure the mist (fog) settings.
 
 ##### Stereo Settings <a id="Stereo Settings"></a>
 
-getEyeSeparation() / setEyeSeparation(eyesep)
+`getEyeSeparation() / setEyeSeparation(eyesep)`
 
 Get the current eye separation for stereo mode. Usually focal length/30 provides a comfortable value.
 
-getFocalLength() / setFocalLength(focallength)
+`getFocalLength() / setFocalLength(focallength)`
 
 Get the current focal length for stereo mode. It uses the current camera focal length as initial value
 
 ##### Material Settings <a id="Material Settings"></a>
 
-getMaterialMode(mode) / setMaterialMode(mode)
+`getMaterialMode(mode) / setMaterialMode(mode)`
 
 Get/set the material mode to use for OpenGL rendering. The available modes are:
 
-KX\_TEXFACE\_MATERIAL, KX\_BLENDER\_MULTITEX\_MATERIAL, KX\_BLENDER\_GLSL\_MATERIAL
+`KX_TEXFACE_MATERIAL, KX_BLENDER_MULTITEX_MATERIAL, KX_BLENDER_GLSL_MATERIAL`
 
-getGLSLMaterialSetting(setting) / setGLSLMaterialSetting(setting, enable)
+`getGLSLMaterialSetting(setting) / setGLSLMaterialSetting(setting, enable)`
 
 Get/set the state of a GLSL material setting. The available settings are:
 
-"lights", "shaders", "shadows", "ramps", "nodes", "extra\_textures"
+`"lights", "shaders", "shadows", "ramps", "nodes", "extra\_textures"`
 
 ##### Others <a id="Others"></a>
 
-drawLine(fromVec, toVec, color)
+`drawLine(fromVec, toVec, color)`
 
 Draw a line in the 3D scene.
 
-enableMotionBlur(factor) / disableMotionBlur()
+`enableMotionBlur(factor) / disableMotionBlur()`
 
 Enable/disable the motion blue effect.
 
-makeScreenshot(filename)
+`makeScreenshot(filename)`
 
 Write a screenshot to the given filename.
 
@@ -1798,73 +1797,67 @@ The Keyboard sensor allows you to set individual keys. As you can see in Figure 
 
 ![Key codes visualizer](../figures/Chapter7/Fig07-15.png)
 
-In this case, every key pressed into a Keyboard sensor, will be registered as a unique integer. Each number corresponds to a specific key, and finding them allows you to control your actions accordingly to the desired key map. In order to clarify this a bit more, try the file in \Book\Chapter7\5\_game\_keys\key\_detector\_logicbrick.blend.
+In this case, every key pressed into a Keyboard sensor, will be registered as a unique integer. Each number corresponds to a specific key, and finding them allows you to control your actions accordingly to the desired key map. In order to clarify this a bit more, try the file in /Book/Chapter7/5_game_keys\key_detector_logicbrick.blend.
 
 This file is similar to the key\_detector\_python.blend we used to demonstrate bge.logic.keyboard. However, this file is using the Keyboard sensor directly, instead of its wrapper.
 
+```python
 from bge import logic
-
 from bge import events
-
 cont = logic.getCurrentController()
-
 owner = cont.owner
-
 sensor = cont.sensors["s\_keyboard"]
 
 if sensor.positive:
-
     # get the first pressed key
-
-    pressed\_key = sensor.events[0][0]
-
+    pressed_key = sensor.events[0][0]
     text = "the key number is: %d\n" % pressed\_key
-
     text += "the key value is: %s\n" % events.EventToString(pressed\_key)
-
     text += "the character is: %s" % events.EventToCharacter(pressed\_key, 0)
-
+    
     # press space to reset the initial text
-
-    if pressed\_key == events.SPACEKEY:
-
+    if pressed_key == events.SPACEKEY:
         text = "Please, press any key."
-
     owner["Text"] = text
+```
 
 This script is called every time someone presses a key. The key (or keys) are registers as a list of events, each one being a list with the pressed key and its status. In this case, we are reading only the first pressed key:
 
-pressed\_key = sensor.events[0][0]
+`pressed_key = sensor.events[0][0]`
 
 This line stores the integer that identifies the pressed key. However, we usually would need to know the actual pressed key, not its internal integer value. Therefore, we are using the only two functions available in this module to convert our key to an understandable value:
 
-    text += "the key value is: %s\n" % events.EventToString(pressed\_key)
+```python
+    text += "the key value is: %s\n" % events.EventToString(pressed_key)
 
-    text += "the character is: %s" % events.EventToCharacter(pressed\_key, 0)
-
+    text += "the character is: %s" % events.EventToCharacter(pressed_key, 0)
+```
+    
 After that, we are checking for a specific key (spacebar). bge.events.SPACEKEY is actually an integer (to find the other keys' names, visit the API page):
 
-    if pressed\_key == events.SPACEKEY: text = "Please, press any key."
+```python
+    if pressed_key == events.SPACEKEY: text = "Please, press any key."
+```
 
 And, voilà, now we only need to visualize the pressed key:
 
+```python
     owner["Text"] = text
+```
 
-\*\*\* Begin Note
+>**Key Status**
+>
+>The status of a key is what informs you whether the key has just been pressed or if it was pressed already. The Keyboard sensor is always positive as long as any key is held, and you may need to trigger different functions when some keys are pressed and released. The status values are actually stored in bge.logic:
 
-Key Status
+```python
+0 = bge.logic.KX_INPUT_NONE
 
-The status of a key is what informs you whether the key has just been pressed or if it was pressed already. The Keyboard sensor is always positive as long as any key is held, and you may need to trigger different functions when some keys are pressed and released. The status values are actually stored in bge.logic:
+1 = bge.logic.KX_INPUT_JUST_ACTIVATED
 
-0 = bge.logic.KX\_INPUT\_NONE
+2 = bge.logic.KX_INPUT_ACTIVE
 
-1 = bge.logic.KX\_INPUT\_JUST\_ACTIVATED
-
-2 = bge.logic.KX\_INPUT\_ACTIVE
-
-3 = bge.logic.KX\_INPUT\_JUST\_RELEASED
-
-\*\*\* End Note
+3 = bge.logic.KX_INPUT_JUST_RELEASED
+```
 
 #### bge.texture <a id="bge.texture"></a>
 
@@ -1874,67 +1867,62 @@ Let's look at a basic example. Please open the file: Book\Chapter7\6\_ texture\b
 
 This file has a single plane with a texture we will replace with an external image. Press the spacebar to change the image and Enter to return to the original one. The script responsible for the texture switching is:
 
+```python
 from bge import logic
-
 from bge import texture
-
 def createTexture(cont):
-
     """Create a new dynamic texture"""
-
     object = cont.owner
 
     # get the reference pointer (ID) of the texture
-
     ID = texture.materialID(obj, 'IMoriginal.png')
 
     # create a texture object
-
     dynamic\_texture = texture.Texture(object, ID)\
 
     # create a new source
-
     url = logic.expandPath("//media/newtexture.jpg")
-
-    new\_source = texture.ImageFFmpeg(url)
+    new_source = texture.ImageFFmpeg(url)
 
     # the texture has to be stored in a permanent Python object
-
-    logic.dynamic\_texture = dynamic\_texture
+    logic.dynamic_texture = dynamic_texture
 
     # update/replace the texture
-
-    dynamic\_texture.source = new\_source
-
-    dynamic\_texture.refresh(False)
+    dynamic_texture.source = new_source
+    dynamic_texture.refresh(False)
 
 def removeTexture(cont):
-
     """Delete the dynamic texture, reversing it back to the original one."""
-
-    try: del logic.dynamic\_texture
-
+    try: del logic.dynamic_texture
     except: pass
+```
 
 It's a simple script, but let's look at the individual steps. We start by getting the material ID (that can be retrieved for an image used by an object, hence the prefix IM) or a material that uses a texture (with the prefix MA).
 
+```python
     ID = texture.materialID(object, 'IMoriginal.png')
+```
 
 With this ID, we can create a Texture object that controls the texture to be used by this object (and the other objects sharing the same image/material).
 
+```python
     dynamic\_texture = texture.Texture(object, ID)
+```
 
 The next step is to create the source to replace the texture with. The bge.texture module supports the following sources: ImageFFmpeg (images), VideoFFmpeg (videos), ImageBuff (data buffer), ImageMirror (mirror), ImageRender (game camera), ImageViewport (current viewport), and ImageMix (a mix of sources).
 
+```python
     new\_source = texture.ImageFFmpeg(url)
+```
 
 Now we only need to assign the new source to be used by the object texture and to refresh the latter. The refresh function has a Boolean argument for advanced settings. A rule of thumb is: for videos, use refresh (True); for everything else, try refresh (False) first.
 
-    dynamic\_texture.source = new\_source
+```python
+    dynamic_texture.source = new_source
+    dynamic_texture.refresh(False)
+```
 
-    dynamic\_texture.refresh(False)
-
-For the image to be permanent, we have to make sure the new dynamic\_texture is not destructed after we leave our Python function. Therefore, we store it in the global module bge.logic. If you need to reset the texture to its original source, simply delete the stored object (for example, _del logic.dynamic\_texture_).
+For the image to be permanent, we have to make sure the new dynamic_texture is not destructed after we leave our Python function. Therefore, we store it in the global module bge.logic. If you need to reset the texture to its original source, simply delete the stored object (for example, _del logic.dynamic_texture_).
 
 Since this is a simple image, you don't need to do anything after that. If you are using a video as source, you need to keep refreshing the texture every frame. Videos also support an audio-video syncing system. To make them play harmoniously together, you first play the audio and then query its current position to pass as a parameter when updating the video frame (for example,  _logic.video.refresh(True, logic.sound.time)_). The audio can come from an Audaspace object or even a Sound actuator.
 
@@ -1942,19 +1930,19 @@ In the book files, you can find other examples using different sorts of source o
 
 Basic replacement of texture:
 
-_Book\Chapter7\6\_texture\basic\_texture\_replacement.blend_
+_Book/Chapter7/6_texture/basic_texture_replacement.blend_
 
 Basic video playback with Sound actuator:
 
-_\Book\Chapter7\6\_texture\basic\_video\_sound.blend_
+_Book/Chapter7/6_texture\basic_video_sound.blend_
 
 Video player with interface controllers:
 
-_\Book\Chapter7\6\_texture\player\_video\_audio.blend_
+_Book/Chapter7/6_texture/player_video_audio.blend_
 
 Basic video playback with Audaspace:
 
-_\Book\Chapter7\6\_texture\video\_audaspace.blend_
+_/Book/Chapter7/6_texture/video_audaspace.blend_
 
 Mirror effect:
 
@@ -1962,11 +1950,11 @@ _\Book\Chapter7\6\_texture\mirror.blend_
 
 Render to texture:
 
-_\Book\Chapter7\6\_texture\render\_to\_texture.blend_
+_Book/Chapter7/6_texture/render_to_texture.blend_
 
 Webcam sample:
 
-_\Book\Chapter7\6\_texture\webcam.blend_
+_/Book/Chapter7/6_texture/webcam.blend_
 
 #### bge.constraints <a id="bge.constraints"></a>
 
@@ -1988,17 +1976,17 @@ A recurring problem that new Python programmers have is with list copying. If yo
 
 The same behavior happens with Vectors. Look at the differences:
 
-new\_vector = old\_vector
+`new_vector = old_vector`
 
-if you change new\_vector you will automatically change old\_vector (and vice-versa).
+if you change new\_vector you will automatically change old_vector (and vice-versa).
 
-new\_vector = old\_vector[:]
+`new_vector = old_vector[:]`
 
-new\_vector is a new independent list object initialized with the old\_vector values.
+new_vector is a new independent list object initialized with the old_vector values.
 
-new\_vector = vector.copy()
+`new_vector = vector.copy()`
 
-new\_vector is a new Vector, an independent copy of the old\_vector object.
+new_vector is a new Vector, an independent copy of the old_vector object.
 
 ##### Matrix <a id="Matrix"></a>
 
@@ -2006,57 +1994,49 @@ While vectors behave similarly to lists, matrices behave similarly to multidimen
 
 While in Python, a list of a list is always the same:
 
-matrix\_row = [[1,2,3], [4,5,6], [7,8,9]]
+`matrix_row = [[1,2,3], [4,5,6], [7,8,9]]`
 
 In a mathutils.Matrix, the data can be stored differently, accordingly to the matrix orientation (row/column). Following you can see how the order of the elements in a matrix changes, according to its orientation (note, this is not actual Python code):
 
-matrix\_row\_major    =  [[1 2 3]
+```python
+matrix_row_major    =  [[1 2 3]
 
-                         [4 5 6]
+                       [4 5 6]
 
-                         [7 8 9] ]
+                       [7 8 9] ]
 
-                        [1][4][7]
+                       [1][4][7]
 
-matrix\_column\_major = [|2||5||8|]
+matrix_column_major = [|2||5||8|]
 
-                        [3][6][9]
+                      [3][6][9]
+```
 
 It's important to be aware of the ordering of your matrices; otherwise, you end up using a transposed matrix for your calculations. Since all the game engine internal matrices (orientation, camera to world, and so on) are column-major oriented, you will be safer sticking to this standard.
 
-If your matrix represents a transformation matrix (rotation, translation, and scale) you can get its values separately. Matrix.to\_quaternion() and Matrix.to\_euler() will give you the rotation part of the matrix in the form you prefer (see next section), and Matrix.to\_translation() and Matrix.to\_scale () will give you the translation and the scale vector, respectively.
+If your matrix represents a transformation matrix (rotation, translation, and scale) you can get its values separately. Matrix.to_quaternion() and Matrix.to_euler() will give you the rotation part of the matrix in the form you prefer (see next section), and Matrix.to_translation() and Matrix.to_scale () will give you the translation and the scale vector, respectively.
 
 ##### Euler and Quaternion <a id="Euler and Quaternion"></a>
 
 Euler and quaternion are different rotation systems. The same rotation can be represented using Euler, quaternion, or an orientation matrix.
 
-\*\*\* Begin Note
+>**Guerrilla CG**
+>
+>You can find two great video tutorials on the Guerrilla CG vimeo channel that explain and compare the two rotation system:
+>Euler Rotations Explained: http://vimeo.com/2824431
+>The Rotation Problem: http://vimeo.com/2649637
 
-Guerrilla CG
+>When you convert an orientation matrix to Euler (`Matrix.to_euler()`), you get a list with three angles. They represent the rotation in the x, y, z axis of the object. In the navigation system script example, we are using this exact method to determine the horizontal camera angle. You can find this usage in the function `fly_to_walk()` (lines 190 to 199 of navigation\_system.py or in the early pages of this chapter).
+>
+>Conversion Between Different Rotation Forms
+>You can convert an orientation matrix to Euler, an Euler to a quaternion, a quaternion to an orientation matrix, and on and on and on:
 
-You can find two great video tutorials on the Guerrilla CG vimeo channel that explain and compare the two rotation system:
+```python
+original_matrix=mathutils.Matrix.Rotation(math.pi, 3, "X")
 
-Euler Rotations Explained: http://vimeo.com/2824431
-
-The Rotation Problem: http://vimeo.com/2649637
-
-\*\*\* End Note
-
-When you convert an orientation matrix to Euler (Matrix.to\_euler()), you get a list with three angles. They represent the rotation in the x, y, z axis of the object. In the navigation system script example, we are using this exact method to determine the horizontal camera angle. You can find this usage in the function fly\_to\_walk() (lines 190 to 199 of navigation\_system.py or in the early pages of this chapter).
-
-\*\*\* Begin Note
-
-Conversion Between Different Rotation Forms
-
-You can convert an orientation matrix to Euler, an Euler to a quaternion, a quaternion to an orientation matrix, and on and on and on:
-
-original\_matrix=mathutils.Matrix.Rotation(math.pi, 3, "X")
-
-converted\_matrix=original\_matrix.to\_euler().to\_quaternion().to\_matrix().to\_euler().to\_matrix().to\_quaternion().to\_euler().to\_matrix().to\_quaternion().to\_euler().to\_quaternion().to\_matrix()
-
-In this example, converted\_matrix ends up as the same matrix as original\_matrix.
-
-\*\*\* End Note
+converted_matrix=original_matrix.to_euler().to_quaternion().to_matrix().to_euler().to_matrix().to_quaternion().to_euler().to_matrix().to_quaternion().to_euler().to_quaternion().to_matrix()
+```
+>In this example, converted_matrix ends up as the same matrix as original_matrix.
 
 #### aud - Audio System <a id="aud - Audio System"></a>
 
@@ -2066,151 +2046,148 @@ The audaspace module in a nutshell: you need to create one audio Device per game
 
 ##### Example: Basic Audio Playback <a id="Example: Basic Audio Playback"></a>
 
+```python
 import aud
-
 device = aud.device()
+```
 
 ## load sound file (it can be a video file with audio)
 
+```python
 factory = aud.Factory('music.ogg')
+```
 
 ## play the audio, this return a handle to control play/pause
 
+```python
 handle = device.play(factory)
+```
 
 ## if the audio is not too big and will be used often you can buffer it
 
-factory\_buffered = aud.Factory.buffer(factory)
-
-handle\_buffered = device.play(buffered)
+```python
+factory_buffered = aud.Factory.buffer(factory)
+handle_buffered = device.play(buffered)
+```
 
 ## stop the sounds (otherwise they play until their ends)
 
+```python
 handle.stop()
-
-handle\_buffered.stop()
+handle_buffered.stop()
+```
 
 We start by creating an audio device. This is simply a Python object you will use to play your sounds. Next, we create a Factory object. A factory is a container for a sound file. When we pass the Factory object into the device play function, it will start playing the sound and return a handle. Handles are used to control pause/resume and to stop an audio.
 
-\*\*\* Begin Note
+>**When Will This Music Stop?**
+>
+>After you initialize a sound, you can get its current position in seconds with the handle.position Python property. This is especially useful to keep videos and audio in sync. If you need to check whether or not the audio is ended, you shouldn't rely on the position, though. Instead, you can get the status of the sound by the property handle.status. If you are using the sound position to control a video playback, the sound status will also tell you if the video is over (handle.status = aud.AUD\_STATUS\_INVALID).
+>The possible statuses are:
 
-When Will This Music Stop?
+```python
+0 = aud.AUD_STATUS_INVALID
 
-After you initialize a sound, you can get its current position in seconds with the handle.position Python property. This is especially useful to keep videos and audio in sync. If you need to check whether or not the audio is ended, you shouldn't rely on the position, though. Instead, you can get the status of the sound by the property handle.status. If you are using the sound position to control a video playback, the sound status will also tell you if the video is over (handle.status = aud.AUD\_STATUS\_INVALID).
+1 = aud.AUD_STATUS_PLAYING
 
-The possible statuses are:
-
-0 = aud.AUD\_STATUS\_INVALID
-
-1 = aud.AUD\_STATUS\_PLAYING
-
-2 = aud.AUD\_STATUS\_PAUSED
-
-\*\*\* End Note
+2 = aud.AUD_STATUS_PAUSED
+```
 
 #### bgl - OpenGL Wrapper <a id="bgl - OpenGL Wrapper"></a>
 
 This module is a wrapping of OpenGL constants and functions. It allows you to access low-level graphic resources within the game engine. You can use this module to draw directly to the screen or to read OpenGL matrices and buffers directly.
 
-Sometimes, you will need to run your OpenGL code specifically before or after the game engine drawing routine, so you can store your Python function as a list element either in the scene attributes pre\_draw and/or in the post\_draw. This will be demonstrated in our first example.
+Sometimes, you will need to run your OpenGL code specifically before or after the game engine drawing routine, so you can store your Python function as a list element either in the scene attributes pre_draw and/or in the post_draw. This will be demonstrated in our first example.
 
-\*\*\* Begin Note
-
-To Learn OpenGL
-
-You can find good OpenGL learning material on the Internet or in a bookstore. _The Official Guide to Learning OpenGL_ (also known as _The Red Book_) is highly recommended, and some older versions of it can be found online for download.
-
-\*\*\* End Note
+>**To Learn OpenGL**
+>
+>You can find good OpenGL learning material on the Internet or in a bookstore. _The Official Guide to Learning OpenGL_ (also known as _The Red Book_) is highly recommended, and some older versions of it can be found online for download.
 
 ##### Example 01: Line Width Changing <a id="Example 01: Line Width Changing"></a>
 
-Open the file \Book\Chapter7\7\_bgl\line\_width.blend.
+Open the file /Book/Chapter7/7_bgl/line_width.blend.
 
 (run it in wireframe mode)
 
+```python
 from bge import logic
-
 import bgl
-
-def line\_width():
-
+def line_width():
     bgl.glLineWidth(100.0)
 
 scene = logic.getCurrentScene()
+if line_width not in scene.pre_draw:
 
-if line\_width not in scene.pre\_draw:
-
-    scene.pre\_draw.append(line\_width)
+    scene.pre_draw.append(line_width)
+```
 
 This code needs to run only once per frame and will change the line width of the objects. Be aware that the line is only drawn in the wireframe mode.
 
-You will find on the book files another example where the line width changes dynamically[md] \Book\Chapter7\7\_bgl\line\_width\_animate.blend.
+You will find on the book files another example where the line width changes dynamically - /Book/Chapter7/7_bgl/line_width_animate.blend.
 
 ##### Example 02: Color Picker <a id="Example 02: Color Picker"></a>
 
-Open the file \Book\Chapter7\7\_bgl\color\_pickup.blend.
+Open the file /Book/Chapter7/7_bgl/color_pickup.blend.
 
 In this file, you can change the light color according to where you click.
 
+```python
 from bge import logic
-
 from bge import render
-
 import bgl
 
 cont = logic.getCurrentController()
-
 lamp   = cont.owner
-
 sensor = cont.sensors["s\_mouse\_click"]
 
 if sensor.positive:
-
     width = render.getWindowWidth()
-
     height = render.getWindowHeight()
-
-    viewport = bgl.Buffer(bgl.GL\_INT, 4)
-
-    bgl.glGetIntegerv(bgl.GL\_VIEWPORT, viewport);
-
+    viewport = bgl.Buffer(bgl.GL_INT, 4)
+    bgl.glGetIntegerv(bgl.GL_VIEWPORT, viewport);
     x = viewport[0] + sensor.position[0]
-
     y = viewport[1] + (height - sensor.position[1])
-
-    pixels = bgl.Buffer(bgl.GL\_FLOAT, [4])
+    pixels = bgl.Buffer(bgl.GL_FLOAT, [4])
 
     # Reads one pixel from the screen, using the mouse position
-
-    bgl.glReadPixels(x, y, 1, 1, bgl.GL\_RGBA, bgl.GL\_FLOAT, pixels)
+    bgl.glReadPixels(x, y, 1, 1, bgl.GL_RGBA, bgl.GL_FLOAT, pixels)
 
     # Change the Light colour
-
     lamp.color = [pixels[0], pixels[1], pixels[2]]
+```
 
 There are three important bgl methods been used here. The first one is bgl.Buffer. It creates space in the memory to be filled in with information taken from the graphics driver:
 
-viewport = bgl.Buffer(bgl.GL\_INT, 4)
+```python
+viewport = bgl.Buffer(bgl.GL_INT, 4)
 
-pixels = bgl.Buffer(bgl.GL\_FLOAT, [4])
+pixels = bgl.Buffer(bgl.GL_FLOAT, [4])
+```
 
-The second one is the bgl.glGetIntegerv. We use it to get the current Viewport position and dimension to the buffer object previously created:
+The second one is the `bgl.glGetIntegerv`. We use it to get the current Viewport position and dimension to the buffer object previously created:
 
-glGetIntegerv(bgl.GL\_VIEWPORT, viewport);
+```python
+glGetIntegerv(bgl.GL_VIEWPORT, viewport);
+```
 
 The buffer coordinates run from the left bottom [0.0, 0.0] to the right top [1.0, 1.0]. The mouse coordinates, on the other hand, run from left top [0, 0] to the right bottom [width, height]. We need to convert the mouse coordinate position to the correspondent one in the Buffer.
 
+```python
 x = viewport[0] + sensor.position[0]
 
 y = viewport[1] + (height - sensor.position[1])
+```
 
 The third one is bgl.glReadPixels. This is the method that's actually reading the pixel color and storing it in the other buffer object:
 
-bgl.glReadPixels(x, y, 1, 1, bgl.GL\_RGBA, bgl.GL\_FLOAT, pixels)
+```python
+bgl.glReadPixels(x, y, 1, 1, bgl.GL_RGBA, bgl.GL_FLOAT, pixels)
+```
 
 And, finally, let's apply the pixel color to the lamp:
 
+```python
 lamp.color = [pixels[0], pixels[1], pixels[2]]
+```
 
 #### blf - Font Drawing <a id="blf - Font Drawing"></a>
 
@@ -2218,68 +2195,53 @@ If you need to control text drawing directly from your scripts, you may need to 
 
 The blf module works in three stages:
 
-\*\*\* Begin Numbered List
+1. Create a new font object.
 
-1.Create a new font object.
+2. Set the parameters for the text (size, position, and so on).
 
-2.Set the parameters for the text (size, position, and so on).
-
-3.Draw the text on the screen.
-
-\*\*\* End Numbered List
+3. Draw the text on the screen.
 
 ##### Example: Writing Hello World <a id="Example: Writing Hello World"></a>
 
-Open the file \Book\Chapter7\8\_blf\hello\_world.blend.
+Open the file /Book/Chapter7/8_blf/hello_world.blend.
 
 In the init function, we load a new font in memory and store the generated font ID to use later.
 
+```python
 def init():
 
     """init function - runs once"""
 
     # create a new font object
-
-    font\_path = bge.logic.expandPath('//fonts/Zeyada.ttf')
-
-    bge.logic.font\_id = blf.load(font\_path)
+    font_path = bge.logic.expandPath('//fonts/Zeyada.ttf')
+    bge.logic.font_id = blf.load(font_path)
 
     # set the font drawing routine to run
-
     scene = bge.logic.getCurrentScene()
-
-    scene.post\_draw=[write]
+    scene.post_draw=[write]
+```
 
 The actual function responsible for writing the text is stored in the scene post\_draw routine. Apart from the OpenGL calls, the setup for using the text is quite simple.
 
+```python
 def write():
-
     """write on screen – runs every frame"""
-
     width = bge.render.getWindowWidth()
-
     height = bge.render.getWindowHeight()
 
     # OpenGL calls to re-set drawing position
-
-    bgl.glMatrixMode(bgl.GL\_PROJECTION)
-
+    bgl.glMatrixMode(bgl.GL_PROJECTION)
     bgl.glLoadIdentity()
-
     bgl.gluOrtho2D(0, width, 0, height)
-
-    bgl.glMatrixMode(bgl.GL\_MODELVIEW)
-
+    bgl.glMatrixMode(bgl.GL_MODELVIEW)
     bgl.glLoadIdentity()
 
     # blf settings + draw
 
-    font\_id = bge.logic.font\_id
+    font_id = bge.logic.font_id
+    blf.position(font_id, (width*0.2), (height*0.3), 0)
+    blf.size(font_id, 50, 72)
+    blf.draw(font_id, "Hello World")
+```
 
-    blf.position(font\_id, (width\*0.2), (height\*0.3), 0)
-
-    blf.size(font\_id, 50, 72)
-
-    blf.draw(font\_id, "Hello World")
-
-On the book files, in the same folder, you can find two other examples following the same framework_: hello\_world\_2.blend_ and _object\_names.blend_.
+On the book files, in the same folder, you can find two other examples following the same framework_: hello_world_2.blend_ and _object_names.blend_.
