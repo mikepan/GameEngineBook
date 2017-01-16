@@ -17,7 +17,7 @@ Chapter 5 - Graphics - Not Ready
 
 Chapter 6 - Physics - Not Ready
 
-Chapter 7 - Scripting - Not Ready
+[Chapter 7 - Scripting](text/07-Scripting.md)
 
 Chapter 8 - Optimization - Not Ready
 
