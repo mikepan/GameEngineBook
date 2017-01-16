@@ -15,7 +15,7 @@ This is a republication of the book originally published by Cengage. We put the 
 
 Chapter 5 - Graphics - Not Ready
 
-Chapter 6 - Physics - Not Ready
+[Chapter 6 - Physics](text/06-Physics.md)
 
 [Chapter 7 - Scripting](text/07-Scripting.md)
 
