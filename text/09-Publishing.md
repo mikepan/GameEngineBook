@@ -98,13 +98,7 @@ As we mentioned earlier, Blenderplayer is a way to play back your files independ
 
 This will open up a dialog for you to choose where to save your binary file, which works differently in different operating systems:
 
-\*\*\*Insert Fig09-01.tif
-
-Figure 9.1
-
-Export as Game Engine Runtime.
-
-Source: Blender Foundation.
+![Export as Game Engine Runtime](../figures/Chapter9/Fig09-01.png)
 
 **       ** [lb] **        Windows:** A few files will be copied to the folder you exported the runtime to. The main file is an executable (.exe) that you will be using to launch your game. The name of the file is the one you choose in the Export dialog. It contains both your Blender file (.blend) and Blenderplayer (.exe) bundled together. A few libraries (.dll) are presented as well. They are needed to play your game, so make sure to bring them with your executable wherever it goes (copy, zip, pack).
 
@@ -146,13 +140,7 @@ For Mac OSX, you need to copy them to "mygame.app/Contents/Resources/." This is 
 
 In the Render panel, you can find a few specific options for Blenderplayer, as shown in Figure 9.2.
 
-\*\*\*Insert Fig09-02.tif
-
-Figure 9.2
-
-Blenderplayer and other options.
-
-Source: Blender Foundation.
+![Blenderplayer and other options](../figures/Chapter9/Fig09-02.png)
 
 **       ** [lb] **        Start:** A quick way to launch your game in Blenderplayer. It will open it in a new window, You need to save your file first. Don't mistake this with the Start button in the Embedded Player tab, which plays the game inside Blender.
 
@@ -250,13 +238,7 @@ Although it is early to know how far this will go, the Android deployment for th
 
 In Figure 9.3, you can see the final sample file from Chapter 4 running in an Android phone. To see this in action go to: [http://youtu.be/bF1m5b4jEKs](http://youtu.be/bF1m5b4jEKs).
 
-\*\*\*Insert Fig09-03.tif
-
-Figure 9.3
-
-Android deployment.
-
-Source: Blender Foundation.
+![Android deployment](../figures/Chapter9/Fig09-03.png)
 
 To run your game, you can download the Blenderplayer Android app and open the game from it. As of the time of writing, the app is not yet on the Android market. You can download it from this BlenderArtists forum thread: [http://blenderartists.org/forum/showthread.php?255746](http://blenderartists.org/forum/showthread.php?255746)
 
@@ -372,10 +354,4 @@ _http://wiki.blender.org/index.php/Dev:Doc/Building\_Blender_
 
 DF: To be replaced with a splash screen with Blender 2.6 say on it and the cover of the book. Waiting for the cover of the book.
 
-\*\*\*Insert Fig09-04.tif
-
-Figure 9.4
-
-Custom splash screen.
-
-Source: Blender Foundation. Art [c] 2014 Mike Pan and Dalai Felinto.
+![Custom splash screen](../figures/Chapter9/Fig09-04.png)
