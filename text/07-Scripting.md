@@ -689,7 +689,7 @@ All of those aspects must be considered from the first phases of the coding proc
 
 The system will consist of one camera for the orbit mode, and one to be used for both the fly and walk mode. Each mode works as described in Table 7.1.
 
-Table 7.1 Comparison of Different Navigation Cameras
+_Table 7.1 Comparison of Different Navigation Cameras_
 
 |                               | Orbit         | Walk             | Fly    |
 |:-----------------------------:|:-------------:|:----------------:|:------:|
