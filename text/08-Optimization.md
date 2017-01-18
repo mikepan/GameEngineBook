@@ -154,6 +154,7 @@ Moving down, you can see that the number in the first column is the time it took
 To understand the profiler, simply look at the relative percentage of time it takes to complete all the operations. The table below shows you the meaning of each.
 
 _Table 8.1 Profiler Breakdown_
+
 | Label      | Meaning             | Hardware Used | Typical Ratio |
 |:----------:|:-------------------:|:-------------:|:-------------:|
 | Frametime  | Combined time       | Entire system | 100%          |
