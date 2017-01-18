@@ -19,7 +19,7 @@ Chapter 6 - Physics - Not Ready
 
 Chapter 7 - Scripting - Not Ready
 
-Chapter 8 - Optimization - Not Ready
+[Chapter 8 - Optimization](text/08-Optimization.md)
 
 Chapter 9 - Publishing - Not Ready
 
