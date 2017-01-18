@@ -21,7 +21,7 @@ Chapter 7 - Scripting - Not Ready
 
 Chapter 8 - Optimization - Not Ready
 
-Chapter 9 - Publishing - Not Ready
+[Chapter 9 - Publishing](text/09-Publishing.md)
 
 Chapter 10 - Case Studies - Not Ready
 
