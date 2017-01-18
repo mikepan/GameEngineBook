@@ -19,7 +19,7 @@ Chapter 5 - Graphics - Not Ready
 
 [Chapter 7 - Scripting](text/07-Scripting.md)
 
-Chapter 8 - Optimization - Not Ready
+[Chapter 8 - Optimization](text/08-Optimization.md)
 
 [Chapter 9 - Publishing](text/09-Publishing.md)
 
