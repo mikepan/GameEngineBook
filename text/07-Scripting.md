@@ -337,7 +337,7 @@ Although we have flexible data types, we must respect variable types while manip
 - **Custom Types:** These are things such as vectors and matrixes. The game engine combines some of the basic data types to create more complex ones. They are mainly used for vectors and matrixes. That way you can interact mathematically with them in a way that basic types won't do.
 
 ```python
- mathutils.Vector(1,0,0) \* object.orientation # the result is a Matrix
+ mathutils.Vector(1,0,0) * object.orientation # the result is a Matrix
 ```
 
 ### Indentation <a id="Indentation"></a>
@@ -400,57 +400,39 @@ The first script that runs in this file is the init\_world.py. Here we are creat
 # ############### #
 
 import bge
-
 from bge import logic as G
-
 from bge import render as R
 
 # showing the mouse cursor
-
 R.showMouse(True)
 
 # storing the current scene in a variable
-
 scene = G.getCurrentScene()
 
 # define a class to store all group elements and the click object
-
 class Group():
-
     def __init__(self, name):
-
         self.name = name
-
         self.click = None
-
         self.objects = []
 
 # create new element groups
-
 cube_group   = Group("cubes")
-
 sphere_group = Group("sphere")
 
 # add all objects with an "ui" property to the created element
-
 for obj in scene.objects:
-
     if "cube" in obj:
-
         cube_group.objects.append(obj)
-
     elif "sphere" in obj:
-
         sphere_group.objects.append(obj)
-
     elif "click" in obj:
-
         exec("%s\_group.click = obj" % (obj["click"]))
 
 G.groups = {"cube":cube_group, "sphere":sphere_group}
 ```
 
-After storing them in the global module bge.logic, we wait for the user to click in the cube or sphere in the middle of the scene. When that happens, it will toggle the value of the on/off property of the cube or sphere. The following script (which runs every frame) will then hide/unhide the group's objects accordingly.
+After storing them in the global module `bge.logic`, we wait for the user to click in the cube or sphere in the middle of the scene. When that happens, it will toggle the value of the on/off property of the cube or sphere. The following script (which runs every frame) will then hide/unhide the group's objects accordingly.
 
 ```python
 ## ################## #
@@ -462,29 +444,20 @@ After storing them in the global module bge.logic, we wait for the user to click
 from bge import logic
 
 # defines a function to hide/turn visible all the objects passed as argument
-
 def change_visibility(objects, on_off):
-
     for obj in objects:
-
         obj.visible = on_off
 
 # retrieve the stored groups to local variables
-
 cube_group   = logic.groups["cube"]
-
 sphere_group = logic.groups["sphere"]
 
 # read the current value of the "on\_off" property in the cube/sphere
-
 cube_visible   = cube_group.click["on\_off"]
-
 sphere_visible = sphere_group.click["on\_off"]
 
 # calls the function into the group object with the visibility flag
-
 change_visibility(cube_group.objects, cube_visible)
-
 change_visibility(sphere_group.objects, sphere_visible)
 ```
 
@@ -504,7 +477,7 @@ _www.python.org_
 
 Learn about new Python versions, API changes, and module documentation.
 
-_www.blender.org/documentation/blender\_python\_api\_2\_66\_release/#game-engine-modules_
+_www.blender.org/documentation/blender_python_api_2_66_release/#game-engine-modules_
 
 Official BGE API Documentation[md]all the built-in modules that can be used with the game engine.
 
@@ -537,13 +510,13 @@ An open game made with the game engine by the Blender Foundation. You can downlo
 You can also access help directly in Python.
 
 ```python
-dir(python\_object)
+dir(python_object)
 ```
 
 The Python function "dir" creates a list with all the functions/modules/attributes available to be accessed from this object.
 
 ```python
-help(python\_function)
+help(python_function)
 ```
 
 This built-in function reveals the official documentation for this module or data type.
@@ -716,9 +689,10 @@ All of those aspects must be considered from the first phases of the coding proc
 
 The system will consist of one camera for the orbit mode, and one to be used for both the fly and walk mode. Each mode works as described in Table 7.1.
 
-Table 7.1 Comparison of Different Navigation Cameras
+_Table 7.1 Comparison of Different Navigation Cameras_
 
 |                               | Orbit         | Walk             | Fly    |
+|:-----------------------------:|:-------------:|:----------------:|:------:|
 | Vertical Rotation Angle (Z)   | -200º to 200º | Free             | Free   |
 | Horizontal Rotation Angle (X) | 10º to 70º    | -15º to 45º      | Free   |
 | Moving Pivot                  | None          | Empty            | Empty  |
@@ -844,7 +818,7 @@ Now that we have our objects instanced, we can set the initial values for our fu
        (. . .)
 ```
        
-Last, but not least, we need to create the variables we are going to read and write between the functions. Initializing them here allows us to read them since the first frame of the game. This is especially important for variables that are going to be used in the event management functions[md]for different values of nav\_mode and walk\_fly, we are going to run different functions for the camera movement.
+Last, but not least, we need to create the variables we are going to read and write between the functions. Initializing them here allows us to read them since the first frame of the game. This is especially important for variables that are going to be used in the event management functions - for different values of nav_mode and walk_fly, we are going to run different functions for the camera movement.
 
 ```python
 103 G.walk_fly = "walk"
@@ -886,7 +860,7 @@ Let's first take a look at the mouse sensor controlling system:
 218             look_camera(sensor)
 ```
 
-It looks quite similar to the script template we saw recently. A difference is that instead of activating an actuator, we are calling a function to rotate the view. Actually, according to the current camera (orbit or fly/walk), we will have to call different functions (orbit\_camera and look\_camera respectively). Also, you can see that the function gets the controller passed as an argument. The game engine passes the controller by default for the module when using the Python Module controller. The argument declaration in the function is actually optional. So you could replace line 210 of the code with the following two lines, and it would work just as well:
+It looks quite similar to the script template we saw recently. A difference is that instead of activating an actuator, we are calling a function to rotate the view. Actually, according to the current camera (orbit or fly/walk), we will have to call different functions (`orbit_camera` and `look_camera` respectively). Also, you can see that the function gets the controller passed as an argument. The game engine passes the controller by default for the module when using the Python Module controller. The argument declaration in the function is actually optional. So you could replace line 210 of the code with the following two lines, and it would work just as well:
 
 ```python
 def mouse_move():
@@ -946,17 +920,17 @@ The second event management function handles keyboard inputs. This function take
 
 134            # CAMERA SWITCHING
 
-!35            if value == GK.ONEKEY:
+135            if value == GK.ONEKEY:
 
-136                change\_view("orbit", "orbit")
+136                change_view("orbit", "orbit")
 
 137            elif value == GK.TWOKEY:
 
-138                change\_view("front")
+138                change_view("front")
 
 139            elif value == GK.THREEKEY:
 
-140                change\_view("top", "fly")
+140                change_view("top", "fly")
 
     (...)
 ```
@@ -968,11 +942,11 @@ The second event management function handles keyboard inputs. This function take
 ##### Internal Functions <a id="Internal Functions"></a>
 
 ```python
-scripts.move\_camera
+scripts.move_camera
 
-scripts.orbit\_camera
+scripts.orbit_camera
 
-scripts.look\_camera
+scripts.look_camera
 ```
 
 These three functions are called from the event management functions. In their lines, you can find the math responsible for the camera movement. We're calling them "internal functions" because they are the bridge between the sensors' inputs and the outputs in the game engine world.
@@ -982,7 +956,7 @@ These three functions are called from the event management functions. In their l
 The function responsible for the camera movement is very simple. In the walk and fly mode, we are going to move the pivot in the desired direction (which is passed as argument). Therefore, we first need to create a vector to this course. If you are unfamiliar with vectorial math, think of vector as the direction between the origin [0, 0, 0] and the vector coordinates [X, Y, Z].
 
 ```python
-336 def move\_camera(direction):
+336 def move_camera(direction):
 
 338     if not G.cameras["CAM"] == "MOVE": return
 
@@ -1106,7 +1080,7 @@ The first lines that deserve our attention here are the normalizing operation. T
 >It's important to always use normalized coordinates for your screen operations. Otherwise, different desktop resolutions will produce different results in a game. As a counter edge case, you may need the absolute coordinates for mouse events if you want to assure minimum clickable areas for your events.
 >You don't always need to normalize the mouse coordinates manually. Like the keyboard sensor, you can replace the mouse sensor by an internal instance of the mouse module.
 >The coordinates from bge.logic.mouse run from 0.0 to 1.0 and can be read anytime. (You can even link your script to an Always sensor, leaving the Mouse sensor for the times where you are using more logic bricks.)
->You can read about this in the "bge.logic API" section in this chapter or on the online API page: _http://www.blender.org/documentation/blender\_python\_api\_2\_66\_release/bge.logic.html#bge.logic.keyboard_
+>You can read about this in the "bge.logic API" section in this chapter or on the online API page: _http://www.blender.org/documentation/blender_python_api_2_66_release/bge.logic.html#bge.logic.keyboard_
 
 Now a simple operation to convert the normalized value into a value inside our horizontal angle range (-220º to 220º):
 
@@ -1194,10 +1168,12 @@ In move_camera(), we are going to use an instance method of the pivot object cal
 357     pivot = G.cameras["MOVE"][2]
 
 358     pivot.applyMovement(vector, True)
+```
 
 In a similar way in the look_camera() function, we will apply the rotation in the camera object. This has the advantage of sparing the hassles of 3D math, matrixes, and orientations. Also, instead of manually computing the new orientation matrix in Python, we can rely on the game engine C++ native (i.e., fast) implementation for that task.
 
-269 def look\_camera(sensor):
+```python
+269 def look_camera(sensor):
 
     (. . .)
 
@@ -1283,7 +1259,7 @@ For the walk camera, we have yet another situation. The mode we are coming from 
 For that, we need to rotate it a few degrees to align with the horizon. The camera now will be looking to a different point (above/below the original direction). In order to realign the camera with the view orientation, we need to rotate the camera in the opposite direction. This way, the pivot and camera rotations void each other (with the benefit of having the pivot now properly aligned with the ground).
 
 ```python
-190 def fly\_to\_walk():
+190 def fly_to_walk():
 
     (...)
 
@@ -1368,7 +1344,7 @@ It's time for redemption. Let's replace its navigation system with the Python sy
 
 In this case, we decided to group all the navigation elements in a group called NAVIGATIONSYSTEM and to make sure they are all in layer 1. You can use the Outliner to make sure you didn't miss any object out of the group. Leave the lamps and the collision objects out of the group.
 
-To see a snapshot of the file at this moment, you can find it in the book files at: /Book/Chapter7/4_navigation_system/walkthrough_2_partial\camera_navigation.blend
+To see a snapshot of the file at this moment, you can find it in the book files at: /Book/Chapter7/4_navigation_system/walkthrough_2_partial/camera_navigation.blend
 
 Now open the walkthrough file again and append the NAVIGATIONSYSTEMwe created. It's important not to link the group but to append it. Linked elements can only be moved in their original files; thus, you should avoid them in this case.
 
@@ -1460,7 +1436,7 @@ The game engine API is a bridge connecting your Python scripts with your game da
 
 The official documentation can be found online in the Blender Foundation website:
 
-_http://www.blender.org/documentation/blender\_python\_api\_2\_66\_release_
+_http://www.blender.org/documentation/blender_python_api_2_66_release_
 
 We will now walk through the highlights of the modules. After you are familiar with their main functionality, you should feel comfortable to navigate the documentation and find other resources.
 
@@ -1688,7 +1664,7 @@ Last but definitively not least, we have the built-in variables. They work as in
 ```python
 obj.mass = 5.0
 
-obj.worldScale \*= 2ˇ
+obj.worldScale *= 2
 
 obj.localPosition [2] += 3.0
 
@@ -1811,9 +1787,9 @@ sensor = cont.sensors["s\_keyboard"]
 if sensor.positive:
     # get the first pressed key
     pressed_key = sensor.events[0][0]
-    text = "the key number is: %d\n" % pressed\_key
-    text += "the key value is: %s\n" % events.EventToString(pressed\_key)
-    text += "the character is: %s" % events.EventToCharacter(pressed\_key, 0)
+    text = "the key number is: %d\n" % pressed_key
+    text += "the key value is: %s\n" % events.EventToString(pressed_key)
+    text += "the character is: %s" % events.EventToCharacter(pressed_key, 0)
     
     # press space to reset the initial text
     if pressed_key == events.SPACEKEY:
@@ -1878,7 +1854,7 @@ def createTexture(cont):
     ID = texture.materialID(obj, 'IMoriginal.png')
 
     # create a texture object
-    dynamic\_texture = texture.Texture(object, ID)\
+    dynamic_texture = texture.Texture(object, ID)
 
     # create a new source
     url = logic.expandPath("//media/newtexture.jpg")
@@ -1906,13 +1882,13 @@ It's a simple script, but let's look at the individual steps. We start by gettin
 With this ID, we can create a Texture object that controls the texture to be used by this object (and the other objects sharing the same image/material).
 
 ```python
-    dynamic\_texture = texture.Texture(object, ID)
+    dynamic_texture = texture.Texture(object, ID)
 ```
 
 The next step is to create the source to replace the texture with. The bge.texture module supports the following sources: ImageFFmpeg (images), VideoFFmpeg (videos), ImageBuff (data buffer), ImageMirror (mirror), ImageRender (game camera), ImageViewport (current viewport), and ImageMix (a mix of sources).
 
 ```python
-    new\_source = texture.ImageFFmpeg(url)
+    new_source = texture.ImageFFmpeg(url)
 ```
 
 Now we only need to assign the new source to be used by the object texture and to refresh the latter. The refresh function has a Boolean argument for advanced settings. A rule of thumb is: for videos, use refresh (True); for everything else, try refresh (False) first.
@@ -1930,15 +1906,15 @@ In the book files, you can find other examples using different sorts of source o
 
 Basic replacement of texture:
 
-_Book/Chapter7/6_texture/basic_texture_replacement.blend_
+_/Book/Chapter7/6_texture/basic_texture_replacement.blend_
 
 Basic video playback with Sound actuator:
 
-_Book/Chapter7/6_texture\basic_video_sound.blend_
+_/Book/Chapter7/6_texture\basic_video_sound.blend_
 
 Video player with interface controllers:
 
-_Book/Chapter7/6_texture/player_video_audio.blend_
+_/Book/Chapter7/6_texture/player_video_audio.blend_
 
 Basic video playback with Audaspace:
 
@@ -1946,11 +1922,11 @@ _/Book/Chapter7/6_texture/video_audaspace.blend_
 
 Mirror effect:
 
-_\Book\Chapter7\6\_texture\mirror.blend_
+_/Book/Chapter7/6_texture/mirror.blend_
 
 Render to texture:
 
-_Book/Chapter7/6_texture/render_to_texture.blend_
+_/Book/Chapter7/6_texture/render_to_texture.blend_
 
 Webcam sample:
 
