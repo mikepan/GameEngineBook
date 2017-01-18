@@ -34,11 +34,11 @@ You finished your game, now what? Apart from stress-test, promote, and polish it
 
 Generally speaking, for other users to run a game created by Blender, they will need all of the following files:
 
-**       ** [lb] **        Blender file** : This is a .blend file that contains your 3D scene and game logic.
+- **Blender file** : This is a .blend file that contains your 3D scene and game logic.
 
-**       ** [lb] **        Resources** : These include image textures, audios, fonts, and scripts.
+- **Resources** : These include image textures, audios, fonts, and scripts.
 
-**       ** [lb]**        Blender Binary (or executable)**: This can be the Blender or Blenderplayer binary that is needed to run the game for people who don't already have Blender installed.
+- **Blender Binary (or executable)**: This can be the Blender or Blenderplayer binary that is needed to run the game for people who don't already have Blender installed.
 
 This list is simplified. For example, in a larger project, instead of a single Blender file, a game could be composed of multiple Blender files, but there will always be one file that acts as an entry point to start the game. Resources are external files that are used in the game. Resources can be packed, which basically copies these files into the Blender file. Finally, Blender binary is also not usually a single file. It contains libraries and scripts that Blender will need. It is usually a good idea to include the binary with the release, because unless the game is distributed exclusively within the Blender community, the user probably will not have Blender (or the correct version of Blender) installed to run the Blender file.
 
@@ -72,15 +72,10 @@ Because all relative paths are relative to the currently opened Blender file, in
 
 If you are using Python scripts to load a file from the computer, you should always use the "os" module (os.path.sep, os.path.join, …) to handle these files' locations.
 
-\*\*\* Begin Note
-
-It's Never Too Late to Make It Right
-
-If you forgot to save your file before appending assets, or missed the "Relative Path" option in the load menu, don't worry. There is an option in the file menu that helps rearrange the assets' file paths:
-
-File > External Data > Make all Paths Relative
-
-\*\*\* End Note
+>**It's Never Too Late to Make It Right**
+>
+>If you forgot to save your file before appending assets, or missed the "Relative Path" option in the load menu, don't worry. There is an option in the file menu that helps rearrange the assets' file paths:
+> `File > External Data > Make all Paths Relative`
 
 ## Packing <a id="Packing"></a>
 
@@ -92,13 +87,9 @@ Needless to say, packing will make the Blender file increase in size. Packing is
 
 Unpacking does the reverse of packing; it takes all the packed data from a Blender file and writes them out as separate files.
 
-\*\*\* Begin Note
-
-For the Lazy and Unorganized
-
-When you start a project, use external data from wherever on your computer, with no regard to its location. When you feel like getting organized, simply do a pack operation, and then immediately follow it with an unpack operation (with the Unpack to Current Directory option). This will first pack all the images into Blender and then unpack them neatly into a directory called _textures_. This way, there is no need to manually move stuff around. All the external data used will be automatically moved to a single folder for easy distribution. Images in their original location are untouched.
-
-\*\*\* End Note
+>**For the Lazy and Unorganized**
+>
+>When you start a project, use external data from wherever on your computer, with no regard to its location. When you feel like getting organized, simply do a pack operation, and then immediately follow it with an unpack operation (with the Unpack to Current Directory option). This will first pack all the images into Blender and then unpack them neatly into a directory called _textures_. This way, there is no need to manually move stuff around. All the external data used will be automatically moved to a single folder for easy distribution. Images in their original location are untouched.
 
 ## Blenderplayer <a id="Blenderplayer"></a>
 
@@ -112,33 +103,24 @@ This will open up a dialog for you to choose where to save your binary file, whi
 
 ![Export as Game Engine Runtime](../figures/Chapter9/Fig09-01.png)
 
-**       ** [lb] **        Windows:** A few files will be copied to the folder you exported the runtime to. The main file is an executable (.exe) that you will be using to launch your game. The name of the file is the one you choose in the Export dialog. It contains both your Blender file (.blend) and Blenderplayer (.exe) bundled together. A few libraries (.dll) are presented as well. They are needed to play your game, so make sure to bring them with your executable wherever it goes (copy, zip, pack).
+- **Windows:** A few files will be copied to the folder you exported the runtime to. The main file is an executable (.exe) that you will be using to launch your game. The name of the file is the one you choose in the Export dialog. It contains both your Blender file (.blend) and Blenderplayer (.exe) bundled together. A few libraries (.dll) are presented as well. They are needed to play your game, so make sure to bring them with your executable wherever it goes (copy, zip, pack).
 
 Finally, something that is present in all operating systems, you will find a folder that contains the files needed to run Python scripts. The folder is named after the current Blender version (for example, 2.66\python\).
 
-**       ** [lb] **        Linux:** In Linux (and Mac OSX), the Blenderplayer binary is static-linked to the libraries. That means that you have one single executable file that contains almost everything you will need. The newly created file (named from the Export as Runtime dialog) already has the proper user permission to be run by any user.
+- **Linux:** In Linux (and Mac OSX), the Blenderplayer binary is static-linked to the libraries. That means that you have one single executable file that contains almost everything you will need. The newly created file (named from the Export as Runtime dialog) already has the proper user permission to be run by any user.
 
 Just like the Windows runtime, in Linux we have a folder with the files needed for the Python scripts. Even if the system already has Python installed, Blenderplayer (and Blender for that matter) relies on one particular version of Python for its execution. This prevents your games from running into compatibility issues with different Python versions that may exist on the user's system. This also allows you to use compiled Python scripts as we will soon see.
 
-**       ** [lb] **        Mac OSX:** In this case, the Export as Runtime creates an executable (.app) that you can run by double-clicking on it. This executable is named from the Export dialog, but it's no more than a folder you can explore via the command line. This folder contains the Blenderplayer executable, the Blender file (game.blend), the Python libraries, and the icons used for game file.
+- **Mac OSX:** In this case, the Export as Runtime creates an executable (.app) that you can run by double-clicking on it. This executable is named from the Export dialog, but it's no more than a folder you can explore via the command line. This folder contains the Blenderplayer executable, the Blender file (game.blend), the Python libraries, and the icons used for game file.
 
-\*\*\* Begin Note
-
-Using Blenderplayer Without Exporting Your Game
-
-You don't need to export your game every time you want to test it in the Blenderplayer.
-
-In the same folder where you installed Blender, you can find the Blenderplayer executable. Run it from the commandline/console with your file as argument:
-
-Blenderplayer.exe C:\MyFileWindows.blend
-
-./blenderplayer.app/Contents/MacOS/blenderplayer ~/myFileOSX.blend
-
-./blenderplayer ~/myFileLinux.blend
-
-If you run it with the argument "-h," you can see all the options available through the command-line. Another option is to use the Start button in the Stand-alone Player tab in the Scene menu to launch the current file in Blenderplayer (see "Interface Options" next in this chapter).
-
-\*\*\* End Note
+>**Using Blenderplayer Without Exporting Your Game**
+>
+>You don't need to export your game every time you want to test it in the Blenderplayer.
+>In the same folder where you installed Blender, you can find the Blenderplayer executable. Run it from the commandline/console with your file as argument:
+>Blenderplayer.exe C:\MyFileWindows.blend
+>./blenderplayer.app/Contents/MacOS/blenderplayer ~/myFileOSX.blend
+>./blenderplayer ~/myFileLinux.blend
+>If you run it with the argument "-h," you can see all the options available through the command-line. Another option is to use the Start button in the Stand-alone Player tab in the Scene menu to launch the current file in Blenderplayer (see "Interface Options" next in this chapter).
 
 ### Resource Files <a id="Resource Files"></a>
 
@@ -154,29 +136,25 @@ In the Render panel, you can find a few specific options for Blenderplayer, as s
 
 ![Blenderplayer and other options](../figures/Chapter9/Fig09-02.png)
 
-**       ** [lb] **        Start:** A quick way to launch your game in Blenderplayer. It will open it in a new window, You need to save your file first. Don't mistake this with the Start button in the Embedded Player tab, which plays the game inside Blender.
+- **Start:** A quick way to launch your game in Blenderplayer. It will open it in a new window, You need to save your file first. Don't mistake this with the Start button in the Embedded Player tab, which plays the game inside Blender.
 
-**       ** [lb] **Width** and **Height:** The width and height of the Embedded Player determines the aspect ratio of the camera. The ones in the Blenderplayer panel change the actual size of the screen.
+- **Width** and **Height:** The width and height of the Embedded Player determines the aspect ratio of the camera. The ones in the Blenderplayer panel change the actual size of the screen.
 
-**       ** [lb] **        Full-Screen**** and ****Desktop:** If you want to launch your game in full-screen, you can use this option. If you set the Desktop option, the game engine will use the current computer screen resolution for the Full-screen mode. Otherwise, the Blenderplayer resolution will change the desktop resolution.
+- **Full-Screen** and **Desktop:** If you want to launch your game in full-screen, you can use this option. If you set the Desktop option, the game engine will use the current computer screen resolution for the Full-screen mode. Otherwise, the Blenderplayer resolution will change the desktop resolution.
 
-**       ** [lb] **        AA Samples:** For smooth rendered edges, you can turn on anti-aliasing. If the computer running the game does not support a specific level of AA or doesn't support AA at all, the game engine will fall back to the maximum supported parameter.
+- **AA Samples:** For smooth rendered edges, you can turn on anti-aliasing. If the computer running the game does not support a specific level of AA or doesn't support AA at all, the game engine will fall back to the maximum supported parameter.
 
-**       ** [lb] **Bit Depth** and **Refresh Rate:** The color depth and the refresh rate for the graphics.
+- **Bit Depth** and **Refresh Rate:** The color depth and the refresh rate for the graphics.
 
-[lb] **        Framing:** What can you do when the screen is scaled? Choose one of those three options: Letterbox, Extend, and Scale. Scale will stretch the frame to the new screen size (expect some aspect ratio distortions); Extend will reveal more of the frame, as if you had changed the Blenderplayer and the Embedded Player resolution at the same time. Letterbox will fill any difference between the camera aspect ratio (Embedded Player resolution) and the screen size with the color you choose in the color box (black by default).
+- **Framing:** What can you do when the screen is scaled? Choose one of those three options: Letterbox, Extend, and Scale. Scale will stretch the frame to the new screen size (expect some aspect ratio distortions); Extend will reveal more of the frame, as if you had changed the Blenderplayer and the Embedded Player resolution at the same time. Letterbox will fill any difference between the camera aspect ratio (Embedded Player resolution) and the screen size with the color you choose in the color box (black by default).
 
 ### File Security <a id="File Security"></a>
 
 Because Blender is available for free to everyone, if you distribute your game as a Blender file (.blend), there is really no way to prevent people from firing up Blender and taking a peek at your Blender file. Even if the game is packed and made into a runtime in the form of a single executable, it is still relatively easy for someone with a bit of technical skill to extract the game data. The bottom line is that packing, compressing, and making runtime are just conveniences for you; a Blend file is never secure against a curious (and determined) evil mind.
 
-\*\*\* Begin Note
-
-No-Cheating
-
-If the game involves multiple players connected across the Internet, the only way to make sure that the game is tamper-proof is to do rigorous checking on the server. Any client-side Python code to ensure integrity can be easily modified by the user, and so it is effectively useless. For example, for a shooter game, the game server should keep track of the remaining ammunition for each player; this way, a malicious player would not be able to cheat by altering his own ammunition count.
-
-\*\*\* End Note
+>**No-Cheating**
+>
+>If the game involves multiple players connected across the Internet, the only way to make sure that the game is tamper-proof is to do rigorous checking on the server. Any client-side Python code to ensure integrity can be easily modified by the user, and so it is effectively useless. For example, for a shooter game, the game server should keep track of the remaining ammunition for each player; this way, a malicious player would not be able to cheat by altering his own ammunition count.
 
 The part of your program you can easily protect is the Python scripts. Although the plain text .py file is easy to be read by anyone, a compiled script is an unintelligible blob of binary code. To compile your script, all you need to do is run it once, and the game engine will generate a .pyc file for you. This file can be found in the same folder as your original scripts in a subfolder called \_\_pycache\_\_. Now all you need to do is to replace the original script files (.py) by their compiled version (.pyc). Alternatively, you can use Python stand-alone to generate the .pyc files: python –m compileall –b <folder-with-scripts>.
 
@@ -194,13 +172,9 @@ In other words, you need to ensure that all the files you don't want to license 
 
 A simple way to keep your files separated from the Blenderplayer is to create an initial load file. This file will have a game actuator that only then will load your real main file. This way, all your actual game files can be kept external to the binary. Your file doesn't even need to end in ".blend" for the Game actuator to work.
 
-\*\*\* Begin Note
-
-Why the Blender Game Engine Won't Run on iOS
-
-There is a downside of the GPL license when publishing in some distribution platforms. For legal (and perhaps economic) reasons, most distribution game platforms do not accept GPL code in their components. That means it will be hard to get the game engine ported over to consoles and some more restrictive mobile and portable devices.
-
-\*\*\* End Note
+>**Why the Blender Game Engine Won't Run on iOS**
+>
+>There is a downside of the GPL license when publishing in some distribution platforms. For legal (and perhaps economic) reasons, most distribution game platforms do not accept GPL code in their components. That means it will be hard to get the game engine ported over to consoles and some more restrictive mobile and portable devices.
 
 ## Web Publishing: Burster <a id="Web Publishing: Burster"></a>
 
@@ -212,39 +186,24 @@ Not all Python modules are supported (for security reasons), but external assets
 
 If you are considering using the Web as a publishing platform, you can find updated information in the Burster website. Make sure you test your game extensively. Even though most of the features are supported, more advanced resources can get a bit tricky (for example, video texture is supported, but the only way to play videos is with external URLs in a server that supports streaming).
 
-\*\*\* Begin Note
-
-Beyond Packing
-
-For Web deployment and mobile, you need to include all the external dependencies into the main file. While textures can be incorporated with the Packing option, the files and scripts need to be merged in manually.
-
-If you are using Python scripts follow these advanced instructions:
-
-\*\*\* Begin Bulleted List within note
-
-[lb]Open all the external scripts (e.g., originally in //scripts/) in the Blender Text Editor
-
-[lb]Remove all the "from ." from the scripts
-
-[lb]Fix all the Python Module controllers by copying this into the Blender Text Editor and running it as a script (in Blender, not inside the game engine):
-
+>**Beyond Packing**
+>
+>For Web deployment and mobile, you need to include all the external dependencies into the main file. While textures can be incorporated with the Packing option, the files and scripts need to be merged in manually.
+>If you are using Python scripts follow these advanced instructions:
+>- Open all the external scripts (e.g., originally in //scripts/) in the Blender Text Editor
+>- Remove all the "from ." from the scripts
+>- Fix all the Python Module controllers by copying this into the Blender Text Editor and running it as a script (in Blender, not inside the game engine):
+```python
 import bpy
-
 for obj in bpy.data.objects:
-
     for cont in obj.game.controllers:
-
         if cont.type == 'PYTHON' and cont.mode == 'MODULE':
-
             cont.module = cont.module.replace('script.', '')
-
-\*\*\* End List
-
-\*\*\* End Note
+```
 
 ## Mobile Publishing: Android <a id="Mobile Publishing: Android"></a>
 
-_wiki__.blender.org/index.php/Doc:2.6/Manual/Game\_Engine/Blender\_Player/Android_
+_wiki__.blender.org/index.php/Doc:2.6/Manual/Game_Engine/Blender_Player/Android_
 
 Although it is early to know how far this will go, the Android deployment for the game engine is starting to get in shape. An experimental branch of Blender, "soc-2012-swiss\_cheese" makes an Android-compatible Blenderplayer that can open simple .blend game files. Animation, Physics, GLSL materials, and mouse interaction are already supported.
 
@@ -258,33 +217,23 @@ A mobile platform is a limited deployment target. The phones and tablets are get
 
 Some general guidelines:
 
-\*\*\* Begin List
+- Simplify the geometry.
 
-[lb]Simplify the geometry.
+- Chop down big objects into small parts.
 
-[lb]Chop down big objects into small parts.
+- Use Occlusion Culling when possible.
 
-[lb]Use Occlusion Culling when possible.
-
-[lb]Work with power of two textures.
-
-\*\*\* End List
+- Work with power of two textures.
 
 ## Other Tools <a id="Other Tools"></a>
 
 The Blender game engine can be used for prototyping, before the game is fully developed in another game engine. Or, another common situation, you can use Blender only for asset making for an external engine, and the Blender game engine for previewing the animation playbacks and basic interactions. In those cases, you will not be using the logic components of the game, but mostly making sure your assets (objects, materials, animations) can be transferred easily to other engines.
 
-\*\*\* Begin Note
-
-Exchange File Formats
-
-When your engine does not support Blender files directly, you have to find the best format to export from Blender. There is one format in Blender intended for games. It supports not only mesh and texture, but also animation, shading, and physics.
-
-Collada is an open exchange file format maintained by Khronos consortium (the same group behind the well known OpenGL, OpenCL, and others). Although the support for it in Blender is not complete yet, it's getting there.
-
-Another format broadly used is FBX. This is a proprietary format created and maintained by Autodesk with proper support in Blender going on and off in the past releases.
-
-\*\*\* End Note
+>**Exchange File Formats**
+>
+>When your engine does not support Blender files directly, you have to find the best format to export from Blender. There is one format in Blender intended for games. It supports not only mesh and texture, but also animation, shading, and physics.
+>Collada is an open exchange file format maintained by Khronos consortium (the same group behind the well known OpenGL, OpenCL, and others). >Although the support for it in Blender is not complete yet, it's getting there.
+>Another format broadly used is FBX. This is a proprietary format created and maintained by Autodesk with proper support in Blender going on and off in the past releases.
 
 Even when you are using Blender only to build your assets, the game engine can be of great value. It should be simple to create test levels for your character animations, test ideas, and, in some cases, even build a whole game prototype before migrating to another engine.
 
@@ -340,17 +289,13 @@ Blender has a webpage dedicated solely to report and track bugs from users: _htt
 
 The guidelines for bug reporting are simple:
 
-\*\*\* Begin Bullet List
+- Make sure you can reproduce the bug several times.
 
-[lb]Make sure you can reproduce the bug several times.
+- Re-create or isolate the bug in the simplest file you can think of.
 
-[lb]Re-create or isolate the bug in the simplest file you can think of.
+- Report the environment you are working in if it's relevant (OS, hardware, version).
 
-[lb]Report the environment you are working in if it's relevant (OS, hardware, version).
-
-[lb]Be patient. Reporting a bug can be a very-time consuming task. And a fix may take a long, long time with some further tests and interactions with you and the coders.
-
-\*\*\* End Bullet List
+- Be patient. Reporting a bug can be a very-time consuming task. And a fix may take a long, long time with some further tests and interactions with you and the coders.
 
 And remember, the more time you spend on making a good report[md]with good sample files, concise descriptions, and so on[md]the more you free a developer to work on fixing the bug itself.
 
@@ -362,7 +307,7 @@ Blender and the game engine are partly maintained by the Blender Foundation and 
 
 If nothing else, you can try building Blender and replacing the splash screen (see Figure 9.4). It's definitively the first step to looking cool and impressing your boss:
 
-_http://wiki.blender.org/index.php/Dev:Doc/Building\_Blender_
+_http://wiki.blender.org/index.php/Dev:Doc/Building_Blender_
 
 DF: To be replaced with a splash screen with Blender 2.6 say on it and the cover of the book. Waiting for the cover of the book.
 
