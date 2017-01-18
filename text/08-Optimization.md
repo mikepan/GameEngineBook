@@ -1,11 +1,3 @@
-Slug: Game Development with Blender
-
-Production: Please replace [md] with em dash
-
-Please replace [c] with copyright symbol
-
-[r] with registered mark symbol
-
 # Chapter 8
 
 # Workflow and Optimization
@@ -26,13 +18,7 @@ We were once told that making a video game is a constant struggle between four e
 
 Okay, so maybe the last item shouldn't be on the list, which Figure 8.1 reflects. But the point is that it's easy to make a visually impressive game when performance is not an issue. Conversely, it's also easy to make a game perform well if the game has very basic graphics. The difficult part is achieving both at the same time. Luckily, this can usually be accomplished by investing more development time in the project. Finally, if you have worked in a team environment, you undoubtedly know that Monday-morning meetings do not guarantee a better game, but are guaranteed to end in frustration and spilled coffee.
 
-\*\*\*Insert Fig08-01.tif
-
-Figure 8.1
-
-The holy trinity of game development.
-
-[c] 2014 Cengage Learning. All Rights Reserved.
+![The holy trinity of game development](../figures/Chapter8/Fig08-01.png)
 
 In this chapter, we'll talk about some of the techniques used to improve the performance of the game, speed up development, and how to survive Monday-morning meetings to keep the upper management happy.
 
@@ -62,12 +48,7 @@ One of the questions that you should ask yourself before starting any project is
 
 For example, if you are making a casual Web-based online game, you probably want to keep the system requirements relatively low, so that a larger number of casual gamers can enjoy it. On the other hand, if your game is a full-blown action game, then there is a higher chance that your game will be enjoyed by "serious" gamers with relatively fast computers. Figure 8.2 illustrates the difference in graphics between one of the first video games and a modern 3D game made in Blender.
 
-\*\*\*Insert Fig08-02.tif
-
-Figure 8.2
-
-_Pong_ (1972) vs. _Dead Cyborg_ (2010).
-
+![_Pong_ (1972) vs. _Dead Cyborg_ (2010)](../figures/Chapter8/Fig08-02.png)
 _Pong_ Source: Atari, Inc. Dead Cyborg [c] 2014 Endre Barath.
 
 \*\*\* Begin Note
@@ -88,23 +69,11 @@ Big, commercial PC games are excellent at scaling. They accomplish this by givin
 
 Blender has some built-in support for disabling certain advanced graphical features, which can help you in adapting the game to older computers. Figure 8.3 shows _Yo Frankie!_ running at different levels of detail.
 
-\*\*\*Insert Fig08-03.tif
-
-Figure 8.3
-
-_Yo Frankie!_ graphics with shader effects disabled on the right.
-
-Source: Blender Foundation.
+![_Yo Frankie!_ graphics with shader effects disabled on the right](../figures/Chapter8/Fig08-03.png)
 
 When running in GLSL mode, advanced shader effects can be turned off to reduce the workload on the graphics card. These settings can be found in the Render Properties Editor, as shown in Figure 8.4.
 
-\*\*\*Insert Fig08-04.tif
-
-Figure 8.4
-
-Render Properties Editor.
-
-Source: Blender Foundation
+![Render Properties Editor](../figures/Chapter8/Fig08-04.png)
 
 [lb] **Lights:** Disables all GLSL lighting calculation. Has the largest impact on performance as well as visuals.
 
@@ -130,13 +99,7 @@ An example of premature optimization is to compress all the textures to JPEG so 
 
 Figure 8.5 shows JPEG compression artifact vs. TGA, which compresses losslessly.
 
-\*\*\*Insert Fig08-05.tif
-
-Figure 8.5
-
-Lossless TGA (left) vs. highly compressed JPEG (right).
-
-[c] 2014 Mike Pan.
+![Lossless TGA (left) vs. highly compressed JPEG (right)](../figures/Chapter8/Fig08-05.png)
 
 \*\*\* Begin Sidebar
 
@@ -162,27 +125,13 @@ Blender has a basic performance profiler available to you. It gives you timing i
 
 To turn it on, go to the Render Properties Editor and check Framerate and Profile under Performance, as shown in Figure 8.6.
 
-\*\*\*Insert Fig
-
-08-06.tif
-
-Figure 8.6
-
-Performance options in the Render Properties Editor.
-
-Source: Blender Foundation.
+![Performance options in the Render Properties Editor](../figures/Chapter8/Fig08-06.png)
 
 The profiler can also be accessed from the top menu under Game.
 
 Once that's enabled, you will see a text overlay as depicted in Figure 8.7 in the top-left corner when running the game.
 
-\*\*\*Insert Fig08-07.tif
-
-Figure 8.7
-
-Framerate and Profile information overlay.
-
-Source: Blender Foundation.
+![Framerate and Profile information overlay](../figures/Chapter8/Fig08-07.png)
 
 # The Profiler
 
@@ -280,13 +229,7 @@ Additionally, if the level chunks are kept in different files, as opposed to dif
 
 Once the level is broken up into different sections, each can occupy a Scene. You can use the Scene actuator to switch between Scenes, as shown in Figure 8.8.
 
-\*\*\*Insert Fig08-08.tif
-
-Figure 8.8
-
-Using the Scene actuators to load a different level.
-
-Source: Blender Foundation.
+![Using the Scene actuators to load a different level](../figures/Chapter8/Fig08-08.png)
 
 # Collision Proxy
 
@@ -294,13 +237,7 @@ While it is justifiable to spend hundreds, if not thousands, of polygons on a mo
 
 If more definition is needed, you can create a collision proxy for a complex object. A collision proxy is a simplified, invisible shell that occupies the same space as the visual model but is only used for collision detection. Figure 8.9 explains.
 
-\*\*\*Insert Fig08-09.tif
-
-Figure 8.9
-
-Collision proxy: visual mesh (L) vs. collision mesh (R).
-
-[c] 2014 Mike Pan.
+![Collision proxy: visual mesh (L) vs. collision mesh (R)](../figures/Chapter8/Fig08-09.png)
 
 \*\*\*Insert Tutorial
 
@@ -330,13 +267,7 @@ To use collision proxy:
 
 12.Keep in mind that since the treeProxy is the parent of treeHigh, any logic brick should be attached to the proxy object. treeHigh is simply a collision-less, logic-less, nice-looking model.
 
-\*\*\*Insert Fig08-10.tif
-
-Figure 8.10
-
-Collision proxy: visual mesh (L) vs. collision mesh (R).
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Collision proxy: visual mesh (L) vs. collision mesh (R)](../figures/Chapter8/Fig08-10.png)
 
 So that's collision proxy in a nutshell. As you can see, a lot of steps are involved with this approach, which makes using collision proxy suitable only for very complex models that have a unique shape. Otherwise, it is much easier (and efficient) to use one of the predefined collision bound primitives.
 
@@ -360,13 +291,7 @@ Another alternative to collision proxy is to simply turn off collision on part o
 
 7.Run the game again and notice that the smaller branches will now be ignored by the physics engine. Not only will this free up some physics computation, but it will also make the game more realistic by letting objects go through leaves.
 
-\*\*\*Insert Fig08-11.tif
-
-Figure 8.11
-
-Material Properties Editor.
-
-Source: Blender Foundation.
+![Material Properties Editor](../figures/Chapter8/Fig08-11.png)
 
 # Texture Baking
 
@@ -398,25 +323,13 @@ Let's try this out:
 
 5.In the pop-up menu shown in Figure 8.12, make sure that the New Image checkbox is enabled; this will ensure that an empty image texture is created for you. Click OK to unwrap the model.
 
-\*\*\*Insert Fig08-12.tif
-
-Figure 8.12
-
-Lightmap Pack UV dialog box.
-
-Source: Blender Foundation.
+![Lightmap Pack UV dialog box](../figures/Chapter8/Fig08-12.png)
 
 6.For a more complex model, it might be necessary to manually UV unwrap a model, but for this exercise, the automated unwrapping is sufficient. Keep in mind that for texture baking to work correctly, the UV layout should not have any overlapping region. Otherwise, the baking will render to the same texture coordinate multiple times, causing an artifact.
 
 7.To bake texture for the room object, go to the bottom of the Render Properties Editor, where the Bake function is found, as shown in Figure 8.13.
 
-\*\*\*Insert Fig08-013.tif
-
-Figure 8.13
-
-Bake panel.
-
-Source: Blender Foundation.
+![Bake panel](../figures/Chapter8/Fig08-13.png)
 
 8.The Bake Mode selector controls what will be baked to a texture. Full Render will bake the full color, light, shadow, and texture onto the texture. Ambient Occlusion is another commonly used one.
 
@@ -424,13 +337,7 @@ Source: Blender Foundation.
 
 10.When the texture baking is finished, it should look something like Figure 8.14
 
-\*\*\*Insert Fig08-14.tif
-
-Figure 8.14
-
-The baked texture.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![The baked texture](../figures/Chapter8/Fig08-14.png)
 
 11.Now that the baking is finished, quit out of Edit mode by toggling the Tab key.
 
@@ -442,13 +349,7 @@ The baked texture.
 
 15.Figure 8.15 shows the finished version, which can be found at /Chapter8/TextureBaking-finished.blend
 
-\*\*\*Insert Fig08-15.tif
-
-Figure 8.15
-
-The baked scene (left) vs. the original scene (right).
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![The baked scene (left) vs. the original scene (right)](../figures/Chapter8/Fig08-15.png)
 
 # Limitations of Texture Baking:
 
@@ -472,13 +373,7 @@ So what is a normal map?
 
 A normal map is a regular image file, but instead of influencing the color of the surface like a regular color texture, normal maps are used to alter the per-pixel surface normal. By altering the surface normal, you can change the apparent bumpiness of a surface. The effect of a normal mapped object is one that has far more apparent fidelity than the actual underlying mesh. Figure 8.16 shows the effect of a normal map.
 
-\*\*\*Insert Fig08-16.tif
-
-Figure 8.16
-
-From left to right: Original high-resolution model, low-resolution model, low-resolution model with normal maps.
-
-[c] 2014 Mike Pan.
+![From left to right: Original high-resolution model, low-resolution model, low-resolution model with normal maps](../figures/Chapter8/Fig08-16.png)
 
 There are two ways to create a normal map:
 
@@ -504,25 +399,13 @@ To bake a normal map from a high-polygon model to a low-polygon model:
 
 7.Once the baking is done, the baked texture should have a purple hue to it. If the color is off, check to make sure that you are baking a normal map into the correct normal space (tangent), as shown in Figure 8.17.
 
-\*\*\*Insert Fig08-17.tif
-
-Figure 8.17
-
-Baked normal map.
-
-Source: Blender Foundation. Art [c] 2014 Mike Pan.
+![Baked normal map](../figures/Chapter8/Fig08-17.png)
 
 8.At this point, you have no use for the high-resolution model anymore. Move the object to a different layer or delete it.
 
 9.To use the normal map, create a material and image texture for the low-resolution model, as shown in Figure 8.18.
 
-\*\*\*Insert Fig08-18.tif
-
-Figure 8.18
-
-Normal map material.
-
-Source: Blender Foundation.
+![Normal map material](../figures/Chapter8/Fig08-18.png)
 
 10.The final result should look like the file Chapter8/NormalMap-Finished.blend.
 
@@ -548,13 +431,7 @@ Unfortunately, Blender does not have built-in support for LOD, so you have to cr
 
 A reference implementation of a LOD system can be found at /Chapter8/LoD.blend. This implementation uses a small script that keeps track of the distance of the object to the camera, and replaces the mesh with a less detailed one as the distance increases. Figure 8.19 shows the script-based LOD system.
 
-\*\*\*Insert Fig08-19.tif
-
-Figure 8.19
-
-LOD system.
-
-Source: Blender Foundation.
+![LOD system](../figures/Chapter8/Fig08-19.png)
 
 The script should be a good place for you to start tinkering with your own LOD implementation.
 
@@ -564,13 +441,7 @@ To make the game run as efficiently as possible, objects that are not visible sh
 
 To help the game engine cull objects, set up occluders to hide part of the scene from view. For example, occluders can be used to mark the separation between an indoor scene and an outdoor scene. A sample file is provided at /Chapter8/culling.blend. The effect of culling is shown in Figure 8.20.
 
-\*\*\*Insert Fig08-20.tif
-
-Figure 8.20
-
-Object Culling: game view (Left), no occluder (Centre), house as occluder (Right).
-
-Source: 2014 Cengage Learning[r]. All Rights Reserved.
+![Object Culling: game view (Left), no occluder (Centre), house as occluder (Right)](../figures/Chapter8/Fig08-20.png)
 
 To see the effects of occlusion culling, make sure that you are in wireframe view.
 
