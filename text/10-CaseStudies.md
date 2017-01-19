@@ -22,13 +22,9 @@ The Blender-made games selected for this chapter represent some of the best work
 
 All the games mentioned here can be found on the book website for you to play, and when the authors are willing, the blend source files are also provided so that you can freely explore the file on your own. You will notice that each artist has a unique style in file organization, scene structure, techniques, and tricks. Most of these tricks might be invisible to the player when the game is running. But by looking at the source file, you can gain much insight into how the game is made.
 
-\*\*\* Begin Note
-
-Blender Versions Clash
-
-We worked hard with the authors of these games to make sure that all the included games on the disk are playable in the latest version of Blender; however, due to limited time, some games might require a different version of Blender to run. Refer to the readme.txt file within each game folder for system requirement.
-
-\*\*\* End Note
+>**Blender Versions Clash**
+>
+>We worked hard with the authors of these games to make sure that all the included games on the disk are playable in the latest version of Blender; however, due to limited time, some games might require a different version of Blender to run. Refer to the readme.txt file within each game folder for system requirement.
 
 ## Super Blender Galaxy <a id="Super Blender Galaxy"></a>
 
@@ -93,7 +89,7 @@ Despite its limitations, I see Blender as an excellent tool for diverse goals. I
 
 Our future plans are to port _Lucy_ for other publishing platforms, such as WebPlayer and iOS. Our goal is to stick to Blender for prototyping though.
 
-Keep Blending!"
+Keep Blending!
 
 Vitor Balbio's previous work includes a stunning looking demo scene called "Ruínas" (Ruins), which competed in the graphics category in an early edition of the same competition. Information about _Lucy and The Time Machine_ can be found on Vitor's blog (in Portuguese): [_http://obalbio3d.wordpress.com/_](http://obalbio3d.wordpress.com/)
 
@@ -183,7 +179,7 @@ Andrew (19-years-old) lives in Melbourne, Australia and is attending university.
 
 sfxr is a simple sound synthesizer, which can be found at [https://code.google.com/p/sfxr/](https://code.google.com/p/sfxr/)
 
-BGUI is maintained by Mitchell Stokes (Moguri) and can be found at [https://code.google.com/p/bgui/](https://code.google.com/p/bgui/)
+BGUI is maintained by Mitchell Stokes (Moguri) and can be found at [https://github.com/Moguri/bgui](https://github.com/Moguri/bgui)
 
 ## Sintel The Game <a id="Sintel The Game"></a>
 
