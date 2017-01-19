@@ -1,14 +1,4 @@
-Slug: Mastering Game Blender Engine
-
-Production: Please replace [md] with em dash
-
-[c] copyright symbol
-
-[r] registered mark
-
-# Chapter 10
-
-# Case Studies
+# Chapter 10: Case Studies
 
 By now you should have a very good command of the Blender game engine. Armed with this newfound skill, no doubt you are bursting with ideas. Whether you are working alone or with a team, completing a game from start to finish is a lot of work. It is also a lot different from the examples and tutorials we used in the book, which are often stripped down to the most basic in order to be didactic. Real-world productions usually involve many more files, which are larger, more complex, and messier. This chapter tries to ease the transition between the classroom and the real world by showcasing other people's finished work.
 
@@ -24,11 +14,9 @@ We worked hard with the authors of these games to make sure that all the include
 
 \*\*\* End Note
 
-# Super Blender Galaxy
+## Super Blender Galaxy
 
 Carlos Limon
-
-Production: No figure numbers and no captions throughout this chapter. Just put in the pictures with the credits underneath them, please.
 
 ![Carlos Limon](../figures/Chapter10/Fig10-01.png)
 _[c] 2014 Carlos Limon._
@@ -59,7 +47,7 @@ The Blender community helped me throughout the process, although no one knew wha
 
 Carlos aspires to become a game developer and is currently studying Game Development and Computer Programming in San Antonio, Texas. A playable version of the game is available on the accompanying disk.
 
-# Lucy and the Time Machine
+## Lucy and the Time Machine
 
 Vitor Balbio, Bernardo Hasselman
 
@@ -93,7 +81,7 @@ Keep Blending!"
 
 Vitor Balbio's previous work includes a stunning looking demo scene called "Ruínas" (Ruins), which competed in the graphics category in an early edition of the same competition. Information about _Lucy and The Time Machine_ can be found on Vitor's blog (in Portuguese): [_http://obalbio3d.wordpress.com/_](http://obalbio3d.wordpress.com/)
 
-# The FPS Project
+## The FPS Project
 
 Chase Moskal, Geoff Gollmer, Martins Upitis, Mitchell Stokes, Daniel Stokes, Lonnie Ralfs, Fleeky Flanco, Thomas Lobig
 
@@ -121,7 +109,7 @@ It's not all doom and gloom, though. After a long stretch of inactivity, Geoff a
 
 As the project is undergoing a restructuring, no file is available to the public yet. You can learn more about the FPS project at _https://code.google.com/p/fps-project/._
 
-# Whip Frog
+## Whip Frog
 
 David Thompson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone
 
@@ -151,7 +139,7 @@ Everyone agrees that the biggest challenge during the Game Jam is  forcing yours
 
 You can learn more about this game at _http://globalgamejam.org/2011/whip-frog._
 
-# Tectonic
+## Tectonic
 
 Andrew Bentley
 
@@ -181,7 +169,7 @@ sfxr is a simple sound synthesizer, which can be found at [https://code.google.c
 
 BGUI is maintained by Mitchell Stokes (Moguri) and can be found at [https://code.google.com/p/bgui/](https://code.google.com/p/bgui/)
 
-# Sintel The Game
+## Sintel The Game
 
 Jonathan Buresh, Noah Summers, Malcolm Corliss, David Barker , James Raymond, David Jogoo and Carlos Andreacchio
 
@@ -207,7 +195,7 @@ Even though the game engine does suffer from limitations, it is always improving
 
 The development team of _Sintel The Game_ is not affiliated with the Blender Institute. _Sintel The Game_ is still under development. You can watch their progress, support them, or contribute at _http://sintelgame.org/._
 
-# CAVE
+## CAVE
 
 Jorge Gascón Pérez
 
@@ -227,7 +215,7 @@ Although the Blender game engine has no network capabilities (yet), it is really
 
 BlenderCave is an ongoing research project. You can follow its progress and download source code at [_http://gmrv.es/~jgascon/BlenderCave/index.html_](http://gmrv.es/~jgascon/BlenderCave/index.html)_._
 
-# Color Cube
+## Color Cube
 
 Quentin Bolsée, Benoit Bolsée
 
@@ -253,7 +241,7 @@ _Colorcube_ is available as a trial and commercial game for Windows, Mac, Linux,
 
 A demo version of the game is available from the accompanying online material.
 
-# Jogo da Coleta - Recycle It 2.0
+## Jogo da Coleta - Recycle It 2.0
 
 Diego Rangel
 
@@ -275,7 +263,7 @@ All the gameplay logic was planned ahead of the modeling and programming stages.
 
 During the course of this game development, the Blender game engine met all my requirements. The logic brick system allowed for quick implementation of ideas. Furthermore, the speed gain from having the game engine integrated with a full asset creation package (for example, Blender itself) was wonderful. The Blender game engine fulfilled its duties for this project. It seemed especially attractive for small and medium projects, in particular for one-man projects like this."
 
-# World Cup Stadiums
+## World Cup Stadiums
 
 Chico Ortiz, Yorik van Havre, Maíra Zasso
 
@@ -299,7 +287,7 @@ Chico, Maíra, and Yorik are all architects who are big fans of open-source soft
 
 The original project was made in Blender 2.49, but was ported to Blender 2.5 later. More information on this project is available from: [_http://yorik.uncreated.net/guestblog.php?2010=89_](http://yorik.uncreated.net/guestblog.php?2010=89)_._
 
-# OceanViz
+## OceanViz
 
 Dalai Felinto, Mike Pan, Stephen Danic
 
@@ -324,7 +312,7 @@ In its current iteration, _OceanViz_ is implemented as a plug-in for the Ecopath
 
 The _OceanViz_ project was conceived by professor Dr. Villy Christensen. The EwE development team that supports the _OceanViz_ consists of Jeroen Steenbeek and Joe Buszowski, with past support from Sherman Lai and Sundaran Kumar.
 
-# Cosmic Sensation
+## Cosmic Sensation
 
 Dalai Felinto, Martins Upitis, Mike Pan
 
