@@ -464,13 +464,7 @@ If all the checkboxes and sliders seem daunting, don't worry! Now let's put what
 
 2.You will be greeted with a partial car model that we have prepared, as shown in Figure 5.26. Hopefully, you will agree that the model is of decent quality and that all it is lacking is a good material to make it, er, shine.
 
-\*\*\*Insert Fig05-26.tif
-
-Figure 5.26
-
-A car model with the default materials.
-
-[c] 2014 Blender Foundation. Art [c] 2014 Mike Pan.
+![A car model with the default materials](../figures/Chapter5/Fig05-26.jpg)
 
 When working with materials, it is important to make sure there is sufficient lighting to see the model, as the lights can significantly affect the way materials are perceived. In fact, without lighting, everything will be pitch black!
 
@@ -478,13 +472,7 @@ In this car example, since we are trying to duplicate a photo studio setup, we h
 
 We want to give this sporty machine a shiny metallic finish so that looks like it just drove out of a car commercial. To achieve this effect, we will need two texture layers: one layer responsible for creating that sparkle found in metallic car paint, and another layer that contains a reflection texture to convey the idea of a glossy finish. The two textures shown in Figure 5.27 are provided online.
 
-\*\*\*Insert Fig05-27.tif
-
-Figure 5.27
-
-The two textures (magnified) that will be used for the car body material.
-
-[c] 2014 Mike Pan. [c] 1999 Paul Debevec.
+![The two textures (magnified) that will be used for the car body material](../figures/Chapter5/Fig05-27.jpg)
 
 3.Select the body of the car (object "Shell") in the 3D Viewport. Notice there is a default material attached to it. But before we spend too much time tweaking the material, let's add the textures first.
 
@@ -504,23 +492,11 @@ The two textures (magnified) that will be used for the car body material.
 
 10.Don't worry that you can't see the new UV map yet on the 3D model. In the Texture panel, change the mapping coordinates from generated to UV and select UVMap from the drop-down menu, as shown in Figure 5.28. This will tell Blender to use the new UV map that you just created.
 
-\*\*\*Insert Fig05-28.tif
+![Setting the texture mapping to UV](../figures/Chapter5/Fig05-28.png)
 
-Figure 5.28
+Now the 3D Viewport should look like Figure 5.29
 
-Setting the texture mapping to UV.
-
-[c] 2014 Blender Foundation.
-
- Now the 3D Viewport should look like Figure 5.29
-
-\*\*\*Insert Fig05-29.tif
-
-Figure 5.29
-
-Noise texture with adjusted UV layout.
-
-[c] 2014 Mike Pan.
+![Noise texture with adjusted UV layout](../figures/Chapter5/Fig05-29.jpg)
 
 11.It is apparent that the noise is way too big to be realistic. To scale it down, change the Size attribute under Mapping from 1.0 to 10.0 for all the X, Y, and Z axes.
 
@@ -528,13 +504,7 @@ Noise texture with adjusted UV layout.
 
 11.Scroll down to the bottom of the Texture panel and locate the Influence panel. Turn off Color. Now, turn on Intensity and Color under Specular. This will make the texture affect only the specular channel of the material. This way, the speckle will only be visible when there is light shining on it, which is exactly what you want. Figure 5.30 shows all the relevant settings in the Texture panel. Settings not shown are left untouched.
 
-\*\*\*Insert Fig05-30.tif
-
-Figure 5.30
-
-Texture options for the noise image texture.
-
-[c] 2014 Blender Foundation.
+![Texture options for the noise image texture](../figures/Chapter5/Fig05-30.png)
 
 12.To add a second texture layer, go back to the very top of the Texture panel and select the top-most empty texture slot from the list. It should be one with a red-and-white checkerboard pattern icon.
 
@@ -550,13 +520,7 @@ Texture options for the noise image texture.
 
  At this point, you should have something that looks like Figure 5.31.
 
-\*\*\*Insert Fig05-31.tif
-
-Figure 5.31
-
-The completed car material.
-
-[c] 2014 Mike Pan.
+![The completed car material](../figures/Chapter5/Fig05-31.jpg)
 
 18.You can now go back to the Material panel and change base color of the car by altering the diffuse color however you wish.
 
@@ -580,25 +544,13 @@ Working with Node materials and textures is more of a process, so this section w
 
 3.Click on the Use Shader Nodes button to enable nodes. The Node Editor should now look like Figure 5.32. Notice that the object in the 3D Viewport has turned black; this is because node material has just been activated, but since you have not actually set up a valid node material, the default color is black.
 
-\*\*\*Insert Fig05-32.tif
-
-Figure 5.32
-
-The Node Editor.
-
-[c] 2014 Blender Foundation.
+![The Node Editor](../figures/Chapter5/Fig05-32.png)
 
 4.Because we don't want to create the material from scratch, we can use an existing material as the basis for the node material. To do that, in the Material node, click on the Browse Material icon and select NodeMat. Now the input material for the node is the material defined in the Material panel on the right side of the screen. Change any of the properties in the Material panel, and you can see the change is reflected in the node material system. Try setting the material color to red.
 
 5.Insert a new Hue-Saturation-Value node in between the input and the output node, and connect them by drawing a line from one yellow dot to the other. The resulting setup should be the same as Figure 5.33.
 
-\*\*\*Insert Fig05-33.tif
-
-Figure 5.33
-
-The Node Editor-reusing a material.
-
-[c] 2014 Blender Foundation.
+![The Node Editor-reusing a material](../figures/Chapter5/Fig05-33.jpg)
 
 Congratulations! You are using node materials! Although the example we worked through is very basic, the power of the Node Editor is the ability to create almost infinite combinations of looks by only using a few basic building-block nodes.
 
@@ -688,13 +640,7 @@ From the world Property Editor, you can change things that affect the entire wor
 
 **       ** [lb] **        Mist Depth:** As illustrated by Figure 5.34, the distance at which an object is entirely obscured by the mist color.
 
-\*\*\*Insert Fig05-34.tif
-
-Figure 5.34
-
-Mist distance illustrated.
-
-[c] 2014 Cengage Learning[r]. All Rights Reserved.
+![Mist distance illustrated](../figures/Chapter5/Fig05-34.jpg)
 
  \*\*\* Begin Note
 
@@ -710,13 +656,7 @@ A good example of mist in games is the extremely foggy _Silent Hill_ games. Thei
 
 Typically, editing an image texture must be done with external software such as GIMP or Photoshop. Using texture painting, you can edit the texture directly on the model from within Blender (see Figure 5.35). Not only does this give you the ability to see the changes interactively on the model, but brush strokes made on the model will also be automatically projected back onto the image texture. This makes texture painting ideal as a rough outlining tool to mark out some key points on the model for reference or put the finishing touches on the texture. (It's much easier to paint on the model directly than to paint a 2D texture.)
 
-\*\*\*Insert Fig05-35.tif
-
-Figure 5.35
-
-Entering Texture Painting mode.
-
-[c] 2014 Blender Foundation.
+![Entering Texture Painting mode](../figures/Chapter5/Fig05-35.png)
 
 To see how texture painting works:
 
@@ -916,13 +856,7 @@ Line 21 might look a bit convoluted. But in English, it simply means that if the
 
 Save the script as a new text file in Blender. To use the above GLSL shader script, it needs to be invoked once within the game engine. You can easily accomplish this by setting up a simple logic brick chain, as shown in Figure 5.36.
 
-\*\*\*Insert Fig05-36.tif
-
-Figure 5.36
-
-Logic brick setup to load a custom GLSL shader.
-
-[c] 2014 Blender Foundation.
+![Logic brick setup to load a custom GLSL shader](../figures/Chapter5/Fig05-36.png)
 
 You can try to copy this setup with the provided Blender file at \Book\Chapter5\GLSL1.blend.
 
@@ -1067,13 +1001,7 @@ The capabilities of 2D filters:
 
 \*\*\* End List
 
-\*\*\*Insert Fig05-37.tif
-
-Figure 5.37
-
-Sample Filters: Normal color, grayscale, blur, sepia.
-
-[c] 2014 Chase Moskal and Team.
+![Sample Filters: Normal color, grayscale, blur, sepia](../figures/Chapter5/Fig05-37.jpg)
 
 ## How to Use 2D Filters
 
@@ -1083,13 +1011,7 @@ To enable a basic 2D filter, add an Always sensor, an And controller, and a 2D f
 
 It also does not matter which object the logic brick is attached to; 2D filter is a screen effect and, thus, does not depend on the object it is attached to. You can attach it to any convenient object. Attaching the 2D filter logic to the main camera is a good idea, because it's an intuitive reminder that the 2D filter is a screen effect. Figure 5.38 shows a basic 2D filter setup.
 
-\*\*\*Insert Fig05-38.tif
-
-Figure 5.38
-
-Logic brick setup to load a custom GLSL shader.
-
-[c] 2014 Blender Foundation.
+![Logic brick setup to load a custom GLSL shader](../figures/Chapter5/Fig05-38.png)
 
 Once you have set up the logic bricks, let's take a closer look at the 2D Filter actuator. The exact function of each option in the Actuator panel is explained in Chapter 3.
 
@@ -1216,13 +1138,7 @@ from bge import logic
 
 logic.getCurrentController().owner.text = "Hello World"
 
-\*\*\*Insert Fig05-39.tif
-
-Figure 5.39
-
-Text Object: 3D view and in-game.
-
-[c] 2014 Blender Foundation.
+![Text Object: 3D view and in-game](../figures/Chapter5/Fig05-39.png)
 
 ## Video Texture
 
@@ -1266,13 +1182,7 @@ Blender uses the zero parallax technique to set up the stereo cameras.
 
 \*\*\* End Note
 
-\*\*\*Insert Fig05-40.tif
-
-Figure 5.40
-
-Stereo setting panel.
-
-[c] 2014 Blender Foundation.
+![Stereo setting panel](../figures/Chapter5/Fig05-40.png)
 
 When Stereo mode is selected in the Render panel, as shown in Figure 5.40, six Stereo modes become available.
 
@@ -1294,33 +1204,15 @@ Similar to how environment maps are rendered in Blender, the Dome mode works by 
 
 Even if you don't have access to the screen of your local OMNIMAX theater (you don't?!), smaller immersive dome screens are also becoming more popular, like the one shown in Figure 5.41.
 
-\*\*\*Insert Fig05-41.tif
-
-Figure 5.41
-
-The Dome mode in action.
-
-Photo [c] Dalai Felinto and Paul Bourke. _Club Silo_ game [c] Dale Best (Luma).
+![The Dome mode in action](../figures/Chapter5/Fig05-41.jpg)
 
 Even with a flat screen, Dome mode can provide you with a much better viewing experience than the default OpenGL perspective mode at extremely wide angles, as depicted in Figure 5.42. Both cameras are 170 degrees. Notice the heavy distortion on the left image, and the fisheye look that the dome perspective obtains.
 
-\*\*\*Insert Fig05-42.tif
-
-Figure 5.42
-
-Comparison between regular perspective and dome perspective.
-
-[c] 2014 Mike Pan.
+![Comparison between regular perspective and dome perspective](../figures/Chapter5/Fig05-42.jpg)
 
 Dome settings can be enabled from the Render panel, as shown in Figure 5.43.
 
-\*\*\*Insert Fig05-43.tif
-
-Figure 5.43
-
-Dome settings.
-
-[c] 2014 Blender Foundation.
+![Dome settings](../figures/Chapter5/Fig05-43.png)
 
 **       ** [lb] **        Dome type:** Controls how the images are mapped onto the screen. Cube Map shows you the raw render done by the dome engine, laid out in such a way to match how Blender stores the environment maps. This is mainly useful for debugging, or if you want to save the cube map for a different purpose. Other options include Spherical Panoramic, Front-Truncated, Rear-Truncated, and Fisheye. These choices warp the images in different ways to fit the screen. Try them out for yourself! Be careful, though-some of these settings can be very disorienting!
 
