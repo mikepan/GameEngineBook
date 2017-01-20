@@ -13,7 +13,7 @@ Chapter 3 - Logic Bricks - Not Ready
 
 Chapter 4 - Animation - Not Ready
 
-Chapter 5 - Graphics - Not Ready
+[Chapter 5 - Graphics](text/05-Graphics.md)
 
 Chapter 6 - Physics - Not Ready
 
