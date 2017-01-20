@@ -513,9 +513,9 @@ The other options in the influence section work in the exact way as color and no
 
 If all the checkboxes and sliders seem daunting, don't worry! Now let's put what we just read about material and textures to use. Soon it will become clear how everything fits together.
 
-1.Open \Book\Chapter5\GLSL2.2blend
+1. Open \Book\Chapter5\GLSL2.2blend
 
-2.You will be greeted with a partial car model that we have prepared, as shown in Figure 5.26. Hopefully, you will agree that the model is of decent quality and that all it is lacking is a good material to make it, er, shine.
+2. You will be greeted with a partial car model that we have prepared, as shown in Figure 5.26. Hopefully, you will agree that the model is of decent quality and that all it is lacking is a good material to make it, er, shine.
 
 ![A car model with the default materials](../figures/Chapter5/Fig05-26.jpg)
 
@@ -527,23 +527,23 @@ We want to give this sporty machine a shiny metallic finish so that looks like i
 
 ![The two textures (magnified) that will be used for the car body material](../figures/Chapter5/Fig05-27.jpg)
 
-3.Select the body of the car (object "Shell") in the 3D Viewport. Notice there is a default material attached to it. But before we spend too much time tweaking the material, let's add the textures first.
+3. Select the body of the car (object "Shell") in the 3D Viewport. Notice there is a default material attached to it. But before we spend too much time tweaking the material, let's add the textures first.
 
-4.Go to the texture Properties Editor. Click on New to add a new texture. Notice that the first texture slot is now occupied. Rename the data block from "Texture" to something more descriptive like "MetallicSpeck."
+4. Go to the texture Properties Editor. Click on New to add a new texture. Notice that the first texture slot is now occupied. Rename the data block from "Texture" to something more descriptive like "MetallicSpeck."
 
-5.Since procedural textures are not supported in the game engine, we have created our own noise image in an external image-manipulation software. You can find one already made for you online, named Noise.png
+5. Since procedural textures are not supported in the game engine, we have created our own noise image in an external image-manipulation software. You can find one already made for you online, named Noise.png
 
-6.Change the texture type to image. Then click on Open to reveal the file browser. Navigate to \Book\Chapter5\Textures and select Noise.png. Open it. Now the car should be covered with the texture you just loaded.
+6. Change the texture type to image. Then click on Open to reveal the file browser. Navigate to \Book\Chapter5\Textures and select Noise.png. Open it. Now the car should be covered with the texture you just loaded.
 
- The first problem you'll notice is that the texture is stretched across a certain  vertical part of the shell. This is because a proper UV texture layout has not been  set up, so Blender is trying its best at using a default texture mapping. So let's  first make sure the texture is mapped uniformly across the object.
+The first problem you'll notice is that the texture is stretched across a certain  vertical part of the shell. This is because a proper UV texture layout has not been  set up, so Blender is trying its best at using a default texture mapping. So let's  first make sure the texture is mapped uniformly across the object.
 
-7.With the car body object still selected, enter Edit mode with the tab key; select all the vertices with a few taps on the A key until all the faces are highlighted.
+7. With the car body object still selected, enter Edit mode with the tab key; select all the vertices with a few taps on the A key until all the faces are highlighted.
 
-8.With your mouse still over the 3D Viewport, press the U key to invoke the UV mapping menu. Select Smart UV Project and leave the options as default. This will intelligently project the entire model onto a UV map with minimal distortion. This operation takes a few seconds to complete.
+8. With your mouse still over the 3D Viewport, press the U key to invoke the UV mapping menu. Select Smart UV Project and leave the options as default. This will intelligently project the entire model onto a UV map with minimal distortion. This operation takes a few seconds to complete.
 
-9.Optionally, set one of the window types to UV Image Editor to see the result of smart project.
+9. Optionally, set one of the window types to UV Image Editor to see the result of smart project.
 
-10.Don't worry that you can't see the new UV map yet on the 3D model. In the Texture panel, change the mapping coordinates from generated to UV and select UVMap from the drop-down menu, as shown in Figure 5.28. This will tell Blender to use the new UV map that you just created.
+10. Don't worry that you can't see the new UV map yet on the 3D model. In the Texture panel, change the mapping coordinates from generated to UV and select UVMap from the drop-down menu, as shown in Figure 5.28. This will tell Blender to use the new UV map that you just created.
 
 ![Setting the texture mapping to UV](../figures/Chapter5/Fig05-28.png)
 
@@ -551,7 +551,7 @@ Now the 3D Viewport should look like Figure 5.29
 
 ![Noise texture with adjusted UV layout](../figures/Chapter5/Fig05-29.jpg)
 
-11.It is apparent that the noise is way too big to be realistic. To scale it down, change the Size attribute under Mapping from 1.0 to 10.0 for all the X, Y, and Z axes.
+11. It is apparent that the noise is way too big to be realistic. To scale it down, change the Size attribute under Mapping from 1.0 to 10.0 for all the X, Y, and Z axes.
 
  To get the metallic shine, you don't want the texture to affect the color channel of  the material.
 
@@ -559,31 +559,27 @@ Now the 3D Viewport should look like Figure 5.29
 
 ![Texture options for the noise image texture](../figures/Chapter5/Fig05-30.png)
 
-12.To add a second texture layer, go back to the very top of the Texture panel and select the top-most empty texture slot from the list. It should be one with a red-and-white checkerboard pattern icon.
+12. To add a second texture layer, go back to the very top of the Texture panel and select the top-most empty texture slot from the list. It should be one with a red-and-white checkerboard pattern icon.
 
-13.Click on New to create another texture data block. This will be your reflection layer. So name it "ReflectionMap."
+13. Click on New to create another texture data block. This will be your reflection layer. So name it "ReflectionMap."
 
-14.Again, set the texture type to image. Click on Open, navigate to \Book\Chapter5\Textures, and load uffizi\_rectangular.jpg. This image will be used as your environment map.
+14. Again, set the texture type to image. Click on Open, navigate to \Book\Chapter5\Textures, and load uffizi\_rectangular.jpg. This image will be used as your environment map.
 
-15.Under Mapping, set the Coordinates to Reflection. This will automatically wrap the texture onto the object in such a way that resembles a real reflection.
+15. Under Mapping, set the Coordinates to Reflection. This will automatically wrap the texture onto the object in such a way that resembles a real reflection.
 
-16.However, notice that the sparkle you created in the previous texture slot has disappeared. This is because the new ReflectionMap texture is covering the previous texture. To make the reflection less intense, set the color Influence value from 1.0 to 0.75.
+16. However, notice that the sparkle you created in the previous texture slot has disappeared. This is because the new ReflectionMap texture is covering the previous texture. To make the reflection less intense, set the color Influence value from 1.0 to 0.75.
 
-17.Change the Blending mode from Mix to Multiply. This will allow the reflection map to look better on base color.
+17. Change the Blending mode from Mix to Multiply. This will allow the reflection map to look better on base color.
 
  At this point, you should have something that looks like Figure 5.31.
 
 ![The completed car material](../figures/Chapter5/Fig05-31.jpg)
 
-18.You can now go back to the Material panel and change base color of the car by altering the diffuse color however you wish.
+18. You can now go back to the Material panel and change base color of the car by altering the diffuse color however you wish.
 
-\*\*\* Begin Note
-
-Material Caching
-
-There is a new setting in Blender 2.66 under the Render Properties Editor called _Material Caching._ With this turned on, loading of the game will be faster because GLSL materials are cached. This setting does not work well in Multitexture and Singletexture mode.
-
-\*\*\* End Note
+>**Material Caching**
+>
+>There is a new setting in Blender 2.66 under the Render Properties Editor called _Material Caching._ With this turned on, loading of the game will be faster because GLSL materials are cached. This setting does not work well in Multitexture and Singletexture mode.
 
 #### Nodes <a id="Nodes"></a>
 
@@ -591,17 +587,17 @@ Node is a new way to work with materials and textures in Blender. Instead of usi
 
 Working with Node materials and textures is more of a process, so this section will be presented as a continuous tutorial. Once you have mastered this simple example, you will be able to adapt the workflow to create much more complex effects.
 
-1.Open \Book\Chapter5\GLSL3.blend and familiarize yourself with the scene setup; note there is a sphere object without any material attached. The bottom half of the screen has been changed to the Node Editor.
+1. Open /Book/Chapter5/GLSL3.blend and familiarize yourself with the scene setup; note there is a sphere object without any material attached. The bottom half of the screen has been changed to the Node Editor.
 
-2.Create a new material by clicking on the New bottom in the Material panel. Rename the material to NodeMat so we can refer to it later.
+2. Create a new material by clicking on the New bottom in the Material panel. Rename the material to NodeMat so we can refer to it later.
 
-3.Click on the Use Shader Nodes button to enable nodes. The Node Editor should now look like Figure 5.32. Notice that the object in the 3D Viewport has turned black; this is because node material has just been activated, but since you have not actually set up a valid node material, the default color is black.
+3. Click on the Use Shader Nodes button to enable nodes. The Node Editor should now look like Figure 5.32. Notice that the object in the 3D Viewport has turned black; this is because node material has just been activated, but since you have not actually set up a valid node material, the default color is black.
 
 ![The Node Editor](../figures/Chapter5/Fig05-32.png)
 
-4.Because we don't want to create the material from scratch, we can use an existing material as the basis for the node material. To do that, in the Material node, click on the Browse Material icon and select NodeMat. Now the input material for the node is the material defined in the Material panel on the right side of the screen. Change any of the properties in the Material panel, and you can see the change is reflected in the node material system. Try setting the material color to red.
+4. Because we don't want to create the material from scratch, we can use an existing material as the basis for the node material. To do that, in the Material node, click on the Browse Material icon and select NodeMat. Now the input material for the node is the material defined in the Material panel on the right side of the screen. Change any of the properties in the Material panel, and you can see the change is reflected in the node material system. Try setting the material color to red.
 
-5.Insert a new Hue-Saturation-Value node in between the input and the output node, and connect them by drawing a line from one yellow dot to the other. The resulting setup should be the same as Figure 5.33.
+5. Insert a new Hue-Saturation-Value node in between the input and the output node, and connect them by drawing a line from one yellow dot to the other. The resulting setup should be the same as Figure 5.33.
 
 ![The Node Editor-reusing a material](../figures/Chapter5/Fig05-33.jpg)
 
@@ -609,15 +605,11 @@ Congratulations! You are using node materials! Although the example we worked th
 
 Some typical uses for node-based materials include:
 
-\*\*\* Begin List
+- **Mixing multiple materials:** With the Node Editor, you can load multiple materials as input and mix them together to create a meta-material.
 
-[lb] **Mixing multiple materials:** With the Node Editor, you can load multiple materials as input and mix them together to create a meta-material.
+- **More control:** Want the object position to affect the texture brightness? Want lighting intensity to affect the object transparency? With nodes, you can set up almost any effect you can think of.
 
-[lb] **More control:** Want the object position to affect the texture brightness? Want lighting intensity to affect the object transparency? With nodes, you can set up almost any effect you can think of.
-
-[lb] **Experimentation:** Using the node system as a sandbox to experiment with different effects is a lot faster than writing shader code to accomplish the same effect. In many cases, you can use the node system as a prototyping platform to build shaders.
-
-\*\*\* End List
+- **Experimentation:** Using the node system as a sandbox to experiment with different effects is a lot faster than writing shader code to accomplish the same effect. In many cases, you can use the node system as a prototyping platform to build shaders.
 
 ### Multitexture <a id="Multitexture"></a>
 
@@ -627,31 +619,24 @@ As outlined in Table 5.1, multitexture uses per-vertex light rather than the per
 
 In Multitexture mode, the artists still use the Material and Texture panels to apply shadings and textures. Compared to GLSL mode, the following material options have no effect in Multitexture mode:
 
-\*\*\* Begin List
+- **Diffuse Shader Model:** The default one will always be used.
 
-[lb] **Diffuse Shader Model:** The default one will always be used.
+- **Specular Shader Model:** The default one will always be used.
 
-[lb] **Specular Shader Model:** The default one will always be used.
+- **Cubic Interpolation:** Always disabled because the lighting calculation is per-vertex.
 
-[lb] **Cubic Interpolation:** Always disabled because the lighting calculation is per-vertex.
+- **Ramp Shaders:** Always disabled.
 
-[lb] **Ramp Shaders:** Always disabled.
+- **Shadow Settings:** Always disabled. No object casts shadows in Multitexture mode.
 
-[lb] **Shadow Settings:** Always disabled. No object casts shadows in Multitexture mode.
-
-\*\*\* End List
 
 Compared to GLSL mode, the following texture options have no effect in Multitexture mode:
 
-\*\*\* Begin List
+- **Blending Mode:** Other than Mix, Add, Subtract, Multiply, and Screen.
 
-[lb] **Blending Mode:** Other than Mix, Add, Subtract, Multiply, and Screen.
+- **Influence Setting:** Other than Color and Alpha.
 
-[lb] **Influence Setting:** Other than Color and Alpha.
-
-[lb] **Mapping Coordinates:** Other than Global, Generated, Reflection, and UV.
-
-\*\*\* End List
+- **Mapping Coordinates:** Other than Global, Generated, Reflection, and UV.
 
 To add a texture for the Multitexture shading mode, you need to use the UV/Image Editor. The Material panel can be used to change some of the surface properties of the model, such as diffuse intensity, specular intensity, and specular hardness.
 
@@ -661,49 +646,38 @@ Lights were covered briefly in Chapter 2. We will revisit them here in more deta
 
 In GLSL mode, supported lamp types are Point, Sun, Spot, and Hemi. Area lamp is unsupported and will be ignored by the game engine. Spot and Sun lamps are capable of casting dynamic shadows if the Shadow button is enabled. Table 5.2 summarizes the features of the lamps.
 
-Table 5.2 Lights Types
+_Table 5.2 Lights Types_
 
-Type  Supported  Directional  Shadow
-
-Point  Singletexture+  No   No
-
-Sun  Singletexture+  Yes   Parallel
-
-Spot  Singletexture+  Yes   Perspective
-
-Hemi  GLSL   Yes   No
-
-Area  No   Yes   No
+| Type  | Supported      | Directional  | Shadow      |
+|:-----:|:--------------:|:------------:|:-----------:|
+| Point | Singletexture+ | No           | No          |
+| Sun   | Singletexture+ | Yes          | Parallel    |
+| Spot  | Singletexture+ | Yes          | Perspective |
+| Hemi  | GLSL           | Yes          | No          |
+| Area  | No             | Yes          | No          |
 
 In Multitexture and Singletexture mode, Point, Sun, and Spot are supported, all other non-supported lamp types will be treated as point lamps. There is no shadow support in these two modes.
-
-[c] 2014 Dalai Felinto and Mike Pan.
 
 ## World Settings <a id="World Settings"></a>
 
 From the world Property Editor, you can change things that affect the entire world, such as background color and mist settings:
 
-**       ** [lb] **        Horizon Color:** Defines the sky color. In textured view, this color fills the background.
+- **Horizon Color:** Defines the sky color. In textured view, this color fills the background.
 
-**       ** [lb] **        Ambient Color:** Defines the ambient light color. Ambient light is a fill light that illuminates an object evenly from all angles. It makes shadows less dark, at the cost of making everything look "washed out." By default, ambient color is set to black, which is equivalent to the ambient color being disabled.
+- **Ambient Color:** Defines the ambient light color. Ambient light is a fill light that illuminates an object evenly from all angles. It makes shadows less dark, at the cost of making everything look "washed out." By default, ambient color is set to black, which is equivalent to the ambient color being disabled.
 
-**       ** [lb] **        Mist:** Enable mist to add an atmospheric fog to the entire scene. Objects farther away will fade into the sky color (as defined by horizon color).
+- **Mist:** Enable mist to add an atmospheric fog to the entire scene. Objects farther away will fade into the sky color (as defined by horizon color).
 
-**       ** [lb] **        Mist Start:** As illustrated by Figure 5.34, the start distance at which the fog is applied.
+- **Mist Start:** As illustrated by Figure 5.34, the start distance at which the fog is applied.
 
-**       ** [lb] **        Mist Depth:** As illustrated by Figure 5.34, the distance at which an object is entirely obscured by the mist color.
+- **Mist Depth:** As illustrated by Figure 5.34, the distance at which an object is entirely obscured by the mist color.
 
 ![Mist distance illustrated](../figures/Chapter5/Fig05-34.jpg)
 
- \*\*\* Begin Note
-
-Smog Can Be Good
-
-Mist can help you hide the boundary of your make-believe world by smoothly blending the far object into the horizon. Furthermore, fog can increase the atmosphere of the scene by giving a better sense of depth to the scene.
-
-A good example of mist in games is the extremely foggy _Silent Hill_ games. Their development team was able to put more details into the models by combining a more aggressive camera clipping with high mist values.
-
-\*\*\* End Note
+>**Smog Can Be Good**
+>
+>Mist can help you hide the boundary of your make-believe world by smoothly blending the far object into the horizon. Furthermore, fog can increase the atmosphere of the scene by giving a better sense of depth to the scene.
+>A good example of mist in games is the extremely foggy _Silent Hill_ games. Their development team was able to put more details into the models by combining a more aggressive camera clipping with high mist values.
 
 ## Texture Painting <a id="Texture Painting"></a>
 
@@ -713,39 +687,35 @@ Typically, editing an image texture must be done with external software such as 
 
 To see how texture painting works:
 
-1.Start a new file and set the 3D view to Texture mode (Alt+Z).
+1. Start a new file and set the 3D view to Texture mode (Alt+Z).
 
-2.To paint directly on an object, you will need to set up a UV texture image first. So in the 3D view, make sure the object you want to paint (the initial cube in this case) is selected, and then enter Edit mode by pressing Tab.
+2. To paint directly on an object, you will need to set up a UV texture image first. So in the 3D view, make sure the object you want to paint (the initial cube in this case) is selected, and then enter Edit mode by pressing Tab.
 
-3.Make sure that all vertices are selected (toggle A until they are all highlighted).
+3. Make sure that all vertices are selected (toggle A until they are all highlighted).
 
-4.In the 3D viewport, press U to invoke the UV menu. Select Smart UV Project with the default parameters.
+4. In the 3D viewport, press U to invoke the UV menu. Select Smart UV Project with the default parameters.
 
-5.In the UV/Image Editor, create a new image by clicking on the New button. From the pop-up menu, select UV Grid or Color Grid as the Generated Type and click OK.
+5. In the UV/Image Editor, create a new image by clicking on the New button. From the pop-up menu, select UV Grid or Color Grid as the Generated Type and click OK.
 
-6.Notice that the model now has the newly created image texture mapped on it.
+6. Notice that the model now has the newly created image texture mapped on it.
 
-7.Switch from Edit mode to Texture Paint mode.
+7. Switch from Edit mode to Texture Paint mode.
 
-8.Start drawing on the model!
+8. Start drawing on the model!
 
-9.You can change options for the tools using the tool shelf on the left of the 3D Viewport.
+9. You can change options for the tools using the tool shelf on the left of the 3D Viewport.
 
-10.At the time of writing, images updated by texture painting were not saved automatically. So once you are done, be sure to go back to the UV/Image Editor and save the texture by clicking on Image > Save.
+10. At the time of writing, images updated by texture painting were not saved automatically. So once you are done, be sure to go back to the UV/Image Editor and save the texture by clicking on Image > Save.
 
-11.Optionally, if you are working with the GLSL mode, you will need to create a new texture in the object's material and assigned the newly created image to it. In this case, you also need to set UV as Coordinates in the Mapping panel.
+11. Optionally, if you are working with the GLSL mode, you will need to create a new texture in the object's material and assigned the newly created image to it. In this case, you also need to set UV as Coordinates in the Mapping panel.
 
 ## Custom GLSL Shaders <a id="Custom GLSL Shaders"></a>
 
 Another way to apply material to an object is to override the game-engine material system completely by applying custom-written GLSL shaders. This will give you the ultimate control over exactly how the object looks, and you can achieve certain effects that are not possible with the built-in Material and Texture panels.
 
-\*\*\* Begin Note
-
-More GLSL?
-
-Custom GLSL shaders are not to be confused to with 2D filters, which also use GLSL codes. A 2D filter is GLSL code that is applied to the entire screen as a post-processing effect, while custom GLSL shaders are applied to objects.
-
-\*\*\* End Note
+>**More GLSL?**
+>
+>Custom GLSL shaders are not to be confused to with 2D filters, which also use GLSL codes. A 2D filter is GLSL code that is applied to the entire screen as a post-processing effect, while custom GLSL shaders are applied to objects.
 
 Custom GLSL shaders work in the GLSL and Multitexture shading mode; they do not work in Singletexture mode. Custom GLSL shaders are not visible in the 3D Viewport: you must run the game to see them. To use custom GLSL shaders, you will need to use a little bit of Python scripting to link shaders to the object. But first, here is a crash course on GLSL.
 
@@ -755,15 +725,11 @@ GLSL is the shading language for the OpenGL graphic API. It has a C-like syntax 
 
 GLSL shaders can be divided into three types. They differ in where in the graphic pipeline the codes are executed and what types of data they have access to.
 
-\*\*\* Begin List
+- **Vertex shader:** Operates on vertices, allowing geometry transformation.
 
-[lb] **Vertex shader:** Operates on vertices, allowing geometry transformation.
+- **Geometry shader:** Capable of generating or deleting vertices.
 
-[lb] **Geometry shader:** Capable of generating or deleting vertices.
-
-[lb] **Fragment shader:** Operates on each pixel on the screen, allowing texture and shading effects.
-
-\*\*\* End List
+- **Fragment shader:** Operates on each pixel on the screen, allowing texture and shading effects.
 
 All three categories of shaders share the same language construct and follow the same general syntax. The GLSL programs are executed in this order:
 
@@ -775,11 +741,13 @@ Rather than wading through all the basics of GLSL, we will assume that you have 
 
 Consider this snippet of GLSL code:
 
+```c++
 vec4 color1 = vec4(1.0,0.0,0.0,1.0);
 
 vec4 color2 = vec4(0.0,0.5,0.0,1.0);
 
 vec4 final = color1 + color2;
+```
 
 vec4 initializes the variable to be a four-component floating point vector. color1 and color2 are the variable names. And finally vec4() can be viewed as a constructor that takes four literal constants and generates a vec4 data type from them.
 
@@ -787,82 +755,78 @@ But what does the code actually do? Here, we first declare two four-component ve
 
 The funny-looking swizzling operators of the GLSL language are one of its distinct features. They look like this:
 
+```c++
 vec4 myColor = vec4 (0.0,1.0,0.5,0.6);
 
 float intensity  = myColor.r + myColor.g + myColor.b;
+```
 
 The dot (.) notation at the end of the color variable is used to select a single component from the four-component vector. In the above case, we took the red, green, and blue components of myColor and added them up to get a sum of the three channels. The result is stored in a variable called _intensity_ as a single floating point number. Valid selectors include RGBA, XYZW, and STQR. You can also repeat swizzling operators or rearrange them.
 
+```c++
 vec4 myColor = vec4 (0.0,1.0,0.5,0.6);
 
 vec4 newColor  = myColor.ggrr;
+```
 
 newColor now has the value (1.0,1.0,0.0,0.0) because the content of myColor's green channel is copied into newColor's red and green channels, and myColor's red channel is copied into newColor's blue and alpha channels. The value of myColor is not changed.
 
 GLSL supports basic C-like flow control, such as while loops, for loops, if statements, and function declarations. Although supported, branching with if statements is usually avoided because they are relatively slow.
 
-\*\*\* Begin Caution
-
-Using "If"
-
-If you must use "if," be careful with writing your conditions. Floating point values in GLSL are usually not precise enough for an equality comparison operation to work. So instead of writing
-
-if (myVar == 1.0)
-
-which might never evaluate to true, use the much safer
-
-if  (abs(myVar - 1.0) < 0.001)
-
-This code will look at the absolute difference between the two values it is comparing, and return true as long as the difference between them is small enough (0.001, in this case).
-
-\*\*\* End Caution
+>**Using "If"**
+>
+>If you must use "if," be careful with writing your conditions. Floating point values in GLSL are usually not precise enough for an equality comparison operation to work. So instead of writing
+>`if (myVar == 1.0)`
+>which might never evaluate to true, use the much safer
+>`if  (abs(myVar - 1.0) < 0.001)`
+>This code will look at the absolute difference between the two values it is comparing, and return true as long as the difference between them is small enough (0.001, in this case).
 
 While we know you would enjoy learning about trigonometry, 3D math, matrix, orthogonality, Euclidean vector space, and lerp, teaching GLSL is not the aim of this book. The book _OpenGL Shading Language_ by Randi J. Rost does a fantastic job of explaining what GLSL is all about.
 
-\*\*\* Begin Note
-
-GLSL Implementations "Gotchas"
-
-Because GLSL is compiled by the graphic driver, each vendor (AMD, Nvidia, Intel, etc.) does it a bit differently. This means that codes that work on one might not work on another. For example, on Nvidia, the noise() function always returns 0. (However, this is technically still within the GLSL specification, which states that the return value for the noise() function must be between -1.0 and 1.0.)
-
-Just keep in mind that some drivers are stricter than others, so a GLSL program that works on one computer might not work on another.
-
-\*\*\* End Note
+>**GLSL Implementations "Gotchas"**
+>
+>Because GLSL is compiled by the graphic driver, each vendor (AMD, Nvidia, Intel, etc.) does it a bit differently. This means that codes that work on one might not work on another. For example, on Nvidia, the noise() function always returns 0. (However, this is technically still within the GLSL specification, which states that the return value for the noise() function must be between -1.0 and 1.0.)
+>Just keep in mind that some drivers are stricter than others, so a GLSL program that works on one computer might not work on another.
 
 ## Custom GLSL Shaders <a id="Custom GLSL Shaders"></a>
 
 So now that you have learned the basics of GLSL, are you ready to tackle your first complete GLSL shader?
 
+```c++
 void main(){
-gl\_FragColor.rgba = vec4(0.9,0.4,0.2,1.0);
+gl_FragColor.rgba = vec4(0.9,0.4,0.2,1.0);
 }
+```
 
 That's it. This one-line fragment shader will assign each output pixel (a predefined variable by the name of gl\_FragColor) the color (0.9,0.4,0.2), which happens to be a pleasant orange. The last value sets the alpha to 1.0, to make sure the face is completely visible.
 
 One of the requirements for any valid GLSL shader is that it contains both a vertex shader and a fragment shader. So, supplying only the fragment shader above is not quite enough; you need a vertex shader as well. But in most cases, you don't want to do anything fancy with the vertices, so a simple
 
+```c++
 void main(){
-gl\_Position = ftransform();
+gl_Position = ftransform();
 }
+```
 
 is enough. It tells GLSL that you want the vertex to stay in the same position as it would if you used a fixed-transform pipeline.
 
 In Blender, to use custom GLSL shaders as a replacement for any regular material, you need to run a Python script that helps bind the GLSL shader to a material at runtime. A complete script is shown below:
 
+```python
 01 from bge import logic
 02 ShaderObject = logic.getCurrentScene().objects.get("Cube")
 03
 04 VertexShader = """
 05 void main()
 06 {
-07     gl\_Position = ftransform();
+07     gl_Position = ftransform();
 08 }
 09 """
 10
 11 FragmentShader = """
 12 void main()
 13 {
-14     gl\_FragColor.rgba = vec4(0.9,0.4,0.2,1.0);
+14     gl_FragColor.rgba = vec4(0.9,0.4,0.2,1.0);
 15 }
 16 """
 17
@@ -872,6 +836,7 @@ In Blender, to use custom GLSL shaders as a replacement for any regular material
 20         shader = material.getShader()
 21         if shader != None and not shader.isValid():
 22             shader.setSource(VertexShader, FragmentShader, True)
+```
 
 If you are feeling faint, don't panic! (Just wait until you get to Chapter 7.) This script has a nice blend of Python and GLSL, but it's not complicated once you break it down.
 
@@ -881,11 +846,13 @@ Line 1 loads the bge Python module, which allows us to use the BGE API within th
 
 Line 2 is equivalent to
 
+```python
 scene = logic.getCurrentScene()
 
 objects = scene.objects
 
 ShaderObject = objects.get("Cube")
+```
 
 One important concept to remember is that the GLSL shader is linked to material. Even though you got the material by referencing an object, the GLSL shader is always replacing a material. This means that if multiple objects share the same material, the shader will run on all the objects.
 
@@ -897,13 +864,9 @@ Starting on line 11, analogous to the VertexShader, FragmentShader is another mu
 
 From line 18 onward until the end, the Python code is used to invoke the GLSL shader declared above. First, you loop through the internal meshes attached to the object. Then iterating through each mesh, you find all the materials attached to it. Since meshes can have multiple materials (up to 16), iterating through all of them ensures that you replace all the materials on that object with your shader. (Conversely, you can modify the code to apply a unique shader to each material on the same mesh.)
 
-\*\*\* Begin Caution
-
-Don't Write This Code!
-
-Since we were trying to keep this example as short and simple as possible, the code has very bad error-handling ability. For example, it would not be good if an object by the name of Cube is not found in the scene, or if the object named Cube isn't a mesh. Do not write code like this in real life!
-
-\*\*\* End Caution
+>**Don't Write This Code!**
+>
+>Since we were trying to keep this example as short and simple as possible, the code has very bad error-handling ability. For example, it would not be good if an object by the name of Cube is not found in the scene, or if the object named Cube isn't a mesh. Do not write code like this in real life!
 
 Line 21 might look a bit convoluted. But in English, it simply means that if there is a shader, the script goes on to check if the shader is valid. If it's not, a new shader is created using the VertexShader and FragmentShader text string as the input. If there is already a valid shader, nothing more is done. (Shaders only need to be compiled and bound once at the start of the game, not every frame. Otherwise, the GLSL compilation will significantly slow down the game)
 
@@ -915,11 +878,15 @@ You can try to copy this setup with the provided Blender file at \Book\Chapter5\
 
 In this case, because there is no object named _Cube_, you need to modify the script a bit by replacing the line:
 
+```python
 ShaderObject = logic.getCurrentScene().objects.get("Cube")
+```
 
 with
 
+```python
 ShaderObject = logic.getCurrentScene().objects.get("Monkey")
+```
 
 Run the game and enjoy the new orange monkey.
 
@@ -931,35 +898,36 @@ Remember that custom GLSL shaders are always applied to each material, not the o
 
 The first GLSL shader you were introduced to is pretty trivial and nearly useless. Here is a much more useful Lambert diffuse shader:
 
+```python
 from bge import logic
 ShaderObject = logic.getCurrentScene().objects["Monkey"]
 lamp = logic.getCurrentScene().objects["MainLight"]
 
 VertexShader = """
-uniform vec3 light\_position;
-varying vec3 light\_vec;
-varying vec3 normal\_vec;
+uniform vec3 light_position;
+varying vec3 light_vec;
+varying vec3 normal_vec;
 
 void main(){
- vec3 vert =(gl\_ModelViewMatrix \* gl\_Vertex).xyz;
- light\_vec = (gl\_ModelViewMatrix\* vec4(light\_position,1.0)).xyz – vert;
- normal\_vec = gl\_NormalMatrix \*gl\_Normal;
- gl\_Position = ftransform();
+ vec3 vert =(gl_ModelViewMatrix * gl_Vertex).xyz;
+ light_vec = (gl_ModelViewMatrix * vec4(light_position,1.0)).xyz – vert;
+ normal_vec = gl\_NormalMatrix * gl_Normal;
+ gl_Position = ftransform();
 }
 """
 
 FragmentShader = """
-varying vec3 light\_vec;
-varying vec3 normal\_vec;
+varying vec3 light_vec;
+varying vec3 normal_vec;
 
 void main(){
- vec3 l = normalize(light\_vec);
- vec3 n = normalize(normal\_vec);
+ vec3 l = normalize(light_vec);
+ vec3 n = normalize(normal_vec);
  float ndotl = clamp(dot(n,l), 0.0, 1.0);
 
- vec4 color = ndotl \* vec4(1.0,1.0,1.0,1.0);
+ vec4 color = ndotl * vec4(1.0,1.0,1.0,1.0);
 
- gl\_FragColor = color;
+ gl_FragColor = color;
 }
 
 """
@@ -970,7 +938,8 @@ for material in mesh.materials:
  if shader != None:
   if not shader.isValid():
    shader.setSource(VertexShader, FragmentShader,1)
-  shader.setUniformfv('light\_position', lamp.position)
+  shader.setUniformfv('light_position', lamp.position)
+```
 
 This shader uses the Lambert diffuse shading algorithm to apply some basic shading to the object, taking into account the position of the lamp and the surface normal at each pixel. This is still not a terribly useful shader, since the same effect can be achieved without a single line of coding via the Material panel.
 
@@ -980,6 +949,7 @@ We'll leave it to you to discover more complex shaders on your own.
 
 This GLSL shader applies a transformation to each vertex along the X-axis, producing a "wavy" effect, similar to that of leaves swaying in the wind. Using vertex shaders to deform geometry is a fast alternative to using bones.
 
+```python
 from bge import logic
 ShaderObject = logic.getCurrentController().owner
 
@@ -989,16 +959,16 @@ uniform float timer;
 void main()
 {
  //get the first UV layout
- gl\_TexCoord[0] = gl\_MultiTexCoord0;
+ gl_TexCoord[0] = gl_MultiTexCoord0;
 
 
  // Fetch the Vertex Position
- vec4 v = gl\_Vertex;
+ vec4 v = gl_Vertex;
 
  //Displaces each vertex using a sine wave
  v.x = v.x + sin(timer);
 
- gl\_Position = gl\_ModelViewProjectionMatrix \* v;
+ gl_Position = gl_ModelViewProjectionMatrix * v;
 }
 """
 
@@ -1007,8 +977,8 @@ uniform sampler2D colorMap;
 
 void main(void)
 {
- vec4 color = texture2D(colorMap,gl\_TexCoord[0].st);
- gl\_FragColor = color;
+ vec4 color = texture2D(colorMap,gl_TexCoord[0].st);
+ gl_FragColor = color;
 }
 """
 
@@ -1021,6 +991,7 @@ for material in mesh.materials:
 
   shader.setSampler('colorMap',0)
   shader.setUniform1f('timer',ShaderObject["timer"])
+```
 
 This shader introduces yet another new concept, called _uniforms_. Using uniforms is one way to pass data from the Blender world into the shader.
 
@@ -1038,23 +1009,20 @@ Using 2D filters makes it easy to tweak the mood of your visual, without having 
 
 GLSL fragment shader is the language that powers all the 2D filters. Figure 5.37 shows some samples of what 2D filters can do:
 
-\*\*\* Begin List
+![Sample Filters: Normal color, grayscale, blur, sepia](../figures/Chapter5/Fig05-37.jpg)
 
 The capabilities of 2D filters:
 
-[lb]Apply effects such as sharpen, edge detection, anti-aliasing, and motion blur.
+- Apply effects such as sharpen, edge detection, anti-aliasing, and motion blur.
 
-[lb]Alter basic color attributes such as brightness, contrast, and color saturation.
+- Alter basic color attributes such as brightness, contrast, and color saturation.
 
-[lb]Add screen-space effects such as Gaussian blur, radial blur, light bloom, and distortion.
+- Add screen-space effects such as Gaussian blur, radial blur, light bloom, and distortion.
 
-[lb]Add cinematic effect such as depth of field, film grain, sepia tone, and lens vignetting.
+- Add cinematic effect such as depth of field, film grain, sepia tone, and lens vignetting.
 
-[lb]Simulate complex lighting effects such as ambient occlusion and light scattering.
+- Simulate complex lighting effects such as ambient occlusion and light scattering.
 
-\*\*\* End List
-
-![Sample Filters: Normal color, grayscale, blur, sepia](../figures/Chapter5/Fig05-37.jpg)
 
 ### How to Use 2D Filters <a id="How to Use 2D Filters"></a>
 
@@ -1084,14 +1052,16 @@ With the pass system, you can make a very robust post-processing stack. You can 
 
 A very simple custom 2D filter is shown below:
 
-uniform sampler2D bgl\_RenderedTexture;
+```c++
+uniform sampler2D bgl_RenderedTexture;
 const float contrast 1.5
 void main(void)
 {
-  vec4 texcolor = texture2D(bgl\_RenderedTexture, gl\_TexCoord[0].st);
-  gl\_FragColor.rgb = texcolor.rgb \* contrast;
-  gl\_FragColor.a = texcolor.a;
+  vec4 texcolor = texture2D(bgl_RenderedTexture, gl_TexCoord[0].st);
+  gl_FragColor.rgb = texcolor.rgb * contrast;
+  gl_FragColor.a = texcolor.a;
 }
+```
 
 If the above code looks somewhat familiar, it's probably because a 2D filter is really just a GLSL fragment shader. This shader fetches the color of the current pixel, multiplies it by 1.5, and displays the result. This produces an image with higher contrast than the original.
 
@@ -1099,33 +1069,25 @@ If the above code looks somewhat familiar, it's probably because a 2D filter is 
 
 2D filter can be read from the following inputs:
 
-\*\*\* Begin List
+- Frame Buffer Color Image (sampler2D bgl\_RenderedTexture)
 
-[lb]Frame Buffer Color Image (sampler2D bgl\_RenderedTexture)
+- Frame Buffer Depth (sampler2D bgl\_DepthTexture)
 
-[lb]Frame Buffer Depth (sampler2D bgl\_DepthTexture)
+- Frame Buffer Luminance(sampler2D bgl\_LuminanceTexture)
 
-[lb]Frame Buffer Luminance(sampler2D bgl\_LuminanceTexture)
+- Image Size (float bgl\_RenderedTextureWidth, float RenderedTextureHeight)
 
-[lb]Image Size (float bgl\_RenderedTextureWidth, float RenderedTextureHeight)
-
-[lb]Custom Textures as Input (sampler2D)
-
-\*\*\* End List
+- Custom Textures as Input (sampler2D)
 
 2D filters are applied per scene, with the effect building one on top of the other. For example, if you have a main scene and an overlay scene, the game engine will proceed as follows:
 
-\*\*\* Begin Numbered List
+1. Render the main scene.
 
-1.Render the main scene.
+2. Apply the filters available on that scene into the screen.
 
-2.Apply the filters available on that scene into the screen.
+3. Render the overlay scene on top of the already post-processed main scene.
 
-3.Render the overlay scene on top of the already post-processed main scene.
-
-4.Apply the filters on top of this multilayered pixel lasagna.
-
-\*\*\* End Numbered List
+4. Apply the filters on top of this multilayered pixel lasagna.
 
 ## Text <a id="Text"></a>
 
@@ -1133,17 +1095,13 @@ To display text, you can pre-make a mesh object that has the real geometry of th
 
 To display text that can potentially change during the game, there are four ways to display dynamic texts within the game engine. Two of them are useful for only static text: text that doesn't change throughout the game. The other two are dynamic: the text they display can be changed on the fly.
 
-\*\*\* Begin List
+- Static text using real geometry.
 
-[lb]Static text using real geometry.
+- Static text using pre-made textures.
 
-[lb]Static text using pre-made textures.
+- Dynamic bitmap text.
 
-[lb]Dynamic bitmap text.
-
-[lb]Dynamic text object.
-
-\*\*\* End List
+- Dynamic text object.
 
 Static text is not treated any differently than regular Blender objects. For the rest of this section, we will look at ways to create dynamic texts.
 
@@ -1155,29 +1113,29 @@ The process involves creating a texture containing all the letters of the Englis
 
 Okay, let's try that again.
 
-1.Start with an empty Blender file.
+1. Start with an empty Blender file.
 
-2.Select Blender Game from the Render Engine drop-down box.
+2. Select Blender Game from the Render Engine drop-down box.
 
-3.In the top view, add a Plane by clicking on Add > Mesh > Plane.
+3. In the top view, add a Plane by clicking on Add > Mesh > Plane.
 
-4.Configure one of the Viewports to be the UV/Image Editor.
+4. Configure one of the Viewports to be the UV/Image Editor.
 
-5.Select the Plane; enter Edit mode by pressing Tab.
+5. Select the Plane; enter Edit mode by pressing Tab.
 
-6.From the UV/Image Editor, load the text image texture from the folder DVD/Book/Chapter5/Textures/text.png.
+6. From the UV/Image Editor, load the text image texture from the folder /Book/Chapter5/Textures/text.png.
 
-7.The image texture deserves a little more attention. This texture is generated by a free tool that can be found at [http://www.ashsid.sk/wp/?p=21](http://www.ashsid.sk/wp/?p=21). It contains the most commonly used characters and symbols arranged so that Blender knows exactly where each character is.
+7. The image texture deserves a little more attention. This texture is generated by a free tool that can be found at [http://www.ashsid.sk/wp/?p=21](http://www.ashsid.sk/wp/?p=21). It contains the most commonly used characters and symbols arranged so that Blender knows exactly where each character is.
 
-8.Create a material for the object; under the game settings, enable Text. This will tell Blender to treat the image texture you loaded in the above step as a special text image. The plane will now show an @ symbol, the first available character of the text image. This is normal.
+8. Create a material for the object; under the game settings, enable Text. This will tell Blender to treat the image texture you loaded in the above step as a special text image. The plane will now show an @ symbol, the first available character of the text image. This is normal.
 
-9.Configure one of the Viewports to be the Logic Editor.
+9. Configure one of the Viewports to be the Logic Editor.
 
-10.Keep the plane selected. In the Logic Editor, add a new Game Property and name it Text. (This is important! Otherwise, it won't work). And set the data type to String.
+10. Keep the plane selected. In the Logic Editor, add a new Game Property and name it Text. (This is important! Otherwise, it won't work). And set the data type to String.
 
-11.In the value field, type in anything you want; whatever is stored in this Text property will be displayed as text in the game.
+11. In the value field, type in anything you want; whatever is stored in this Text property will be displayed as text in the game.
 
-12.Run the game. The content of the Text property will replace the @ symbol.
+12. Run the game. The content of the Text property will replace the @ symbol.
 
 This method of displaying text does have several drawbacks. For example, because texts are drawn using textures, they might appear blurry when shown at extreme angles relative to the camera. Also, since the character set is extremely limited, international support for non-Latin alphabets and right-to-left languages is impossible to achieve.
 
@@ -1187,9 +1145,11 @@ Using Bitmap text is a very confusing process. Text Object is an easier way to d
 
 Or one can use Python:
 
+```python
 from bge import logic
 
 logic.getCurrentController().owner.text = "Hello World"
+```
 
 ![Text Object: 3D view and in-game](../figures/Chapter5/Fig05-39.png)
 
@@ -1197,15 +1157,11 @@ logic.getCurrentController().owner.text = "Hello World"
 
 The video texture function allows you to update or replace a texture during the game. Not only does this give you the ability to use a video file as a texture, as the name of the function implies, but video texture can also be used to replace a static texture with the following:
 
-\*\*\*begin list
+- A video file (useful as animated texture)
 
-[lb]A video file (useful as animated texture)
+- A different image texture (useful if you just want to replace the texture)
 
-[lb]A different image texture (useful if you just want to replace the texture)
-
-[lb]A render from another camera (useful for rendering reflections of mirrors)
-
-\*\*\*end list
+- A render from another camera (useful for rendering reflections of mirrors)
 
 Because video texture is a rather advanced feature that requires some Python scripting knowledge, it will be left for your own exploration. The book files contains a few examples of how video texture can be used. You can find them under /Book/Chapter7/6\_texture/.
 
@@ -1213,41 +1169,33 @@ Because video texture is a rather advanced feature that requires some Python scr
 
 Human eyes are able to perceive depth primarily in three ways:
 
-\*\*\*begin list
+- Using environmental cues such as haze, lighting, perspective, and existing knowledge of dimensions of common objects. Using this method, you can still get a sense of depth from looking at a flat picture.
 
-[lb]Using environmental cues such as haze, lighting, perspective, and existing knowledge of dimensions of common objects. Using this method, you can still get a sense of depth from looking at a flat picture.
+- Using the focusing distance of the eye, because things not in focus tend to be blurrier.
 
-[lb]Using the focusing distance of the eye, because things not in focus tend to be blurrier.
-
-[lb]Using the parallax distance between two eyes to see two slightly different images.
-
-\*\*\*end list
+- Using the parallax distance between two eyes to see two slightly different images.
 
 The basic idea behind all 3D stereoscopic techniques utilizes the third point on the list above: parallax. That is, to display a different image rendered from a slightly different perspective to each eye. There are many methods used today to make sure the left eye only sees the image intended to be seen by the left eye, and the right eye only sees the image intended for the right eye. Most 3D movie theaters achieve this by using polarized glasses combined with a dual-projector setup. Glass-based 3D TVs for consumers use shutter-glass that quickly alternates between blocking the left and the right eye, synchronized to a fast-refreshing screen that also alternates between right- and left-eye images.
 
 Blender can output stereoscopic renderings in many ways. Figure 5.40 shows how to set it up. But regardless of the final output format, it starts by rendering the scene twice, with a slight horizontal camera offset (controlled by the setting Eye Separation) to mimic the separation between the human eyes. For a typical viewing environment, the optimal eye separation is approximately Focal Distance / 30.
 
-\*\*\* Begin Note
-
-The Nitty Gritty Details
-
-Blender uses the zero parallax technique to set up the stereo cameras.
-
-\*\*\* End Note
+>**The Nitty Gritty Details**
+>
+>Blender uses the zero parallax technique to set up the stereo cameras.
 
 ![Stereo setting panel](../figures/Chapter5/Fig05-40.png)
 
 When Stereo mode is selected in the Render panel, as shown in Figure 5.40, six Stereo modes become available.
 
-**       ** [lb] **V-interlace and Interlaced:** The left and right images are interlaced together. This mode requires additional 3D hardware to see properly.
+- **V-interlace and Interlaced:** The left and right images are interlaced together. This mode requires additional 3D hardware to see properly.
 
-**       ** [lb] **        Above-Below:** The left and right images are stacked vertically. This mode also requires additional 3D hardware to see properly.
+- **Above-Below:** The left and right images are stacked vertically. This mode also requires additional 3D hardware to see properly.
 
-**       ** [lb] **        Side by Side:** The left and right images are placed next to each other without overlapping. In this Stereo mode, you should be able to see the 3D effect by crossing your eyes (really!). But this method of viewing 3D is very straining on the eyes. I do not recommend you try this for extended period of time.
+- **Side by Side:** The left and right images are placed next to each other without overlapping. In this Stereo mode, you should be able to see the 3D effect by crossing your eyes (really!). But this method of viewing 3D is very straining on the eyes. I do not recommend you try this for extended period of time.
 
-**       ** [lb] **Anaglyph:** In this mode, Blender filters the left and right images with a different color and then overlays them on top of each other. This mode requires the viewer to wear a pair of 3D glasses with tinted lens. The left eye should be tinted red and the right eye should be tinted cyan. With the glasses on, the colored lens should only allow one image to go through, blocking out the image for the other eye. This way of seeing 3D is less stressful than Side by Side, but requires the monitor to be sufficiently bright relative to the ambient environment for an optimum image. The only downside of this approach is the lack of accurate color representation.
+- **Anaglyph:** In this mode, Blender filters the left and right images with a different color and then overlays them on top of each other. This mode requires the viewer to wear a pair of 3D glasses with tinted lens. The left eye should be tinted red and the right eye should be tinted cyan. With the glasses on, the colored lens should only allow one image to go through, blocking out the image for the other eye. This way of seeing 3D is less stressful than Side by Side, but requires the monitor to be sufficiently bright relative to the ambient environment for an optimum image. The only downside of this approach is the lack of accurate color representation.
 
-**       ** [lb] **        Quad-Buffer:** Quad-Buffer is the natural extension to a typical double-buffer rendering system, which is used for single-eye rendering. This mode also requires additional hardware to display the image. Quad-Buffering is a native stereoscopic method supported by OpenGL. Unfortunately, it does not work on consumer-level Nvidia and ATI/AMD graphics cards; only the more expensive Nvidia Quadro and ATI/AMD FireGL support this functionality.
+- **Quad-Buffer:** Quad-Buffer is the natural extension to a typical double-buffer rendering system, which is used for single-eye rendering. This mode also requires additional hardware to display the image. Quad-Buffering is a native stereoscopic method supported by OpenGL. Unfortunately, it does not work on consumer-level Nvidia and ATI/AMD graphics cards; only the more expensive Nvidia Quadro and ATI/AMD FireGL support this functionality.
 
 ## Dome <a id="Dome"></a>
 
@@ -1267,31 +1215,24 @@ Dome settings can be enabled from the Render panel, as shown in Figure 5.43.
 
 ![Dome settings](../figures/Chapter5/Fig05-43.png)
 
-**       ** [lb] **        Dome type:** Controls how the images are mapped onto the screen. Cube Map shows you the raw render done by the dome engine, laid out in such a way to match how Blender stores the environment maps. This is mainly useful for debugging, or if you want to save the cube map for a different purpose. Other options include Spherical Panoramic, Front-Truncated, Rear-Truncated, and Fisheye. These choices warp the images in different ways to fit the screen. Try them out for yourself! Be careful, though-some of these settings can be very disorienting!
+- **Dome type:** Controls how the images are mapped onto the screen. Cube Map shows you the raw render done by the dome engine, laid out in such a way to match how Blender stores the environment maps. This is mainly useful for debugging, or if you want to save the cube map for a different purpose. Other options include Spherical Panoramic, Front-Truncated, Rear-Truncated, and Fisheye. These choices warp the images in different ways to fit the screen. Try them out for yourself! Be careful, though-some of these settings can be very disorienting!
 
-**       ** [lb] **        Resolution** : Sets the dimension of the render-to-texture images; a smaller value will give you better performance at the cost of a lower-resolution final image.
+- **Resolution** : Sets the dimension of the render-to-texture images; a smaller value will give you better performance at the cost of a lower-resolution final image.
 
-**       ** [lb] **Tessellation** : Sets the number of subdivisions of the mesh used for displaying the final image. A larger value means less distortion, but it will also be slower. You can check the effect of this setting by running the game in wireframe view.
+- **Tessellation** : Sets the number of subdivisions of the mesh used for displaying the final image. A larger value means less distortion, but it will also be slower. You can check the effect of this setting by running the game in wireframe view.
 
-**       ** [lb] **        Angle:** Sets the field of view of the camera.
+- **Angle:** Sets the field of view of the camera.
 
-**       ** [lb] **        Tilt** : Pitches the view up and down without actually rotating the in-game camera.
+- **Tilt** : Pitches the view up and down without actually rotating the in-game camera.
 
-\*\*\* Begin Caution
+>**Beware of Artifacts!**
+>
+>Because both stereo imaging and Dome mode require the game to reposition or reorient the camera to create multiple views per frame, certain camera-dependent texture and shading functions (such as normal and reflection, and specular highlights) might contain artifacts when rendered in Stereo or Dome mode.
 
-Beware of Artifacts!
-
-Because both stereo imaging and Dome mode require the game to reposition or reorient the camera to create multiple views per frame, certain camera-dependent texture and shading functions (such as normal and reflection, and specular highlights) might contain artifacts when rendered in Stereo or Dome mode.
-
-\*\*\* End Caution
-
-##
-#
-[ANNOTATION:
-
-BY 'Mike Pan'
-ON '2013-04-10T07:30:00'MP
-NOTE: 'Before that, still in domes, maybe talk about warping mesh? The wiki page covers it nicely/simply. You can even be shorter than there.']
-Wrap Up
+//TODO
+//BY 'Mike Pan'
+//ON '2013-04-10T07:30:00'MP
+//NOTE: 'Before that, still in domes, maybe talk about warping mesh? The wiki page covers it nicely/simply. You can even be shorter than there.']
+//
 
 Before you get carried away with creating the ultimate eye candy, keep in mind that a realistic game isn't just about visual fidelity. As John Carmack (the technical director of id Software, known for _Doom_ and _Quake_ series) noted at QuakeCon 2009: No matter how good a scene looks graphically, it only takes one frame of awkward animation to completely break the illusion of realism. Many games today have achieved near-photorealistic graphics, but once the character starts to move, it becomes painfully obvious how artificial everything is. So keep in mind that even the most detailed 3D model can't immerse the gamer in a fantasy world if the gameplay, sound, or animation doesn't measure up.
