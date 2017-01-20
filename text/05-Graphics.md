@@ -115,7 +115,7 @@ This is the easiest Shading mode to use, since the same materials and textures s
 
 
 
-### Material and Textures
+#### Material and Textures
 
 To help you get to know the material system better, let's play around with a sample file.
 
@@ -129,7 +129,7 @@ The next two sections will go over each option in the Material and Texture panel
 
 
 
-####  The Material Panel
+#####  The Material Panel
 
 In GLSL1.blend, you'll see the Material panel on the right side of the 3D Viewport. In the demo setup, the material attached to the floor is shown by default. Recall that this panel was already discussed briefly in Chapter 2, so go ahead and play around with the settings and see how they affect the model in the 3D view in real time.
 
@@ -141,7 +141,7 @@ If you are already familiar with the material system of Blender, you'll be right
 
 
 
-##### Material Management
+###### Material Management
 
 The very top section of the Material panel lets you manage the material data blocks. Since each object can have multiple materials, the box shows a list of all the materials attached to the active object. Selected materials are highlighted in blue.
 
@@ -151,7 +151,7 @@ To create a first material for an object:
 2. In the Material panel below the Material Slot List, click on the [+ New] icon to create a new material for the object.
 3. Since the object has no material, by default the new material will be applied to the entire object.
 
-##### Multi-Material Objects
+###### Multi-Material Objects
 
 If the object has an existing material, you can create another material and assign the new materials to part of the mesh as follows:
 
@@ -181,7 +181,7 @@ The concept of datablock is very important in Blender: it allows you to effectiv
 
 
 
-##### Object vs. Data
+###### Object vs. Data
 
 You might have noticed another pull-down menu beside the New Material button. This link selector controls whether the material is linked to the object or the object data (also known as _mesh_). This distinction is practically negligible for single objects, but if you have an object with shared mesh in the scene, the difference becomes important.
 
@@ -201,13 +201,13 @@ On the other hand, if the material is linked to an object, duplicating the objec
 
 
 
-##### Preview
+###### Preview
 
 The Preview panel shows how the selected material would look if rendered. Because of the generic models and a single light source, the accuracy of the preview is limited if the material relies on a complex lighting setup. You can usually get a more accurate preview directly from the 3D Viewport. Just remember to make sure that Viewport shading is set to Textured by toggling Alt+Z.
 
 
 
-##### Diffuse
+###### Diffuse
 
 Diffuse is the soft (matte), reflected component of a surface. Compared to specular highlights below, diffused light is not viewing-angle dependent.
 
@@ -229,7 +229,7 @@ As a different shading algorithm is selected, additional options for that partic
 
 
 
-##### Specular
+###### Specular
 
 Specular is the hard (glossy), reflected component of a surface. It is viewing-angle dependent: as the camera, object, or light moves relative to each other, the specular highlight appears to move along the surface. With the color selector, you can change the color of the specular highlight. Most materials (plastic, wood, glass) have a white specular highlight. The only common material that can physically have a colored specular highlight is colored metal, such as gold and copper. Figure 5.17 shows three different specular settings.
 
@@ -241,7 +241,7 @@ Just like diffuse, there are different algorithms to achieve different-looking s
 
 
 
-##### Ramp
+###### Ramp
 
 Ramp lets you add an arbitrary color gradient to the object. Its power lies in the fact that you can map a color palette onto the object in many different ways. Some common uses for the ramp shader include adding a "peach fuzz" to skin material and adding rim light to objects for dramatic effect.
 
@@ -274,7 +274,7 @@ Both diffuse and specular channels can have their own ramp. While the diffuse ra
 
 
 
-##### Shading
+###### Shading
 
 **Emit**: Controls how much light a surface appears to give off. A non-zero value means a surface is visible even when it's completely unlit. Because emit is a material property, and not a real light source, you cannot rely on using emit materials to light up other objects in the scene. Emit is often used to simulate surfaces that give off light on their own.
 
@@ -292,7 +292,7 @@ Both diffuse and specular channels can have their own ramp. While the diffuse ra
 
 **Cubic Interpolation:** When enabled, gives a smoother transition from light to shadow, at the cost of a slight performance decrease. For certain smooth shapes like spheres, this option helps the shape look more natural.
 
-##### Game Settings
+###### Game Settings
 
 **Backface Culling:** When disabled, makes both sides of a face visible when running the game. By default, only the front side of the face is rendered for performance reasons, while the backside of a face is invisible. This is not critical for most new computers, if you are to handle a few faces. However, it's better to take the safe approach and disable backface culling only when you need double-sided faces.
 
@@ -332,11 +332,11 @@ Remember that face orientation is applied after logic and physics calculations. 
 
 
 
-##### Physics
+###### Physics
 
 The physics setting controls some of the physics property of the surface. They do not affect the visual property of the object but change the way the object interacts under the physics engine. Jump to Chapter 6 if you want to learn about these settings.
 
-##### Additional Options
+###### Additional Options
 
 - **Exclude Mist:** Excludes the object from the mist calculation when enabled. Mist is a world setting that can be accessed from the World panel.
   - Face Textures: Forces Blender to replace the diffuse color of the material with the UV texture. This is an easy way to apply a simple texture onto a material without creating a texture data block for the material.
@@ -349,7 +349,7 @@ So far, we have covered all the functionalities of the Material panel. Most of t
 
 
 
-#### The Texture Panel
+##### The Texture Panel
 
 Texture is the main way to add details to a surface without adding extra polygons. It is done by mapping a 2D image onto the surface of the 3D object. Figure 5.21 illustrates the concept of texture mapping.
 
@@ -357,7 +357,7 @@ Texture is the main way to add details to a surface without adding extra polygon
 
 
 
-##### Texture Data Blocks
+###### Texture Data Blocks
 
 Texture data blocks are almost always linked to a material (see note below for exception). Each material can have multiple textures, and through layering and blending of textures, complex effects can be achieved. The top area of the Texture Panel shows you all the textures attached to the active material.
 
@@ -380,7 +380,7 @@ Note that in Blender, texture slots are ordered so that textures further down th
 
 
 
-##### Image
+###### Image
 
 To load an image as a texture, you can either:
 
@@ -398,7 +398,7 @@ Once an image is loaded, you have some options to change the way the color space
 
 
 
-##### Image Sampling Panel
+###### Image Sampling Panel
 
 The Image Sampling panel contains some of the options that change how the image is interpreted inside Blender:
 
@@ -407,7 +407,7 @@ The Image Sampling panel contains some of the options that change how the image 
 
 
 
-##### Mapping Panel
+###### Mapping Panel
 
 Mapping controls how the 2D texture is mapped onto the 3D object. Available options include global, object, generated, UV, reflection, and normal. The default option, generated, might work in some very simple cases. But most of the time, you will need to use the UV/Image Editor to control exactly how the image is projected onto the object. Using the UV/Image Editor is covered in Chapter 2. When the UV mapping is selected, you can specify which UV channel to use, if there is more than one UV layout for the mesh.
 
@@ -417,7 +417,7 @@ Mapping controls how the 2D texture is mapped onto the 3D object. Available opti
 
   ​
 
-##### Influence Panel
+###### Influence Panel
 
 This panel controls how the value of the texture is actually applied onto the surface. By default, color is selected with the influence set to 1. This means that the texture completely replaces the diffuse color of the material. A setting of 0 means there is no influence, effectively disabling the texture channel. Any in-between number will blend the current texture with the layer preceding it.
 
@@ -532,7 +532,7 @@ There is a new setting in Blender 2.66 under the Render Properties Editor called
 
 \*\*\* End Note
 
-### Nodes
+#### Nodes
 
 Node is a new way to work with materials and textures in Blender. Instead of using a panel-style user interface to define a material, nodes allow you to build up materials using basic components. This may seem like a step backward because it will probably take much longer to create a simple material in the Node Editor than using the Material and Texture panels to achieve the same effect. But node offers the artist the freedom to accomplish much more than what is possible using the fixed Material and Texture panels.
 
@@ -566,7 +566,7 @@ Some typical uses for node-based materials include:
 
 \*\*\* End List
 
-## Multitexture
+### Multitexture
 
 Multitexture is older than the GLSL shading mode, but still far more capable than the singletexture material system.
 
@@ -979,7 +979,7 @@ Even though GLSL can seem daunting at first, plenty of learning material is avai
 
 2D filters are post-processing GLSL shaders that are applied to each frame right before it is displayed. 2D filters can be used to enhance the looks of the image and add special screen-space effects. There are a few built-in shaders that come with Blender to get you started, but 2D filters also allow custom-written GLSL shaders to give you the freedom to do potentially a lot more.
 
-## Why Use 2D Filters?
+### Why Use 2D Filters?
 
 Using 2D filters makes it easy to tweak the mood of your visual, without having to rework the lighting, material, or textures. Because a 2D filter operates on an image (the frame buffer) and not the individual 3D objects, the 2D filter's performance is not dependent on the complexity of the scene, only the number of pixels on the screen and the complexity of the effect itself.
 
@@ -1003,7 +1003,7 @@ The capabilities of 2D filters:
 
 ![Sample Filters: Normal color, grayscale, blur, sepia](../figures/Chapter5/Fig05-37.jpg)
 
-## How to Use 2D Filters
+### How to Use 2D Filters
 
 The 2D filters can be accessed as a standard actuator in the Logic Editor window. If you are rusty on what the Logic Editor does, refer to Chapter 3.
 
@@ -1027,7 +1027,7 @@ Custom Filter is used to specify arbitrary shaders. It is useful when the built-
 
 With the pass system, you can make a very robust post-processing stack. You can set up a few filters to be run on an Always sensor to do some basic color correction and add the effects that will always be enabled. Then you can set up a few more filters that are enabled momentarily when you need them.
 
-## Custom Filter
+### Custom Filter
 
 A very simple custom 2D filter is shown below:
 
@@ -1042,7 +1042,7 @@ void main(void)
 
 If the above code looks somewhat familiar, it's probably because a 2D filter is really just a GLSL fragment shader. This shader fetches the color of the current pixel, multiplies it by 1.5, and displays the result. This produces an image with higher contrast than the original.
 
-## Limitations
+### Limitations
 
 2D filter can be read from the following inputs:
 
