@@ -13,7 +13,7 @@ This is a republication of the book originally published by Cengage. We put the 
 
 [Chapter 4 - Animation](text/04-Animation.md)
 
-Chapter 5 - Graphics - Not Ready
+[Chapter 5 - Graphics](text/05-Graphics.md)
 
 [Chapter 6 - Physics](text/06-Physics.md)
 
