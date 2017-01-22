@@ -1,14 +1,20 @@
-Slug: Mastering Game Blender Engine
+**Table of Contents**
 
-Production: Please replace [md] with em dash
+- [Chapter 10: Case Studies](#Chapter 10: Case Studies)
+	- [Super Blender Galaxy](#Super Blender Galaxy)
+	- [Lucy and the Time Machine](#Lucy and the Time Machine)
+	- [The FPS Project](#The FPS Project)
+	- [Whip Frog](#Whip Frog)
+	- [Tectonic](#Tectonic)
+	- [Sintel The Game](#Sintel The Game)
+	- [CAVE](#CAVE)
+	- [Color Cube](#Color Cube)
+	- [Jogo da Coleta - Recycle It 2.0](#Jogo da Coleta - Recycle It 2.0)
+	- [World Cup Stadiums](#World Cup Stadiums)
+	- [OceanViz](#OceanViz)
+	- [Cosmic Sensation](#Cosmic Sensation)
 
-[c] copyright symbol
-
-[r] registered mark
-
-# Chapter 10
-
-# Case Studies
+# Chapter 10: Case Studies <a id="Chapter 10: Case Studies"></a>
 
 By now you should have a very good command of the Blender game engine. Armed with this newfound skill, no doubt you are bursting with ideas. Whether you are working alone or with a team, completing a game from start to finish is a lot of work. It is also a lot different from the examples and tutorials we used in the book, which are often stripped down to the most basic in order to be didactic. Real-world productions usually involve many more files, which are larger, more complex, and messier. This chapter tries to ease the transition between the classroom and the real world by showcasing other people's finished work.
 
@@ -16,31 +22,22 @@ The Blender-made games selected for this chapter represent some of the best work
 
 All the games mentioned here can be found on the book website for you to play, and when the authors are willing, the blend source files are also provided so that you can freely explore the file on your own. You will notice that each artist has a unique style in file organization, scene structure, techniques, and tricks. Most of these tricks might be invisible to the player when the game is running. But by looking at the source file, you can gain much insight into how the game is made.
 
-\*\*\* Begin Note
+>**Blender Versions Clash**
+>
+>We worked hard with the authors of these games to make sure that all the included games on the disk are playable in the latest version of Blender; however, due to limited time, some games might require a different version of Blender to run. Refer to the readme.txt file within each game folder for system requirement.
 
-Blender Versions Clash
-
-We worked hard with the authors of these games to make sure that all the included games on the disk are playable in the latest version of Blender; however, due to limited time, some games might require a different version of Blender to run. Refer to the readme.txt file within each game folder for system requirement.
-
-\*\*\* End Note
-
-# Super Blender Galaxy
+## Super Blender Galaxy <a id="Super Blender Galaxy"></a>
 
 Carlos Limon
 
-Production: No figure numbers and no captions throughout this chapter. Just put in the pictures with the credits underneath them, please.
+![Carlos Limon](../figures/Chapter10/Fig10-01.png)
+_[c] 2014 Carlos Limon._
 
-\*\*\*Insert Fig10-01.tif
+![Carlos Limon](../figures/Chapter10/Fig10-02.png)
+_[c] 2014 Carlos Limon._
 
-[c] 2014 Carlos Limon.
-
-\*\*\*Insert Fig10-02.tif
-
-[c] 2014 Carlos Limon.
-
-\*\*\*Insert Fig10-03.tif
-
-[c] 2014 Carlos Limon.
+![Carlos Limon](../figures/Chapter10/Fig10-03.png)
+_[c] 2014 Carlos Limon._
 
 Super Blender Galaxy wooed the Blender community with its fantastic artwork and slick gameplay. Carlos Limon is a relatively new member to Blender, but he wasted no time in single-handedly creating a stunning game that took home a very well deserved first place in the 2010 Blender Game competition.
 
@@ -62,21 +59,15 @@ The Blender community helped me throughout the process, although no one knew wha
 
 Carlos aspires to become a game developer and is currently studying Game Development and Computer Programming in San Antonio, Texas. A playable version of the game is available on the accompanying disk.
 
-# Lucy and the Time Machine
+## Lucy and the Time Machine <a id="Lucy and the Time Machine"></a>
 
 Vitor Balbio, Bernardo Hasselman
 
-\*\*\*Insert Fig10-04.tif
+![Vitor Balbio](../figures/Chapter10/Fig10-04.png)
 
-[2014] Vitor Balbio
+![Vitor Balbio](../figures/Chapter10/Fig10-05.png)
 
-\*\*\*Insert Fig10-05.tif
-
-[2014] Vitor Balbio
-
-\*\*\*Insert Fig10-06.tif
-
-[2014] Vitor Balbio
+![Vitor Balbio](../figures/Chapter10/Fig10-06.png)
 
 Every year the Blender community hosts game engine contests that invite people to create and share their Blender skills. As a response to the contest, in 2010, Vitor Balbio teamed up with Bernardo Hasselman, who contributed to the concepts, story, and level design. Together, they created a perfectly executed platform-puzzle game that forever raises the bar for Blender-made games. The result is a game with a rich story that involves Jules Verne, a Time Machine, and a robot sidekick, all taking place in a beautifully rendered 3D environment.
 
@@ -98,17 +89,17 @@ Despite its limitations, I see Blender as an excellent tool for diverse goals. I
 
 Our future plans are to port _Lucy_ for other publishing platforms, such as WebPlayer and iOS. Our goal is to stick to Blender for prototyping though.
 
-Keep Blending!"
+Keep Blending!
 
 Vitor Balbio's previous work includes a stunning looking demo scene called "Ruínas" (Ruins), which competed in the graphics category in an early edition of the same competition. Information about _Lucy and The Time Machine_ can be found on Vitor's blog (in Portuguese): [_http://obalbio3d.wordpress.com/_](http://obalbio3d.wordpress.com/)
 
-# The FPS Project
+## The FPS Project <a id="The FPS Project"></a>
 
 Chase Moskal, Geoff Gollmer, Martins Upitis, Mitchell Stokes, Daniel Stokes, Lonnie Ralfs, Fleeky Flanco, Thomas Lobig
 
-\*\*\*Insert Fig10-07.tif
+![The FPS Project](../figures/Chapter10/Fig10-07.png)
 
-\*\*\*Insert Fig10-08.tif
+![The FPS Project](../figures/Chapter10/Fig10-08.png)
 
 The _First-Person-Shooter Project_ was an attempt to create a solid online multiplayer shooter in the game engine. It began a few years ago with Chase and his good friends, Geoff and Lonnie. All three had played around with the game engine for years, and had always wanted to make an FPS, a goal that certainly aligned with the interests of many gamers and game developers alike. The project took off with enthusiasm and energy. Unfortunately, high self-expectations led to a loss of focus as the project progressed[md]the project lost steam as the game's complexity spiraled out of control. This all-too-familiar story is unfortunately common to many amateur game developers. The _FPS Project_ is currently undergoing a refactoring, and Chase hopes that this time, by keeping the project goals clear and reasonable, the project will not reach the same fate as last time.
 
@@ -130,17 +121,13 @@ It's not all doom and gloom, though. After a long stretch of inactivity, Geoff a
 
 As the project is undergoing a restructuring, no file is available to the public yet. You can learn more about the FPS project at _https://code.google.com/p/fps-project/._
 
-# Whip Frog
+## Whip Frog <a id="Whip Frog"></a>
 
 David Thompson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone
 
-\*\*\*Insert Fig10-09.tif
+![David Thomson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone](../figures/Chapter10/Fig10-09.png)
 
-[c] David Thomson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone
-
-\*\*\*Insert Fig10-10.tif
-
-[c] David Thomson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone
+![David Thomson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone](../figures/Chapter10/Fig10-10.png)
 
 How fast can you build a game? A month? A week? What would you do if you only had 48 hours to make a game with a group of five people? This is the premise of Global Game Jam, an annual event that invites developers and artists to come together to create games from scratch within 48 hours. Alex Fraser participated in the 2011 Game Jam with Blender developer Campbell Barton and three other artists. During those two days, they each slept only a few hours per night, each accomplishing the equivalent of a full week's worth of work by the end of the Jam.
 
@@ -164,17 +151,13 @@ Everyone agrees that the biggest challenge during the Game Jam is  forcing yours
 
 You can learn more about this game at _http://globalgamejam.org/2011/whip-frog._
 
-# Tectonic
+## Tectonic <a id="Tectonic"></a>
 
 Andrew Bentley
 
-\*\*\*Insert Fig10-11.tif
+![Tectonic](../figures/Chapter10/Fig10-11.png)
 
-[c] 2014 Andrew Bentley
-
-\*\*\*Insert Fig10-12.tif
-
-[c] 2014 Andrew Bentley
+![Tectonic](../figures/Chapter10/Fig10-12.png)
 
 Being a 2D game that looks like something ported from the Nintendo 64 era, _Tectonic_ might not look like a groundbreaking game at first glance. But after trying it out, you will be thoroughly impressed with the innovative gameplay mechanics and progressively harder levels that have many of the hallmarks of a professionally made game. If you take it one step further and dive into the source code of the game, you will be impressed as well by the design and programming behind the game's puzzle engine.
 
@@ -196,19 +179,15 @@ Andrew (19-years-old) lives in Melbourne, Australia and is attending university.
 
 sfxr is a simple sound synthesizer, which can be found at [https://code.google.com/p/sfxr/](https://code.google.com/p/sfxr/)
 
-BGUI is maintained by Mitchell Stokes (Moguri) and can be found at [https://code.google.com/p/bgui/](https://code.google.com/p/bgui/)
+BGUI is maintained by Mitchell Stokes (Moguri) and can be found at [https://github.com/Moguri/bgui](https://github.com/Moguri/bgui)
 
-# Sintel The Game
+## Sintel The Game <a id="Sintel The Game"></a>
 
 Jonathan Buresh, Noah Summers, Malcolm Corliss, David Barker , James Raymond, David Jogoo and Carlos Andreacchio
 
-\*\*\*Insert Fig10-13.tif
+![Sintel The Game](../figures/Chapter10/Fig10-13.png)
 
-[c] 2014 Jonathan Buresh and Team.
-
-\*\*\*Insert Fig10-14.tif
-
-[c] 2014 Jonathan Buresh and Team.
+![Sintel The Game](../figures/Chapter10/Fig10-14.png)
 
 _Sintel_ is Blender Institute's third open movie project, after _Elephants Dream_ and _Big Buck Bunny.__Sintel_, like its predecessors, is unique because all the production files used in the film were released under a Creative Commons License. This encourages remixing and reusing of the character, storyline, and the asset files. _Sintel The Game_ takes advantage of this by taking story inspirations and characters from the movie. It is an adventure role-playing game that is set in the Sintel universe.
 
@@ -228,13 +207,11 @@ Even though the game engine does suffer from limitations, it is always improving
 
 The development team of _Sintel The Game_ is not affiliated with the Blender Institute. _Sintel The Game_ is still under development. You can watch their progress, support them, or contribute at _http://sintelgame.org/._
 
-# CAVE
+## CAVE <a id="CAVE"></a>
 
 Jorge Gascón Pérez
 
-\*\*\*Insert Fig10-15.tif
-
-[c] 2014 Jorge Gascón Pérez
+![CAVE](../figures/Chapter10/Fig10-15.png)
 
 CAVE stands for Cave Automatic Virtual Environment, and it is a cubical room where all the ceiling, floor, and walls are screens. Used for virtual reality applications, a participant standing in a CAVE would be completely surrounded by projected images. Each wall shows the image cast by a video projector, and each in turn is driven by a computer. For this project, the game engine is used to create the virtual reality world displayed by the CAVE. However, unlike most virtual reality applications where the display is a single screen, the CAVE is made up of many screens, each with a field of view of 90 degrees. So a special arrangement is required to set up the game engine to render the scene from multiple angles at the same time. In this particular installation, Jorge put together a system that allows multiple instances of Blender to run on different computers in order to provide a unique view of each wall of the CAVE. This approach requires a method to synchronize the game state across multiple computers so that the image outputted by each instance of Blender is completely synchronized with the others.
 
@@ -250,17 +227,13 @@ Although the Blender game engine has no network capabilities (yet), it is really
 
 BlenderCave is an ongoing research project. You can follow its progress and download source code at [_http://gmrv.es/~jgascon/BlenderCave/index.html_](http://gmrv.es/~jgascon/BlenderCave/index.html)_._
 
-# Color Cube
+## Color Cube <a id="Color Cube"></a>
 
 Quentin Bolsée, Benoit Bolsée
 
-\*\*\*Insert Fig10-16.tif
+![Color Cube](../figures/Chapter10/Fig10-16.png)
 
-[c] 2014 Quentin and Benoit Bolsee.
-
-\*\*\*Insert Fig10-17.tif
-
-[c] 2014 Quentin and Benoit Bolsee.
+![Color Cube](../figures/Chapter10/Fig10-17.png)
 
 What do you get when you combine an original gameplay idea, a talented artist, and the Blender game engine? Something that might look like _Color Cube._
 
@@ -280,13 +253,11 @@ _Colorcube_ is available as a trial and commercial game for Windows, Mac, Linux,
 
 A demo version of the game is available from the accompanying online material.
 
-# Jogo da Coleta[md]Recycle It 2.0
+## Jogo da Coleta - Recycle It 2.0 <a id="Jogo da Coleta - Recycle It 2.0"></a>
 
 Diego Rangel
 
-\*\*\*Insert Fig10-18.tif
-
-[2014] Diego Rangel.
+![Jogo da Coleta - Recycle It 2.0](../figures/Chapter10/Fig10-18.png)
 
 A game doesn't have to be complex or epic. There is a huge market for casual games[md]games that you can play from a smartphone or a Web browser without having to sit through endless cut scenes and cinematic storytelling. _Recyle It_ is one such game that is simple to play, but carries a strong message.
 
@@ -304,17 +275,13 @@ All the gameplay logic was planned ahead of the modeling and programming stages.
 
 During the course of this game development, the Blender game engine met all my requirements. The logic brick system allowed for quick implementation of ideas. Furthermore, the speed gain from having the game engine integrated with a full asset creation package (for example, Blender itself) was wonderful. The Blender game engine fulfilled its duties for this project. It seemed especially attractive for small and medium projects, in particular for one-man projects like this."
 
-# World Cup Stadiums
+## World Cup Stadiums <a id="World Cup Stadiums"></a>
 
 Chico Ortiz, Yorik van Havre, Maíra Zasso
 
-\*\*\*Insert Fig10-19.tif
+![World Cup Stadiums](../figures/Chapter10/Fig10-19.png)
 
-[c] 2014 Chico Ortiz and Team.
-
-\*\*\*Insert Fig10-20.tif
-
-[c] 2014 Chico Ortiz and Team.
+![World Cup Stadiums](../figures/Chapter10/Fig10-20.png)
 
 _World Cup Stadium_ is a project that used Blender to create an interactive showcase of the sports venues at the 2010 World Cup. The interactive kiosk allows people to explore the different football stadiums and their surroundings using just a mouse. Furthermore, you can view the stadium from the perspective of the field, a view that most of us rarely have an opportunity to experience in real life. Two kiosks were installed at a Brazilian Cultural Center in São Paulo, Brazil during the game.
 
@@ -332,16 +299,13 @@ Chico, Maíra, and Yorik are all architects who are big fans of open-source soft
 
 The original project was made in Blender 2.49, but was ported to Blender 2.5 later. More information on this project is available from: [_http://yorik.uncreated.net/guestblog.php?2010=89_](http://yorik.uncreated.net/guestblog.php?2010=89)_._
 
-# OceanViz
+## OceanViz <a id="OceanViz"></a>
 
 Dalai Felinto, Mike Pan, Stephen Danic
 
-\*\*\*Insert Fig10-21.tif
+![OceanViz](../figures/Chapter10/Fig10-21.png)
 
-[c] 2014 Dalai Felinto, Mike Pan, and Stephen Danic.
-
-\*\*\*Insert Fig 10-24.tif: Note: This number is out of order, as the figure was added late.
-
+![OceanViz](../figures/Chapter10/Fig10-22.png)
 _OceanViz_ [c] UBC Fisheries Centre; EwE plug-in Jeroen Steenbeek and Dalai Felinto
 
 Blender was used extensively at the Fisheries Centre at the University of British Columbia as a visualization and media production tool. Using 3D visualization to aid in the display of scientific data at Fisheries Centre was first implemented by a small team of artists led by Stephen Danic from the Centre for Digital Media in Vancouver. Both authors of this book got involved in the project later on, and worked to produce a number of short films and interactive applications over the past four years.
@@ -360,17 +324,13 @@ In its current iteration, _OceanViz_ is implemented as a plug-in for the Ecopath
 
 The _OceanViz_ project was conceived by professor Dr. Villy Christensen. The EwE development team that supports the _OceanViz_ consists of Jeroen Steenbeek and Joe Buszowski, with past support from Sherman Lai and Sundaran Kumar.
 
-# Cosmic Sensation
+## Cosmic Sensation <a id="Cosmic Sensation"></a>
 
 Dalai Felinto, Martins Upitis, Mike Pan
 
-\*\*\*Insert Fig10-22.tif
+![Cosmic Sensation](../figures/Chapter10/Fig10-23.png)
 
-[c] 2014 Dalai Felinto, Martins Upitis, and Mike Pan.
-
-\*\*\*Insert Fig10-23.tif
-
-[c] 2014 Dalai Felinto, Martins Upitis, and Mike Pan.
+![Cosmic Sensation](../figures/Chapter10/Fig10-24.png)
 
 Somewhere in the Netherlands, there was a Blender project that involved cosmic particles detectors, a 30-meter tall immersive dome, a three-day party with Euro-disco music, and lots of beer. We worked on that project.
 
@@ -392,4 +352,4 @@ During those 10 days, there were a lot of sleepless nights and way too many ener
 
 The Cosmic Sensation project was an initiative of professor Dr. Sijbrand de Jong from the Radboud University along with Barney Broomer, producer and full-dome specialist.
 
-Videos, photos and description of the event can be found at _http://www.dalaifelinto.com/?page\_id=445_.
+Videos, photos and description of the event can be found at _http://www.dalaifelinto.com/?page_id=445_.
