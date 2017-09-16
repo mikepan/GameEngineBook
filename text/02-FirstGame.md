@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 2: First Game](#Chapter_2_First_Game)
+- [Chapter 2: First Game](#Chapter_2:_First_Game)
 	- [Game Idea](#Game_Idea)
 	- [Game Elements](#Game_Elements)
 	- [File Organization, Datablocks, and Linking](#File_Organization,_Datablocks,_and_Linking)
@@ -19,7 +19,7 @@
 	- [Music for Your Ears](#Music_for_Your_Ears)
 	- [Where to Go from Here](#Where_to_Go_from_Here)
 
-# Chapter 2: First Game <a id="Chapter_2_First_Game"></a>
+# Chapter 2: First Game <a id="First_Game"></a>
 
 In this chapter, we are going through the steps of making a simple game, from start to finish. The first goal is to keep your Blender knowledge up-to-date. Second, this is a chance to present an overview of the game's workflow. From this point on, you should be able to read the chapters in this book in any given order, according to your needs.
 
@@ -100,10 +100,10 @@ For appending part of another blender file click on File > Append (Shift + F1). 
 >**Tips**
 >
 >- In big and complex blender files there are many files (datablocks) and you may have problems in finding your intended file. You can search items through search box in the top right of the dialog (even with wildcards). Also you can filter data blocks and items in the Filter tab.
-><img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-3.png" align="center">
+><img alt="Shape_keys_animation." src="../figures/Chapter2/Fig02-02-3.png" align="center">
 >
 >- You can use thumbnails to find some datablock types easier. Before using this feature, use File > Data Previews commands to generate thumbnails for datablocks (like materials, textures, ...).
-><img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-4.png" align="center">
+><img alt="Shape_keys_animation." src="../figures/Chapter2/Fig02-02-4.png" align="center">
 
 The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_-the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
 
