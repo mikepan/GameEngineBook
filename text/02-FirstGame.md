@@ -1,31 +1,31 @@
 **Table of Contents**
 
-- [Chapter 2: First Game](#Chapter 2: First Game)
-	- [Game Idea](#Game Idea)
-	- [Game Elements](#Game Elements)
-	- [File Organization, Datablocks, and Linking](#File Organization, Datablocks, and Linking)
+- [Chapter 2: First Game](#Chapter_2_First_Game)
+	- [Game Idea](#Game_Idea)
+	- [Game Elements](#Game_Elements)
+	- [File Organization, Datablocks, and Linking](#File_Organization,_Datablocks,_and_Linking)
 	- [Datablocks](#Datablocks)
-	- [Linking and Appending](#Linking and Appending)
-	- [How to Use the Chapter Files](#How to Use the Chapter Files)
+	- [Linking and Appending](#Linking_and_Appending)
+	- [How to Use the Chapter Files](#How_to_Use_the_Chapter_Files)
 	- [Modeling](#Modeling)
 	- [Texturing](#Texturing)
 	- [Rigging](#Rigging)
 	- [Animation](#Animation)
-	- [Camera and Keyboard](#Camera and Keyboard)
-	- [World and Environment](#World and Environment)
-	- [Artificial Intelligence](#Artificial Intelligence)
-	- [All You Can Eat](#All You Can Eat)
-	- [Scoring System](#Scoring System)
-	- [Music for Your Ears](#Music for Your Ears)
-	- [Where to Go from Here](#Where to Go from Here)
+	- [Camera and Keyboard](#Camera_and_Keyboard)
+	- [World and Environment](#World_and_Environment)
+	- [Artificial Intelligence](#Artificial_Intelligence)
+	- [All You Can Eat](#All_You_Can_Eat)
+	- [Scoring System](#Scoring_System)
+	- [Music for Your Ears](#Music_for_Your_Ears)
+	- [Where to Go from Here](#Where_to_Go_from_Here)
 
-# Chapter 2: First Game <a id="First Game"></a>
+# Chapter 2: First Game <a id="Chapter_2_First_Game"></a>
 
 In this chapter, we are going through the steps of making a simple game, from start to finish. The first goal is to keep your Blender knowledge up-to-date. Second, this is a chance to present an overview of the game's workflow. From this point on, you should be able to read the chapters in this book in any given order, according to your needs.
 
 Welcome to _Feed The Shark,_ the game.
 
-## Game Idea <a id="Game Idea"></a>
+## Game Idea <a id="Game_Idea"></a>
 
 _The shark population has been depleted worldwide. Studies suggest that overfishing and the illegal marketing of shark fins has impacted not only the top predator of the oceans but also brought imbalance to the whole ecosystem._
 
@@ -42,7 +42,7 @@ To make it more like a game, we will wrap it with a score system and an omnipres
 ![Feed The Shark, the game.](../figures/Chapter2/Fig02-01.png)
 
 
-## Game Elements <a id="Game Elements"></a>
+## Game Elements <a id="Game_Elements"></a>
 
 This minimalistic game will consist of:
 
@@ -55,7 +55,7 @@ We are not covering all the topics extensively. We will, however, walk you throu
 
 If you are already familiar with Blender as an asset-making tool, you might skip some of those steps. You will find incremental snapshots for all the individual parts here on this site.
 
-## File Organization, Datablocks, and Linking <a id="File Organization, Datablocks, and Linking"></a>
+## File Organization, Datablocks, and Linking <a id="File_Organization,_Datablocks,_and_Linking"></a>
 
 _Starting with the right fin…_
 
@@ -81,7 +81,7 @@ Now let's look at armatures and actions. Only after you are done with your riggi
 
 But how do we keep them linked while in separate files?
 
-## Linking and Appending <a id="Linking and Appending"></a>
+## Linking and Appending <a id="Linking_and_Appending"></a>
 
 There are four ways of adding new objects and other datablocks to your Blender file:
 - You can build them from scratch.
@@ -113,7 +113,7 @@ As you will see from our file structure (explained next), we will be using mostl
 
 You don't simply dump the whole Blender file inside yours. Instead, you can navigate inside the file structure and bring in only an object, or a group, material, or even an entire scene. We will be linking the shark, interface, environment, and other fish in the main file. We could also do nested linking, by having one of the library files link another file inside it (for example, the actions could be linked in the armature files).
 
-## How to Use the Chapter Files <a id="How to Use the Chapter Files"></a>
+## How to Use the Chapter Files <a id="How_to_Use_the_Chapter_Files"></a>
 
 On the Book files, you can find the complete game(exercise) in the folder Book/Chapter02/game/_final/.
 
@@ -366,7 +366,7 @@ The current snapshot of this file is //assets/shark.10.blend.
 
 You can also do a "SharkAttack" animation. For a smooth transition, make the new action with the same initial and final poses as the "SharkSwimming." If you go with that, use the attack animation when the shark eats a fish.
 
-## Camera and Keyboard <a id="Camera and Keyboard"></a>
+## Camera and Keyboard <a id="Camera_and_Keyboard"></a>
 
 After all the hard work of setting up your main character, it's time to bring in the game. If you play (P) the game now, you will see nothing but the shark standing still.
 
@@ -424,7 +424,7 @@ If you are modeling everything from scratch, you should tweak the speed and angl
 
 With the shark alone in the scene, it's hard to tell how it is moving. It's time to add other objects to the scene so you can make sure that the camera settings and the shark motion are well adjusted. Thus, the next step is to add the world (the SeaBed et al). In the meantime, you can compare the status of your file with: //assets/shark.12.blend.
 
-## World and Environment <a id="World and Environment"></a>
+## World and Environment <a id="World_and_Environment"></a>
 
 We will leave the shark file for now and put the game pieces together. Open the file //game.1.blend. This empty file will be the main file of the game. If you want to start a file from scratch, open the Blender default file, delete everything from it (press A to select all and then X to delete), and change engine to Blender Game and Shading mode to GLSL.
 
@@ -458,7 +458,7 @@ In order to preview the color and the mist effect in the 3D Viewport, you need t
 
 Play your game and swim around with the shark. However, there is one basic element missing in our survival shark game: the food.
 
-## Artificial Intelligence <a id="Artificial Intelligence"></a>
+## Artificial Intelligence <a id="Artificial_Intelligence"></a>
 
 While the shark is 100 percent interactive, controlled by the player, the fish will be controlled through a simple AI (artificial intelligence) mechanic. The principles are simple: the fish's swimming cycle is handled by logic bricks, while the fish's constant spawning inflow is controlled by an individual "program" (a script) responsible for the following components:
 
@@ -498,7 +498,7 @@ If you want to do your own customizations, try to animate the fish with bones. Y
 
 The current checkpoint is at //game.4.blend. If you changed your //assets/school.blend file, you need only replace the one in the sources with yours. As we mentioned (three times already, anyone counting?), the new data will be automatically synced in the game. Play your game, and get ready to wrap up the shark feeding.
 
-## All You Can Eat <a id="All You Can Eat"></a>
+## All You Can Eat <a id="All_You_Can_Eat"></a>
 
 If you try to catch the fish with the shark, you will see that the shark pushes the fish away. For the game, we need three things to happen: (1) the fish needs to die, (2) the shark needs to get bigger, (3) a score on the screen needs to tell how many fish we caught and how much time we have left.
 
@@ -544,7 +544,7 @@ We started by creating an animation for the shark. This animation is played acco
 
 Apart from that, the shark needs the "shark" game property to be detected by the fish school. This will trigger the collision. The collision sensor simply checks if the object has a property with a given name, so the type and value of the property are arbitrary (in our case, we are using a Boolean property, but it could be any other property type). Now one by one, we can eat the fish. And it's time to count sheep.
 
-## Scoring System <a id="Scoring System"></a>
+## Scoring System <a id="Scoring_System"></a>
 
 The score system of the game is part of its interface built on top of the 3D view. In Figure 2.30, you can see the main elements of the interface: the score on the top left, the time countdown on the top right, and the title of the game on the bottom right.
 
@@ -580,7 +580,7 @@ Now the game is a combination of two scenes that work as separate layers. The fi
 
 ![Game over(Cengage Learning)](../figures/Chapter2/Fig02-34.png "Game over")
 
-## Music for Your Ears <a id="Music for Your Ears"></a>
+## Music for Your Ears <a id="Music_for_Your_Ears"></a>
 
 A game is not complete without sound effects. There are three sounds under // sounds/: the ambient sound (water.m4a), the eating-fish effect (sharked.m4a), and the ending sound (gameover.m4a). This is the farewell set of instructions for this chapter and a prelude for the following chapter (entirely on logic bricks). Speaking of the lack of images, those are sound samples. Feel free to whistle along.
 
@@ -602,7 +602,7 @@ Connect this sensor to the And controller of the game over Sound actuator. Optio
 
 The final file is at //game.6.blend.
 
-## Where to Go from Here <a id="Where to Go from Here"></a>
+## Where to Go from Here <a id="Where_to_Go_from_Here"></a>
 
 The game is complete: the final files are in \Book\Chapter02\game\_final\game.blend.
 
