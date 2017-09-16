@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 9: Publishing and Beyond](#Chapter_9:_Publishing_and_Beyond)
+- [Chapter 9: Publishing and Beyond](#Chapter_9_Publishing_and_Beyond)
 	- [Getting Ready for Publishing](#Getting_Ready_for_Publishing)
 	- [Resources](#Resources)
 	- [The Theory of Relativity](#The_Theory_of_Relativity)
@@ -11,8 +11,8 @@
 		- [Interface Options](#Interface_Options)
 		- [File Security](#File_Security)
 	- [Licensing](#Licensing)
-	- [Web Publishing: Burster](#Web_Publishing:_Burster)
-	- [Mobile Publishing: Android](#Mobile_Publishing:_Android)
+	- [Web Publishing: Burster](#Web_Publishing_Burster)
+	- [Mobile Publishing: Android](#Mobile_Publishing_Android)
 	- [Other Tools](#Other_Tools)
 		- [GameKit](#GameKit)
 		- [Unity, SIO2](#Unity,_SIO2)
@@ -20,7 +20,7 @@
 	- [How to Report Bugs](#How_to_Report_Bugs)
 	- [Do It Yourself](#Do_It_Yourself)
 
-# Chapter 9: Publishing and Beyond <a id="Chapter_9:_Publishing_and_Beyond"></a>
+# Chapter 9: Publishing and Beyond <a id="Chapter_9_Publishing_and_Beyond"></a>
 
 You've made it this far! By now you should have a solid understanding of everything it takes to make a game. Now the question is: How do you get that game into the hands of the public?
 
@@ -176,7 +176,7 @@ A simple way to keep your files separated from the Blenderplayer is to create an
 >
 >There is a downside of the GPL license when publishing in some distribution platforms. For legal (and perhaps economic) reasons, most distribution game platforms do not accept GPL code in their components. That means it will be hard to get the game engine ported over to consoles and some more restrictive mobile and portable devices.
 
-## Web Publishing: Burster <a id="Web_Publishing:_Burster"></a>
+## Web Publishing: Burster <a id="Web_Publishing_Burster"></a>
 
 _www.geta3d.com_
 
@@ -201,7 +201,7 @@ for obj in bpy.data.objects:
             cont.module = cont.module.replace('script.', '')
 ```
 
-## Mobile Publishing: Android <a id="Mobile_Publishing:_Android"></a>
+## Mobile Publishing: Android <a id="Mobile_Publishing_Android"></a>
 
 _wiki__.blender.org/index.php/Doc:2.6/Manual/Game_Engine/Blender_Player/Android_
 
