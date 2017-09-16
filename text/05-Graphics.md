@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 5: Graphics](#Chapter_5:_Graphics)
+- [Chapter 5: Graphics](#Chapter_5_Graphics)
 	- [Visual Style](#Visual_Style)
 	- [Designing for Real Time](#Designing_for_Real_Time)
 	- [Geometry](#Geometry)
@@ -51,7 +51,7 @@
 	- [Stereo](#Stereo)
 	- [Dome](#Dome)
 
-# Chapter 5: Graphics <a id="Chapter_5:_Graphics"></a>
+# Chapter 5: Graphics <a id="Chapter_5_Graphics"></a>
 
 Welcome to Chapter 5, where it's all about the visuals! When you play a game, the graphics are usually the first element to make an impression, long before you can form a more rounded opinion of the game based on other aspects like gameplay, story, physics, or sound. Whether it's a screenshot, a video trailer, or a printed poster, graphics is the one element that publishers constantly rely on to draw the public's attention. So it's only fair that we should look at this topic in great detail.
 
