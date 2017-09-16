@@ -1,8 +1,8 @@
 **Table of Contents**
 
-- [Chapter 3: Logic Bricks](#Chapter 3: Logic Bricks)
-	- [General Overview](#General Overview)
-		- [Simple Example](#Simple Example)
+- [Chapter 3: Logic Bricks](#Chapter_3_Logic_Bricks)
+	- [General Overview](#General_Overview)
+		- [Simple Example](#Simple_Example)
 	- [Architecture](#Architecture)
 	- [Interface](#Interface)
 		- [Add](#Add)
@@ -35,31 +35,31 @@
 			- [Booleans](#Booleans)
 			- [Expression](#Expression)
 			- [Values](#Values)
-			- [Comparison Tests](#Comparison Tests)
-			- [Arithmetic Operations](#Arithmetic Operations)
-			- [Boolean Operations](#Boolean Operations)
-			- [Python Controller](#Python Controller)
+			- [Comparison Tests](#Comparison_Tests)
+			- [Arithmetic Operations](#Arithmetic_Operations)
+			- [Boolean Operations](#Boolean_Operations)
+			- [Python Controller](#Python_Controller)
 		- [Actuators](#Actuators)
 			- [Header](#Header)
 			- [Action](#Action)
-				- [What Can Be Animated](#What Can Be Animated)
-				- [What Cannot Be Animated](#What Cannot Be Animated)
-				- [Object Settings](#Object Settings)
-				- [Play Modes](#Play Modes)
-				- [Blendin, Layers, and Priority](#Blendin, Layers, and Priority)
+				- [What Can Be Animated](#What_Can_Be_Animated)
+				- [What Cannot Be Animated](#What_Cannot_Be_Animated)
+				- [Object Settings](#Object_Settings)
+				- [Play Modes](#Play_Modes)
+				- [Blendin, Layers, and Priority](#Blendin,_Layers,_and_Priority)
 			- [Armature](#Armature)
 			- [Camera](#Camera)
 			- [Constraint](#Constraint)
-				- [Location Constraint](#Location Constraint)
+				- [Location Constraint](#Location_Constraint)
 				- [Distance](#Distance)
-			- [Orientation Constraint](#Orientation Constraint)
-			- [Force Field Constraint](#Force Field Constraint)
-			- [Edit Object](#Edit Object)
+			- [Orientation Constraint](#Orientation_Constraint)
+			- [Force Field Constraint](#Force_Field_Constraint)
+			- [Edit Object](#Edit_Object)
 			- [Message](#Message)
 			- [Motion](#Motion)
-				- [Simple Motion](#Simple Motion)
-				- [Servo Control](#Servo Control)
-				- [Character Motion](#Character Motion)
+				- [Simple Motion](#Simple_Motion)
+				- [Servo Control](#Servo_Control)
+				- [Character Motion](#Character_Motion)
 			- [Parent](#Parent)
 			- [Property](#Property)
 			- [Random](#Random)
@@ -67,14 +67,14 @@
 			- [State](#State)
 			- [Visibility](#Visibility)
 			- [Scene](#Scene)
-			- [Filter 2D](#Filter 2D)
-				- [Enable, Disable, Remove](#Enable, Disable, Remove)
+			- [Filter 2D](#Filter_2D)
+				- [Enable, Disable, Remove](#Enable,_Disable,_Remove)
 			- [Game](#Game)
-	- [State Machine](#State Machine)
-	- [Sharing and Group Instancing](#Sharing and Group Instancing)
-	- [To the Infinite and Beyond](#To the Infinite and Beyond)
+	- [State Machine](#State_Machine)
+	- [Sharing and Group Instancing](#Sharing_and_Group_Instancing)
+	- [To the Infinite and Beyond](#To_the_Infinite_and_Beyond)
 
-# Chapter 3: Logic Bricks <a id="Chapter 3: Logic Bricks"></a>
+# Chapter 3: Logic Bricks <a id="Chapter_3_Logic_Bricks"></a>
 
 What makes a game different than a movie? Let's see. In both you can find yourself buried in a comfortable seat eating junk food and alienated from the world. And funny 3D goggles are not exclusive to either. But what about interactivity? In a game you can control a player and interact with the virtual (or real!) world and the game elements. The story can be dynamically created in front of your eyes.
 
@@ -98,11 +98,11 @@ In this chapter, we'll cover sensors, controllers, and actuators in detail speci
 >Logic Bricks are really easy and quick to use. You can make entire games with them with absolutely no need for coding.
 
 
-## General Overview <a id="General Overview"></a>
+## General Overview <a id="General_Overview"></a>
 
 Thus far, you know that this whole system will allow you to create those little pieces that compose the interaction of your game. There are multiple ways to put those little parts together and even more ways to combine them. It's impossible to show all the possibilities, but there is a common principle as to how they operate that we can look at.
 
-### Simple Example <a id="Simple Example"></a>
+### Simple Example <a id="Simple_Example"></a>
 
 From the book files, open _Book/Chapter3/bowling\_base.blend_.
 In this file, you have a small bowling game that includes the bowling ball, the pines, and the rink for the ball to roll around in. The goal here is to launch the ball and keep it rolling as much as you can. If you go to the Blender game menu and start the game, you will see that nothing much seems to happen. Here are some things you may need:
@@ -504,7 +504,7 @@ A single value is not exactly an expression. Let's move on and see what kind of 
 >
 >In order to use a sensor name, the sensor has to be linked to the Expression controller. Sensors can't be used in the expressions for the Property sensor and the Property actuator.
 
-#### Comparison Tests <a id="Comparison"></a>
+#### Comparison Tests <a id="Comparison_Tests"></a>
 
 If instead of testing a single variable, you need to compare two values, there are five different comparison tests you can use. The test can be between a variable (property or sensor) and a value, two values, or two variables:
 
@@ -524,7 +524,7 @@ The result of a comparison test will always be a Boolean. If you need to return 
 
 The syntax is: IF (Condition, ValueWhenTrue, ValueWhenFalse). If you use the above expression as a value for the Add mode in a Property actuator, it will decrease the counter (for example, frame) if the value is greater than zero.
 
-#### Arithmetic Operations <a id="Arithmetic Operations"></a>
+#### Arithmetic Operations <a id="Arithmetic_Operations"></a>
 
 If your value is numeric, you can also manipulate it a bit. This can be used to assign a value based on a variable (for example, speed \* time) or as part of a test (for example, energy + potion > 0). The most basic math operations are supported to operate your value, for the records:
 
@@ -538,7 +538,7 @@ If your value is numeric, you can also manipulate it a bit. This can be used to 
 
 - **Modulus** : 10 % 3
 
-#### Boolean Operations <a id="Boolean Operations"></a>
+#### Boolean Operations <a id="Boolean_Operations"></a>
 
 Finally, you have the capability of combining Boolean tests together. A Boolean test can be a simple Boolean value (for example, a sensor or a property value) or the result of a comparison test. They work as aggregators through which you can compile big expression tests.
 
@@ -572,7 +572,7 @@ You can find an elegant use of the Boolean operators to create a toggle mechanis
 >
 >In the accompanying material, you can see a simulation of the Flipper animation mode implemented using the Property mode instead. This is done in two different ways: one with a Expression controller, and another with a Nand and And controllers and an Expression in a Property actuator. It shows the flexibility of the system and is a nice way to regulate the speed of your animation: _\Book\Chapter3\controller\_expression\_flipper.blend_ .
 
-#### Python Controller <a id="Python Controller"></a>
+#### Python Controller <a id="Python_Controller"></a>
 
 With a Python controller, you can evaluate sensors and activate actuators just as you would do with the other controllers. You can indeed replace any of the tests (logical switches or expressions) by an equivalent in Python. Actually, not only can the other controllers be replaced by this, but also most of your Logic Bricks as well. Chapter 7 is entirely dedicated to how and when to use this controller. Even if you are not into programming, we recommend you read the introduction sections of this chapter to understand its differences and advantages.
 
@@ -614,7 +614,7 @@ The actuator will let you pick an action, set the frame range, and configure how
 
 ![Action actuator](../figures/Chapter3/Fig03-26.png "Action actuator")
 
-##### What Can Be Animated <a id="What Can Be Animated"></a>
+##### What Can Be Animated <a id="What_Can_Be_Animated"></a>
 
 Some of the animations you create in Blender can be used in the game engine. The same result you see in the viewport when you play them back with Alt+A, you can also get in the game engine. That includes armature poses, shape keys, and some of the properties of object, material, light, and camera as following:
 
@@ -630,7 +630,7 @@ Some of the animations you create in Blender can be used in the game engine. The
 
 - **Camera** : Start/End Clipping and Focal Length.
 
-##### What Cannot Be Animated <a id="What Cannot Be Animated"></a>
+##### What Cannot Be Animated <a id="What_Cannot_Be_Animated"></a>
 
 Unfortunately, not everything we can animate inside Blender can be animated in the game engine. More specifically, the following elements can't be animated with the Action actuator:Drivers, Scene, World, remaining Object, Material, Camera, and Light properties.
 
@@ -640,7 +640,7 @@ Be aware that this may change in the near future. And some of these settings beh
 >
 >Some Scene settings, such as Shading Mode, Mouse Cursor, and Eye Separation, can be set through the Python API. The same is valid for World settings, such as Mist, Background Color, Physics and Logic Maximum Steps, and FPS.
 
-##### Object Settings <a id="Object Settings"></a>
+##### Object Settings <a id="Object_Settings"></a>
 
 If you are not animating an Armature Pose or a ShapeKey, there are extra options you can use, as below and highlighted in Figure 3.27.
 
@@ -652,7 +652,7 @@ If you are not animating an Armature Pose or a ShapeKey, there are extra options
 
 - **Local** : Apply the transformations in local or world coordinates.
 
-##### Play Modes <a id="Play Modes"></a>
+##### Play Modes <a id="Play_Modes"></a>
 
 The game engine, by default, plays the actions from the start to the end frame, and stop. There are times where you may want to loop the animation, play it backward, or even control the playback speed in a different way. This can be achieved by changing the Action actuator playback type, as you can see in Figure 3.28.
 
@@ -670,7 +670,7 @@ The game engine, by default, plays the actions from the start to the end frame, 
 
 - **Property** : Instead of using a start and final frames, you drive the animation by a game property value. You can use any number, integer or not, as the property value. That way, you can have pretty smooth playbacks. With this option, you can also simulate slow-motion, time-lapse, or even create your own Play mode by controlling the property change as you will.
 
-##### Blendin, Layers, and Priority <a id="Blendin, Layers, and Priority"></a>
+##### Blendin, Layers, and Priority <a id="Blendin,_Layers,_and_Priority"></a>
 
 If you need to play multiple actions for the same object, you need to configure their transitions and how they will interact. So you need to explore the remaining options in the Action actuator interface: Blendin, Layers, and Priority. Blendin works as a cross fading effect between actions, while Layer allows to have different actions playing at the same time.
 
@@ -723,7 +723,7 @@ The Camera actuator will move your object (usually your active camera) behind th
 
 The Constraint actuator takes control over your object position and orientation. You can use it to make sure that an object is always close to the ground, which is probably the most popular application of it. If you are into physics demos and sci-fi games, you might use it to simulate an anti-gravitational field. What if you want to make a bop bag? A Constraint actuator will make it for you. (Well, you do have to set it up.)
 
-##### Location Constraint <a id="Location Constraint"></a>
+##### Location Constraint <a id="Location_Constraint"></a>
 
 With the Location Constraint option, the actuator will move your object inside the specified range (see Figure 3.31). It doesn't have to happen right away, and this is one of the beauties of it. You can set a Damping factor, which will determine how many frames it will take for the object to get in the right position; this produces very smooth results.
 
@@ -749,13 +749,13 @@ The Distance Constraint option compares and controls the distance between your o
 >
 >This actuator will be active as soon as it is triggered and will remain active until it receives a negative signal or can no longer find a surface (for example, the floor) in the given range. If you want to keep your actuator active even when it doesn't find a surface to be constrained to, you can turn on the Persistency **(PER)** option. If Time is greater than zero, it will set the maximum activation period of the actuator.
 
-#### Orientation Constraint <a id="Orientation Constraint"></a>
+#### Orientation Constraint <a id="Orientation_Constraint"></a>
 
 Instead of affecting your object's position, the Orientation Constraint option will restrict its rotation on individual axes (see Figure 3.33). It aligns the specified axis with the reference direction. For example, if you want to make your bop bag stay straight, you can use Z as Direction and 0, 0, 1 as the Referencedirection. As with the other Constraint Actuator options, you can set Min and Max angles, Damping frames, and the Time.
 
 ![Constraint actuator – Orientation](../figures/Chapter3/Fig03-33.png "Constraint actuator – Orientation")
 
-#### Force Field Constraint <a id="Force Field Constraint"></a>
+#### Force Field Constraint <a id="Force_Field_Constraint"></a>
 
 The Force Field Constraint simulates a spring field underneath your object (see Figure 3.34). The effect is similar to hovering above water or simple buoyancy. Force fields can also be set with the Physics settings in the Material Panel (see Chapter 6 for details).
 
@@ -773,7 +773,7 @@ The special options are the following:
 
 The rest of the options behave as the ones presented for the other Constraint actuator types **:** Direction, M/P, PER, Time, Damping, and RotDamping.
 
-#### Edit Object <a id="Edit Object"></a>
+#### Edit Object <a id="Edit_Object"></a>
 
 There are a few actuators that feel as if they could be split into individual ones. The Edit Object is certainly one of them (see Figure 3.35). With this actuator, you can add more objects into your scene, remove your object out of it, replace its mesh, track its orientation to another object, or eventually alter some of its physics dynamics settings. Let's take a look at them:
 
@@ -823,7 +823,7 @@ It moves, but it does it in distinct ways. For example, an animated character wi
 >
 >Once activated, this actuator will keep playing until it receives a negative signal or until it stops receiving the positive ones. So if you want to rotate your object a few degrees only when you press a key, you must use the Tap option in the Keyboard sensor.
 
-##### Simple Motion <a id="Simple Motion"></a>
+##### Simple Motion <a id="Simple_Motion"></a>
 
 The simplest way of moving an object is by changing its location in a specific direction. You can determine the offset in the X/Y/Z axis and in the next frame, your object will be that far from its original position. You can apply a rotation the same way, by considering the angle you want to rotate each of the axes every time. In Figure 3.37, you can see the barebones for this actuator.
 
@@ -839,7 +839,7 @@ When your object is a dynamic one, you will see new options in the actuator (see
 >
 >In Blender, there are two main coordinate systems: Local and Global. Whenever you refer to an axis, you should be aware of the system you want to use. The default one is always the Global (also known as _World_) and will use the absolute X,Y,Z reference of your scene. When you want to use the Local one, which is shown as an L in the interface, the axis used will always be relative to your object's current orientation.
 
-##### Servo Control <a id="Servo Control"></a>
+##### Servo Control <a id="Servo_Control"></a>
 
 This is a more complex and complete method for controlling your object's linear movement. The Servo Control option enables you to control speed with force. It will apply a variable force in order to reach the target specified speed. It can be used to simulate the most varied effects, such as friction, flying, sliding, and so on.
 
@@ -864,7 +864,7 @@ The Servo Control can (and should) be used for any object, regardless of its dyn
 
 - **Derivate Coefficient** : This parameter is not required and has a direct effect on the stability of the movement. High values can cause instability.
 
-##### Character Motion <a id="Character Motion"></a>
+##### Character Motion <a id="Character_Motion"></a>
 
 Last and more recent is the actuator to work with character objects, which is covered in Chapter 6. This actuator will only work if the object physics type is set to Character.
 
@@ -963,7 +963,7 @@ Also, you can change the current camera of the scene by assigning a new camera o
 >
 >Every time a new scene is set or added, the game engine has to convert all the assets into its internal objects. This is the same process that occurs for your main scene when you first load up your game. Since the game engine is single threaded for most of its operations, the whole game will freeze waiting for the new scene to load.
 
-#### Filter 2D <a id="Filter 2D"></a>
+#### Filter 2D <a id="Filter_2D"></a>
 
 The 2D Filter actuators are post-processing effects applied to the entire screen (see Figure 3.48). They are similar to what can be done with the Composite Nodes in Blender or the filter effects from a graphics software program such as GIMP or Photoshop.
 
@@ -1011,7 +1011,7 @@ This filter has its own option to be enabled and disabled. As you can see in Fig
 
 ![Filter 2D actuator - Motion Blur](../figures/Chapter3/Fig03-50.png "Filter 2D actuator - Motion Blur")
 
-##### Enable, Disable, Remove <a id="Enable, Disable, Remove"></a>
+##### Enable, Disable, Remove <a id="Enable,_Disable,_Remove"></a>
 
 You can run a Filter 2D just like any other actuator. A positive signal will trigger it once, and the filter will run. However, the filter will keep running, even if the sensor sends some negative signals.
 
@@ -1043,7 +1043,7 @@ Load and Save bge.logic.globalDict is only relevant if you are using Python scri
 >
 >If the initial scene of your game is too heavy, you may consider implementing a simpler initial scene/file with the game credits, title, and a "please wait while loads" message. This scene will then have an Always sensor linked to a Game actuator set to Start Game From File.
 
-## State Machine <a id="State Machine"></a>
+## State Machine <a id="State_Machine"></a>
 
 _"Why did the controller cross the road?[md]to get to the next state."_
 
@@ -1061,7 +1061,7 @@ This is the simplest way of using states. It's not the only one, though. In more
 >
 >In the artificial intelligence literature, there are multiple techniques to deal with artificial behavior. The State Machine implementation in Blender is flexible enough to be used with your design, whatever you pick. Two of the most popular systems[md]Finite State Machine and Behavior Tree[md]can be implemented with the current features and the other variations might as well. The State system can also be accessed through the Python interface for a pure programming control.
 
-## Sharing and Group Instancing <a id="Sharing and Group Instancing"></a>
+## Sharing and Group Instancing <a id="Sharing_and_Group_Instancing"></a>
 
 The game engine centralizes the logic components at the object level. This is at the same time a curse and a blessing. On the positive side of things, you can set up each object as a unique, independent participant of your game. The down side comes when you need to reproduce a behavior, and when the last thing you need is unique objects. Sure, you can copy over Logic Bricks and properties, but this is hard to maintain and doesn't scale well for more complex files. Note that we are not talking about duplicated objects[md]those indeed share the same Logic Brick. We are looking at game objects that have different individual components but need to share part of each other's functionality. We need a compromise between both systems, and this is possible with group instancing and Logic Bricks cross-linking.
 
@@ -1091,7 +1091,7 @@ Now look closely at the Logic Bricks in Figure 3.55. The sensor and the controll
 
 ![Group Instance - second example](../figures/Chapter3/Fig03-55.png "Group Instance - second example")
 
-## To the Infinite and Beyond <a id="To the Infinite and Beyond"></a>
+## To the Infinite and Beyond <a id="To_the_Infinite_and_Beyond"></a>
 
 Now that we have gone over the various possibilities with Logic Bricks, it's time for you to put these skills into practice. Try the sample files and play with them. Rip them apart, disassemble them, and combine them. It's important to look at them creatively and use their diversity and flexibility in your favor.
 
