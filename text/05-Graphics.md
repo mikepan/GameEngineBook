@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 5: Graphics](#Chapter_5_Graphics)
+- [Chapter 5: Graphics](#Chapter_5:_Graphics)
 	- [Visual Style](#Visual_Style)
 	- [Designing for Real Time](#Designing_for_Real_Time)
 	- [Geometry](#Geometry)
@@ -51,7 +51,7 @@
 	- [Stereo](#Stereo)
 	- [Dome](#Dome)
 
-# Chapter 5: Graphics <a id="Chapter_5_Graphics"></a>
+# Chapter 5: Graphics <a id="Chapter_5:_Graphics"></a>
 
 Welcome to Chapter 5, where it's all about the visuals! When you play a game, the graphics are usually the first element to make an impression, long before you can form a more rounded opinion of the game based on other aspects like gameplay, story, physics, or sound. Whether it's a screenshot, a video trailer, or a printed poster, graphics is the one element that publishers constantly rely on to draw the public's attention. So it's only fair that we should look at this topic in great detail.
 
@@ -82,7 +82,7 @@ Modern graphics cards are surprisingly fast at pushing out high-quality images a
 
 ## Geometry <a id="Geometry"></a>
 
-<img alt="Low_polygon_model_vs._high_polygon_model" src="../figures/Chapter5/Fig05-03.jpg" width="50%" align="right">
+<img alt="Low polygon model vs. high polygon model" src="../figures/Chapter5/Fig05-03.jpg" width="50%" align="right">
 
 Geometry is the basis for any 3D scene. You can quantitatively measure the amount of geometry data in a scene using a "polygon count," which refers to the number of faces (triangles or quads, in Blender's case) in a scene. The more geometry data there is, the slower the game will be. So how many polygons are too much? Rather than imposing an absolute limitation, just remember to use polygons sensibly, spend them where they are needed, and don't waste excessive polygons on unnecessary parts that will not be visible to the gamer. That said, today's average computer should be able to render a million polygons at an interactive frame rate, so polygon count isn't as much of a concern as it used to be. A high-resolution model is smoother, more detailed, but is slower to process by the computer.
 
@@ -92,7 +92,7 @@ Non-supported Blender object types are: curve, surface, and metaball. These obje
 
 ## Materials and Textures <a id="Materials_and_Textures"></a>
 
-<img alt="Oil_barrel_models_without_and_with_textures_applied" src="../figures/Chapter5/Fig05-04.jpg" width="50%" align="right">
+<img alt="Oil barrel models without and with textures applied" src="../figures/Chapter5/Fig05-04.jpg" width="50%" align="right">
 
 Once the modeling is done, materials and textures, which add visual fidelity, can be applied to the mesh. Using a combination of materials and textures, you can define surface characteristics such as color, shininess, bumpiness, and transparency. Textures also allow you to "bake" certain effects, such as complex light maps and shadows, onto the object, because these effects would otherwise take too long to compute in real time. Due to the importance of materials and textures, a large portion of this chapter will focus on materials and textures. (For a more in-depth discussion on texture baking, refer to Chapter 8.)
 
@@ -186,7 +186,7 @@ The next two sections will go over each option in the Material and Texture panel
 
 In GLSL1.blend, you'll see the Material panel on the right side of the 3D Viewport. In the demo setup, the material attached to the floor is shown by default. Recall that this panel was already discussed briefly in Chapter 2, so go ahead and play around with the settings and see how they affect the model in the 3D view in real time.
 
-<img alt="The_Material_Panel" src="../figures/Chapter5/Fig05-10.png" width="25%" align="right">
+<img alt="The Material Panel" src="../figures/Chapter5/Fig05-10.png" width="25%" align="right">
 
 
 
@@ -298,7 +298,7 @@ Just like diffuse, there are different algorithms to achieve different-looking s
 
 Ramp lets you add an arbitrary color gradient to the object. Its power lies in the fact that you can map a color palette onto the object in many different ways. Some common uses for the ramp shader include adding a "peach fuzz" to skin material and adding rim light to objects for dramatic effect.
 
-<img alt="The_Ramp_shader_interface" src="../figures/Chapter5/Fig05-18.png" width="33%" align="left">
+<img alt="The Ramp shader interface" src="../figures/Chapter5/Fig05-18.png" width="33%" align="left">
 
 
 
@@ -406,7 +406,7 @@ So far, we have covered all the functionalities of the Material panel. Most of t
 
 Texture is the main way to add details to a surface without adding extra polygons. It is done by mapping a 2D image onto the surface of the 3D object. Figure 5.21 illustrates the concept of texture mapping.
 
-<img alt="How_texture_mapping_works." src="../figures/Chapter5/Fig05-21.jpg" width="50%" align="left">
+<img alt="How texture mapping works." src="../figures/Chapter5/Fig05-21.jpg" width="50%" align="left">
 
 
 
@@ -421,7 +421,7 @@ Texture data blocks are almost always linked to a material (see note below for e
 
 Note that in Blender, texture slots are ordered so that textures further down the texture slots override textures on top of the list. This is opposite from how most image editors treat layers. 
 
-<img alt="The_Texture_panel_with_two_textures_slots_in_use." src="../figures/Chapter5/Fig05-22.png" width="40%" align="left">
+<img alt="The Texture panel with two textures slots in use." src="../figures/Chapter5/Fig05-22.png" width="40%" align="left">
 
 
 

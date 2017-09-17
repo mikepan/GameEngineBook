@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 1: Getting Started](#Chapter_1_Getting_Started)
+- [Chapter 1: Getting Started](#Chapter_1:_Getting_Started)
 	- [An Origin Story](#An_Origin_Story)
 		- [Blender Begins](#Blender_Begins)
 		- [The Dark Nights](#The_Dark_Nights)
@@ -21,14 +21,14 @@
 		- [Installation](#Installation)
 		- [System Requirements](#System_Requirements)
 	- [Blender Basics](#Blender_Basics)
-		- [Main Menu](#Main_Menu)
-		- [3D Viewport](#3D_Viewport)
-		- [Outliner](#Outliner)
-		- [Properties Editor](#Properties_Editor)
-		- [Timeline](#Timeline)
-		- [Workspace Customization](#Workspace_Customization)
+			- [Main Menu](#Main_Menu)
+			- [3D Viewport](#3D_Viewport)
+			- [Outliner](#Outliner)
+			- [Properties Editor](#Properties_Editor)
+			- [Timeline](#Timeline)
+			- [Workspace Customization](#Workspace_Customization)
 		- [More on the 3D View](#More_on_the_3D_View)
-		- [Viewport Shading Modes](#Viewport_Shading_Modes)
+			- [Viewport Shading Modes](#Viewport_Shading_Modes)
 		- [Editing Modes](#Editing_Modes)
 		- [Keyboard and Mouse](#Keyboard_and_Mouse)
 		- [Search](#Search)
@@ -42,7 +42,7 @@
 		- [Backward Compatibility](#Backward_Compatibility)
 	- [Onward](#)
 
-# Chapter 1: Getting Started <a id="Chapter_1_Getting_Started"></a>
+# Chapter 1: Getting Started <a id="Chapter_1:_Getting_Started"></a>
 Here is something you don't know about Mike. He has read more Linux books than he cares to admit. Unfortunately, Mike rarely makes it past chapter 2. Given that the first two chapters usually contain nothing more than a warm introduction and a history of the software, this practice has two profound consequences. The first is that Mike can articulate the history of Linux far better than almost anyone. The second is that he still does not know how to actually use Linux. Granted, the former happens to be far more useful at a party than knowing the difference between "tar cvfz" and "lshw."
 
 In keeping with this tech book tradition, this book won't be any different. In this chapter, you will learn Blender's rich history and be introduced to the very basics of this application.

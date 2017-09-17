@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 8: Workflow and Optimization](#Chapter_8_Workflow_and_Optimization)
+- [Chapter 8: Workflow and Optimization](#Chapter_8:_Workflow_and_Optimization)
 	- [Optimization Basics](#Optimization_Basics)
 	- [Understanding Hardware](#Understanding_Hardware)
 	- [Performance Target](#Performance_Target)
@@ -27,7 +27,7 @@
 		- [Layers](#Layers)
 	- [Beauty Trumps Complexity](#Beauty_Trumps_Complexity)
 
-# Chapter 8: Workflow and Optimization <a id="Chapter_8_Workflow_and_Optimization"></a>
+# Chapter 8: Workflow and Optimization <a id="Chapter_8:_Workflow_and_Optimization"></a>
 
 We were once told that making a video game is a constant struggle between four elemental forces:
 - Quality

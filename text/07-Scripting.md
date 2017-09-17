@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 7: Python Scripting](#Chapter_7_Python_Scripting)
+- [Chapter 7: Python Scripting](#Chapter_7:_Python_Scripting)
 	- [Why Script When You Can Logic Brick It?](#Why_Script_When_You_Can_Logic_Brick_It?)
 		- [Sane Replacement for Large-Scale Logic-Bricked Objects](#Sane_Replacement_for_Large-Scale_Logic-Bricked_Objects)
 		- [Better Handling of Multiple Objects](#Better_Handling_of_Multiple_Objects)
@@ -35,7 +35,7 @@
 					- [scripts.orbit_camera](#scripts.orbit_camera)
 					- [scripts.look_camera](#scripts.look_camera)
 				- [Game Interaction](#Game_Interaction)
-					- [Outcome of the functions: scripts.move_camera, scripts.look_camera, and scripts.orbit_camera](#Outcome_of_the_functions_scripts.move_camera,_scripts.look_camera,_and_scripts.orbit_camera)
+					- [Outcome of the functions: scripts.move_camera, scripts.look_camera, and scripts.orbit_camera](#Outcome_of_the_functions:_scripts.move_camera,_scripts.look_camera,_and_scripts.orbit_camera)
 					- [scripts.change_view](#scripts.change_view)
 				- [More Python](#More_Python)
 			- [Reusing Your Script](#Reusing_Your_Script)
@@ -49,9 +49,9 @@
 				- [getCurrentController()](#getCurrentController())
 				- [getCurrentScene()](#getCurrentScene())
 				- [expandPath()](#expandPath())
-				- [sendMessage(), addScene(), start/restart/endGame()](#sendMessage(),_addScene(),_start/restart/endGame())
-				- [LibLoad(), LibNew(), LibFree(), LibList()](#LibLoad(),_LibNew(),_LibFree(),_LibList())
-				- [globalDict, loadGlobalDict(), saveGlobalDict()](#globalDict,_loadGlobalDict(),_saveGlobalDict())
+				- [sendMessage(), addScene(), start/restart/endGame(),](#sendMessage(), addScene(), start/restart/endGame(),)
+				- [LibLoad(), LibNew(), LibFree(), LibList()](#LibLoad(), LibNew(), LibFree(), LibList())
+				- [globalDict, loadGlobalDict(), saveGlobalDict()](#globalDict,_loadGlobalDict(), saveGlobalDict())
 				- [keyboard](#keyboard)
 				- [mouse](#mouse)
 				- [joysticks](#joysticks)
@@ -77,14 +77,14 @@
 				- [Matrix](#Matrix)
 				- [Euler and Quaternion](#Euler_and_Quaternion)
 			- [aud - Audio System](#aud_-_Audio_System)
-				- [Example: Basic Audio Playback](#Example_Basic_Audio_Playback)
+				- [Example: Basic Audio Playback](#Example:_Basic_Audio_Playback)
 			- [bgl - OpenGL Wrapper](#bgl_-_OpenGL_Wrapper)
-				- [Example 01: Line Width Changing](#Example_01_Line_Width_Changing)
-				- [Example 02: Color Picker](#Example_02_Color_Picker)
+				- [Example 01: Line Width Changing](#Example_01:_Line_Width_Changing)
+				- [Example 02: Color Picker](#Example_02:_Color_Picker)
 			- [blf - Font Drawing](#blf_-_Font_Drawing)
-				- [Example: Writing Hello World](#Example_Writing_Hello_World)
+				- [Example: Writing Hello World](#Example:_Writing_Hello_World)
 
-# Chapter 7: Python Scripting <a id="Chapter_7_Python_Scripting"></a>
+# Chapter 7: Python Scripting <a id="Chapter_7:_Python_Scripting"></a>
 
 Congratulations, you finally arrived at one of the most technical parts of the book. Keep that in mind in case you get lost.
 
@@ -836,7 +836,7 @@ camera_navigation.keyboard
 
 Apart from the Always sensor needed for the `camera_navigation.init_world()` function, there are two other sensors we need - a keyboard and a mouse sensor. All the interaction you will have with this navigation system will run through those functions.
 
-###### scripts.mouse\_move <a id="scripts.mouse_move"></a>
+###### scripts.mouse\_move <a id="scripts.mouse\_move"></a>
 
 Let's first take a look at the mouse sensor controlling system:
 
@@ -951,7 +951,7 @@ scripts.look_camera
 
 These three functions are called from the event management functions. In their lines, you can find the math responsible for the camera movement. We're calling them "internal functions" because they are the bridge between the sensors' inputs and the outputs in the game engine world.
 
-###### scripts.move\_camera <a id="scripts.move_camera"></a>
+###### scripts.move\_camera <a id="scripts.move\_camera"></a>
 
 The function responsible for the camera movement is very simple. In the walk and fly mode, we are going to move the pivot in the desired direction (which is passed as argument). Therefore, we first need to create a vector to this course. If you are unfamiliar with vectorial math, think of vector as the direction between the origin [0, 0, 0] and the vector coordinates [X, Y, Z].
 
@@ -989,7 +989,7 @@ The function responsible for the camera movement is very simple. In the walk and
 
 Here the vector is the movement we need to apply to the pivot in order to get it moving. The size of the vector (MOVE) will act as intensity or speed of the movement.
 
-###### scripts.orbit\_camera <a id="scripts.orbit_camera"></a>
+###### scripts.orbit\_camera <a id="scripts.orbit\_camera"></a>
 
 We decided to use different methods for the walk/fly camera and the orbit one. In the orbit camera, every position on the screen corresponds to an orientation of the camera.
 
@@ -1098,7 +1098,7 @@ Next find in the .blend file the pivot empty (ORB\_PIVOT) and play with its rota
 
 ![Orbit pivot rotation](../figures/Chapter7/Fig07-11.png)
 
-###### scripts.look\_camera <a id="scripts.look_camera"></a>
+###### scripts.look\_camera <a id="scripts.look\_camera"></a>
 
 The function to rotate the walk/fly camera is quite different from the orbit one. We don't have a direct relation between mouse coordinate and camera rotation anymore. Here we get the relative position of the cursor (from the center) and later force the mouse to be re-centered[md]to avoid continuous movement unless the mouse is moved again.
 
@@ -1152,7 +1152,7 @@ camera_navigation.orbit_camera
 
 In the previous section, we saw how the angles and directions were calculated with Python. However, we deliberately skipped the most important part: applying it to the game engine elements. It includes activating actuators (as we do in the change\_view() function) or directly interfering in our game elements (cameras and pivots).
 
-###### Outcome of the functions: scripts.move\_camera, scripts.look\_camera, and scripts.orbit\_camera <a id="Outcome_of_the_functions_scripts.move_camera,_scripts.look_camera,_and_scripts.orbit_camera"></a>
+###### Outcome of the functions: scripts.move\_camera, scripts.look\_camera, and scripts.orbit\_camera <a id="Outcome_of_the_functions:_scripts.move\_camera,_scripts.look\_camera,_and_scripts.orbit\_camera"></a>
 
 Let's put the pieces together now. We already know the camera future orientation and position. Therefore, there is almost nothing left to be calculated here. Nevertheless, there are distinct ways to change the object position and orientation.
 
@@ -1222,7 +1222,7 @@ The orientation is a Python built-in variable that can be read and written direc
 263     pivot.orientation = ori
 ```
 
-###### scripts.change\_view <a id="scripts.change_view"></a>
+###### scripts.change\_view <a id="scripts.change\_view"></a>
 
 After the user presses a key (1, 2, or 3) to change the view, we call the change\_view() function to switch to the new camera (with a parameter specifying which camera to use). This function consists of two parts: first, we set the correct position and orientation for the camera and pivot; secondly, we change the current camera to the new one.
 
@@ -1507,11 +1507,11 @@ If you need to access an external file (image, video, Blender, etc.), you need t
 video_absolute_path  = bge.logic.expandPath('//videos/video01.ogg')
 ```
 
-##### sendMessage(), addScene(), start/restart/endGame(), <a id="sendMessage(),_addScene(),_start/restart/endGame()"></a>
+##### sendMessage(), addScene(), start/restart/endGame(), <a id="sendMessage(), addScene(), start/restart/endGame(),"></a>
 
 These functions copy the functionality of existent actuators. They are Python replacement for those global events when you need a direct way to call them, bypassing the logic bricks.
 
-##### LibLoad(), LibNew(), LibFree(), LibList() <a id="LibLoad(),_LibNew(),_LibFree(),_LibList()"></a>
+##### LibLoad(), LibNew(), LibFree(), LibList() <a id="LibLoad(), LibNew(), LibFree(), LibList()"></a>
 
 There are cases when you need to load the content of an external Blender file at runtime. This is known as _dynamic loading._ The game engine supports dynamic loading of actions, meshes, or complete scenes. The new data blocks are merged into the current scene and behave just like internal objects:
 
@@ -1523,7 +1523,7 @@ bge.logic.LibLoad("//entities.blend", "Scene")
 >
 >New Lamp objects can be dynamically loaded from external files. However, in GLSL mode, they will not work as a light source for the material shaders, since the shaders would need to be recompiled for that.
 
-##### globalDict, loadGlobalDict(), saveGlobalDict() <a id="globalDict,_loadGlobalDict(),_saveGlobalDict()"></a>
+##### globalDict, loadGlobalDict(), saveGlobalDict() <a id="globalDict,_loadGlobalDict(), saveGlobalDict()"></a>
 
 The bge.logic.globalDict is a Python dictionary that is alive during the whole game. It's a game place to store data if you need to restart the game or load a new file (level) and need to save some properties. In fact, you can even save the globalDict with the Blender file during the game and reload later.
 
@@ -1605,7 +1605,7 @@ Each one of the classes has the same anatomy. You can access instance methods an
 
 Some of the variables will only work inside the correct context. Therefore, you can't get the mouse position of a Mouse sensor if the sensor was not triggered yet. Be aware of the right context and the game type.
 
-##### Class KX\_GameObject <a id="Class_KX_GameObject"></a>
+##### Class KX\_GameObject <a id="Class_KX\_GameObject"></a>
 
 If you run a print(dir (object)) inside your script, you will get a very confusing list. It includes Python internal methods, instance methods, and instance variables. Most of them are common to all objects, so we are going to talk about them first. However, lamps and cameras not only inherit all the game object methods but also extend them with specific ones.
 
@@ -1689,13 +1689,13 @@ We have different ways to set the visibility of an object. If your material is n
 
 All the logic bricks of an object can be accessed through those dictionaries. The name of the sensor/controller/actuator will be used as the dictionary key, for it's important to name them correctly.
 
-###### Sub-Class KX\_Camera <a id="Sub-Class_KX_Camera"></a>
+###### Sub-Class KX\_Camera <a id="Sub-Class_KX\_Camera"></a>
 
 Not all the objects have access to the same methods and variables. For example, an empty object doesn't have mass, and a static object doesn't have torque.
 
 When the object is a camera, the difference is even more distinct. The camera object has its own class derived from KX_GameObject. It inherits all the instance variables and methods and expands it with its own. You will find some screen space functions (getScreenPosition(),getScreenVect(), getScreenRay()), some frustum methods (sphereInsideFrustum(), boxInsideFrustum(), pointInsideFrustum()), and some instance variables (lens, near, far, frustum_culling, world_to_camera, camera_to_world).
 
-###### Sub-Class KX\_Lamp <a id="Sub-Class_KX_Lamp"></a>
+###### Sub-Class KX\_Lamp <a id="Sub-Class_KX\_Lamp"></a>
 
 Like cameras, lamps also have their own subclass. It inherits all the instance variables and methods, and only expands the available variables.
 
@@ -2020,7 +2020,7 @@ This module allows you to play sounds directly from your scripts. There are thre
 
 The audaspace module in a nutshell: you need to create one audio Device per game. You need one Factory per audio file (which can also be any video file containing a sound track). And every time you need to play a sound, a new Handle object will be generated from the Factory (this is where its name comes from).
 
-##### Example: Basic Audio Playback <a id="Example_Basic_Audio_Playback"></a>
+##### Example: Basic Audio Playback <a id="Example:_Basic_Audio_Playback"></a>
 
 ```python
 import aud
@@ -2078,7 +2078,7 @@ Sometimes, you will need to run your OpenGL code specifically before or after th
 >
 >You can find good OpenGL learning material on the Internet or in a bookstore. _The Official Guide to Learning OpenGL_ (also known as _The Red Book_) is highly recommended, and some older versions of it can be found online for download.
 
-##### Example 01: Line Width Changing <a id="Example_01_Line_Width_Changing"></a>
+##### Example 01: Line Width Changing <a id="Example_01:_Line_Width_Changing"></a>
 
 Open the file /Book/Chapter7/7_bgl/line_width.blend.
 
@@ -2100,7 +2100,7 @@ This code needs to run only once per frame and will change the line width of the
 
 You will find on the book files another example where the line width changes dynamically - /Book/Chapter7/7_bgl/line_width_animate.blend.
 
-##### Example 02: Color Picker <a id="Example_02_Color_Picker"></a>
+##### Example 02: Color Picker <a id="Example_02:_Color_Picker"></a>
 
 Open the file /Book/Chapter7/7_bgl/color_pickup.blend.
 
@@ -2177,7 +2177,7 @@ The blf module works in three stages:
 
 3. Draw the text on the screen.
 
-##### Example: Writing Hello World <a id="Example_Writing_Hello_World"></a>
+##### Example: Writing Hello World <a id="Example:_Writing_Hello_World"></a>
 
 Open the file /Book/Chapter7/8_blf/hello_world.blend.
 

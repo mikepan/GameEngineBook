@@ -1,11 +1,11 @@
 **Table of Contents**
 
-- [Chapter 6: Physics](#Chapter_6_Physics)
+- [Chapter 6: Physics](#Chapter_6:_Physics)
 	- [What Is Physics?](#What_Is_Physics?)
 	- [Overview](#Overview)
 	- [World Properties](#World_Properties)
 	- [Physics Engine](#Physics_Engine)
-		- [Hands-on: World Settings for Multiple Scenes](#Hands-on_World_Settings_for_Multiple_Scenes)
+		- [Hands-on: World Settings for Multiple Scenes](#Hands-on\:_World_Settings_for_Multiple_Scenes)
 	- [Culling Resolution](#Culling_Resolution)
 	- [Physics Substeps](#Physics_Substeps)
 	- [On the Issue of Time](#On_the_Issue_of_Time)
@@ -23,19 +23,19 @@
 		- [Occluder](#Occluder)
 		- [Sensor](#Sensor)
 		- [Navigation Mesh](#Navigation_Mesh)
-			- [Hands-on Tutorial: Navigation](#Hands-on_Tutorial_Navigation)
+			- [Hands-on Tutorial: Navigation](#Hands-on_Tutorial\:_Navigation)
 		- [Characters](#Characters)
 	- [Common Settings](#Common_Settings)
-		- [Hands-on Tutorial: Creating Compound Objects](#Hands-on_Tutorial_Creating_Compound_Objects)
+		- [Hands-on Tutorial: Creating Compound Objects](#Hands-on_Tutorial\:_Creating_Compound_Objects)
 	- [Material Panel Physics Settings](#Material_Panel_Physics_Settings)
-		- [Hands-on Tutorial: Force Field Water Surface](#Hands-on_Tutorial_Force_Field_Water_Surface)
+		- [Hands-on Tutorial: Force Field Water Surface](#Hands-on_Tutorial\:_Force_Field_Water_Surface)
 	- [Constraints](#Constraints)
 	- [Vehicle Physics](#Vehicle_Physics)
-		- [Hands-on Tutorial: Vehicle Physics Using Python](#Hands-on_Tutorial_Vehicle_Physics_Using_Python)
+		- [Hands-on Tutorial: Vehicle Physics Using Python](#Hands-on_Tutorial\:_Vehicle_Physics_Using_Python)
 	- [Game Settings](#Game_Settings)
 	- [Stabilizing Physics](#Stabilizing_Physics)
 
-# Chapter 6: Physics <a id="Chapter_6_Physics"></a>
+# Chapter 6: Physics <a id="Chapter_6:_Physics"></a>
 
 Welcome to Physics 101! We are going to be your professors for this chapter. Follow along as we dive into a dynamic world of falling apples, run alongside bouncing balls, and soar with flying spaghetti (see Figure 6.1).
 
@@ -109,7 +109,7 @@ With the physics engine set to Bullet, you can set the world gravity value. The 
 >
 >There are two separate gravity settings in Blender. One in the World panel[md]which controls gravity for the game physics, and one in the Scene panel[md]which controls gravity for the non-game aspect of Blender physics (fluid, particles, and smoke simulation). They are only visible in their respective engines (Blender Game and Blender Render or Cycles Render, respectively).When working with games, make sure you adjust the right setting under World.
 
-### Hands-on: World Settings for Multiple Scenes <a id="Hands-on_World_Settings_for_Multiple_Scenes"></a>
+### Hands-on: World Settings for Multiple Scenes <a id="Hands-on\:_World_Settings_for_Multiple_Scenes"></a>
 
 Because Blender supports multiple scenes and each scene can have its own World data block, the physics settings can be set independently per scene. This means it is possible to create multiple worlds (or _levels_, as they are commonly called in games), each with different physics settings, all contained within one Blender file. For example, one could create a game with two scenes, one taking place on earth and another taking place on Mars. By altering world settings such as sky color, mist depth, and the gravity strength for each scene, you can easily convey the idea of a foreign planet.
 
@@ -308,7 +308,7 @@ This setting turns an object into a helper object that is used for pathfinding n
 
 Since Blender 2.6, the game engine has a fully automated AI pathfinding routine. It can be used to direct an AI character through the 3D world, reaching a target, while avoiding obstacles.
 
-#### Hands-on Tutorial: Navigation <a id="Hands-on_Tutorial_Navigation"></a>
+#### Hands-on Tutorial: Navigation <a id="Hands-on_Tutorial\:_Navigation"></a>
 
 1. Open /Book/Chapter6/navigation.blend
 
@@ -403,7 +403,7 @@ When the collision bound is set to Convex Hull, the collision bound takes the sh
 
 But, why use compound when you can just join your objects together with Ctrl+J? Apart from the fact that there might be times when you need to control individual objects (so joining them might not be an option), using compound collision bounds made up of simple primitives is actually recommended over using one triangle mesh collision bound. The reason is again that a combination of simple primitives is faster to compute than a triangle meshes.
 
-### Hands-on Tutorial: Creating Compound Objects <a id="Hands-on_Tutorial_Creating_Compound_Objects"></a>
+### Hands-on Tutorial: Creating Compound Objects <a id="Hands-on_Tutorial\:_Creating_Compound_Objects"></a>
 
 To create a compound physics object (see Figure 6.22):
 
@@ -431,7 +431,7 @@ By adding a material to the object, you enable additional options that give you 
 
 Once Force Field is enabled in the Material panel, you will need to tell individual objects to respect that setting by going into the Physics Properties Editor and turning on Use Material Force Field.
 
-### Hands-on Tutorial: Force Field Water Surface <a id="Hands-on_Tutorial_Force_Field_Water_Surface"></a>
+### Hands-on Tutorial: Force Field Water Surface <a id="Hands-on_Tutorial\:_Force_Field_Water_Surface"></a>
 
 Force field can be used to create a convincing[md]you guessed it![md]force field effect, where an object moving toward a force field seems to be slowed down by invisible energy. This is very different from the usual rigid body interactions, which are always hard collisions.
 
@@ -493,7 +493,7 @@ The Blender physics engine has built-in support for vehicle physics. It is a ver
 
 Of course, you can also try to create a car physics setup without using the built-in physics constraints; however, it will be far more time-consuming. This section will demonstrate how to set up a playable car object in the game engine using the built-in Bullet engine and a bit of Python scripting.
 
-### Hands-on Tutorial: Vehicle Physics Using Python <a id="Hands-on_Tutorial_Vehicle_Physics_Using_Python"></a>
+### Hands-on Tutorial: Vehicle Physics Using Python <a id="Hands-on_Tutorial\:_Vehicle_Physics_Using_Python"></a>
 
 To get started, open /Book/Chapter6/vehicle/car.blend.
 

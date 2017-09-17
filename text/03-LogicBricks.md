@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 3: Logic Bricks](#Chapter_3_Logic_Bricks)
+- [Chapter 3: Logic Bricks](#Chapter_3:_Logic_Bricks)
 	- [General Overview](#General_Overview)
 		- [Simple Example](#Simple_Example)
 	- [Architecture](#Architecture)
@@ -74,7 +74,7 @@
 	- [Sharing and Group Instancing](#Sharing_and_Group_Instancing)
 	- [To the Infinite and Beyond](#To_the_Infinite_and_Beyond)
 
-# Chapter 3: Logic Bricks <a id="Chapter_3_Logic_Bricks"></a>
+# Chapter 3: Logic Bricks <a id="Chapter_3:_Logic_Bricks"></a>
 
 What makes a game different than a movie? Let's see. In both you can find yourself buried in a comfortable seat eating junk food and alienated from the world. And funny 3D goggles are not exclusive to either. But what about interactivity? In a game you can control a player and interact with the virtual (or real!) world and the game elements. The story can be dynamically created in front of your eyes.
 

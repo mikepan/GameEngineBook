@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 10: Case Studies](#Chapter_10_Case_Studies)
+- [Chapter 10: Case Studies](#Chapter_10:_Case_Studies)
 	- [Super Blender Galaxy](#Super_Blender_Galaxy)
 	- [Lucy and the Time Machine](#Lucy_and_the_Time_Machine)
 	- [The FPS Project](#The_FPS_Project)
@@ -14,7 +14,7 @@
 	- [OceanViz](#OceanViz)
 	- [Cosmic Sensation](#Cosmic_Sensation)
 
-# Chapter 10: Case Studies <a id="Chapter_10_Case_Studies"></a>
+# Chapter 10: Case Studies <a id="Chapter_10:_Case_Studies"></a>
 
 By now you should have a very good command of the Blender game engine. Armed with this newfound skill, no doubt you are bursting with ideas. Whether you are working alone or with a team, completing a game from start to finish is a lot of work. It is also a lot different from the examples and tutorials we used in the book, which are often stripped down to the most basic in order to be didactic. Real-world productions usually involve many more files, which are larger, more complex, and messier. This chapter tries to ease the transition between the classroom and the real world by showcasing other people's finished work.
 

@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 4: Animation](#Chapter_4_Animation)
+- [Chapter 4: Animation](#Chapter_4:_Animation)
 	- [Every Pot Has a Cover](#Every_Pot_Has_a_Cover)
 	- [Animation Cycles](#Animation_Cycles)
 	- [Moving Animation Cycles](#Moving_Animation_Cycles)
@@ -55,7 +55,7 @@
 		- [Mango Jambo Special Animation](#Mango_Jambo_Special_Animation)
 	- [To Learn More](#To_Learn_More)
 
-# Chapter 4: Animation <a id="Chapter_4_Animation"></a>
+# Chapter 4: Animation <a id="Chapter_4:_Animation"></a>
 
 _Written in collaboration with Moraes Júnior - Mango Jambo for friends[md]known for his work as the main character animator in the Blender Foundation open game project Yo Frankie._
 
