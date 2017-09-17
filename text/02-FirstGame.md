@@ -1,6 +1,6 @@
 **Table of Contents**
 
-- [Chapter 2: First Game](#Chapter_2:_First_Game)
+- [Chapter 2: First Game](#Chapter_2_First_Game)
 	- [Game Idea](#Game_Idea)
 	- [Game Elements](#Game_Elements)
 	- [File Organization, Datablocks, and Linking](#File_Organization,_Datablocks,_and_Linking)
@@ -19,7 +19,7 @@
 	- [Music for Your Ears](#Music_for_Your_Ears)
 	- [Where to Go from Here](#Where_to_Go_from_Here)
 
-# Chapter 2: First Game <a id="First_Game"></a>
+# Chapter 2: First Game <a id="Chapter_2_First_Game"></a>
 
 In this chapter, we are going through the steps of making a simple game, from start to finish. The first goal is to keep your Blender knowledge up-to-date. Second, this is a chance to present an overview of the game's workflow. From this point on, you should be able to read the chapters in this book in any given order, according to your needs.
 
