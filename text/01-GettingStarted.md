@@ -72,7 +72,7 @@ Then came Blender 2.5, which changed much of how Blender looked and behaved. Thi
 
 Blender uses the Python programming language for scripting. With Python, you can customize the behavior of Blender, extend its functionality, and, more importantly, control the game engine. Knowing how to program is not a requirement for using Blender, but knowing Python will make you a far more capable game-maker.
 
-<img alt="Blender_Commit_statistics_form_2003_to_2012" src="../figures/Chapter1/Fig01-03.png" width="50%" align="left">
+<img alt="Blender Commit statistics form 2003 to 2012" src="../figures/Chapter1/Fig01-03.png" width="50%" align="left">
 The year 2012 marked the tenth anniversary of Blender going open source. During these 10 years of open source development, more than 150 people have contributed something to the source code, totaling 50,000 contributions ("commits," in SVN techno-jargon), averaging nearly 30 commits every day over the past year. Needless to say, the program has improved much over the years, and it shows no sign of slowing down. The image below shows the Blender development statistics gathered from the official SVN repository including Blender trunk all its branches.
 
 Of course, software exists to serve the users - that's you. Every time a Blender user creates a piece of artwork, it justifies, even if just a little, the enormous amount of time that went into creating the software. We hope that by picking up this book, you are on your way to creating something amazing to share with the world.
@@ -127,7 +127,7 @@ The knowledge in this section is universal and applies to all other 3D applicati
 
 ### Coordinate System <a id="Coordinate_System"></a>
 
-<img alt="The_three_axes_illustrated" src="../figures/Chapter1/Fig01-05.png" width="33%" align="right">
+<img alt="The three axes illustrated" src="../figures/Chapter1/Fig01-05.png" width="33%" align="right">
 We live in a three-dimensional world that has width, height, and depth. So to represent anything that resembles real life as a virtual world inside a computer, we need to think and work in three dimensions. The most common system used is called the Cartesian coordinate system, where the three dimensions are represented by X, Y, and Z, laid out as intersecting planes. Where the three axes meet is called the _origin_. You can think of the origin as the center of your digital universe. A single position in space is represented by a set of numbers that corresponds to its position from the origin: thus (2, -4, 8) is a point in space that is 2 units from the origin along the X axis, 4 units from the origin along the -Y axis, and 8 units up in the Z direction.
 
 
@@ -139,7 +139,7 @@ Although we can define a position in space using the XYZ coordinates, a single p
 
 Why is the triangle so important? Turns out, modern computer graphics use the triangle as the basic building block for almost any shape. A rectangular plane (also known as a _quadrangle_, or more commonly a _quad_) is simply two triangles arranged side by side. A cube is simply six squares put together. Even a sphere is just made of tiny facelets arranged into a ball shape.
 
-<img alt="The_same_cylinder_cap_can_be_made_up_of_triangles,_quads,_or_an_n-gon." src="../figures/Chapter1/Fig01-07.jpg" width="50%" align="right">
+<img alt="The same cylinder cap can be made up of triangles, quads, or an n-gon." src="../figures/Chapter1/Fig01-07.jpg" width="50%" align="right">
 
 In Blender, a mesh can be made from a combination of triangles, quads, or n-gons. The benefit of n-gons is their ability to retain a clean topology while modeling. Without n-gons, certain areas of a model (such as a window on a wall) would require a higher number of triangles or quads to approximate, as shown below. While n-gons make modeling easier in some cases, Blender still converts them to triangles when you start the game.
 
@@ -147,7 +147,7 @@ The process of creating a mesh by rearranging vertices, edges, and faces is call
 
 It is worth noting that unlike the real world, polygonal models do not have volumes. They are just a shell made of interconnected faces that take the shape of the object, but the inside of the object is always "hollow."
 
-<img alt="Surface_normals_are_displayed_as_cyan_lines_protruding_from_the_faces." src="../figures/Chapter1/Fig01-08.jpg" width="50%" align="right">
+<img alt="Surface normals are displayed as cyan lines protruding from the faces." src="../figures/Chapter1/Fig01-08.jpg" width="50%" align="right">
 
 Another concept that a modeler will likely encounter is surface normals, or "normals" for short. Normal is a property of each face that indicates the direction a polygon is facing. Because normals are used for shading computation of the surface, ideally all the normals for a mesh should be pointed "outward." Wrongly oriented normals can cause the mesh to show up as black or invisible. Fortunately, there is a Make Normals Consistent function in Blender that can usually resolve the issue. Figure 1.8 shows how normals are presented in Blender.
 
@@ -179,7 +179,7 @@ Often, changing the color is not enough to make a surface look realistic. This i
 
 Traditionally, a texture changes the color of a surface. But that's not all it can do: textures can also be used to alter other properties of the surface such as its transparency, reflectivity, and even bumpiness to create the illusion of a much more detailed surface.
 
-<img alt="From_left_to_right:_diffuse_map,_normal_map,_and_specular_map." src="../figures/Chapter1/Fig01-11.jpg" width="50%" align="right">
+<img alt="From left to right: diffuse map, normal map, and specular map." src="../figures/Chapter1/Fig01-11.jpg" width="50%" align="right">
 
 A diffuse map controls the base color of the surface. A normal map controls the surface normal of an object, creating a bumpy effect by changing the way the light is reflected off the object. A specular map controls the specular reflection of an object, making it look shiny in certain places and dull in others. A texture map can also have transparent pixels, rendering part of the object transparent.
 
@@ -189,7 +189,7 @@ Generally, textures are image files. But there are also other ways to texture a 
 
 Everything you see is the result of light hitting your eyes-without lights, the world would be pitch black. Likewise, light is just as important in a virtual world. With light comes shadow as well. Shadow might not be something that you think about every day, but the interplay of shadow and light makes a huge difference in how the scene is presented.
 
-<img alt="From_left:_Lamp,_Sun,_Spot_lamp,_Hemi_lamp,_and_Area_lamp." src="../figures/Chapter1/Fig01-12.png" width="50%" align="right">
+<img alt="From left: Lamp, Sun, Spot lamp, Hemi lamp, and Area lamp." src="../figures/Chapter1/Fig01-12.png" width="50%" align="right">
 
 In most 3D applications, there are several different types of light available to the artist; each type has its advantages and disadvantages. For example, a Spot lamp approximates a lamp with a conical influence; a sun lamp approximates a light source from infinitely far away. Lamps in Blender are treated like regular objects: they can be positioned and rotated just like any other object. Figure 1.12 shows how different lamps look in Blender.
 
@@ -197,7 +197,7 @@ Think of lighting as more than something that makes your scene visible. Good lig
 
 ### Camera <a id="Camera"></a>
 
-<img alt="Camera_objects" src="../figures/Chapter1/Fig01-13.png" width="50%" align="right">
+<img alt="Camera objects" src="../figures/Chapter1/Fig01-13.png" width="50%" align="right">
 
 When you are creating a 3D scene, you are looking at the virtual world from an omniscient view. In this mode, you can view and edit the world from any angle[md]just like a movie director walking around a set in order to adjust things. Once the game starts, the player must view the game through a predetermined camera. Note that a predetermined camera does not mean the camera is fixed; almost all games have a camera that reacts to a player's input. In an action game, the camera tends to follow the character from behind; in a strategy game, the camera might be hovering high above, looking down; in a platformer, the camera is usually looking at the scene from the side.
 
@@ -214,23 +214,23 @@ In this context, _animation_ refers to the technique of making things change ove
 
 ![Dopesheet Editor: each diamond shape is a keyframe.](../figures/Chapter1/Fig01-14.png)
 
-<img alt="LocRotScale_animation" src="../figures/Chapter1/Fig01-15.png" width="50%" align="right">
+<img alt="LocRotScale animation" src="../figures/Chapter1/Fig01-15.png" width="50%" align="right">
 <br><br>
 The easiest way to animate is to alter the location, rotation, and scaling of an object over time. For example, by altering these variables, you can realistically animate the movement of a bouncing ball. Keep in mind that the curves represent the value of the channels (in this case xyz location) of the ball, not the actual motion path of the ball itself.
 
 <br><br>
 
-<img alt="Armature_animation" src="../figures/Chapter1/Fig01-16.png" width="33%" align="left">
+<img alt="Armature animation" src="../figures/Chapter1/Fig01-16.png" width="33%" align="left">
 <br><br>
 To animate something more complicated, such as a human, it's not enough to just move, rotate, and scale the object as a whole. This is where armatures come in. Armatures are skeletons that can be "inserted" into a model to control the model's deformation. Using this system, you can create complex yet organic-looking animations.
 
 <br><br><br><br>
-<img alt="Shape_keys_animation." src="../figures/Chapter1/Fig01-17.jpg" width="50%" align="right">
+<img alt="Shape keys animation." src="../figures/Chapter1/Fig01-17.jpg" width="50%" align="right">
 <br>
 A third way to animate is using shape keys. Shape keys are snapshots of the mesh in different shapes. They are often used to animate nuanced changes that cannot be otherwise easily animated with armatures.
 
 
-<img alt="Procedural_physics-based_motion." src="../figures/Chapter1/Fig01-18.jpg" width="33%" align="left">
+<img alt="Procedural physics-based motion." src="../figures/Chapter1/Fig01-18.jpg" width="33%" align="left">
 <br>
 Finally, keep in mind that making objects move doesn't always have to be a manual process. You can also make objects move by using the physics engine (see Chapter 6).
 
@@ -289,7 +289,7 @@ The Blender window is divided into Editors. Each Editor region can be resized, m
 
 At the top of the screen is the main menu, which offers basic functionalities such as Open, Save, and Help. Furthermore, the main menu controls the view for the rest of the Blender window. The Render Engine option in the middle of the menu controls how the interface is configured.
 
-<img alt="Selecting_the_Game_Engine" src="../figures/Chapter1/Fig01-21.png" width="40%" align="left">
+<img alt="Selecting the Game Engine" src="../figures/Chapter1/Fig01-21.png" width="40%" align="left">
 By default, Cycles Render is selected. In this mode, the interface is configured for doing 3D modeling, animation, and rendering with Cycles. But let's switch it to the Blender Game mode. Click the drop-down menu and select Blender Game from the list. This setting will unlock certain features that are not visible normally, and it also hides features that are not available in the Blender game engine.
 
 
@@ -302,7 +302,7 @@ Occupying the majority of the screen is a 3D Viewport. Here you can see the 3D w
 >Press and hold the middle mouse button to rotate the 3D view. Scroll the mouse wheel to zoom in the 3D view. Right-click to select a 3D object. Selected objects are highlighted in yellow.
 
 
-<img alt="Number_pad_keyboard_layout." src="../figures/Chapter1/Fig01-23.png" width="25%" align="left">
+<img alt="Number pad keyboard layout." src="../figures/Chapter1/Fig01-23.png" width="25%" align="left">
 <br>
 Another common setup for the 3D Viewport is to split the view into four quadrants: top view, side view, front view, and a perspective view. You can turn on Quad view by pressing Ctrl+Alt+Q with the mouse over the 3D Viewport (see Figure 1.22). Press the same key combination to go back to the single view.
 
@@ -320,7 +320,7 @@ To the right of the screen are two editors. The top portion is the Outliner, whi
 #### Properties Editor <a id="Properties_Editor"></a>
 
 
-<img alt="Properties_Editor_icons." src="../figures/Chapter1/Fig01-24.png" width="33%" align="right">
+<img alt="Properties Editor icons." src="../figures/Chapter1/Fig01-24.png" width="33%" align="right">
 Under the Outliner on the right, you have the Properties Editor. Here you can access global settings for the file, as well as settings for individual objects. This is one of the most frequently used panels in Blender, after the 3D view perhaps. The Properties Editor is context sensitive, which means it will automatically display different content, depending on the object that is active. Take a closer look at the row of icons at the top of the Properties Editor, as shown in Figure 1.24. These tabs organize the properties into groups, with the more general settings on the left-most tab, and the more specific settings on the right.
 
 
@@ -349,11 +349,11 @@ Figure 1.25 shows one area split into two. You can do it by dragging the top cor
 To merge two adjacent areas into one is exactly the same as shown in Figure 1.25, but it is done in reverse order. Optionally, you can click with the right mouse button in the edge of the area you want to split or join, and select the option in the Area Options pop-up menu.
 
 
-<img alt="Editor_selection." src="../figures/Chapter1/Fig01-27.png" width="25%" align="left">
+<img alt="Editor selection." src="../figures/Chapter1/Fig01-27.png" width="25%" align="left">
 <br>
 Not only can you change the size and layout of the editor, but the type of editor can also be changed. As you can see in Figure 1.27, the left-most icon in the header can be used to change the editor type.
 
-<img alt="Dopesheet,_Image_Editor,_and_Logic_Brick_Editor." src="../figures/Chapter1/Fig01-28.png" width="45%" align="right">
+<img alt="Dopesheet, Image Editor, and Logic Brick Editor." src="../figures/Chapter1/Fig01-28.png" width="45%" align="right">
 Almost everything a studio needs to create the game is integrated into a single interface: you can create the game, test the game, and play the game all from the same program. This means that, as an artist, you can create a game in the shortest time possible, without having to worry about importing and exporting files between different applications. As a programmer, you won't have to switch back and forth between different software just to test your code. Figure 1.28 shows some screenshots of different editors that you will be using throughout the book.
 
 
@@ -363,7 +363,7 @@ The 3D view is where you will spend most of your time, so let's take a look at i
 
 #### Viewport Shading Modes <a id="Viewport_Shading_Modes"></a>
 
-<img alt="Drawing_Modes" src="../figures/Chapter1/Fig01-29.png" width="25%" align="right">
+<img alt="Drawing Modes" src="../figures/Chapter1/Fig01-29.png" width="25%" align="right">
 Let's look at the four different Viewport Shading modes available in the 3D view. They are used to change the way the scene is displayed onscreen. The four modes are:
 
 - **Bounding Box** : Represents all objects as a wireframe boundary. Useful for when the scene gets really complex.
@@ -442,7 +442,7 @@ Pressing one of the keys will start the transformation, and then you can move yo
 
 ### Search <a id="Search"></a>
 
-<img alt="The_Search_Box" src="../figures/Chapter1/Fig01-30.png" width="30%" align="right">
+<img alt="The Search Box" src="../figures/Chapter1/Fig01-30.png" width="30%" align="right">
 
 The final tip that you will learn is the search functionality in Blender. If you are unable to recall how to invoke a certain operation, whether through a button or a keyboard shortcut, a quick way to find it is by using the search functionality. Key in a few letters of what you are looking for, and the result should appear as shown in Figure 1.30.
 
@@ -470,7 +470,7 @@ Because of the large number of commands Blender is capable of performing, invoki
 Blender's keyboard shortcuts are optimized for a full-sized English QWERTY keyboard. The number pad (which, unfortunately, is not present on many laptops) is used to quickly navigate around the 3D scene. Laptop users usually have to press extra keys on their keyboard (such as the Fn key or a toggle) in order to simulate a number pad key. As a solution, go to File > User Preferences (Ctrl + Alt + U), then switch to Input tab and enable "Emulate Numpad" option to use main 1 to 0 keys instead of Numpad keys. If you want this setting remain permanently, click on the "Save User Settings" button.
 ![Emulate Numpad](../figures/Chapter1/Fig01-30-1.png)
 
-<img alt="3D_Navigator." src="../figures/Chapter1/Fig01-31.png" width="20%" align="right">
+<img alt="3D Navigator." src="../figures/Chapter1/Fig01-31.png" width="20%" align="right">
 Alternatively, Blender also has an add-on called "3D Navigation" that provides an easier way to navigate around the world for people without a number pad. To enable the 3D navigation plug-in to help you navigate around the 3D Viewport quickly, go to File > User Preferences > Add-Ons, and turn on 3D Views: 3D Navigation. Then you can switch views quickly from the 3D view's Toolshelf.
 
 ### Mouse <a id="Mouse"></a>
@@ -500,7 +500,7 @@ Often, a single Blender file contains hundreds of objects, each with different c
 Blender uses "data blocks" to represent content stored within a Blender file. Each data block represents a collection of data or settings. Some common datablock types you will encounter are Object datablock, Mesh datablock, Material datablock, Texture datablock, and Image datablock.
 
 
-<img alt="Datablock_hierarchy" src="../figures/Chapter1/Fig01-32.png" width="30%" align="right">
+<img alt="Datablock hierarchy" src="../figures/Chapter1/Fig01-32.png" width="30%" align="right">
 
 In order to reduce the apparent complexity of the program, Blender further organizes data blocks into hierarchies. At the top level are scenes, which can have a number of worlds, each of which can have any number of objects (objects can be a mesh, a lamp, a camera, and so on). If the object is a mesh, then a Mesh datablock is attached to it. If the object is a lamp, then a Lamp datablock is attached to the object.
 
@@ -510,7 +510,7 @@ An example of a datablock hierarchy chain is shown in Figure 1.32: Scene > Objec
 Throughout the Blender interface, you will run into many datablock managers. They all look like Figure 1.33.
 
 
-<img alt="Datablock_Sharing" src="../figures/Chapter1/Fig01-33.png" width="30%" align="left">
+<img alt="Datablock Sharing" src="../figures/Chapter1/Fig01-33.png" width="30%" align="left">
 
 Because datablocks can be shared, copied, and reused, large scenes can be managed efficiently through the use of shared datablocks. Figure 1.33 shows a datablock that has been shared by three "users," as denoted by the number next to its name.
 
