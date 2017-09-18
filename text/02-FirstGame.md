@@ -105,7 +105,7 @@ For appending part of another blender file click on File > Append (Shift + F1). 
 >- You can use thumbnails to find some datablock types easier. Before using this feature, use File > Data Previews commands to generate thumbnails for datablocks (like materials, textures, ...).
 ><img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-4.png" align="center">
 
-The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_-the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
+The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_ - the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
 
 If you want to keep the files in sync (and you do most of the time), you then need to set "Link" while importing the library file. By doing this, you will not be able to edit the file in your working Blender file. Instead, you need to go back to your library file, change it, save it, and then open the working file again.
 
@@ -115,9 +115,9 @@ You don't simply dump the whole Blender file inside yours. Instead, you can navi
 
 ## How to Use the Chapter Files <a id="How_to_Use_the_Chapter_Files"></a>
 
-On the Book files, you can find the complete game(exercise) in the folder Book/Chapter02/game/_final/.
+On the Book files, you can find the complete game(exercise) in the folder Book/Chapter02/game\_final/.
 
-For simplicity's sake, we will use Blender relative path syntax to refer to the files inside this folder. In this case // refers to the base folder and //interface/score.blend stands for Book/Chapter02/game/_final/interface/score.blend.
+For simplicity's sake, we will use Blender relative path syntax to refer to the files inside this folder. In this case // refers to the base folder and //interface/score.blend stands for Book/Chapter02/game\_final/interface/score.blend.
 
 To play the game inside Blender, open the file game.blend. This file is only a part of the game and depends on the external files that are organized as:
 
@@ -133,13 +133,13 @@ To play the game inside Blender, open the file game.blend. This file is only a p
 
 To follow the progress of the instruction steps, we have other folders. Copy the whole folder onto your computer to work from there. These are the folders we will be using:
 
-- **Book/Chapter02/game\_my** -The semi-empty folder structure to be filled as you advance in the chapter.
+- **Book/Chapter02/game_my** - The semi-empty folder structure to be filled as you advance in the chapter.
 
-- **Book/Chapter02/game\_progress** -The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.1.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game\_my" folder.
+- **Book/Chapter02/game_progress** - The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.2.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game_my" folder.
 
-- **Book/Chapter02/game\_final** -The final as of the end of this exercise; use for reference.
+- **Book/Chapter02/game_final** - The final as of the end of this exercise; use for reference.
 
-- **Book/Chaper02/references** -Files to support the making of the game.
+- **Book/Chaper02/references** - Files to support the making of the game.
 
 For the rest of the chapter, we will refer to the files from your //game\_my/ top folder.
 
@@ -152,7 +152,7 @@ We will model the outline of the shark based on reference images. To set up your
 
 1. Split your 3D view into four views (Ctrl+Alt+Q).
 
-2. Open the 3D view Properties panel (N)-remember that the mouse needs to be over the 3D view in order to call the commands for it.
+2. Open the 3D view Properties panel (N) - remember that the mouse needs to be over the 3D view in order to call the commands for it.
 
 3. In the bottom of the panel, you will see the Background Images option. Turn it on.
 
