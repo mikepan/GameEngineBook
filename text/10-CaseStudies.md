@@ -1,20 +1,20 @@
 **Table of Contents**
 
-- [Chapter 10: Case Studies](#Chapter 10: Case Studies)
-	- [Super Blender Galaxy](#Super Blender Galaxy)
-	- [Lucy and the Time Machine](#Lucy and the Time Machine)
-	- [The FPS Project](#The FPS Project)
-	- [Whip Frog](#Whip Frog)
+- [Chapter 10: Case Studies](#Chapter_10_Case_Studies)
+	- [Super Blender Galaxy](#Super_Blender_Galaxy)
+	- [Lucy and the Time Machine](#Lucy_and_the_Time_Machine)
+	- [The FPS Project](#The_FPS_Project)
+	- [Whip Frog](#Whip_Frog)
 	- [Tectonic](#Tectonic)
-	- [Sintel The Game](#Sintel The Game)
+	- [Sintel The Game](#Sintel_The_Game)
 	- [CAVE](#CAVE)
-	- [Color Cube](#Color Cube)
-	- [Jogo da Coleta - Recycle It 2.0](#Jogo da Coleta - Recycle It 2.0)
-	- [World Cup Stadiums](#World Cup Stadiums)
+	- [Color Cube](#Color_Cube)
+	- [Jogo da Coleta - Recycle It 2.0](#Jogo_da_Coleta_-_Recycle_It_2.0)
+	- [World Cup Stadiums](#World_Cup_Stadiums)
 	- [OceanViz](#OceanViz)
-	- [Cosmic Sensation](#Cosmic Sensation)
+	- [Cosmic Sensation](#Cosmic_Sensation)
 
-# Chapter 10: Case Studies <a id="Chapter 10: Case Studies"></a>
+# Chapter 10: Case Studies <a id="Chapter_10_Case_Studies"></a>
 
 By now you should have a very good command of the Blender game engine. Armed with this newfound skill, no doubt you are bursting with ideas. Whether you are working alone or with a team, completing a game from start to finish is a lot of work. It is also a lot different from the examples and tutorials we used in the book, which are often stripped down to the most basic in order to be didactic. Real-world productions usually involve many more files, which are larger, more complex, and messier. This chapter tries to ease the transition between the classroom and the real world by showcasing other people's finished work.
 
@@ -26,7 +26,7 @@ All the games mentioned here can be found on the book website for you to play, a
 >
 >We worked hard with the authors of these games to make sure that all the included games on the disk are playable in the latest version of Blender; however, due to limited time, some games might require a different version of Blender to run. Refer to the readme.txt file within each game folder for system requirement.
 
-## Super Blender Galaxy <a id="Super Blender Galaxy"></a>
+## Super Blender Galaxy <a id="Super_Blender_Galaxy"></a>
 
 Carlos Limon
 
@@ -59,7 +59,7 @@ The Blender community helped me throughout the process, although no one knew wha
 
 Carlos aspires to become a game developer and is currently studying Game Development and Computer Programming in San Antonio, Texas. A playable version of the game is available on the accompanying disk.
 
-## Lucy and the Time Machine <a id="Lucy and the Time Machine"></a>
+## Lucy and the Time Machine <a id="Lucy_and_the_Time_Machine"></a>
 
 Vitor Balbio, Bernardo Hasselman
 
@@ -93,7 +93,7 @@ Keep Blending!
 
 Vitor Balbio's previous work includes a stunning looking demo scene called "Ruínas" (Ruins), which competed in the graphics category in an early edition of the same competition. Information about _Lucy and The Time Machine_ can be found on Vitor's blog (in Portuguese): [_http://obalbio3d.wordpress.com/_](http://obalbio3d.wordpress.com/)
 
-## The FPS Project <a id="The FPS Project"></a>
+## The FPS Project <a id="The_FPS_Project"></a>
 
 Chase Moskal, Geoff Gollmer, Martins Upitis, Mitchell Stokes, Daniel Stokes, Lonnie Ralfs, Fleeky Flanco, Thomas Lobig
 
@@ -121,7 +121,7 @@ It's not all doom and gloom, though. After a long stretch of inactivity, Geoff a
 
 As the project is undergoing a restructuring, no file is available to the public yet. You can learn more about the FPS project at _https://code.google.com/p/fps-project/._
 
-## Whip Frog <a id="Whip Frog"></a>
+## Whip Frog <a id="Whip_Frog"></a>
 
 David Thompson, Campbell Barton, Daniela Hammer, Alex Fraser, Luca Pavone
 
@@ -181,7 +181,7 @@ sfxr is a simple sound synthesizer, which can be found at [https://code.google.c
 
 BGUI is maintained by Mitchell Stokes (Moguri) and can be found at [https://github.com/Moguri/bgui](https://github.com/Moguri/bgui)
 
-## Sintel The Game <a id="Sintel The Game"></a>
+## Sintel The Game <a id="Sintel_The_Game"></a>
 
 Jonathan Buresh, Noah Summers, Malcolm Corliss, David Barker , James Raymond, David Jogoo and Carlos Andreacchio
 
@@ -227,7 +227,7 @@ Although the Blender game engine has no network capabilities (yet), it is really
 
 BlenderCave is an ongoing research project. You can follow its progress and download source code at [_http://gmrv.es/~jgascon/BlenderCave/index.html_](http://gmrv.es/~jgascon/BlenderCave/index.html)_._
 
-## Color Cube <a id="Color Cube"></a>
+## Color Cube <a id="Color_Cube"></a>
 
 Quentin Bolsée, Benoit Bolsée
 
@@ -253,7 +253,7 @@ _Colorcube_ is available as a trial and commercial game for Windows, Mac, Linux,
 
 A demo version of the game is available from the accompanying online material.
 
-## Jogo da Coleta - Recycle It 2.0 <a id="Jogo da Coleta - Recycle It 2.0"></a>
+## Jogo da Coleta - Recycle It 2.0 <a id="Jogo_da_Coleta_-_Recycle_It_2.0"></a>
 
 Diego Rangel
 
@@ -275,7 +275,7 @@ All the gameplay logic was planned ahead of the modeling and programming stages.
 
 During the course of this game development, the Blender game engine met all my requirements. The logic brick system allowed for quick implementation of ideas. Furthermore, the speed gain from having the game engine integrated with a full asset creation package (for example, Blender itself) was wonderful. The Blender game engine fulfilled its duties for this project. It seemed especially attractive for small and medium projects, in particular for one-man projects like this."
 
-## World Cup Stadiums <a id="World Cup Stadiums"></a>
+## World Cup Stadiums <a id="World_Cup_Stadiums"></a>
 
 Chico Ortiz, Yorik van Havre, Maíra Zasso
 
@@ -324,7 +324,7 @@ In its current iteration, _OceanViz_ is implemented as a plug-in for the Ecopath
 
 The _OceanViz_ project was conceived by professor Dr. Villy Christensen. The EwE development team that supports the _OceanViz_ consists of Jeroen Steenbeek and Joe Buszowski, with past support from Sherman Lai and Sundaran Kumar.
 
-## Cosmic Sensation <a id="Cosmic Sensation"></a>
+## Cosmic Sensation <a id="Cosmic_Sensation"></a>
 
 Dalai Felinto, Martins Upitis, Mike Pan
 

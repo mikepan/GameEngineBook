@@ -1,33 +1,33 @@
 **Table of Contents**
 
-- [Chapter 8: Workflow and Optimization](#Chapter 8: Workflow and Optimization)
-	- [Optimization Basics](#Optimization Basics)
-	- [Understanding Hardware](#Understanding Hardware)
-	- [Performance Target](#Performance Target)
-	- [Performance Scaling](#Performance Scaling)
-	- [When to Optimize](#When to Optimize)
-	- [How to Optimize](#How to Optimize)
-	- [The Performance Profiler](#The Performance Profiler)
-		- [The Profiler](#The Profiler)
-	- [Quick 'n Dirty Optimization Techniques](#Quick 'n Dirty Optimization Techniques)
-	- [Advanced Optimization Techniques](#Advanced Optimization Techniques)
-		- [Think Small](#Think Small)
-		- [Collision Proxy](#Collision Proxy)
-		- [Partial Collision](#Partial Collision)
-		- [Texture Baking](#Texture Baking)
-			- [Limitations of Texture Baking](#Limitations of Texture Baking)
-		- [Normal Map](#Normal Map)
-		- [Level of Detail](#Level of Detail)
-		- [Object Culling](#Object Culling)
-		- [Scene Management](#Scene Management)
-		- [Linked Libraries](#Linked Libraries)
-			- [Linking vs. Appending](#Linking vs. Appending)
-			- [Relative Path vs. Absolute Path](#Relative Path vs. Absolute Path)
-            - [StreetLamp vs. Cube.001](#StreetLamp vs. Cube.001)
+- [Chapter 8: Workflow and Optimization](#Chapter_8_Workflow_and_Optimization)
+	- [Optimization Basics](#Optimization_Basics)
+	- [Understanding Hardware](#Understanding_Hardware)
+	- [Performance Target](#Performance_Target)
+	- [Performance Scaling](#Performance_Scaling)
+	- [When to Optimize](#When_to_Optimize)
+	- [How to Optimize](#How_to_Optimize)
+	- [The Performance Profiler](#The_Performance_Profiler)
+		- [The Profiler](#The_Profiler)
+	- [Quick 'n Dirty Optimization Techniques](#Quick_'n_Dirty_Optimization_Techniques)
+	- [Advanced Optimization Techniques](#Advanced_Optimization_Techniques)
+		- [Think Small](#Think_Small)
+		- [Collision Proxy](#Collision_Proxy)
+		- [Partial Collision](#Partial_Collision)
+		- [Texture Baking](#Texture_Baking)
+			- [Limitations of Texture Baking](#Limitations_of_Texture_Baking)
+		- [Normal Map](#Normal_Map)
+		- [Level of Detail](#Level_of_Detail)
+		- [Object Culling](#Object_Culling)
+		- [Scene Management](#Scene_Management)
+		- [Linked Libraries](#Linked_Libraries)
+			- [Linking vs. Appending](#Linking_vs._Appending)
+			- [Relative Path vs. Absolute Path](#Relative_Path_vs._Absolute_Path)
+            - [StreetLamp vs. Cube.001](#StreetLamp_vs._Cube.001)
 		- [Layers](#Layers)
-	- [Beauty Trumps Complexity](#Beauty Trumps Complexity)
+	- [Beauty Trumps Complexity](#Beauty_Trumps_Complexity)
 
-# Chapter 8: Workflow and Optimization <a id="Chapter 8: Workflow and Optimization"></a>
+# Chapter 8: Workflow and Optimization <a id="Chapter_8_Workflow_and_Optimization"></a>
 
 We were once told that making a video game is a constant struggle between four elemental forces:
 - Quality
@@ -44,13 +44,13 @@ Okay, so maybe the last item shouldn't be on the list, which Figure 8.1 reflects
 
 In this chapter, we'll talk about some of the techniques used to improve the performance of the game, speed up development, and how to survive Monday-morning meetings to keep the upper management happy.
 
-## Optimization Basics <a id="Optimization Basics"></a>
+## Optimization Basics <a id="Optimization_Basics"></a>
 
 Making a video game is both a science and an art. The creative aspect of a game can't be realized without technology, and the technology alone is useless without the creative work.
 
 When we play a game, we rarely think about the hundreds of program functions that are invoked each second, nor the millions of lines of codes that are executed every frame, nor the billions of transistors that change state every nanosecond to make all that happen. We don't think of all these things because our game runs on a game engine, which runs on top of the operating system, which in turn manages all the low-level hardware. So as the developer,you can focus on making the game fun.
 
-## Understanding Hardware <a id="Understanding Hardware"></a>
+## Understanding Hardware <a id="Understanding_Hardware"></a>
 
 That said, having a good understanding of computer hardware is essential in the game-creation process, because it allows you to manage the limited hardware resources efficiently. Making the most of the available hardware enables the game to perform as fast as possible.
 
@@ -62,7 +62,7 @@ The key components of a modern computer are listed below:
 
 - **GPU** (Graphic Processing Unit), or graphics card, is a processor that is specially designed to display 3D graphics. Blender uses the GPU to render the 3D world, so a faster graphics card definitely helps make the game perform faster. Generally speaking, a faster GPU would allow the game to have more complex geometry, more lights, and more complex graphic effects.
 
-## Performance Target <a id="Performance Target"></a>
+## Performance Target <a id="Performance_Target"></a>
 
 If you are a PC gamer, you are no doubt familiar with the (perhaps frustrating) notion of minimum system requirement. Unlike video game consoles, which have a fixed set of hardware, computers vary a great deal in capacity and performance. Minimum system requirement is a way to guarantee that the game will run at a sufficiently acceptable performance level given a certain hardware configuration.
 
@@ -79,7 +79,7 @@ _Pong_ Source: Atari, Inc. Dead Cyborg [c] 2014 Endre Barath.
 
 Once a minimum system target is set, you can start creating your game knowing exactly how much detail and complexity you can put into it. You can compromise details to achieve the performance you are looking for. Luckily for us, lowering the overall level of detail usually means the artists have less work to do.
 
-## Performance Scaling <a id="Performance Scaling"></a>
+## Performance Scaling <a id="Performance_Scaling"></a>
 
 After a performance target has been decided, most game studios still have to think about how the game will run on hardware that is significantly faster or slower than the target platform.
 
@@ -109,7 +109,7 @@ All of the above options are only changeable in GLSL mode. In Singletexture and 
 
 Apart from tinkering with graphical features to influence the performance of the game, many commercial games also vary the object level of detail, reduce particles effects density, and even change the audio quality in order to make the game play smoother on older hardware. Some of these techniques are explained in this chapter.
 
-## When to Optimize <a id="When to Optimize"></a>
+## When to Optimize <a id="When_to_Optimize"></a>
 
 Throughout the development process, you will have to make high-level decisions that will affect how the game performs, so it's important to keep performance in mind at all times. On the other hand, doing micro-optimization too early will only slow down your workflow, leading to bugs and sometimes making the game hard to maintain, which is all bad.
 
@@ -125,13 +125,13 @@ Figure 8.5 shows JPEG compression artifact vs. TGA, which compresses losslessly.
 >So, after two hours of profiling, the only finding was a badly nested Python loop. The fix took all of two seconds and involved unindentation of the offending code. But the end result was spectacular, to say the least.
 >Silly bugs like this might not be present in your project. Without finding a bug like this, you'll never increase your performance five-fold by fixing a few indentations in the code. But never assume you know where the problem is[md]always profile.
 
-## How to Optimize <a id="How to Optimize"></a>
+## How to Optimize <a id="How_to_Optimize"></a>
 
 As obvious as it sounds, the first step in optimization is locating the bottleneck. A bottleneck is the point in the game where it is taking the longest time to compute. Focusing on the bottleneck will make sure that the work you do in optimizing the game will have the largest impact on performance.
 
 Common wisdom in the programming world says never assume you know where the bottleneck is. Experience might tell you where the slowdown should be, but if there is an unexpected bug somewhere, the bottleneck might not be where you think it is. Always make sure that you locate the bottleneck before trying to remove it. The performance profiler in Blender can give you some very insightful information about the performance of the game and where the bottleneck might be.
 
-## The Performance Profiler <a id="The Performance Profiler"></a>
+## The Performance Profiler <a id="The_Performance_Profiler"></a>
 
 Blender has a basic performance profiler available to you. It gives you timing information on how long a frame takes to update, as well as the breakdown of how long the game engine spent on specific tasks.
 
@@ -145,7 +145,7 @@ Once that's enabled, you will see a text overlay as depicted in Figure 8.7 in th
 
 ![Framerate and Profile information overlay](../figures/Chapter8/Fig08-07.png)
 
-### The Profiler <a id="The Profiler"></a>
+### The Profiler <a id="The_Profiler"></a>
 
 The most common measurement of performance for a real-time application is frame per second; that's how many images the computer can render per second. This number is shown at the very top of the profiler in two ways. First, as "swap," which refers to the time it takes to swap out the previous frame for the new one, expressed in milliseconds. Secondly, as a more readable "frames per second" value, expressed in hertz.
 
@@ -176,7 +176,7 @@ Furthermore, the ratios change depending on the computer hardware. For example, 
 
 For a detailed analysis of what each of the components do, Mitchell Stokes has written a very comprehensive article on the subject. It can be found at http://wiki.blender.org/index.php/Doc:2.6/manual/Game_Engine/Performance/Display/Framerate_and_Profile.
 
-## Quick 'n Dirty Optimization Techniques <a id="Quick 'n Dirty Optimization Techniques"></a>
+## Quick 'n Dirty Optimization Techniques <a id="Quick_'n_Dirty_Optimization_Techniques"></a>
 
 Once you've located the slowest portion of the game by looking at the profiler, here are some things you can try to speed up the game:
 
@@ -214,11 +214,11 @@ To run Blender with a console window on OS X or Linux, launch the application fr
 
 - **Try another version of Blender:** When all else fails, consider the possibility that there is a bug in Blender that's causing the slowdown. (This has happened before.) Try your file with another (older or newer) version of Blender and see if the performance problem is still there. If you believe something is abnormally slow when it shouldn't be, file a bug report so the developers can have a chance at fixing it. This might not only solve your problem, but it makes the program better for everyone else, too.
 
-## Advanced Optimization Techniques <a id="Advanced Optimization Techniques"></a>
+## Advanced Optimization Techniques <a id="Advanced_Optimization_Techniques"></a>
 
 Here are some other, more advanced, optimization techniques to try.
 
-### Think Small <a id="Think Small"></a>
+### Think Small <a id="Think_Small"></a>
 
 If you are making a large game, instead of making a sprawling million-acre landscape, consider separating the map into many smaller pieces and use cleverly designed tunnels, elevators, or entryways to trigger the loading of a new section of the map. Half-Life 2 is a wonderful example of this; their massive terrain is actually made up of many zones. This way, the computer doesn't have to load and render nearly as many assets at once.
 
@@ -228,7 +228,7 @@ Once the level is broken up into different sections, each can occupy a Scene. Yo
 
 ![Using the Scene actuators to load a different level](../figures/Chapter8/Fig08-08.png)
 
-### Collision Proxy <a id="Collision Proxy"></a>
+### Collision Proxy <a id="Collision_Proxy"></a>
 
 While it is justifiable to spend hundreds, if not thousands, of polygons on a model to make it look nice onscreen, the collision mesh used for physics rarely needs to be as detailed as the visual representation. Because of this, a common technique used in games is to approximate physics meshes with built-in primitives, such as cubes or spheres. These are the fastest to compute.
 
@@ -267,7 +267,7 @@ To use collision proxy:
 
 So that's collision proxy in a nutshell. As you can see, a lot of steps are involved with this approach, which makes using collision proxy suitable only for very complex models that have a unique shape. Otherwise, it is much easier (and efficient) to use one of the predefined collision bound primitives.
 
-### Partial Collision <a id="Partial Collision"></a>
+### Partial Collision <a id="Partial_Collision"></a>
 
 Another alternative to collision proxy is to simply turn off collision on part of the model. This can be done in the material Properties Editor. By adding multiple materials, you can control which part of the model is collision detected and which part is ignored by collision detection.
 
@@ -289,7 +289,7 @@ _**Tutorial**_
 
 ![Material Properties Editor](../figures/Chapter8/Fig08-11.png)
 
-### Texture Baking <a id="Texture Baking"></a>
+### Texture Baking <a id="Texture_Baking"></a>
 
 The Blender rendering engine is capable of creating some stunning effects. Don't you wish you could have that level of graphic quality in your game? With texture baking, you can! Texture baking is the process of rendering effects such as shadow map, ambient occlusion, and lightmaps onto a texture, so they do not have to be computed in real time.
 
@@ -347,7 +347,7 @@ Let's try this out:
 
 ![The baked scene (left) vs. the original scene (right)](../figures/Chapter8/Fig08-15.png)
 
-#### Limitations of Texture Baking <a id="Limitations of Texture Baking"></a>
+#### Limitations of Texture Baking <a id="Limitations_of_Texture_Baking"></a>
 
 As with anything that "sounds too good to be true," there is usually a catch.
 
@@ -361,7 +361,7 @@ As with anything that "sounds too good to be true," there is usually a catch.
 
 Despite the limitations, texture baking is a popular method that is widely used to include fancy light effect in real time. In addition to baking full renders, it is also possible to bake just an ambient occlusion map. The baked ambient occlusion texture can then be used as a secondary texture to influence the surface shading of an object.
 
-### Normal Map <a id="Normal Map"></a>
+### Normal Map <a id="Normal_Map"></a>
 
 Baking a normal map is actually just a special case of the texture baking. Normal map baking is commonly used to generate a tangent normal map from a high-resolution model to map onto a low-resolution model.
 
@@ -411,7 +411,7 @@ If you are curious, a normal map uses the three color channels (RGB) to store th
 >
 >The two most popular normal map utilities seem to be Gimp-NormalMap for (you guessed it!) the GIMP (http://code.google.com/p/gimp-normalmap) and NVIDIA Texture Tools for Photoshop (http://developer.nvidia.com/nvidia-texture-tools-adobe-photoshop).
 
-### Level of Detail <a id="Level of Detail"></a>
+### Level of Detail <a id="Level_of_Detail"></a>
 
 Level of detail (LOD) is a general term referring to ways to adjust the complexity of the object, depending on its perceived size. The idea is that objects farther away are smaller and generally less significant to the gameplay. Therefore, they can often be removed or simplified.
 
@@ -427,7 +427,7 @@ A reference implementation of a LOD system can be found at /Chapter8/LoD.blend. 
 
 The script should be a good place for you to start tinkering with your own LOD implementation.
 
-### Object Culling <a id="Object Culling"></a>
+### Object Culling <a id="Object_Culling"></a>
 
 To make the game run as efficiently as possible, objects that are not visible should not be rendered. While it might be obvious that everything behind a solid wall should not be processed, the computer will need a bit more help to accomplish that.
 
@@ -443,11 +443,11 @@ Now, set the WallOccluder object to be an occluder and rerun the game. Notice th
 
 Keep in mind that culling is done on a per-object basis. Blender will not hide part of the model. Therefore, occlusion culling is effective only when there are many small objects in the scene hiding behind a large object.
 
-### Scene Management <a id="Scene Management"></a>
+### Scene Management <a id="Scene_Management"></a>
 
 Optimization isn't just about making your game fast; it is also about keeping the project organized and easy to manage. As the game project becomes larger, it gets progressively harder to keep everything organized. Here are some things you can do to maintain your own sanity:
 
-### Linked Libraries <a id="Linked Libraries"></a>
+### Linked Libraries <a id="Linked_Libraries"></a>
 
 The size of a single Blender file is virtually unlimited, so in theory, you can make a massive game with everything stored in a one Blender file. However, this approach is not practical for many reasons. Only one person at a time can edit a Blender file. So how do you spread a large project out so that multiple people can work on different aspects of it at the same time, without overwriting each other's work?
 
@@ -455,7 +455,7 @@ The answer is Blender's library system. You have already been exposed to linking
 
 The game _Yo Frankie!_ (available for free online) is a great example of how a large game project is organized. In it, each entity (for example, tree, character model, and rocks) has its own Blender file, which can be linked into a master file, which makes up the game level.
 
-#### Linking vs. Appending <a id="Linking vs. Appending"></a>
+#### Linking vs. Appending <a id="Linking_vs._Appending"></a>
 
 Both functions import data blocks in Blender from an external file. The difference is that append makes a copy of the data block, and in doing so, severs the ties with the original library file. Once an append operation is done, you can edit, move, or even delete the library file without any consequences on the appended object.
 
@@ -463,13 +463,13 @@ Link does not make a new copy of the data block, but instead references the libr
 
 Linking is generally preferred over appending since it doesn't replicate the data blocks.
 
-#### Relative Path vs. Absolute Path <a id="Relative Path vs. Absolute Path"></a>
+#### Relative Path vs. Absolute Path <a id="Relative_Path_vs._Absolute_Path"></a>
 
 Once you start referencing external files (such as image textures and audios files) into a project, you need to decide if you want Blender to point to that file using a relative file path (the default option) or an absolute file path. Generally, keeping paths relative means it's easier to move a whole project around, as long as the overall folder structure is maintained. If multiple people are working on a project jointly using a file-share or source-management system, using relative path is absolutely crucial.
 
 Blender has some helpful tools under the File > External Files menu that can let you mange file paths.
 
-#### StreetLamp vs. Cube.001 <a id="StreetLamp vs. Cube.001"></a>
+#### StreetLamp vs. Cube.001 <a id="StreetLamp_vs._Cube.001"></a>
 
 A scene teeming with objects with unhelpful names like Cube.001, Cylinder.87, and Material.002 would be a nightmare to manage. First, scripts that refer to objects by their name will be harder to understand if object names aren't clear. By keeping everything named, you reduce the time it takes searching for something.
 
@@ -479,7 +479,7 @@ Assigning proper names is not only limited to objects. All data blocks in Blende
 
 Not unlike the layer functionality in a 2D image-editing program, the layer functionality in a 3D program is mostly there to keep the scene organized. Blender provides 20 layers for you to work with. How these layers are utilized is up to the artist. Since you cannot assign names to layers, it will be up to you to keep track of, and perhaps document, how the layers are being used.
 
-## Beauty Trumps Complexity <a id="Beauty Trumps Complexity"></a>
+## Beauty Trumps Complexity <a id="Beauty_Trumps_Complexity"></a>
 
 Armed with these newly acquired optimization methods, you might be tempted to beef up the game with more details. More polygons! Higher-resolution textures! Larger explosions! (Cough[md]Michael Bay[md]Cough.) It's easy to lose sight of the big picture. A visually beautiful game does not have to be photorealistic, nor does it have to be crammed to the brim with details. Sometimes, simple visuals can be just as powerful.
 

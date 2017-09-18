@@ -1,57 +1,57 @@
 **Table of Contents**
 
-- [Chapter 5: Graphics](#Chapter 5: Graphics)
-	- [Visual Style](#Visual Style)
-	- [Designing for Real Time](#Designing for Real Time)
+- [Chapter 5: Graphics](#Chapter_5_Graphics)
+	- [Visual Style](#Visual_Style)
+	- [Designing for Real Time](#Designing_for_Real_Time)
 	- [Geometry](#Geometry)
-	- [Materials and Textures](#Materials and Textures)
+	- [Materials and Textures](#Materials_and_Textures)
 	- [Lights](#Lights)
-	- [Shading Modes](#Shading Modes)
-		- [GLSL Mode](#GLSL Mode)
-			- [Material and Textures](#Material and Textures)
-				- [The Material Panel](#The Material Panel)
-					- [Material Management](#Material Management)
-					- [Multi-Material Objects](#Multi-Material Objects)
-					- [Object vs. Data](#Object vs. Data)
+	- [Shading Modes](#Shading_Modes)
+		- [GLSL Mode](#GLSL_Mode)
+			- [Material and Textures](#Material_and_Textures)
+				- [The Material Panel](#The_Material_Panel)
+					- [Material Management](#Material_Management)
+					- [Multi-Material Objects](#Multi-Material_Objects)
+					- [Object vs. Data](#Object_vs._Data)
 					- [Preview](#Preview)
 					- [Diffuse](#Diffuse)
 					- [Specular](#Specular)
 					- [Ramp](#Ramp)
 					- [Shading](#Shading)
-					- [Game Settings](#Game Settings)
+					- [Game Settings](#Game_Settings)
 					- [Physics](#Physics)
-					- [Additional Options](#Additional Options)
-				- [The Texture Panel](#The Texture Panel)
-					- [Texture Data Blocks](#Texture Data Blocks)
+					- [Additional Options](#Additional_Options)
+				- [The Texture Panel](#The_Texture_Panel)
+					- [Texture Data Blocks](#Texture_Data_Blocks)
 					- [Image](#Image)
-					- [Image Sampling Panel](#Image Sampling Panel)
-					- [Mapping Panel](#Mapping Panel)
-					- [Influence Panel](#Influence Panel)
-			- [Combined Exercise](#Combined Exercise)
+					- [Image Sampling Panel](#Image_Sampling_Panel)
+					- [Mapping Panel](#Mapping_Panel)
+					- [Influence Panel](#Influence_Panel)
+			- [Combined Exercise](#Combined_Exercise)
 			- [Nodes](#Nodes)
 		- [Multitexture](#Multitexture)
 	- [Lights](#Lights)
-	- [World Settings](#World Settings)
-	- [Texture Painting](#Texture Painting)
-	- [Custom GLSL Shaders](#Custom GLSL Shaders)
-	- [GLSL Primer](#GLSL Primer)
-	- [Custom GLSL Shaders](#Custom GLSL Shaders)
-		- [A Useful Fragment Shader](#A Useful Fragment Shader)
-		- [A Useful Vertex Shader](#A Useful Vertex Shader)
-		- [Going Further](#Going Further)
-	- [2D Filters](#2D Filters)
-		- [Why Use 2D Filters?](#Why Use 2D Filters?)
-		- [How to Use 2D Filters](#How to Use 2D Filters)
-		- [Custom Filter](#Custom Filter)
+	- [World Settings](#World_Settings)
+	- [Texture Painting](#Texture_Painting)
+	- [Custom GLSL Shaders](#Custom_GLSL_Shaders)
+	- [GLSL Primer](#GLSL_Primer)
+	- [Custom GLSL Shaders](#Custom_GLSL_Shaders)
+		- [A Useful Fragment Shader](#A_Useful_Fragment_Shader)
+		- [A Useful Vertex Shader](#A_Useful_Vertex_Shader)
+		- [Going Further](#Going_Further)
+	- [2D Filters](#2D_Filters)
+		- [Why Use 2D Filters?](#Why_Use_2D_Filters?)
+		- [How to Use 2D Filters](#How_to_Use_2D_Filters)
+		- [Custom Filter](#Custom_Filter)
 		- [Limitations](#Limitations)
 	- [Text](#Text)
-	- [Bitmap Text](#Bitmap Text)
-	- [Text Object](#Text Object)
-	- [Video Texture](#Video Texture)
+	- [Bitmap Text](#Bitmap_Text)
+	- [Text Object](#Text_Object)
+	- [Video Texture](#Video_Texture)
 	- [Stereo](#Stereo)
 	- [Dome](#Dome)
 
-# Chapter 5: Graphics <a id="Chapter 5: Graphics"></a>
+# Chapter 5: Graphics <a id="Chapter_5_Graphics"></a>
 
 Welcome to Chapter 5, where it's all about the visuals! When you play a game, the graphics are usually the first element to make an impression, long before you can form a more rounded opinion of the game based on other aspects like gameplay, story, physics, or sound. Whether it's a screenshot, a video trailer, or a printed poster, graphics is the one element that publishers constantly rely on to draw the public's attention. So it's only fair that we should look at this topic in great detail.
 
@@ -62,13 +62,13 @@ In a modern game, it is not unusual for the computer to spend the majority of it
 
 In this chapter, we will learn first how to work with the material, texture, and shading systems in the game engine; followed by a quick introduction to GLSL – OpenGL Shading Language, the shading language that would let you further extend the graphic capability of the game engine; and conclude the chapter by showing off some of the more specialized tools and features that can be used in a game.
 
-## Visual Style <a id="Visual Style"></a>
+## Visual Style <a id="Visual_Style"></a>
 
 For most graphic artists, the ultimate goal of their work has always been photorealism. Photorealism means that the scene looks as believable as possible by replicating all the intricate geometries, light interactions, and surface properties of the physical world. While photorealism is a perfectly valid goal for games that strive to achieve the most realistic graphics possible, many games intentionally employ non-photorealistic styles. Achieving looks such as a cartoon style, anime style, or even a retro 8-bit style is certainly possible within the game engine. With some slight changes in the content-creation process, combined with a good understanding of shading, texturing, and lighting, you'll be able to create stunning artwork of any visual style.
 
 ![Different visual styles of games.](..\figures\Chapter5\Fig05-02.jpg)
 
-## Designing for Real Time <a id="Designing for Real Time"></a>
+## Designing for Real Time <a id="Designing_for_Real_Time"></a>
 
 For a typical computer animation, the rendering time is effectively unlimited. A movie studio like Pixar has hundreds, if not thousands of computers working together as a rendering farm to make the images. Games don't have this luxury of rendering time. Because games are interactive, there is no way to pre-render frames ahead of time. Games need to pump out many frames every second (and from a single computer!) in order to achieve interactivity with the player. That means that preparing art assets for games is a bit trickier than for non-real-time animation, where performance usually isn't a concern.
 
@@ -90,7 +90,7 @@ The supported Blender object types in the game engine are: camera, light, empty,
 
 Non-supported Blender object types are: curve, surface, and metaball. These objects will be hidden during the game.
 
-## Materials and Textures <a id="Materials and Textures"></a>
+## Materials and Textures <a id="Materials_and_Textures"></a>
 
 <img alt="Oil barrel models without and with textures applied" src="../figures/Chapter5/Fig05-04.jpg" width="50%" align="right">
 
@@ -114,7 +114,7 @@ The game engine supports eight real-time lights in Multitexture mode and at leas
 
 
 
-## Shading Modes <a id="Shading Modes"></a>
+## Shading Modes <a id="Shading_Modes"></a>
 
 The game engine offers two different real-time shading modes. Think of them as different rendering pipelines - one is more limiting, the other is moore advanced. In this chapter, you will first be introduced to the most feature-rich shading mode: **GLSL**. Then we will talk a bit about the older **Multitexture** mode.
 
@@ -152,7 +152,7 @@ Because the way to apply materials and textures varies somewhat depending on the
 
 
 
-### GLSL Mode <a id="GLSL Mode"></a>
+### GLSL Mode <a id="GLSL_Mode"></a>
 
 The GLSL shading mode is the newest real-time Shading mode in Blender, added to augment the old Multitexture modes. In a nutshell, GLSL mode tries to emulate the functionality of the internal rendering engine as much as possible. In doing so, it blurs the distinction between the Blender internal renderer and the game engine. In GLSL mode, the artist uses the familiar Material panel and Texture panel to apply shading and texture to an object, as one would normally do when working with the internal renderer. This means materials created for the game engine in GLSL mode can be used for rendering almost without doing any modification.
 
@@ -168,7 +168,7 @@ This is the easiest Shading mode to use, since the same materials and textures s
 
 
 
-#### Material and Textures <a id="Material and Textures"></a>
+#### Material and Textures <a id="Material_and_Textures"></a>
 
 To help you get to know the material system better, let's play around with a sample file.
 
@@ -182,7 +182,7 @@ The next two sections will go over each option in the Material and Texture panel
 
 
 
-#####  The Material Panel <a id="The Material Panel"></a>
+#####  The Material Panel <a id="The_Material_Panel"></a>
 
 In GLSL1.blend, you'll see the Material panel on the right side of the 3D Viewport. In the demo setup, the material attached to the floor is shown by default. Recall that this panel was already discussed briefly in Chapter 2, so go ahead and play around with the settings and see how they affect the model in the 3D view in real time.
 
@@ -194,7 +194,7 @@ If you are already familiar with the material system of Blender, you'll be right
 
 
 
-###### Material Management <a id="Material Management"></a>
+###### Material Management <a id="Material_Management"></a>
 
 The very top section of the Material panel lets you manage the material data blocks. Since each object can have multiple materials, the box shows a list of all the materials attached to the active object. Selected materials are highlighted in blue.
 
@@ -204,7 +204,7 @@ To create a first material for an object:
 2. In the Material panel below the Material Slot List, click on the [+ New] icon to create a new material for the object.
 3. Since the object has no material, by default the new material will be applied to the entire object.
 
-###### Multi-Material Objects <a id="Multi-Material Objects"></a>
+###### Multi-Material Objects <a id="Multi-Material_Objects"></a>
 
 If the object has an existing material, you can create another material and assign the new materials to part of the mesh as follows:
 
@@ -234,7 +234,7 @@ The concept of datablock is very important in Blender: it allows you to effectiv
 
 
 
-###### Object vs. Data <a id="Object vs. Data"></a>
+###### Object vs. Data <a id="Object_vs._Data"></a>
 
 You might have noticed another pull-down menu beside the New Material button. This link selector controls whether the material is linked to the object or the object data (also known as _mesh_). This distinction is practically negligible for single objects, but if you have an object with shared mesh in the scene, the difference becomes important.
 
@@ -345,7 +345,7 @@ Both diffuse and specular channels can have their own ramp. While the diffuse ra
 
 **Cubic Interpolation:** When enabled, gives a smoother transition from light to shadow, at the cost of a slight performance decrease. For certain smooth shapes like spheres, this option helps the shape look more natural.
 
-###### Game Settings <a id="Game Settings"></a>
+###### Game Settings <a id="Game_Settings"></a>
 
 **Backface Culling:** When disabled, makes both sides of a face visible when running the game. By default, only the front side of the face is rendered for performance reasons, while the backside of a face is invisible. This is not critical for most new computers, if you are to handle a few faces. However, it's better to take the safe approach and disable backface culling only when you need double-sided faces.
 
@@ -389,7 +389,7 @@ Remember that face orientation is applied after logic and physics calculations. 
 
 The physics setting controls some of the physics property of the surface. They do not affect the visual property of the object but change the way the object interacts under the physics engine. Jump to Chapter 6 if you want to learn about these settings.
 
-###### Additional Options <a id="Additional Options"></a>
+###### Additional Options <a id="Additional_Options"></a>
 
 - **Exclude Mist:** Excludes the object from the mist calculation when enabled. Mist is a world setting that can be accessed from the World panel.
   - Face Textures: Forces Blender to replace the diffuse color of the material with the UV texture. This is an easy way to apply a simple texture onto a material without creating a texture data block for the material.
@@ -402,7 +402,7 @@ So far, we have covered all the functionalities of the Material panel. Most of t
 
 
 
-##### The Texture Panel <a id="The Texture Panel"></a>
+##### The Texture Panel <a id="The_Texture_Panel"></a>
 
 Texture is the main way to add details to a surface without adding extra polygons. It is done by mapping a 2D image onto the surface of the 3D object. Figure 5.21 illustrates the concept of texture mapping.
 
@@ -410,7 +410,7 @@ Texture is the main way to add details to a surface without adding extra polygon
 
 
 
-###### Texture Data Blocks <a id="Texture Data Blocks"></a>
+###### Texture Data Blocks <a id="Texture_Data_Blocks"></a>
 
 Texture data blocks are almost always linked to a material (see note below for exception). Each material can have multiple textures, and through layering and blending of textures, complex effects can be achieved. The top area of the Texture Panel shows you all the textures attached to the active material.
 
@@ -451,7 +451,7 @@ Once an image is loaded, you have some options to change the way the color space
 
 
 
-###### Image Sampling Panel <a id="Image Sampling Panel"></a>
+###### Image Sampling Panel <a id="Image_Sampling_Panel"></a>
 
 The Image Sampling panel contains some of the options that change how the image is interpreted inside Blender:
 
@@ -460,7 +460,7 @@ The Image Sampling panel contains some of the options that change how the image 
 
 
 
-###### Mapping Panel <a id="Mapping Panel"></a>
+###### Mapping Panel <a id="Mapping_Panel"></a>
 
 Mapping controls how the 2D texture is mapped onto the 3D object. Available options include global, object, generated, UV, reflection, and normal. The default option, generated, might work in some very simple cases. But most of the time, you will need to use the UV/Image Editor to control exactly how the image is projected onto the object. Using the UV/Image Editor is covered in Chapter 2. When the UV mapping is selected, you can specify which UV channel to use, if there is more than one UV layout for the mesh.
 
@@ -470,7 +470,7 @@ Mapping controls how the 2D texture is mapped onto the 3D object. Available opti
 
   ​
 
-###### Influence Panel <a id="Influence Panel"></a>
+###### Influence Panel <a id="Influence_Panel"></a>
 
 This panel controls how the value of the texture is actually applied onto the surface. By default, color is selected with the influence set to 1. This means that the texture completely replaces the diffuse color of the material. A setting of 0 means there is no influence, effectively disabling the texture channel. Any in-between number will blend the current texture with the layer preceding it.
 
@@ -509,7 +509,7 @@ The other options in the influence section work in the exact way as color and no
 
 
 
-#### Combined Exercise <a id="Combined Exercise"></a>
+#### Combined Exercise <a id="Combined_Exercise"></a>
 
 If all the checkboxes and sliders seem daunting, don't worry! Now let's put what we just read about material and textures to use. Soon it will become clear how everything fits together.
 
@@ -658,7 +658,7 @@ _Table 5.2 Lights Types_
 
 In Multitexture and Singletexture mode, Point, Sun, and Spot are supported, all other non-supported lamp types will be treated as point lamps. There is no shadow support in these two modes.
 
-## World Settings <a id="World Settings"></a>
+## World Settings <a id="World_Settings"></a>
 
 From the world Property Editor, you can change things that affect the entire world, such as background color and mist settings:
 
@@ -679,7 +679,7 @@ From the world Property Editor, you can change things that affect the entire wor
 >Mist can help you hide the boundary of your make-believe world by smoothly blending the far object into the horizon. Furthermore, fog can increase the atmosphere of the scene by giving a better sense of depth to the scene.
 >A good example of mist in games is the extremely foggy _Silent Hill_ games. Their development team was able to put more details into the models by combining a more aggressive camera clipping with high mist values.
 
-## Texture Painting <a id="Texture Painting"></a>
+## Texture Painting <a id="Texture_Painting"></a>
 
 Typically, editing an image texture must be done with external software such as GIMP or Photoshop. Using texture painting, you can edit the texture directly on the model from within Blender (see Figure 5.35). Not only does this give you the ability to see the changes interactively on the model, but brush strokes made on the model will also be automatically projected back onto the image texture. This makes texture painting ideal as a rough outlining tool to mark out some key points on the model for reference or put the finishing touches on the texture. (It's much easier to paint on the model directly than to paint a 2D texture.)
 
@@ -709,7 +709,7 @@ To see how texture painting works:
 
 11. Optionally, if you are working with the GLSL mode, you will need to create a new texture in the object's material and assigned the newly created image to it. In this case, you also need to set UV as Coordinates in the Mapping panel.
 
-## Custom GLSL Shaders <a id="Custom GLSL Shaders"></a>
+## Custom GLSL Shaders <a id="Custom_GLSL_Shaders"></a>
 
 Another way to apply material to an object is to override the game-engine material system completely by applying custom-written GLSL shaders. This will give you the ultimate control over exactly how the object looks, and you can achieve certain effects that are not possible with the built-in Material and Texture panels.
 
@@ -719,7 +719,7 @@ Another way to apply material to an object is to override the game-engine materi
 
 Custom GLSL shaders work in the GLSL and Multitexture shading mode; they do not work in Singletexture mode. Custom GLSL shaders are not visible in the 3D Viewport: you must run the game to see them. To use custom GLSL shaders, you will need to use a little bit of Python scripting to link shaders to the object. But first, here is a crash course on GLSL.
 
-## GLSL Primer <a id="GLSL Primer"></a>
+## GLSL Primer <a id="GLSL_Primer"></a>
 
 GLSL is the shading language for the OpenGL graphic API. It has a C-like syntax and is compiled into assembly code by the graphic driver at runtime. It is also cross-platform and vendor-neutral (big words for saying they run on everything: Windows, Linux, Mac, AMD, Nvidia, and Intel). The primary purpose of GLSL is to give artists more control over how they want a surface to look by allowing them to write custom code that changes the way an object is rendered.
 
@@ -788,7 +788,7 @@ While we know you would enjoy learning about trigonometry, 3D math, matrix, orth
 >Because GLSL is compiled by the graphic driver, each vendor (AMD, Nvidia, Intel, etc.) does it a bit differently. This means that codes that work on one might not work on another. For example, on Nvidia, the noise() function always returns 0. (However, this is technically still within the GLSL specification, which states that the return value for the noise() function must be between -1.0 and 1.0.)
 >Just keep in mind that some drivers are stricter than others, so a GLSL program that works on one computer might not work on another.
 
-## Custom GLSL Shaders <a id="Custom GLSL Shaders"></a>
+## Custom GLSL Shaders <a id="Custom_GLSL_Shaders"></a>
 
 So now that you have learned the basics of GLSL, are you ready to tackle your first complete GLSL shader?
 
@@ -894,7 +894,7 @@ Because GLSL replaces the entire material pipeline with your own code, no shadin
 
 Remember that custom GLSL shaders are always applied to each material, not the object, nor the mesh. This means any objects with the same material will all share the same shader.
 
-### A Useful Fragment Shader <a id="A Useful Fragment Shader"></a>
+### A Useful Fragment Shader <a id="A_Useful_Fragment_Shader"></a>
 
 The first GLSL shader you were introduced to is pretty trivial and nearly useless. Here is a much more useful Lambert diffuse shader:
 
@@ -945,7 +945,7 @@ This shader uses the Lambert diffuse shading algorithm to apply some basic shadi
 
 We'll leave it to you to discover more complex shaders on your own.
 
-### A Useful Vertex Shader <a id="A Useful Vertex Shader"></a>
+### A Useful Vertex Shader <a id="A_Useful_Vertex_Shader"></a>
 
 This GLSL shader applies a transformation to each vertex along the X-axis, producing a "wavy" effect, similar to that of leaves swaying in the wind. Using vertex shaders to deform geometry is a fast alternative to using bones.
 
@@ -995,15 +995,15 @@ for material in mesh.materials:
 
 This shader introduces yet another new concept, called _uniforms_. Using uniforms is one way to pass data from the Blender world into the shader.
 
-### Going Further <a id="Going Further"></a>
+### Going Further <a id="Going_Further"></a>
 
 Even though GLSL can seem daunting at first, plenty of learning material is available. The accompanying disk has a few more examples of how GLSL can be used; they can be found under \Book\Chapter5\.
 
-## 2D Filters <a id="2D Filters"></a>
+## 2D Filters <a id="2D_Filters"></a>
 
 2D filters are post-processing GLSL shaders that are applied to each frame right before it is displayed. 2D filters can be used to enhance the looks of the image and add special screen-space effects. There are a few built-in shaders that come with Blender to get you started, but 2D filters also allow custom-written GLSL shaders to give you the freedom to do potentially a lot more.
 
-### Why Use 2D Filters? <a id="Why Use 2D Filters?"></a>
+### Why Use 2D Filters? <a id="Why_Use_2D_Filters?"></a>
 
 Using 2D filters makes it easy to tweak the mood of your visual, without having to rework the lighting, material, or textures. Because a 2D filter operates on an image (the frame buffer) and not the individual 3D objects, the 2D filter's performance is not dependent on the complexity of the scene, only the number of pixels on the screen and the complexity of the effect itself.
 
@@ -1024,7 +1024,7 @@ The capabilities of 2D filters:
 - Simulate complex lighting effects such as ambient occlusion and light scattering.
 
 
-### How to Use 2D Filters <a id="How to Use 2D Filters"></a>
+### How to Use 2D Filters <a id="How_to_Use_2D_Filters"></a>
 
 The 2D filters can be accessed as a standard actuator in the Logic Editor window. If you are rusty on what the Logic Editor does, refer to Chapter 3.
 
@@ -1048,7 +1048,7 @@ Custom Filter is used to specify arbitrary shaders. It is useful when the built-
 
 With the pass system, you can make a very robust post-processing stack. You can set up a few filters to be run on an Always sensor to do some basic color correction and add the effects that will always be enabled. Then you can set up a few more filters that are enabled momentarily when you need them.
 
-### Custom Filter <a id="Custom Filter"></a>
+### Custom Filter <a id="Custom_Filter"></a>
 
 A very simple custom 2D filter is shown below:
 
@@ -1105,7 +1105,7 @@ To display text that can potentially change during the game, there are four ways
 
 Static text is not treated any differently than regular Blender objects. For the rest of this section, we will look at ways to create dynamic texts.
 
-## Bitmap Text <a id="Bitmap Text"></a>
+## Bitmap Text <a id="Bitmap_Text"></a>
 
 If the game engine can render hyper-realistic 3D graphics in real time, how hard can it be to render some text onto the screen? Turns out, it's really difficult due to the awkward workflow needed to create the text.
 
@@ -1139,7 +1139,7 @@ Okay, let's try that again.
 
 This method of displaying text does have several drawbacks. For example, because texts are drawn using textures, they might appear blurry when shown at extreme angles relative to the camera. Also, since the character set is extremely limited, international support for non-Latin alphabets and right-to-left languages is impossible to achieve.
 
-## Text Object <a id="Text Object"></a>
+## Text Object <a id="Text_Object"></a>
 
 Using Bitmap text is a very confusing process. Text Object is an easier way to display text (see Figure 5.39). The same Blender text object type can be used in-game. Simply create a "Text" object in Blender, and it will be rendered as a text inside the game engine. To change the value of the text, you can use Logic Bricks to change the "Text" property of the text objects.
 
@@ -1153,7 +1153,7 @@ logic.getCurrentController().owner.text = "Hello World"
 
 ![Text Object: 3D view and in-game](../figures/Chapter5/Fig05-39.png)
 
-## Video Texture <a id="Video Texture"></a>
+## Video Texture <a id="Video_Texture"></a>
 
 The video texture function allows you to update or replace a texture during the game. Not only does this give you the ability to use a video file as a texture, as the name of the function implies, but video texture can also be used to replace a static texture with the following:
 

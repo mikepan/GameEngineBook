@@ -1,32 +1,32 @@
 **Table of Contents**
 
-- [Chapter 9: Publishing and Beyond](#Chapter 9: Publishing and Beyond)
-	- [Getting Ready for Publishing](#Getting Ready for Publishing)
+- [Chapter 9: Publishing and Beyond](#Chapter_9_Publishing_and_Beyond)
+	- [Getting Ready for Publishing](#Getting_Ready_for_Publishing)
 	- [Resources](#Resources)
-	- [The Theory of Relativity](#The Theory of Relativity)
+	- [The Theory of Relativity](#The_Theory_of_Relativity)
 	- [Packing](#Packing)
 	- [Blenderplayer](#Blenderplayer)
-		- [Export as Runtime](#Export as Runtime)
-		- [Resource Files](#Resource Files)
-		- [Interface Options](#Interface Options)
-		- [File Security](#File Security)
+		- [Export as Runtime](#Export_as_Runtime)
+		- [Resource Files](#Resource_Files)
+		- [Interface Options](#Interface_Options)
+		- [File Security](#File_Security)
 	- [Licensing](#Licensing)
-	- [Web Publishing: Burster](#Web Publishing: Burster)
-	- [Mobile Publishing: Android](#Mobile Publishing: Android)
-	- [Other Tools](#Other Tools)
+	- [Web Publishing: Burster](#Web_Publishing_Burster)
+	- [Mobile Publishing: Android](#Mobile_Publishing_Android)
+	- [Other Tools](#Other_Tools)
 		- [GameKit](#GameKit)
-		- [Unity, SIO2](#Unity, SIO2)
-	- [Blender Development Cycle](#Blender Development Cycle)
-	- [How to Report Bugs](#How to Report Bugs)
-	- [Do It Yourself](#Do It Yourself)
+		- [Unity, SIO2](#Unity,_SIO2)
+	- [Blender Development Cycle](#Blender_Development_Cycle)
+	- [How to Report Bugs](#How_to_Report_Bugs)
+	- [Do It Yourself](#Do_It_Yourself)
 
-# Chapter 9: Publishing and Beyond <a id="Chapter 9: Publishing and Beyond"></a>
+# Chapter 9: Publishing and Beyond <a id="Chapter_9_Publishing_and_Beyond"></a>
 
 You've made it this far! By now you should have a solid understanding of everything it takes to make a game. Now the question is: How do you get that game into the hands of the public?
 
 This chapter will focus on publishing the game, including how to package your game, using the stand-alone Blenderplayer, and understanding the licensing issues related to using Blender. We will also explore alternatives to the Blender game engine while still using Blender as the main content-creation tool. Even though this is a Blender-specific book, we encourage you to familiarize yourself with other game engines and to understand their pros and cons so you can decide for yourself what is the best publishing platform to use for a particular game.
 
-## Getting Ready for Publishing <a id="Getting Ready for Publishing"></a>
+## Getting Ready for Publishing <a id="Getting_Ready_for_Publishing"></a>
 
 You finished your game, now what? Apart from stress-test, promote, and polish it, there are a few technical things you need to do in order to deploy your project. They apply to almost any of the options discussed in this chapter, and even if you are using external engines, you should take them into consideration.
 
@@ -42,7 +42,7 @@ Generally speaking, for other users to run a game created by Blender, they will 
 
 This list is simplified. For example, in a larger project, instead of a single Blender file, a game could be composed of multiple Blender files, but there will always be one file that acts as an entry point to start the game. Resources are external files that are used in the game. Resources can be packed, which basically copies these files into the Blender file. Finally, Blender binary is also not usually a single file. It contains libraries and scripts that Blender will need. It is usually a good idea to include the binary with the release, because unless the game is distributed exclusively within the Blender community, the user probably will not have Blender (or the correct version of Blender) installed to run the Blender file.
 
-## The Theory of Relativity <a id="The Theory of Relativity"></a>
+## The Theory of Relativity <a id="The_Theory_of_Relativity"></a>
 
 The first rule of deployment is to remember that because we have no control over the user's computer, it is impossible to predict where our game will be installed. If that is not bad enough, different operating systems (Windows, Mac, Linux) handle file paths differently. The only way to ensure compatibility across different systems is to make sure all file paths used in the game are relative and nested to the root folder of your game.
 
@@ -95,7 +95,7 @@ Unpacking does the reverse of packing; it takes all the packed data from a Blend
 
 One of the strengths of the game engine is its tight integration with Blender and the almost instantaneous feedback you get when starting a game inside the Blender Viewport. This mix of level editor, character design, and general asset management is indeed a trend in the game industry nowadays. Often, we see game engines that have been brought inside the 3D editing tools. There needs to be a distinction between the editing tool and the deployment tool, though. Your game, once published, needs to be a software application on its own. The player shouldn't be aware of the tool you are using[md]not that magicians never reveal their tricks. (You can include a good description of your tools in your credits if that pleases you.) But to go through the Blender interface to open your game will certainly break the spell.
 
-### Export as Runtime <a id="Export as Runtime"></a>
+### Export as Runtime <a id="Export_as_Runtime"></a>
 
 As we mentioned earlier, Blenderplayer is a way to play back your files independently of Blender. The first step is to make sure the "Save As Game Engine Runtime" add-on is enabled. The next is to run it through the menu File  Export  Save As Game Engine Runtime. See Figure 9.1.
 
@@ -122,7 +122,7 @@ Just like the Windows runtime, in Linux we have a folder with the files needed f
 >./blenderplayer ~/myFileLinux.blend
 >If you run it with the argument "-h," you can see all the options available through the command-line. Another option is to use the Start button in the Stand-alone Player tab in the Scene menu to launch the current file in Blenderplayer (see "Interface Options" next in this chapter).
 
-### Resource Files <a id="Resource Files"></a>
+### Resource Files <a id="Resource_Files"></a>
 
 Often, your game will need more than you've enclosed in Blender. For example, if you decided not to pack the textures into your file, you will need to copy them to the same folder structure as they were originally. The same applies for sounds, fonts, movies, Python scripts, and so on.
 
@@ -130,7 +130,7 @@ For Linux and Windows, you simply need to copy them to the same folder of the ex
 
 For Mac OSX, you need to copy them to "mygame.app/Contents/Resources/." This is the base folder (for example, textures go in mygame.app/Contents/Resources/textures/").
 
-### Interface Options <a id="Interface Options"></a>
+### Interface Options <a id="Interface_Options"></a>
 
 In the Render panel, you can find a few specific options for Blenderplayer, as shown in Figure 9.2.
 
@@ -148,7 +148,7 @@ In the Render panel, you can find a few specific options for Blenderplayer, as s
 
 - **Framing:** What can you do when the screen is scaled? Choose one of those three options: Letterbox, Extend, and Scale. Scale will stretch the frame to the new screen size (expect some aspect ratio distortions); Extend will reveal more of the frame, as if you had changed the Blenderplayer and the Embedded Player resolution at the same time. Letterbox will fill any difference between the camera aspect ratio (Embedded Player resolution) and the screen size with the color you choose in the color box (black by default).
 
-### File Security <a id="File Security"></a>
+### File Security <a id="File_Security"></a>
 
 Because Blender is available for free to everyone, if you distribute your game as a Blender file (.blend), there is really no way to prevent people from firing up Blender and taking a peek at your Blender file. Even if the game is packed and made into a runtime in the form of a single executable, it is still relatively easy for someone with a bit of technical skill to extract the game data. The bottom line is that packing, compressing, and making runtime are just conveniences for you; a Blend file is never secure against a curious (and determined) evil mind.
 
@@ -176,7 +176,7 @@ A simple way to keep your files separated from the Blenderplayer is to create an
 >
 >There is a downside of the GPL license when publishing in some distribution platforms. For legal (and perhaps economic) reasons, most distribution game platforms do not accept GPL code in their components. That means it will be hard to get the game engine ported over to consoles and some more restrictive mobile and portable devices.
 
-## Web Publishing: Burster <a id="Web Publishing: Burster"></a>
+## Web Publishing: Burster <a id="Web_Publishing_Burster"></a>
 
 _www.geta3d.com_
 
@@ -201,7 +201,7 @@ for obj in bpy.data.objects:
             cont.module = cont.module.replace('script.', '')
 ```
 
-## Mobile Publishing: Android <a id="Mobile Publishing: Android"></a>
+## Mobile Publishing: Android <a id="Mobile_Publishing_Android"></a>
 
 _wiki__.blender.org/index.php/Doc:2.6/Manual/Game_Engine/Blender_Player/Android_
 
@@ -225,7 +225,7 @@ Some general guidelines:
 
 - Work with power of two textures.
 
-## Other Tools <a id="Other Tools"></a>
+## Other Tools <a id="Other_Tools"></a>
 
 The Blender game engine can be used for prototyping, before the game is fully developed in another game engine. Or, another common situation, you can use Blender only for asset making for an external engine, and the Blender game engine for previewing the animation playbacks and basic interactions. In those cases, you will not be using the logic components of the game, but mostly making sure your assets (objects, materials, animations) can be transferred easily to other engines.
 
@@ -251,7 +251,7 @@ One of its key benefits over the Blender game engine is that GameKit fully suppo
 
 As of the time this book went to press, GameKit is still in its early stages. Nevertheless, it's generating some hype in the Blender game community. We are following this project closely and recommend you do the same.
 
-### Unity, SIO2 <a id="Unity, SIO2"></a>
+### Unity, SIO2 <a id="Unity,_SIO2"></a>
 
 While GameKit stands out for its tight integration with Blender, there are other engines with strong supports for the Blender native file.
 
@@ -261,7 +261,7 @@ If your market does not use only portable devices, then Unity3D is another comme
 
 Unity3D has been broadly used by the indie industry. They support mobiles to desktops, and by the time you read this, they can probably deploy for all the main consoles on the market. You still need to rework your materials once you import them inside the engine, but changes in the original file can be merged into the Unity3D editor.
 
-## Blender Development Cycle <a id="Blender Development Cycle"></a>
+## Blender Development Cycle <a id="Blender_Development_Cycle"></a>
 
 The development of the game engine is tied to the development cycle of Blender itself. Although improvements in different parts of the software are done separately, the release of new versions of the game engine happens as part of the Blender releases.
 
@@ -281,7 +281,7 @@ To follow new developments, to help beta-test new features, and to make sure we 
 
 Additionally, if you want to talk with Blender game engine coders directly, or follow our discussions, the #bgecoders IRC channel (also on Freenode) is a place where development is discussed.
 
-## How to Report Bugs <a id="How to Report Bugs"></a>
+## How to Report Bugs <a id="How_to_Report_Bugs"></a>
 
 All software has bugs. Make no mistake about that. For those unfamiliar with this technical terminology, a bug is a problem in the software. Think about the last time you swore at a computer. Behind your lost hours of work lies a bug (and the imprudence of not saving your work; haven't you learned anything from playing videogames?).
 
@@ -299,7 +299,7 @@ The guidelines for bug reporting are simple:
 
 And remember, the more time you spend on making a good report[md]with good sample files, concise descriptions, and so on[md]the more you free a developer to work on fixing the bug itself.
 
-## Do It Yourself <a id="Do It Yourself"></a>
+## Do It Yourself <a id="Do_It_Yourself"></a>
 
 As a provocative final thought, have you considered literally expanding the game engine yourself? We haven't been giving enough attention to the fact that the Blender source code is open and available to everyone. That may not be the reason you got into the software, but it's interesting to explore its potential.
 
