@@ -517,7 +517,7 @@ And so will the shark. Once the shark receives a message, it can act accordingly
 
 1. Select the SharkMesh object.
 
-2. Add a keyframe to the size (IScaling).
+2. Add a keyframe to the size (I > Scaling).
 
 3. Go to frame 100, scale up the shark, and repeat the previous step.
 
@@ -563,7 +563,7 @@ The game is over when you run out of time, which is part of the second set of ev
 This scene will be imported without changes into your game file. Once again, the linking system of Blender allow you to keep components separated and synced. Open //game.4.blend and link (not append) the "Score" scene from the //interface/score.blend file. Although the scene is now in the Blender file, you still need to load it into the game:
 
 
-1. Add an empty object (Shift+AEmpty).
+1. Add an empty object (Shift+A > Empty).
 
 2. Select the object and open the Logic Editor.
 
@@ -592,7 +592,7 @@ A game is not complete without sound effects. There are three sounds under // so
 
 There is a catch here. You are sending the GameOver message not once but continuously. That would make the GameOver sound play in loop, which you don't want. You can fix this in the score.blend scene file (by sending the message only once). Or else you can do it here, as follows:
 
-You need a Boolean game property that tells you what the status of the game is: when gameover is False the game is running; if gameover is True the game is over. When you receive a message with the subject "GameOver," you need to change the value of this property. You do this by connecting the Message sensor with a new Property actuator -Mode: Assign, Property: "gameover," Value: True.
+You need a Boolean game property that tells you what the status of the game is: when gameover is False the game is running; if gameover is True the game is over. When you receive a message with the subject "GameOver," you need to change the value of this property. You do this by connecting the Message sensor with a new Property actuator - Mode: Assign, Property: "gameover," Value: True.
 
 Next you add a Property sensor named GameIsNotOver to detect if the game is running (if the gameover game property is True or False). Set Evaluation Type to Equal, property to "gameover," and Value as False.
 
