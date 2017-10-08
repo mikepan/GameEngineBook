@@ -134,7 +134,7 @@ We live in a three-dimensional world that has width, height, and depth. So to re
 
 ### Points, Edges, Triangles, and Meshes <a id="Points,_Edges,_Triangles,_and_Meshes"></a>
 
-Although we can define a position in space using the XYZ coordinates, a single point (or a "vertex," as it's more commonly known in computer graphics) is not terribly useful; after all, you can't see a dot that is infinitesimally small. But you can join this vertex with another vertex to form a line (also known as an "edge"). An edge by itself still wouldn't be very visible, so you create another vertex and join all three vertices together with lines and fill in the middle. Suddenly, something far more interesting is created[md]?a triangle (also known as a "face")! By linking multiple faces together, you can create any shape, the result of which is called a "mesh" or "model." Figure below shows how a mesh can be broken down into faces, then edges, and ultimately, as vertices.
+Although we can define a position in space using the XYZ coordinates, a single point (or a "vertex," as it's more commonly known in computer graphics) is not terribly useful; after all, you can't see a dot that is infinitesimally small. But you can join this vertex with another vertex to form a line (also known as an "edge"). An edge by itself still wouldn't be very visible, so you create another vertex and join all three vertices together with lines and fill in the middle. Suddenly, something far more interesting is created a triangle (also known as a "face")! By linking multiple faces together, you can create any shape, the result of which is called a "mesh" or "model." Figure below shows how a mesh can be broken down into faces, then edges, and ultimately, as vertices.
 
 ![Teapot, cube, face, edge and vertex.](../figures/Chapter1/Fig01-06.jpg)
 
@@ -200,7 +200,7 @@ Think of lighting as more than something that makes your scene visible. Good lig
 
 <img alt="Camera objects" src="../figures/Chapter1/Fig01-13.png" width="50%" align="right">
 
-When you are creating a 3D scene, you are looking at the virtual world from an omniscient view. In this mode, you can view and edit the world from any angle[md]just like a movie director walking around a set in order to adjust things. Once the game starts, the player must view the game through a predetermined camera. Note that a predetermined camera does not mean the camera is fixed; almost all games have a camera that reacts to a player's input. In an action game, the camera tends to follow the character from behind; in a strategy game, the camera might be hovering high above, looking down; in a platformer, the camera is usually looking at the scene from the side.
+When you are creating a 3D scene, you are looking at the virtual world from an omniscient view. In this mode, you can view and edit the world from any angle, just like a movie director walking around a set in order to adjust things. Once the game starts, the player must view the game through a predetermined camera. Note that a predetermined camera does not mean the camera is fixed; almost all games have a camera that reacts to a player's input. In an action game, the camera tends to follow the character from behind; in a strategy game, the camera might be hovering high above, looking down; in a platformer, the camera is usually looking at the scene from the side.
 
 A camera is also treated as a regular object in Blender, so you can manipulate its location and orientation just as you can with any other object.
 
@@ -247,7 +247,7 @@ A game engine is made up of many distinct components:
 
 - **Rendering Engine** : Turns the 3D scene you've built (including models, lights, and camera) into an image to be displayed onscreen.
 - **Physics** : Handles collisions and physical simulations of objects.
-- **Logic/Scripting** : The brain behind a game[md]it reacts to the user input, makes decisions, and keeps track of what's going on in the game.
+- **Logic/Scripting** : The brain behind a game, it reacts to the user input, makes decisions, and keeps track of what's going on in the game.
 - **Sound** : Produces the audio events.
 
 The above list is not meant to be exhaustive, but it should give you an idea of what a game engine does. The Blender game engine gives you a lot of control over each of these components, which you will learn one by one in later chapters.
