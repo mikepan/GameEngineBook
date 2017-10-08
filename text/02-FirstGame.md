@@ -135,7 +135,7 @@ To follow the progress of the instruction steps, we have other folders. Copy the
 
 - **Book/Chapter02/game\_my** - The semi-empty folder structure to be filled as you advance in the chapter.
 
-- **Book/Chapter02/game\_progress** - The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.2.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game_my" folder.
+- **Book/Chapter02/game\_progress** - The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.2.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game\_my" folder.
 
 - **Book/Chapter02/game\_final** - The final as of the end of this exercise; use for reference.
 
