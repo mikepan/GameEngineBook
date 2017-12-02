@@ -78,7 +78,7 @@
 
 What makes a game different than a movie? Let's see. In both you can find yourself buried in a comfortable seat eating junk food and alienated from the world. And funny 3D goggles are not exclusive to either. But what about interactivity? In a game you can control a player and interact with the virtual (or real!) world and the game elements. The story can be dynamically created in front of your eyes.
 
-Therefore, as a director and content creator you will play different roles in a movie or a game. In a movie, for example, you have to direct the flow of the story, but for a game, you have to direct how the player controls and experiences this flow. Those are the times of super computers to Watson, IBM's Jeopardy "intelligent" machine. More than ever, it's time to narrow the gap between what technology can deliver and what the public can experiment with and assimilate as part of their own nature. As Kevin Flynn praised in _Tron_ and _Tron Legacy_the Disney game-related movie and prequel   _all the power to the user_.
+Therefore, as a director and content creator you will play different roles in a movie or a game. In a movie, for example, you have to direct the flow of the story, but for a game, you have to direct how the player controls and experiences this flow. Those are the times of super computers to Watson, IBM's Jeopardy "intelligent" machine. More than ever, it's time to narrow the gap between what technology can deliver and what the public can experiment with and assimilate as part of their own nature. As Kevin Flynn praised in _Tron_ and _Tron Legacy_ the Disney game-related movie and prequel _all the power to the user_.
 
 Traditionally, to design your game interaction in the past, you would have needed coding expertise and a highly technical background. If, as a creative artist, any words such as _technical, code,_ or _programming_ scare you, Have confidence!
 "Pure artists" are still scared with code. The idea here is not that they will no longer be afraid of it. Instead, with the BGE they will not have to face their fears. Logic Bricks are an alternative to hardcore coding, known to be "artists friendly" more. Logic Bricks is here to rescue you. Logic Bricks is a visual set of tools responsible for integrating the game components together. By using Logic Bricks, you can determine what to do after a mouse click, when to play an animation, how to move your character, and so on, as shown in Figure 3.1.
@@ -168,7 +168,7 @@ Every Logic Brick has a connector used to link it with other Logic Bricks. Senso
 >
 >Try to link a sensor directly with an actuator on the same object. Blender will automatically create an And controller and link it between them.
 
-You don't need to keep the logics self-contained in single objects. When you select more than one object at the same time, you will see all of them in the Logic Editor. That feature allows you to connect a sensor from one object to the controller of another one and again to the actuator of yet another object. This is one of the key elements for group instancing[md]an advanced way of sharing Logic Bricks, which is covered at the end of this chapter.
+You don't need to keep the logics self-contained in single objects. When you select more than one object at the same time, you will see all of them in the Logic Editor. That feature allows you to connect a sensor from one object to the controller of another one and again to the actuator of yet another object. This is one of the key elements for group instancing, an advanced way of sharing Logic Bricks, which is covered at the end of this chapter.
 
 >**Message System**
 >
@@ -203,7 +203,7 @@ Above the list of an object controller, you can see a small but important plus i
 >
 >When you play the game, the active states of a controller are the ones in the bottom row shown in Figure 3.6, known as _initial states._ The states present in the top row, namely visible states, are a tool to help you visualize different states without messing with the Initial States set. They are reset to the Initial States every time you reopen your file.
 
-The States interface works like the layer system in Blender[md]click to select one state and Shift+click to select more than one. As for the Blender layers, states have no individual names for the time being.
+The States interface works like the layer system in Blender, click to select one state and Shift+click to select more than one. As for the Blender layers, states have no individual names for the time being.
 
 ### Properties <a id="Properties"></a>
 
@@ -336,7 +336,7 @@ This sensor is often used with collision proxies, which are invisible low-poly m
 
 >**Use It Moderately**
 >
->Together with the other Physics sensors, this sensor is considered to be expensive computation-wise, so use it reasonably and use physics proxies whenever possible[md]a topic discussed in the Chapter 6 and Chapter 8, "Workflow and Optimization."
+>Together with the other Physics sensors, this sensor is considered to be expensive computation-wise, so use it reasonably and use physics proxies whenever possible, a topic discussed in the Chapter 6 and Chapter 8, "Workflow and Optimization."
 
 #### Near <a id="Near"></a>
 
@@ -392,7 +392,7 @@ The Message sensor receives a message sent from a Message actuator or from a Pyt
 
 >**Extra Message Information**
 >
->>The extra information available in the message (subject, body) can be accessed only by a Python controller.
+>The extra information available in the message (subject, body) can be accessed only by a Python controller.
 
 
 #### Property <a id="Property"></a>
@@ -435,13 +435,13 @@ Similar to the sensors, each controller carries a unique set of information, reg
 
 When you have one single sensor that has to call an actuator, there is not much to worry about. In this case, a simple And controller will make it work. If instead you need to activate the actuator only when the sensor is False, you can use the Invert option to keep using the same Add controller. Too simple? Let's complicate it a bit then. What if you have two sensors and only one of them needs to be True? You could create two And controllers linked to the same actuator. It's not elegant, but it would work.
 
->**How Many Times Can You Activate an Actuator?
+>**How Many Times Can You Activate an Actuator?**
 >
 >If you think that the setup above would call the actuator twice, then have fun testing it. An actuator is activated only once per frame, regardless of the number of controllers calling it.
 
 But what if you wanted to use only one controller to handle those two sensors? In this case, it would be the Or controller, created specifically for that. That's not all, though. Either for convenience or for more advanced control, you could simplify your controllers by using the other Boolean controllers. Together with And and Or, those are the other logic switches to use when combining multiple sensors and their outcomes.
 
-- **And** : True if _all_the sensors are True. False if _any_ of the sensors is False.
+- **And** : True if _all_ the sensors are True. False if _any_ of the sensors is False.
 
 - **Or** : True if _any_ of the sensors is True. False if _all_ the sensors are False
 
@@ -489,13 +489,13 @@ For the Controller Expression, you will only use the lonely value when dealing w
 
 - **Boolean** : True, False
 
-- **Number** : 5, [ms]7, 3.5, 40, 3.5[md]integers and floats, positive, negative, and even zero.
+- **Number** : 5, -7, 3.5, 40, 3.5 - integers and floats, positive, negative, and even zero.
 
-- **String** : "text"[md]always around quotation marks.
+- **String** : "text" - always around quotation marks.
 
-- **Property** : propertyName[md]gives the property value.
+- **Property** : propertyName - gives the property value.
 
-- **Sensor** : sensorName[md]gives True or False according to the sensor status.
+- **Sensor** : sensorName - gives True or False according to the sensor status.
 
 
 A single value is not exactly an expression. Let's move on and see what kind of expressions and operations we can make when combining them together:
@@ -504,7 +504,7 @@ A single value is not exactly an expression. Let's move on and see what kind of 
 >
 >In order to use a sensor name, the sensor has to be linked to the Expression controller. Sensors can't be used in the expressions for the Property sensor and the Property actuator.
 
-#### Comparison Tests <a id="Comparison"></a>
+#### Comparison Tests <a id="Comparison_Tests"></a>
 
 If instead of testing a single variable, you need to compare two values, there are five different comparison tests you can use. The test can be between a variable (property or sensor) and a value, two values, or two variables:
 
@@ -520,7 +520,7 @@ If instead of testing a single variable, you need to compare two values, there a
 
 The result of a comparison test will always be a Boolean. If you need to return a value other than True or False, then what you are looking for is:
 
-**Condition Statement** : IF (frame < 0, [ms]1, 0)
+**Condition Statement** : IF (frame < 0, -1, 0)
 
 The syntax is: IF (Condition, ValueWhenTrue, ValueWhenFalse). If you use the above expression as a value for the Add mode in a Property actuator, it will decrease the counter (for example, frame) if the value is greater than zero.
 
@@ -608,9 +608,9 @@ You can also have the same property present in multiple actions and use individu
 
 >**Short Actions in the Long Run**
 >
->Before the animation system redesign in Blender, it was only possible to have multiple actions for armatures and shape keys. Therefore, for any other animated action, people would create one really long action with different animations in different frame ranges. This still works well, but it's hard to manage if you ever need to change the length of one of the animations[md]you would have to update the start and end of all the actuators that were playing the other subanimations. You may find yourself still using this technique in order to organize your file; however, sometimes a long action can be easier to manage than multiple small ones.
+>Before the animation system redesign in Blender, it was only possible to have multiple actions for armatures and shape keys. Therefore, for any other animated action, people would create one really long action with different animations in different frame ranges. This still works well, but it's hard to manage if you ever need to change the length of one of the animations - you would have to update the start and end of all the actuators that were playing the other subanimations. You may find yourself still using this technique in order to organize your file; however, sometimes a long action can be easier to manage than multiple small ones.
 
-The actuator will let you pick an action, set the frame range, and configure how you want to play it (see Figure 3.26). If you are planning to reuse this actuator[md]for example, for linked/shared Logic Bricks[md]you can leave the action blank and set it through the Python API during the game engine. In Chapter 4, "Animation," we will use this actuator in a series of tutorials.
+The actuator will let you pick an action, set the frame range, and configure how you want to play it (see Figure 3.26). If you are planning to reuse this actuator (for example, for linked/shared Logic Bricks) you can leave the action blank and set it through the Python API during the game engine. In Chapter 4, "Animation," we will use this actuator in a series of tutorials.
 
 ![Action actuator](../figures/Chapter3/Fig03-26.png "Action actuator")
 
@@ -618,7 +618,7 @@ The actuator will let you pick an action, set the frame range, and configure how
 
 Some of the animations you create in Blender can be used in the game engine. The same result you see in the viewport when you play them back with Alt+A, you can also get in the game engine. That includes armature poses, shape keys, and some of the properties of object, material, light, and camera as following:
 
-- **Pose** : Any recorded sequence in an Armature object can be played. It's common to have different animated cycles[md]walking, running, jumping, tired walking, taking a break[md]and to alternate between them during an event. When using multiple action actuators, you may have an action currently playing when you start a new one. To make the transition smoothly, you can set the Blend In and Priority to respectively blend the animations for a certain number of frames and to play the new animation on top of the old one.
+- **Pose** : Any recorded sequence in an Armature object can be played. It's common to have different animated cycles (walking, running, jumping, tired walking, taking a break) and to alternate between them during an event. When using multiple action actuators, you may have an action currently playing when you start a new one. To make the transition smoothly, you can set the Blend In and Priority to respectively blend the animations for a certain number of frames and to play the new animation on top of the old one.
 
 - **Shape Keys** : Similar to poses, you can play the shape key actions created in the DopeSheet Editor with control over the blending, priority, frames, and so on. There is even a Continue option common to both that allows you to start the animation when you left the last time you activated it. Remember that you don't play the individual shape keys but rather the action that stores their influence on each other over time.
 
@@ -632,7 +632,7 @@ Some of the animations you create in Blender can be used in the game engine. The
 
 ##### What Cannot Be Animated <a id="What_Cannot_Be_Animated"></a>
 
-Unfortunately, not everything we can animate inside Blender can be animated in the game engine. More specifically, the following elements can't be animated with the Action actuator:Drivers, Scene, World, remaining Object, Material, Camera, and Light properties.
+Unfortunately, not everything we can animate inside Blender can be animated in the game engine. More specifically, the following elements can't be animated with the Action actuator: Drivers, Scene, World, remaining Object, Material, Camera, and Light properties.
 
 Be aware that this may change in the near future. And some of these settings behave differently, depending on the render mode (GLSL, MultiTexture).
 
