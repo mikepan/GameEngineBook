@@ -52,8 +52,8 @@
 			- [Constraint](#Constraint)
 				- [Location Constraint](#Location_Constraint)
 				- [Distance](#Distance)
-			- [Orientation Constraint](#Orientation_Constraint)
-			- [Force Field Constraint](#Force_Field_Constraint)
+				- [Orientation Constraint](#Orientation_Constraint)
+				- [Force Field Constraint](#Force_Field_Constraint)
 			- [Edit Object](#Edit_Object)
 			- [Message](#Message)
 			- [Motion](#Motion)
@@ -749,13 +749,13 @@ The Distance Constraint option compares and controls the distance between your o
 >
 >This actuator will be active as soon as it is triggered and will remain active until it receives a negative signal or can no longer find a surface (for example, the floor) in the given range. If you want to keep your actuator active even when it doesn't find a surface to be constrained to, you can turn on the Persistency **(PER)** option. If Time is greater than zero, it will set the maximum activation period of the actuator.
 
-#### Orientation Constraint <a id="Orientation_Constraint"></a>
+##### Orientation Constraint <a id="Orientation_Constraint"></a>
 
 Instead of affecting your object's position, the Orientation Constraint option will restrict its rotation on individual axes (see Figure 3.33). It aligns the specified axis with the reference direction. For example, if you want to make your bop bag stay straight, you can use Z as Direction and 0, 0, 1 as the Referencedirection. As with the other Constraint Actuator options, you can set Min and Max angles, Damping frames, and the Time.
 
 ![Constraint actuator – Orientation](../figures/Chapter3/Fig03-33.png "Constraint actuator – Orientation")
 
-#### Force Field Constraint <a id="Force_Field_Constraint"></a>
+##### Force Field Constraint <a id="Force_Field_Constraint"></a>
 
 The Force Field Constraint simulates a spring field underneath your object (see Figure 3.34). The effect is similar to hovering above water or simple buoyancy. Force fields can also be set with the Physics settings in the Material Panel (see Chapter 6 for details).
 
@@ -779,7 +779,7 @@ There are a few actuators that feel as if they could be split into individual on
 
 ![Edit Object actuator](../figures/Chapter3/Fig03-35.png "Edit Object actuator")
 
-- **AddObject** : If you have objects in one of the non-visible layers, you can add them into the game with this option. The added object will be at the position and with the orientation of the object controlling the actuator. The scale, however, will be a combination of both objects. Other than that, the new object is pretty much autonomous[md]actually game property and logic bricks in the new object will be as good as if the object existed since frame one. The only exception is the Timer game properties that start counting only when the object gets added. You can add multiple instances of the same object, and any of them will behave as an independent duplicated copy of it.
+- **AddObject** : If you have objects in one of the non-visible layers, you can add them into the game with this option. The added object will be at the position and with the orientation of the object controlling the actuator. The scale, however, will be a combination of both objects. Other than that, the new object is pretty much autonomous, actually game property and logic bricks in the new object will be as good as if the object existed since frame one. The only exception is the Timer game properties that start counting only when the object gets added. You can add multiple instances of the same object, and any of them will behave as an independent duplicated copy of it.
 
 Through the options in the interface, you can change the initial linear and angular velocity of the object and its life duration.
 
@@ -789,7 +789,7 @@ Through the options in the interface, you can change the initial linear and angu
 
 - **EndObject** : Take a deep look at your game object. Now turn away and say bye! Not only will your object be removed from the game, but also any child object parented to it.
 
-- **ReplaceMesh** : If your object is not an Armature, a Camera, an Empty, a Lamp, or a Text, it does have a mesh attached to it. And if it has a mesh, it can have it switched into a different one. There are two options here: to replace the graphic mesh[md]the one you see rendered[md]or to replace the physical mesh[md]the one used for physics interactions, viewed with Show Physics Visualization.
+- **ReplaceMesh** : If your object is not an Armature, a Camera, an Empty, a Lamp, or a Text, it does have a mesh attached to it. And if it has a mesh, it can have it switched into a different one. There are two options here: to replace the graphic mesh (the one you see rendered) or to replace the physical mesh (the one used for physics interactions, viewed with Show Physics Visualization).
 
 >**But Isn't This Slow? Not Really**
 >
@@ -807,7 +807,7 @@ There are different ways to coordinate actions between different objects. As pre
 
 ![Message actuator](../figures/Chapter3/Fig03-36.png "Message actuator")
 
-If you don't know which object to send the message to (or want to send it to more than one), you can broadcast it instead. For that you simply have to omit the To parameter. A Message Sensor[md]the other part of the story[md]can filter messages by their Subject. The Body can only be retrieved by a Python script, and it is commonly left blank when you only want to trigger an event, not to pass a value. The Body can be either a text or the value of a property.
+If you don't know which object to send the message to (or want to send it to more than one), you can broadcast it instead. For that you simply have to omit the To parameter. A Message Sensor (the other part of the story) can filter messages by their Subject. The Body can only be retrieved by a Python script, and it is commonly left blank when you only want to trigger an event, not to pass a value. The Body can be either a text or the value of a property.
 
 > **The Real Thing About Real-Time Is That It Has a Delay**
 >
@@ -815,9 +815,9 @@ If you don't know which object to send the message to (or want to send it to mor
 
 #### Motion <a id="Motion"></a>
 
-_"My body move, move, my body …move!"_[md]hippo dance/pickup line (one of the best moments of DreamWorks' _Madagascar 2_).
+_"My body move, move, my body …move!"_ - hippo dance/pickup line (one of the best moments of DreamWorks' _Madagascar 2_).
 
-It moves, but it does it in distinct ways. For example, an animated character will use an actuator to control the bones and a Motion actuator to control the general movement of the object into the scene[md]its orientation and position. So unless the game character is doing a windmill exercise, your walking cycle will need this actuator. As a matter of fact, any object[md]with or without an action assigned to it[md]may need to rotate and move around. Therefore, this is one of the most important actuators and vastly used for a game. Let's take a deep look at the two available methods: Simple Motion and Servo Control.
+It moves, but it does it in distinct ways. For example, an animated character will use an actuator to control the bones and a Motion actuator to control the general movement of the object into the scene - its orientation and position. So unless the game character is doing a windmill exercise, your walking cycle will need this actuator. As a matter of fact, any object (with or without an action assigned to it) may need to rotate and move around. Therefore, this is one of the most important actuators and vastly used for a game. Let's take a deep look at the two available methods: Simple Motion and Servo Control.
 
 >**Rotate It Just a Bit**
 >
@@ -843,7 +843,7 @@ When your object is a dynamic one, you will see new options in the actuator (see
 
 This is a more complex and complete method for controlling your object's linear movement. The Servo Control option enables you to control speed with force. It will apply a variable force in order to reach the target specified speed. It can be used to simulate the most varied effects, such as friction, flying, sliding, and so on.
 
-The Servo Control can (and should) be used for any object, regardless of its dynamic/physic properties (see Figure 3.39). It replaces both Location and Linear Velocity from the Simple Motion option. The produced result is a more fluid and continuous movement for your object. This also doesn't affect the behavior of collision and other physics interactions[md]as opposed to using Location in the Simple Motion. The latter makes the object do "jumps into space," ignoring whatever is between its original and final position.
+The Servo Control can (and should) be used for any object, regardless of its dynamic/physic properties (see Figure 3.39). It replaces both Location and Linear Velocity from the Simple Motion option. The produced result is a more fluid and continuous movement for your object. This also doesn't affect the behavior of collision and other physics interactions - as opposed to using Location in the Simple Motion. The latter makes the object do "jumps into space," ignoring whatever is between its original and final position.
 
 ![Motion actuator - Servo Control](../figures/Chapter3/Fig03-39.png "Motion actuator - Servo Control")
 
@@ -856,7 +856,7 @@ The Servo Control can (and should) be used for any object, regardless of its dyn
 >**Advanced Motion Control**
 >
 >**PID Servo Control System** : The following options help you to control the responsiveness and the reaction of your movement. In simple English, this is known as a "control loopback mechanism," and it is a constant evaluation procedure that shapes the characteristics of your movement.
->This is a generic (non-Blender specific) system; for more information, look at external references such as:http://en.wikipedia.org/wiki/PID\_controller
+>This is a generic (non-Blender specific) system; for more information, look at external references such as: http://en.wikipedia.org/wiki/PID_controller
 
 - **Proportional Coefficient** : You don't need to change this parameter unless you know what you are doing. It will adjust itself to be 60 times the IntegralCoefficient, so if you want a different value, remember to update it after making any adjustments there.
 
@@ -909,7 +909,7 @@ There are a few ways of changing your game properties. You can change them throu
 
 #### Random <a id="Random"></a>
 
-Controlled randomness is one of the keys for a decent AI (artificial intelligence). As you can see in Figure 3.43, the Random actuator has 10 options to generate pseudo-random numbers. They are divided by types[md]Boolean, integer, and float[md]and they use a seed for consistent results over time. A seed allows an algorithm to generate the same random numbers every time you start the interaction.
+Controlled randomness is one of the keys for a decent AI (artificial intelligence). As you can see in Figure 3.43, the Random actuator has 10 options to generate pseudo-random numbers. They are divided by types (Boolean, integer, and float) and they use a seed for consistent results over time. A seed allows an algorithm to generate the same random numbers every time you start the interaction.
 
 ![Random actuator](../figures/Chapter3/Fig03-43.png "Random actuator")
 
@@ -917,7 +917,7 @@ The generated number is stored in a game property indicated in the Property fiel
 
 #### Sound <a id="Sound"></a>
 
-Soundtracks and sound effects[md]the possibilities are endless and definitively a key aspect of your game. You will use this Sound actuator when you play a "click" sound for the UI (see Figure 3.44). You will also use it to announce steps from surrounding enemies. In fact, the opening music, the main track, and the credit sounds all are musical[md]music, music, and music. You may love music, but if they all play together at the same time, you get the cacophonic experience of an indie garage band. On the other hand, to sync the events of your game with its sounds, you can use these options: Play, Volume, Pitch, and 3D Sound.
+Soundtracks and sound effects - the possibilities are endless and definitively a key aspect of your game. You will use this Sound actuator when you play a "click" sound for the UI (see Figure 3.44). You will also use it to announce steps from surrounding enemies. In fact, the opening music, the main track, and the credit sounds all are musical - music, music, and music. You may love music, but if they all play together at the same time, you get the cacophonic experience of an indie garage band. On the other hand, to sync the events of your game with its sounds, you can use these options: Play, Volume, Pitch, and 3D Sound.
 
 ![Sound actuator](../figures/Chapter3/Fig03-44.png "Sound actuator")
 
@@ -949,7 +949,7 @@ In the Physics buttons, you can choose the initial visibility of your object and
 
 #### Scene <a id="Scene"></a>
 
-While most of the actuators act on top of the object, the following actuators[md]Scene, Filter 2D, and the Game actuator[md]work globally, either per scene or per game.
+While most of the actuators act on top of the object, the following actuators - Scene, Filter 2D, and the Game actuator - work globally, either per scene or per game.
 
 Multiple scenes are a common way to make a user interface (overlay scene), handle different levels (although that can be accomplished with multiple blender files as well), or even preload your game assets in the memory (adding scenes and suspending them before effectively switching between scenes). See Figure 3.47.
 
@@ -1007,7 +1007,7 @@ It's still important to be aware of the Pass Number, just as for the other filte
 
 - **Motion Blur** : In a video camera, fast objects appear to be blurred the faster they go. It's quite a popular effect and even in real-time rendering, it can be simulated in an artistic way (a euphemism for a trade-off between quality and performance with tons of compromise).
 
-This filter has its own option to be enabled and disabled. As you can see in Figure 3.50, there is no Pass Number there. The reason is that Motion Blur is always computed before the other filters. Therefore, it will run prior to the first of your filters. You can set the Value to adjust the sensitivity and general effect of the blur[md]small values will produce very little blur.
+This filter has its own option to be enabled and disabled. As you can see in Figure 3.50, there is no Pass Number there. The reason is that Motion Blur is always computed before the other filters. Therefore, it will run prior to the first of your filters. You can set the Value to adjust the sensitivity and general effect of the blur, small values will produce very little blur.
 
 ![Filter 2D actuator - Motion Blur](../figures/Chapter3/Fig03-50.png "Filter 2D actuator - Motion Blur")
 
@@ -1045,7 +1045,7 @@ Load and Save bge.logic.globalDict is only relevant if you are using Python scri
 
 ## State Machine <a id="State_Machine"></a>
 
-_"Why did the controller cross the road?[md]to get to the next state."_
+_"Why did the controller cross the road? - to get to the next state."_
 
 A state is a conjunct of actions to be performed by a game character. In our case, it's a set of sensors, controllers, and actuators that together represent a subset of the possible behavior the character will present. Let's say it in a simple way.
 
@@ -1053,23 +1053,23 @@ Pretend we are creating a triathlon sport game. The triathlete will be able to s
 
 ![Initial settings of the triathlon state system](../figures/Chapter3/Fig03-52.png "Initial settings of the triathlon state system")
 
-Although all the controllers and actuators are visible, the state 1 (Swim) is the only one that is part of the initial states. Therefore, any controllers from other states (for example, Bike and Run) will be disabled when the game starts. Indeed, sensors and actuators will only be active if the controller they are linked to are currently active. In our pseudo Logic Bricks, the actuator set to make the player float[md]a Location Constraint Actuator[md]will be disabled automatically once the state one (for example, Swim) is demoted.
+Although all the controllers and actuators are visible, the state 1 (Swim) is the only one that is part of the initial states. Therefore, any controllers from other states (for example, Bike and Run) will be disabled when the game starts. Indeed, sensors and actuators will only be active if the controller they are linked to are currently active. In our pseudo Logic Bricks, the actuator set to make the player float (a Location Constraint Actuator) will be disabled automatically once the state one (for example, Swim) is demoted.
 
 This is the simplest way of using states. It's not the only one, though. In more complex systems, the states don't need to be exclusive and will work more as individual components that you can turn on and off accordingly. One of the important aspects of this system is that from a controller of any state, you can completely rearrange the status of all the other states, turning them on or off.
 
 >**Artificial Intelligence and the State Machine**
 >
->In the artificial intelligence literature, there are multiple techniques to deal with artificial behavior. The State Machine implementation in Blender is flexible enough to be used with your design, whatever you pick. Two of the most popular systems[md]Finite State Machine and Behavior Tree[md]can be implemented with the current features and the other variations might as well. The State system can also be accessed through the Python interface for a pure programming control.
+>In the artificial intelligence literature, there are multiple techniques to deal with artificial behavior. The State Machine implementation in Blender is flexible enough to be used with your design, whatever you pick. Two of the most popular systems (Finite State Machine and Behavior Tree) can be implemented with the current features and the other variations might as well. The State system can also be accessed through the Python interface for a pure programming control.
 
 ## Sharing and Group Instancing <a id="Sharing_and_Group_Instancing"></a>
 
-The game engine centralizes the logic components at the object level. This is at the same time a curse and a blessing. On the positive side of things, you can set up each object as a unique, independent participant of your game. The down side comes when you need to reproduce a behavior, and when the last thing you need is unique objects. Sure, you can copy over Logic Bricks and properties, but this is hard to maintain and doesn't scale well for more complex files. Note that we are not talking about duplicated objects[md]those indeed share the same Logic Brick. We are looking at game objects that have different individual components but need to share part of each other's functionality. We need a compromise between both systems, and this is possible with group instancing and Logic Bricks cross-linking.
+The game engine centralizes the logic components at the object level. This is at the same time a curse and a blessing. On the positive side of things, you can set up each object as a unique, independent participant of your game. The down side comes when you need to reproduce a behavior, and when the last thing you need is unique objects. Sure, you can copy over Logic Bricks and properties, but this is hard to maintain and doesn't scale well for more complex files. Note that we are not talking about duplicated objects - those indeed share the same Logic Brick. We are looking at game objects that have different individual components but need to share part of each other's functionality. We need a compromise between both systems, and this is possible with group instancing and Logic Bricks cross-linking.
 
-Group instancing support in the game engine was added for the project Yo Frankie[md]a game demo project organized and developed by the Blender Foundation in 2008. For this particular project, they had to share the Logic Bricks between the NPC enemies (sheeps, rats, etc.) and a different set of Logic Bricks for the two main playable characters (Frankie and Momo).
+Group instancing support in the game engine was added for the project Yo Frankie - a game demo project organized and developed by the Blender Foundation in 2008. For this particular project, they had to share the Logic Bricks between the NPC enemies (sheeps, rats, etc.) and a different set of Logic Bricks for the two main playable characters (Frankie and Momo).
 
 >**To Read More…**
 >
->To read about their specific implementation you can look at Campbell Barton's chapter in _The Blender GameKit, 2nd_Edition_: http://wiki.blender.org/index.php/Doc:2.4/Books/GameKit\_2/12.Yo\_Frankie!#Logic\_Sharing.
+>To read about their specific implementation you can look at Campbell Barton's chapter in _The Blender GameKit, 2nd_Edition_: http://wiki.blender.org/index.php/Doc:2.4/Books/GameKit_2/12.Yo_Frankie!#Logic_Sharing.
 
 The first and simplest usage of this feature is to replicate the same set of objects multiple times. Open the file _\Book\Chapter3\group\_instancing\_logic\_1.blend_. As you can see in Figure 3.53, here we have 10 copies of a system compound of balls and fountains. The balls will constantly roll inside the fountain and every once in a while the ball will get more of an impulse at the bottom of the fountain.
 
