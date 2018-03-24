@@ -158,7 +158,7 @@ We will model the outline of the shark based on reference images. To set up your
 
 4. Add three images for the three Axis/Views: Top, Front, and Right. They can be found in the reference folder named shark-top.png, shark-front.png, and shark-right.png.
 
-5. Change their size to 1.50
+5. Change their size to 3.00
 
 ![Background images setup(Blender Foundation).](../figures/Chapter2/Fig02-03.png "Redo last menu.")
 
