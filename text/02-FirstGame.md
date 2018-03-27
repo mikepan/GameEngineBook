@@ -105,7 +105,7 @@ For appending part of another blender file click on File > Append (Shift + F1). 
 >- You can use thumbnails to find some datablock types easier. Before using this feature, use File > Data Previews commands to generate thumbnails for datablocks (like materials, textures, ...).
 ><img alt="Shape keys animation." src="../figures/Chapter2/Fig02-02-4.png" align="center">
 
-The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_-the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
+The difference between linking and appending is what happens after you bring the new data into your file. If you append a file - let's call it _library_ - the new elements will keep no reference to the original library file. You can literally delete the library file, and it will not result in any changes in your work file. That also means that any change you do in your library file will not be synced back into your working file.
 
 If you want to keep the files in sync (and you do most of the time), you then need to set "Link" while importing the library file. By doing this, you will not be able to edit the file in your working Blender file. Instead, you need to go back to your library file, change it, save it, and then open the working file again.
 
@@ -115,9 +115,9 @@ You don't simply dump the whole Blender file inside yours. Instead, you can navi
 
 ## How to Use the Chapter Files <a id="How_to_Use_the_Chapter_Files"></a>
 
-On the Book files, you can find the complete game(exercise) in the folder Book/Chapter02/game/_final/.
+On the Book files, you can find the complete game(exercise) in the folder Book/Chapter02/game\_final/.
 
-For simplicity's sake, we will use Blender relative path syntax to refer to the files inside this folder. In this case // refers to the base folder and //interface/score.blend stands for Book/Chapter02/game/_final/interface/score.blend.
+For simplicity's sake, we will use Blender relative path syntax to refer to the files inside this folder. In this case // refers to the base folder and //interface/score.blend stands for Book/Chapter02/game\_final/interface/score.blend.
 
 To play the game inside Blender, open the file game.blend. This file is only a part of the game and depends on the external files that are organized as:
 
@@ -133,13 +133,13 @@ To play the game inside Blender, open the file game.blend. This file is only a p
 
 To follow the progress of the instruction steps, we have other folders. Copy the whole folder onto your computer to work from there. These are the folders we will be using:
 
-- **Book/Chapter02/game\_my** -The semi-empty folder structure to be filled as you advance in the chapter.
+- **Book/Chapter02/game\_my** - The semi-empty folder structure to be filled as you advance in the chapter.
 
-- **Book/Chapter02/game\_progress** -The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.1.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game\_my" folder.
+- **Book/Chapter02/game\_progress** - The same folder structure but filled with files of different snapshots. Every file is named after the original name plus a progress number-for example, game.1.blend, game.2.blend, //assets/shark.8.blend. To use them, you need to rename the file to the original name and copy to the right folder in "game\_my" folder.
 
-- **Book/Chapter02/game\_final** -The final as of the end of this exercise; use for reference.
+- **Book/Chapter02/game\_final** - The final as of the end of this exercise; use for reference.
 
-- **Book/Chaper02/references** -Files to support the making of the game.
+- **Book/Chaper02/references** - Files to support the making of the game.
 
 For the rest of the chapter, we will refer to the files from your //game\_my/ top folder.
 
@@ -152,7 +152,7 @@ We will model the outline of the shark based on reference images. To set up your
 
 1. Split your 3D view into four views (Ctrl+Alt+Q).
 
-2. Open the 3D view Properties panel (N)-remember that the mouse needs to be over the 3D view in order to call the commands for it.
+2. Open the 3D view Properties panel (N) - remember that the mouse needs to be over the 3D view in order to call the commands for it.
 
 3. In the bottom of the panel, you will see the Background Images option. Turn it on.
 
@@ -192,7 +192,7 @@ With the arcs selected, you can grab them and move around (G). When necessary, y
 
 ![3D View header(Blender Foundation)](../figures/Chapter2/Fig02-07.png "3D View header")
 
-At this point, you can start exploring the top view as well. For quickly switching to top view, use NumPad7 or toggle quad view on and off. Sometimes you need to transform the geometry only in one axis. In Figure 2.8, you can use the handler to pull if you want to move an edge in a specific axis. You can also use the keyboard for that. To restrict the transformation, press X, Y, or Z after the command and slide in the specified axis. Shift+X, Y, or Z works in the opposite way. It locks the transformation for the opposite axis (so you can only move/scale/rotate in a plane). This is really useful-we use G with Shift+Z all the time.
+At this point, you can start exploring the top view as well. For quickly switching to top view, use NumPad7 or toggle quad view on and off. Sometimes you need to transform the geometry only in one axis. In Figure 2.8, you can use the handler to pull if you want to move an edge in a specific axis. You can also use the keyboard for that. To restrict the transformation, press X, Y, or Z after the command and slide in the specified axis. Shift+X, Y, or Z works in the opposite way. It locks the transformation for the opposite axis (so you can only move/scale/rotate in a plane). This is really useful - we use G with Shift+Z all the time.
 
 ![Locked axis transformation(Blender Foundation-Art Cengage Learning)](../figures/Chapter2/Fig02-08.png "Locked axis transformation")
 
@@ -217,9 +217,9 @@ Additionally, an advanced resource is to add custom Transform Orientations. This
 
 Because the Mirror Modifier has both "Merge" and "Clipping" options turned on, the extrude will not simply be constrained to the normal (the axis perpendicular to the face) initially. Instead, the extruded face will be locked to the normal, but half of it will be locked in with the mirror plane. Therefore, it will behave as if locked vertically (Z axis).
 
-To save time with the modeling, we will add a head from the built-in meshes in Blender. While in the Edit mode, go to the Add Mesh menu (Shift+A) and choose Monkey. You will need to scale (S), rotate (R), and grab (G) it to make it match the reference image. And they match perfectly-what a happy coincidence.
+To save time with the modeling, we will add a head from the built-in meshes in Blender. While in the Edit mode, go to the Add Mesh menu (Shift+A) and choose Monkey. You will need to scale (S), rotate (R), and grab (G) it to make it match the reference image. And they match perfectly - what a happy coincidence.
 
-You will need to remove some faces from the neck to connect it with the top part of the body. To delete faces, use the X key. This will bring up the menu shown in Figure 2.11-pick your option wisely. To connect vertices and edges, use the F key. (They need to be selected, and no more than what can fit in a face.)
+You will need to remove some faces from the neck to connect it with the top part of the body. To delete faces, use the X key. This will bring up the menu shown in Figure 2.11 - pick your option wisely. To connect vertices and edges, use the F key. (They need to be selected, and no more than what can fit in a face.)
 
 ![Delete menu(Blender Foundation)](../figures/Chapter2/Fig02-11.png "Delete menu")
 
@@ -238,11 +238,11 @@ Before we start, go to the Modifiers panel and apply the Mirror Modifier. If you
 
 To start creating a UV texture, you need to switch to Edit mode and call the UV Mapping menu (U). This menu has different mapping options. We will be using the first one,  Unwrap, which is a semi-automatic way to calculate the optimal stretching for the 2D texture. The result can be seen and edited in the UV/Image Editor.
 
-In the Editor menu, click Image > New, and in the pop-up menu, set UV Test Grid and confirm. This will produce a sample image where you can check in the 3D model as to how stretched the map image (texture) will be, once it is re-projected onto the shark model. If you look at Figure 2.13, you should spot a problem with the default unwrapping: the image on the side of the shark is too stretched and does not have enough resolution. While the shark tail has a high resolution, that doesn't correspond to its need (the tail is small after all)-the smaller the squares of the UV test grid, the higher the pixel-per-face ratio.
+In the Editor menu, click Image > New, and in the pop-up menu, set UV Test Grid and confirm. This will produce a sample image where you can check in the 3D model as to how stretched the map image (texture) will be, once it is re-projected onto the shark model. If you look at Figure 2.13, you should spot a problem with the default unwrapping: the image on the side of the shark is too stretched and does not have enough resolution. While the shark tail has a high resolution, that doesn't correspond to its need (the tail is small after all) - the smaller the squares of the UV test grid, the higher the pixel-per-face ratio.
 
 ![Bad default unwrapping(Cengage Learning)](../figures/Chapter2/Fig02-13.png "Bad default unwrapping")
 
-To solve this problem, go to the 3D view and select the edge loop that splits the side-swimmer from the body. With this "ring" selected, go to the Edge menu (Ctrl+E) and select Mark Seam. Now redo the UV Mapping  Unwrapping, and you will have a more distributed stretching along the mesh. This can be seen in Figure 2.14 and in the file //assets/shark.5.blend.
+To solve this problem, go to the 3D view and select the edge loop that splits the side-swimmer from the body. With this "ring" selected, go to the Edge menu (Ctrl+E) and select Mark Seam. Now redo the UV Mapping > Unwrapping, and you will have a more distributed stretching along the mesh. This can be seen in Figure 2.14 and in the file //assets/shark.5.blend.
 
 ![Final UV mapping(Blender Foundation-Cengage Learning)](../figures/Chapter2/Fig02-14.png "Final UV mapping")
 
@@ -268,7 +268,7 @@ In order to make the shark swim, we need an armature with bones. Similar to real
 
 The base file is here: //assets/shark.6.blend
 
-The first thing to do is to add an Armature object (Shift+AArmature). It's important to have the armature center at the "center of mass" of the shark, which happens to be the right place for the shark mesh origin as well. (In our case, it's in the center of the scene at coordinates [0,0,0]). To make sure you got this right, in the 3D view look at the big dot representing the center of the shark or try to rotate it using its center as pivot. If the center is slightly above the side-swimmers and centralized in the short side of the shark, you are good to go. Otherwise, you need to reset its origin with the Shift+Ctrl+Alt+C option:
+The first thing to do is to add an Armature object (Shift+A > Armature). It's important to have the armature center at the "center of mass" of the shark, which happens to be the right place for the shark mesh origin as well. (In our case, it's in the center of the scene at coordinates [0,0,0]). To make sure you got this right, in the 3D view look at the big dot representing the center of the shark or try to rotate it using its center as pivot. If the center is slightly above the side-swimmers and centralized in the short side of the shark, you are good to go. Otherwise, you need to reset its origin with the Shift+Ctrl+Alt+C option:
 
 1. Move the 3D cursor to the approximate location (or to skip the next step, put it in [0,0,0] or use Shift+C).
 
@@ -277,9 +277,9 @@ The first thing to do is to add an Armature object (Shift+AArmature). It's im
 3. Set Origin > Origin to 3D cursor.
 
 
-With the 3D cursor in the center of the object, add the armature (Shift+A). In the Edit mode of the armature, select this bone (A or RMB on it) and move it [nd]1 unit in Z. Now the tail of the bone is in the center. The tail is the small extremity of the bone, opposite to its head. This will be our root bone, the one bone that controls all the others.
+With the 3D cursor in the center of the object, add the armature (Shift+A). In the Edit mode of the armature, select this bone (A or RMB on it) and move it -1 unit in Z. Now the tail of the bone is in the center. The tail is the small extremity of the bone, opposite to its head. This will be our root bone, the one bone that controls all the others.
 
-With the 3D cursor still in the center, add a new bone (Shift+A). Select this bone tail and move (G) it until it matches the mouth location, as you can see in Figure 2.15. Now select this bone and the root bone and parent them without linking them (Ctrl+P  Keep Offset). This way the bone can still move freely, although it is parented to the root bone.
+With the 3D cursor still in the center, add a new bone (Shift+A). Select this bone tail and move (G) it until it matches the mouth location, as you can see in Figure 2.15. Now select this bone and the root bone and parent them without linking them (Ctrl+P > Keep Offset). This way the bone can still move freely, although it is parented to the root bone.
 
 ![Bone editing(Blender Foundation-Art Cengage Learning)](../figures/Chapter2/Fig02-15.png "Bone editing")
 
@@ -289,14 +289,14 @@ Back to the root bone: select its tail and extrude it (E). This is another way o
 
 Before animating the shark, we need to link the armature with the mesh. This is done with the Set Parent To operator:
 
-In the Object mode, select the shark mesh and then the shark armature and Ctrl+P  Armature Deform  With Automatic Weights. This will try to automatically set the influence of each bone in the mesh. For fine-tuning, select the armature, set it to Pose Mode, and then select the mesh and set it to Weight Paint mode. Now you can select the bones individually and paint their influence over the vertices as shown in Figure 2.17.
+In the Object mode, select the shark mesh and then the shark armature and Ctrl+P > Armature Deform > With Automatic Weights. This will try to automatically set the influence of each bone in the mesh. For fine-tuning, select the armature, set it to Pose Mode, and then select the mesh and set it to Weight Paint mode. Now you can select the bones individually and paint their influence over the vertices as shown in Figure 2.17.
 
 ![Weight painting(Blender Foundation-Art Cengage Learning)](../figures/Chapter2/Fig02-17.png "Weight painting")
 
 
 >**X-Ray and Auto-Normalize**
 >
->With the armature selected, go to the Properties Data panel and set X-Ray on in the armature display-this will make the bones always be visible. Also, while weight painting, you can set Auto Normalize in the Tool panel-this ensures that all bone-deforming vertex groups don't add up to 1.0 while weight painting.
+>With the armature selected, go to the Properties Data panel and set X-Ray on in the armature display - this will make the bones always be visible. Also, while weight painting, you can set Auto Normalize in the Tool panel - this ensures that all bone-deforming vertex groups don't add up to 1.0 while weight painting.
 
 
 To test the bone weighting, move the bones around (in the Pose not Edit Mode) and see if the mesh goes with it. The file is ready for animation and can be found here: //assets/shark.8.blend.
@@ -321,7 +321,7 @@ We will create a swimming cycle-an animation where the first and the last poses 
 3. Change to the Pose mode.
 
 
-Rotate the tailbone 50 degrees clockwise in the Z axis. Rotate the head bone 5 degrees counter-clockwise in the same axis. Select all bones (A) and insert a keyframe (ILocRot). This will be our pose for the first frame. The current file is at //assets/shark.9.blend and is shown in Figure 2.18.
+Rotate the tailbone 50 degrees clockwise in the Z axis. Rotate the head bone 5 degrees counter-clockwise in the same axis. Select all bones (A) and insert a keyframe (I > LocRot). This will be our pose for the first frame. The current file is at //assets/shark.9.blend and is shown in Figure 2.18.
 
 ![Initial pose(Blender Foundation-Art Cengage Learning)](../figures/Chapter2/Fig02-18.png "Initial pose")
 
@@ -354,7 +354,7 @@ The middle pose of the animation cycle should be opposite to the initial (and fi
 
 >**Bones Mirroring**
 >
->If your rigs have bones bifurcating from the main bone chain, there is a special way to make them mirror. By default, Blender will try to paste the pose of the same bone mirrored relative to the Y axis. Sometimes, however, you want to swap the transformations between two bones-a left and right. The classic example is walking animations when you need to animate only half of the strides.
+>If your rigs have bones bifurcating from the main bone chain, there is a special way to make them mirror. By default, Blender will try to paste the pose of the same bone mirrored relative to the Y axis. Sometimes, however, you want to swap the transformations between two bones - a left and right. The classic example is walking animations when you need to animate only half of the strides.
 >To have Blender interpret the bones as two sides of the same bone, you need to name them L (for left bones) and R (for right bones). This way, the bone Swimmer.001.L will be treated as the pair of Swimmer.001.R, and their poses will be swapped and mirrored when using the Pose Flip Paste option. To learn more about this, refer to the walking cycle tutorial in the Chapter 4.
 
 
@@ -383,7 +383,7 @@ The shark will always be swimming. Thus, we will be playing the swimming animati
 
 1. Change your screen from animation to game logic.
 
-2. In the Logic Editor, add an Always sensor (Shift+ASensorAlways).
+2. In the Logic Editor, add an Always sensor (Shift+A > Sensor > Always).
 
 3. Add an Action actuator and connect it with the sensor.
 
@@ -415,7 +415,7 @@ This simple setup allows the shark to swim freely away from the camera. To have 
 
 2. Add a Camera actuator and connect it with the sensor.
 
-3. In the Camera actuator, set SharkArmature as object, height 5.0, axis [nd]Y, min 5.0, max 20.0, damping 0.10.
+3. In the Camera actuator, set SharkArmature as object, height 5.0, axis -Y, min 5.0, max 20.0, damping 0.10.
 
 
 This camera will be behind the shark, always trying to stay inside the specified distance (from 5 to 20 Blender units). The damping will set how fast you want the camera to adjust to the new position while the shark swims away.
@@ -434,7 +434,7 @@ You need to bring the shark model into this file. Start by linking in the SharkM
 
 It's important to save your file first; otherwise, the Relative Path option will have no effect. Linking keeps your shark file as an external asset. Any changes you make in the shark.blend file will be transferred over to the game.blend file, once you save it. That also means you cannot make changes in the asset objects through the game.blend file. If you linked before you saved the file, no worries. You can change all the file paths going to the menu File > External Data > Make All Paths Absolute.
 
-The camera doesn't need to be linked. In fact, it's better to keep it as a local object, given that you will certainly adjust its parameters later. To append (not link) the camera, use the menu File  Append and use the default options to import the camera. This will be the main camera for the game. Select the camera and in the 3D View header, choose View > Cameras > Set Active Object as Camera. If everything went right, you can now play your game, and it should behave just as in the shark.blend file.
+The camera doesn't need to be linked. In fact, it's better to keep it as a local object, given that you will certainly adjust its parameters later. To append (not link) the camera, use the menu File > Append and use the default options to import the camera. This will be the main camera for the game. Select the camera and in the 3D View header, choose View > Cameras > Set Active Object as Camera. If everything went right, you can now play your game, and it should behave just as in the shark.blend file.
 
 Good news. The SeaBed was already prepared and is ready for the game (and in your game\_my asset folder). Repeat the linking steps once again for the SeaBed group inside the //level/seabed.blend. You now have the shark, the camera, and the set prepared for the game. The progress shown in Figure 2.24 can be checked at //game.2.blend.
 
@@ -517,7 +517,7 @@ And so will the shark. Once the shark receives a message, it can act accordingly
 
 1. Select the SharkMesh object.
 
-2. Add a keyframe to the size (IScaling).
+2. Add a keyframe to the size (I > Scaling).
 
 3. Go to frame 100, scale up the shark, and repeat the previous step.
 
@@ -563,7 +563,7 @@ The game is over when you run out of time, which is part of the second set of ev
 This scene will be imported without changes into your game file. Once again, the linking system of Blender allow you to keep components separated and synced. Open //game.4.blend and link (not append) the "Score" scene from the //interface/score.blend file. Although the scene is now in the Blender file, you still need to load it into the game:
 
 
-1. Add an empty object (Shift+AEmpty).
+1. Add an empty object (Shift+A > Empty).
 
 2. Select the object and open the Logic Editor.
 
@@ -592,7 +592,7 @@ A game is not complete without sound effects. There are three sounds under // so
 
 There is a catch here. You are sending the GameOver message not once but continuously. That would make the GameOver sound play in loop, which you don't want. You can fix this in the score.blend scene file (by sending the message only once). Or else you can do it here, as follows:
 
-You need a Boolean game property that tells you what the status of the game is: when gameover is False the game is running; if gameover is True the game is over. When you receive a message with the subject "GameOver," you need to change the value of this property. You do this by connecting the Message sensor with a new Property actuator -Mode: Assign, Property: "gameover," Value: True.
+You need a Boolean game property that tells you what the status of the game is: when gameover is False the game is running; if gameover is True the game is over. When you receive a message with the subject "GameOver," you need to change the value of this property. You do this by connecting the Message sensor with a new Property actuator - Mode: Assign, Property: "gameover," Value: True.
 
 Next you add a Property sensor named GameIsNotOver to detect if the game is running (if the gameover game property is True or False). Set Evaluation Type to Equal, property to "gameover," and Value as False.
 
